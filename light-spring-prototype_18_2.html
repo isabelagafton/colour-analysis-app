@@ -29,6 +29,60 @@
   }
   .wrap{max-width:1080px; margin:0 auto; padding:0 28px;}
 
+  /* NAVIGATION */
+  nav{
+    background:var(--card);
+    border-bottom:1px solid var(--line);
+    position:sticky;
+    top:0;
+    z-index:100;
+    backdrop-filter:blur(10px);
+  }
+  nav .wrap{
+    display:flex;
+    align-items:center;
+    gap:32px;
+    padding-top:16px;
+    padding-bottom:16px;
+  }
+  .nav-logo{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:20px;
+    letter-spacing:-.01em;
+    color:var(--ink);
+    text-decoration:none;
+    cursor:pointer;
+  }
+  .nav-logo em{
+    font-style:italic;
+    font-weight:500;
+    color:var(--coral);
+  }
+  .nav-links{
+    display:flex;
+    gap:24px;
+    margin-left:auto;
+  }
+  .nav-link{
+    font-family:'Inter',sans-serif;
+    font-size:14px;
+    font-weight:500;
+    color:var(--ink-soft);
+    text-decoration:none;
+    cursor:pointer;
+    transition:color .15s ease;
+    padding:4px 0;
+    border-bottom:2px solid transparent;
+  }
+  .nav-link:hover{
+    color:var(--ink);
+  }
+  .nav-link.active{
+    color:var(--ink);
+    border-bottom-color:var(--coral);
+  }
+
   /* HERO */
   header.hero{
     padding:56px 0 40px;
@@ -508,9 +562,140 @@
   @media (max-width:640px){
     .families{ grid-template-columns:1fr; }
   }
+
+  /* PALETTE EXPLORER */
+  .palette-hero{
+    padding:56px 0 32px;
+    text-align:center;
+  }
+  .palette-season-bar{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    justify-content:center;
+    margin-top:24px;
+  }
+  .palette-season-tab{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    font-weight:500;
+    letter-spacing:.02em;
+    padding:8px 14px;
+    border-radius:8px;
+    border:1px solid var(--line);
+    background:var(--card);
+    color:var(--ink-soft);
+    cursor:pointer;
+    transition:all .15s ease;
+  }
+  .palette-season-tab:hover{border-color:var(--ink); color:var(--ink);}
+  .palette-season-tab.active{
+    background:var(--ink);
+    color:var(--ivory);
+    border-color:var(--ink);
+  }
+  .palette-coming{
+    text-align:center;
+    font-size:14px;
+    color:var(--ink-soft);
+    font-style:italic;
+    margin:28px 0;
+  }
+  .palette-groups{
+    display:grid;
+    gap:48px;
+    margin-top:40px;
+  }
+  .group-label{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:20px;
+    margin-bottom:20px;
+    color:var(--ink);
+  }
+  .swatch-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(160px, 1fr));
+    gap:20px;
+  }
+  .swatch-tile{
+    text-align:center;
+  }
+  .swatch-blob{
+    width:100%;
+    aspect-ratio:1;
+    border-radius:12px;
+    margin-bottom:10px;
+    box-shadow:0 4px 12px rgba(44,38,34,.12);
+    border:1px solid rgba(0,0,0,.06);
+  }
+  .swatch-name{
+    font-size:13px;
+    font-weight:600;
+    color:var(--ink);
+    margin-bottom:4px;
+  }
+  .swatch-hex{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    color:var(--ink-soft);
+  }
+  .swatch-tip{
+    font-size:12px;
+    color:var(--ink-soft);
+    line-height:1.5;
+    margin-top:8px;
+    text-align:left;
+  }
+  .swatch-tip strong{
+    color:var(--ink);
+    font-weight:600;
+  }
+  .view-toggle{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    margin:32px 0 24px;
+  }
+  .toggle-btn{
+    font-family:'Inter',sans-serif;
+    font-size:13px;
+    font-weight:600;
+    padding:10px 20px;
+    border-radius:999px;
+    border:1px solid var(--line);
+    background:var(--card);
+    color:var(--ink-soft);
+    cursor:pointer;
+    transition:all .15s ease;
+  }
+  .toggle-btn:hover{border-color:var(--ink);}
+  .toggle-btn.active{
+    background:var(--ink);
+    color:var(--ivory);
+    border-color:var(--ink);
+  }
+  @media (max-width:560px){
+    .swatch-grid{
+      grid-template-columns:repeat(auto-fill, minmax(120px, 1fr));
+      gap:16px;
+    }
+  }
 </style>
 </head>
 <body>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="wrap">
+    <a class="nav-logo" data-view="home">Hue <em>Color Shop</em></a>
+    <div class="nav-links">
+      <a class="nav-link" data-view="home">Home</a>
+      <a class="nav-link" data-view="palette">Palette Explorer</a>
+      <a class="nav-link" data-view="shop">Shop by Season</a>
+    </div>
+  </div>
+</nav>
 
 <div class="wrap">
 
@@ -570,6 +755,63 @@
 </div>
 
 <script>
+// Extended palette data for Palette Explorer
+const EXTENDED = {
+  lightSpring: [
+    // Neutrals
+    {key:'ivory', label:'Ivory', hex:'#FFF8E7', group:'neutrals', wear:'Foundation neutral, use for shirts, dresses, layering', avoid:'Pure white (too stark)'},
+    {key:'cream', label:'Cream', hex:'#F5F0E6', group:'neutrals', wear:'Soft alternative to white, great for knitwear', avoid:'Bright white'},
+    {key:'camel', label:'Camel', hex:'#C4A277', group:'neutrals', wear:'Warm neutral for coats, trousers, shoes', avoid:'Cool grey, charcoal'},
+    {key:'warmbeige', label:'Warm Beige', hex:'#D4C5B0', group:'neutrals', wear:'Everyday neutral, excellent for basics', avoid:'Cool taupe'},
+    {key:'softnavy', label:'Soft Navy', hex:'#5B6E7D', group:'neutrals', wear:'Alternative to black, great for bottoms', avoid:'True black'},
+    {key:'warmgrey', label:'Warm Grey', hex:'#B3A89C', group:'neutrals', wear:'Soft neutral for layering', avoid:'Cool grey'},
+    
+    // Pinks & Corals
+    {key:'peach', label:'Peach Pink', hex:'#FFB69B', group:'pinks', wear:'Universally flattering, perfect for blouses and dresses', avoid:'Cool pink, hot pink'},
+    {key:'coral', label:'Light Coral', hex:'#FF8C7A', group:'pinks', wear:'Signature Light Spring shade, excellent for statement pieces', avoid:'Deep burgundy'},
+    {key:'salmon', label:'Salmon', hex:'#FA9A85', group:'pinks', wear:'Warm pink alternative, great for tops', avoid:'Cool rose'},
+    {key:'blush', label:'Warm Blush', hex:'#F5CAC3', group:'pinks', wear:'Delicate pink for feminine looks', avoid:'Cool baby pink'},
+    {key:'watermelon', label:'Watermelon', hex:'#FF6B7A', group:'pinks', wear:'Bright accent, use in accessories or prints', avoid:'Fuchsia'},
+    
+    // Yellows & Golds
+    {key:'golden', label:'Golden Yellow', hex:'#F5C242', group:'yellows', wear:'Signature warm yellow, excellent for summer pieces', avoid:'Lemon yellow (too cool)'},
+    {key:'butter', label:'Butter Yellow', hex:'#F9E79F', group:'yellows', wear:'Soft sunny shade, flattering near face', avoid:'Neon yellow'},
+    {key:'daffodil', label:'Daffodil', hex:'#FFE66D', group:'yellows', wear:'Cheerful spring shade for dresses and accessories', avoid:'Mustard (too deep)'},
+    {key:'honey', label:'Honey Gold', hex:'#E8B449', group:'yellows', wear:'Warm metallic tone, great for eveningwear', avoid:'Cool gold'},
+    
+    // Greens
+    {key:'pistachio', label:'Pistachio Green', hex:'#A9D48C', group:'greens', wear:'Fresh spring green, excellent for casual wear', avoid:'Forest green (too dark)'},
+    {key:'mint', label:'Mint Green', hex:'#A8E6CF', group:'greens', wear:'Cool-toned but still warm enough, great for summer', avoid:'Emerald'},
+    {key:'applegreen', label:'Apple Green', hex:'#B8D989', group:'greens', wear:'Vibrant spring shade for statement pieces', avoid:'Olive (too muted)'},
+    {key:'sage', label:'Warm Sage', hex:'#C4D1B8', group:'greens', wear:'Sophisticated green, perfect for workwear', avoid:'Cool sage'},
+    {key:'seagreen', label:'Light Sea Green', hex:'#96D8C8', group:'greens', wear:'Aqua-green hybrid, flattering for all occasions', avoid:'Teal (too cool)'},
+    
+    // Blues & Aquas
+    {key:'skyblue', label:'Sky Blue', hex:'#A8D8F0', group:'blues', wear:'Classic Light Spring blue, universally flattering', avoid:'Royal blue (too deep)'},
+    {key:'aqua', label:'Light Aqua', hex:'#A0E7E5', group:'blues', wear:'Warm-toned blue-green, excellent for summer', avoid:'Cool turquoise'},
+    {key:'periwinkle', label:'Periwinkle', hex:'#B79FE0', group:'blues', wear:'Soft purple-blue, great for blouses', avoid:'Navy (too dark)'},
+    {key:'turquoise', label:'Warm Turquoise', hex:'#76D7C4', group:'blues', wear:'Vibrant blue-green for statement pieces', avoid:'Cool turquoise'},
+    {key:'powderblue', label:'Powder Blue', hex:'#C1E1EC', group:'blues', wear:'Delicate pale blue, perfect for layering', avoid:'Ice blue (too cool)'},
+    
+    // Purples, Reds & Accents
+    {key:'lavender', label:'Light Lavender', hex:'#D8BFD8', group:'purples', wear:'Soft purple for romantic looks', avoid:'Deep purple, violet'},
+    {key:'mauve', label:'Warm Mauve', hex:'#D8A8B5', group:'purples', wear:'Dusty pink-purple, sophisticated for eveningwear', avoid:'Plum'},
+    {key:'apricot', label:'Apricot Orange', hex:'#F2A65A', group:'accents', wear:'Warm orange for bold statements', avoid:'Burnt orange (too deep)'},
+    {key:'tomato', label:'Soft Tomato Red', hex:'#E85D5D', group:'accents', wear:'Warm red alternative, great for lipstick shades too', avoid:'True red, burgundy'},
+    {key:'tangerine', label:'Light Tangerine', hex:'#FFB347', group:'accents', wear:'Cheerful orange for playful looks', avoid:'Rust'},
+  ],
+};
+
+const PALETTE_GROUPS = {
+  neutrals: 'Neutrals',
+  pinks: 'Pinks & Corals',
+  yellows: 'Yellows & Golds',
+  greens: 'Greens',
+  blues: 'Blues & Aquas',
+  purples: 'Purples & Mauves',
+  accents: 'Reds & Oranges',
+};
+
 const SEASONS = {
   lightSpring: {
     label: 'Light Spring',
@@ -1103,5 +1345,370 @@ renderChips();
 renderGrid();
 </script>
 
+</body>
+</html>
+
+// ── RETAILERS / ICONS / PRODUCTS ──────────────────────────────────────────────
+const RETAILERS = {
+  zara:{name:'Zara',url:'https://www.zara.com'},
+  hm:{name:'H&M',url:'https://www2.hm.com'},
+  mango:{name:'Mango',url:'https://shop.mango.com'},
+  next:{name:'Next',url:'https://www.next.ro'},
+};
+const ICONS = {
+  top:       c=>`<svg viewBox="0 0 100 100" fill="${c}"><path d="M30 10 L15 25 L25 38 L32 32 L32 90 L68 90 L68 32 L75 38 L85 25 L70 10 L60 18 Q50 24 40 18 Z"/></svg>`,
+  dress:     c=>`<svg viewBox="0 0 100 100" fill="${c}"><path d="M35 8 L25 22 L33 30 L30 40 L15 90 L85 90 L70 40 L67 30 L75 22 L65 8 L58 16 Q50 22 42 16 Z"/></svg>`,
+  knit:      c=>`<svg viewBox="0 0 100 100" fill="${c}"><path d="M28 12 L10 24 L20 40 L28 34 L28 90 L72 90 L72 34 L80 40 L90 24 L72 12 L64 18 L64 26 L36 26 L36 18 Z"/></svg>`,
+  outer:     c=>`<svg viewBox="0 0 100 100" fill="${c}"><path d="M32 8 L14 22 L24 38 L32 30 L28 92 L48 92 L48 40 L52 40 L52 92 L72 92 L68 30 L76 38 L86 22 L68 8 L58 16 Q50 22 42 16 Z"/></svg>`,
+  accessory: c=>`<svg viewBox="0 0 100 100" fill="${c}"><path d="M30 38 L30 28 Q30 14 50 14 Q70 14 70 28 L70 38 L80 38 L84 90 L16 90 L20 38 Z M38 28 Q38 22 50 22 Q62 22 62 28 L62 38 L38 38 Z"/></svg>`,
+};
+const PRODUCTS = [
+  {season:'lightSpring',name:'Lipsy Pistachio Green Linen-Blend Shirt',retailer:'next',category:'top',shade:'pistachio',price:'253 LEI',url:'https://www.next.ro/en/style/su878498/y72754',confidence:'high',img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/Y72754s.jpg'},
+  {season:'lightSpring',name:'Love & Roses Apricot Lace Blouse',retailer:'next',category:'top',shade:'apricot',price:'298 LEI',url:'https://www.next.ro/en/style/su900137/v24764',confidence:'high',img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/V24764s.jpg'},
+  {season:'lightSpring',name:'Love & Roses Peach Pink Pointelle Cardigan',retailer:'next',category:'knit',shade:'peach',price:'253 LEI',url:'https://www.next.ro/en/style/sv028711/v76604',confidence:'high',img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/V76604s.jpg'},
+  {season:'lightSpring',name:'Love & Roses Blue Satin Jacquard Tea Top',retailer:'next',category:'top',shade:'skyblue',price:'283 LEI',url:'https://www.next.ro/en/style/sv000342/g83781',confidence:'high',img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/G83781s.jpg'},
+  {season:'lightSpring',name:'Love & Roses Coral Shell Cutwork Mini Kaftan',retailer:'next',category:'dress',shade:'coral',price:'343 LEI',url:'https://www.next.ro/ro/style/su845985/h97805',confidence:'high',img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/H97805s.jpg'},
+  {season:'lightSpring',name:'Love & Roses Yellow Floral Embroidered Knitted Top',retailer:'next',category:'knit',shade:'golden',price:'290 LEI',url:'https://www.next.ro/en/style/sv068672/y53931',confidence:'medium',img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/Y53931s.jpg'},
+  {season:'coolSummer',name:'Lipsy Floral Embroidered Short Sleeve Shirt',retailer:'next',category:'top',shade:'powderblue',price:'313 LEI',url:'https://www.next.ro/ro/style/sv148115/y88147',confidence:'high',img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/Y88147s.jpg'},
+  {season:'brightSpring',name:'Love & Roses Floral Embroidered Notch Neck Blouse',retailer:'next',category:'top',shade:'brighttomato',price:'313 LEI',url:'https://www.next.ro/ro/style/sv029298/g97246',confidence:'medium',img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/G97246s.jpg'},
+  {season:'coolWinter',name:'Love & Roses Broderie Shell Top',retailer:'next',category:'top',shade:'truered',price:'283 LEI',url:'https://www.next.ro/ro/style/sv000353/v49906',confidence:'high',img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/V49906s.jpg'},
+  {season:'softSummer',name:'Love & Roses Roll Sleeve Button Through Embroidered Shirt',retailer:'next',category:'top',shade:'duskyblue',price:'290 LEI',url:'https://www.next.ro/ro/style/su998885/g82823',confidence:'high',img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/G82823s.jpg'},
+  {season:'brightWinter',name:'Love & Roses Bib Detail Shell Top',retailer:'next',category:'top',shade:'icywhite',price:'283 LEI',url:'https://www.next.ro/ro/style/su964603/g63881',confidence:'medium',img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/G63881s.jpg'},
+  {season:'deepAutumn',name:'River Island Cutwork Tie Neck Blouse',retailer:'next',category:'top',shade:'paprika',price:'313 LEI',url:'https://www.next.ro/ro/style/sv192017/d89699',confidence:'medium',img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/D89699s.jpg'},
+  {season:'lightSummer',name:'Love & Roses Crew Neck Crochet Insert Embroidered Blouse',retailer:'next',category:'top',shade:'chiffonyellow',price:'290 LEI',url:'https://www.next.ro/ro/style/sv077905/v79520',confidence:'high',img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/V79520s.jpg'},
+  {season:'lightSummer',name:'Love & Roses Lace Trim Flutter Sleeve Blouse',retailer:'next',category:'top',shade:'powderblue',price:'290 LEI',url:'https://www.next.ro/ro/style/su999003/g82814',confidence:'medium',img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/G82814s.jpg'},
+  {season:'deepAutumn',name:'Lipsy Textured Jersey Midi Dress',retailer:'next',category:'dress',shade:'rust',price:'372 LEI',url:'https://www.next.ro/ro/style/su897655/w10862',confidence:'medium',img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/W10862s.jpg'},
+  {season:'warmSpring',name:'Lipsy Broderie Flutter Sleeve Midi Dress (Orange)',retailer:'next',category:'dress',shade:'mango',price:'439 LEI',url:'https://www.next.ro/ro/style/su858407/g10322',confidence:'medium',img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/G10322s.jpg'},
+  {season:'warmSpring',name:'Lipsy Broderie Flutter Sleeve Midi Dress (Turquoise)',retailer:'next',category:'dress',shade:'turquoise',price:'439 LEI',url:'https://www.next.ro/ro/style/su858407/y10978',confidence:'high',img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/Y10978s.jpg'},
+  {season:'warmSpring',name:'Love & Roses Lace Drop Waist Sleeveless Midi Dress',retailer:'next',category:'dress',shade:'mango',price:'663 LEI',url:'https://www.next.ro/ro/style/su898190/v41947',confidence:'medium',img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/V41947s.jpg'},
+  {season:'lightSpring',name:'Sosandar Popper Front Denim Dress',retailer:'next',category:'dress',shade:'coral',price:'588 LEI',url:'https://www.next.ro/ro/style/su311352/l41771',confidence:'medium',img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/L41771s.jpg'},
+  {season:'lightSpring',name:'Friends Like These Draped Off The Shoulder Top (Yellow)',retailer:'next',category:'top',shade:'golden',price:'238 LEI',url:'https://www.next.ro/ro/style/su721640/v10799',confidence:'high',img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/V10799s.jpg'},
+  {season:'lightSpring',name:'Friends Like These Draped Off The Shoulder Top (Pistachio Green)',retailer:'next',category:'top',shade:'pistachio',price:'238 LEI',url:'https://www.next.ro/ro/style/su721640/v10809',confidence:'high',img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/V10809s.jpg'},
+  {season:'lightSpring',name:'Friends Like These Short Sleeve Ruffle Mini Dress',retailer:'next',category:'dress',shade:'coral',price:'335 LEI',url:'https://www.next.ro/ro/style/su883300/y17055',confidence:'medium',img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/Y17055s.jpg'},
+  {season:'lightSpring',name:'Lipsy 3/4 Sleeve Embroidered Grandad Blouse',retailer:'next',category:'top',shade:'mint',price:'313 LEI',url:'https://www.next.ro/ro/style/su901245/y35898',confidence:'high',img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/Y35898s.jpg'},
+  {season:'brightSpring',name:'Love & Roses Embellished V-Neck Jersey T-Shirt (Mint)',retailer:'next',category:'top',shade:'vividgreen',price:'194 LEI',url:'https://www.next.ro/ro/style/sv144388/y35543',confidence:'medium',img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/Y35543s.jpg'},
+  {season:'brightSpring',name:'Love & Roses Tie Shoulder Lace Broderie Midi Dress',retailer:'next',category:'dress',shade:'brightturquoise',price:'737 LEI',url:'https://www.next.ro/ro/style/su894622/y26953',confidence:'high',img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/Y26953s.jpg'},
+  {season:'lightSpring',name:'Love & Roses Sequin V-Neck Printed Vest',retailer:'next',category:'top',shade:'mint',price:'216 LEI',url:'https://www.next.ro/ro/style/su924156/y97048',confidence:'high',img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/Y97048s.jpg'},
+  {season:'lightSpring',name:'Love & Roses Embellished V-Neck Jersey T-Shirt (Yellow)',retailer:'next',category:'top',shade:'golden',price:'179 LEI',url:'https://www.next.ro/ro/style/su918259/w19381',confidence:'medium',img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/W19381s.jpg'},
+  {season:'coolSummer',name:'Love & Roses Lace Trim Top',retailer:'next',category:'top',shade:'blushpink',price:'238 LEI',url:'https://www.next.ro/ro/style/su998882/g82820',confidence:'high',img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/G82820s.jpg'},
+  {season:'brightSpring',name:'Lipsy Lace Detail Frill Crochet Knitted Vest',retailer:'next',category:'knit',shade:'hotpink',price:'268 LEI',url:'https://www.next.ro/ro/style/su961742/g76631',confidence:'medium',img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/G76631s.jpg'},
+];
+const CATS = [
+  {key:'all',label:'All'},{key:'top',label:'Tops'},{key:'dress',label:'Dresses'},
+  {key:'knit',label:'Knitwear'},{key:'outer',label:'Outerwear'},{key:'accessory',label:'Accessories'},
+];
+
+// ── STATE ────────────────────────────────────────────────────────────────────
+let currentSeason = 'lightSpring';
+let currentPaletteSeason = 'lightSpring';
+let activeShades = new Set();
+let activeCat = 'all';
+function getPalette(){ return SEASONS[currentSeason].palette; }
+function getHex(){ return Object.fromEntries(getPalette().map(p=>[p.key,p.hex])); }
+
+// ── NAVIGATION (hash routing) ────────────────────────────────────────────────
+function showView(view){
+  ['homeView','paletteView','shopView'].forEach(id=>{
+    document.getElementById(id).style.display = id===view ? 'block' : 'none';
+  });
+  document.querySelectorAll('.nav-link').forEach(el=>{
+    el.classList.toggle('active', el.dataset.view === view.replace('View',''));
+  });
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function navigate(view, seasonKey){
+  let hash = '#' + view;
+  if(seasonKey) hash += '/' + seasonKey;
+  window.location.hash = hash;
+}
+
+function handleHash(){
+  const hash = window.location.hash.slice(1);
+  const [view, seasonKey] = hash.split('/');
+  if(view === 'palette'){
+    if(seasonKey && SEASONS[seasonKey]) currentPaletteSeason = seasonKey;
+    showView('paletteView');
+    renderPaletteExplorer();
+  } else if(view === 'shop'){
+    if(seasonKey && SEASONS[seasonKey]){
+      currentSeason = seasonKey;
+      activeShades = new Set();
+      activeCat = 'all';
+    }
+    showView('shopView');
+    renderSeasonSwitcher();
+    renderFan();
+    renderChips();
+    renderGrid();
+  } else {
+    showView('homeView');
+  }
+}
+
+window.addEventListener('hashchange', handleHash);
+document.querySelectorAll('.nav-link, .nav-logo').forEach(el=>{
+  el.addEventListener('click', ()=> navigate(el.dataset.view || 'home'));
+});
+
+// ── SHOP VIEW ────────────────────────────────────────────────────────────────
+function renderSeasonSwitcher(){
+  const wrap = document.getElementById('seasonSwitcher');
+  document.getElementById('seasonName').textContent = SEASONS[currentSeason].label;
+  document.getElementById('seasonSub').textContent  = SEASONS[currentSeason].sub;
+  wrap.innerHTML = Object.entries(SEASONS).map(([key,s])=>
+    `<button class="season-tab ${key===currentSeason?'active':''}" data-key="${key}">${s.label}</button>`
+  ).join('');
+  wrap.querySelectorAll('.season-tab').forEach(el=>{
+    el.addEventListener('click', ()=>{
+      currentSeason = el.dataset.key;
+      activeShades = new Set();
+      activeCat = 'all';
+      navigate('shop', currentSeason);
+    });
+  });
+}
+
+function renderFan(){
+  const fan = document.getElementById('fan');
+  fan.innerHTML = getPalette().map(p=>`
+    <div class="swatch" data-key="${p.key}" style="background:${p.hex}"><span>${p.label}</span></div>
+  `).join('');
+  fan.querySelectorAll('.swatch').forEach(el=>{
+    el.addEventListener('click', ()=>{
+      const key = el.dataset.key;
+      if(activeShades.has(key)){activeShades.delete(key);el.classList.remove('active');}
+      else{activeShades.add(key);el.classList.add('active');}
+      renderGrid();
+    });
+  });
+}
+
+function renderChips(){
+  const wrap = document.getElementById('catChips');
+  wrap.style.cssText = 'display:flex;gap:10px;flex-wrap:wrap;';
+  wrap.innerHTML = CATS.map(c=>`<button class="chip ${c.key===activeCat?'active':''}" data-key="${c.key}">${c.label}</button>`).join('');
+  wrap.querySelectorAll('.chip').forEach(el=>{
+    el.addEventListener('click', ()=>{
+      activeCat = el.dataset.key;
+      wrap.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));
+      el.classList.add('active');
+      renderGrid();
+    });
+  });
+}
+
+function renderGrid(){
+  const grid = document.getElementById('grid');
+  const HEX  = getHex();
+  let items  = PRODUCTS.filter(p=>
+    p.season===currentSeason &&
+    (activeCat==='all'||p.category===activeCat) &&
+    (activeShades.size===0||activeShades.has(p.shade))
+  );
+  document.getElementById('countLabel').textContent = `${items.length} piece${items.length!==1?'s':''}`;
+  if(!items.length){
+    const none = !PRODUCTS.some(p=>p.season===currentSeason);
+    grid.innerHTML = `<div class="empty">${none
+      ? `No real products curated for ${SEASONS[currentSeason].label} yet — palette's ready, shopping list is next.`
+      : 'Nothing in that combination yet — try clearing a filter.'}</div>`;
+    return;
+  }
+  grid.innerHTML = items.map(p=>{
+    const hex        = HEX[p.shade] || '#eee';
+    const shadeLabel = getPalette().find(s=>s.key===p.shade)?.label || p.shade;
+    const retailer   = RETAILERS[p.retailer];
+    const fallback   = ICONS[p.category](hex).replace(/"/g,'&quot;');
+    const confBadge  = p.confidence
+      ? `<div class="confidence ${p.confidence}">${p.confidence==='high'?'✓ verified':'? check color'}</div>` : '';
+    const media = p.img
+      ? `<img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.onerror=null;this.replaceWith(Object.assign(document.createElement('div'),{className:'iconfallback',innerHTML:'${fallback}'}));">`
+      : ICONS[p.category](hex);
+    return `<div class="card">
+      <div class="swatchblock" style="background:${hex}22">
+        <div class="retailer-tag">${retailer.name}</div>
+        <div class="shade-tag">${shadeLabel}</div>
+        ${confBadge}${media}
+      </div>
+      <div class="info">
+        <div class="name">${p.name}</div>
+        <div class="meta">
+          <span class="price">${p.price}</span>
+          <a class="shop-btn" href="${p.url||retailer.url}" target="_blank" rel="noopener">Shop at ${retailer.name} →</a>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ── PALETTE EXPLORER ─────────────────────────────────────────────────────────
+function renderPaletteExplorer(){
+  document.getElementById('paletteSeasionName').textContent = SEASONS[currentPaletteSeason].label;
+  const hasExtended = !!EXTENDED[currentPaletteSeason];
+  document.getElementById('paletteSeasonSub').textContent =
+    hasExtended ? '30 colours across every family — from your best neutrals to your boldest accents.'
+                : '10 hero shades — full extended palette coming soon.';
+
+  const bar = document.getElementById('paletteSeasonBar');
+  bar.innerHTML = Object.entries(SEASONS).map(([key,s])=>
+    `<button class="palette-season-tab ${key===currentPaletteSeason?'active':''}" data-key="${key}">${s.label}</button>`
+  ).join('');
+  bar.querySelectorAll('.palette-season-tab').forEach(el=>{
+    el.addEventListener('click', ()=>{
+      currentPaletteSeason = el.dataset.key;
+      navigate('palette', currentPaletteSeason);
+    });
+  });
+
+  const container = document.getElementById('paletteContent');
+  const swatches  = EXTENDED[currentPaletteSeason] || SEASONS[currentPaletteSeason].palette.map(p=>({...p,group:'neutrals'}));
+
+  if(!EXTENDED[currentPaletteSeason]){
+    container.innerHTML = `
+      <p class="palette-coming">Full extended palette coming soon — showing the 10 hero shades for now.</p>
+      <div class="palette-groups"><div>
+        <div class="group-label">Hero Shades</div>
+        <div class="swatch-grid">${swatches.map(s=>`
+          <div class="swatch-tile">
+            <div class="swatch-blob" style="background:${s.hex}"></div>
+            <div class="swatch-name">${s.label}</div>
+            <div class="swatch-hex">${s.hex}</div>
+          </div>`).join('')}
+        </div>
+      </div></div>`;
+    return;
+  }
+
+  // Group swatches
+  const grouped = {};
+  Object.keys(PALETTE_GROUPS).forEach(g=>{ grouped[g]=[]; });
+  swatches.forEach(s=>{ if(grouped[s.group]) grouped[s.group].push(s); });
+
+  const groupsHtml = Object.entries(PALETTE_GROUPS)
+    .filter(([key])=>grouped[key]?.length)
+    .map(([key,label])=>`
+      <div>
+        <div class="group-label">${label}</div>
+        <div class="swatch-grid">
+          ${grouped[key].map(s=>`
+            <div class="swatch-tile">
+              <div class="swatch-blob" style="background:${s.hex}"></div>
+              <div class="swatch-name">${s.label}</div>
+              <div class="swatch-hex">${s.hex}</div>
+            </div>`).join('')}
+        </div>
+      </div>`).join('');
+
+  container.innerHTML = `<div class="palette-groups">${groupsHtml}</div>`;
+}
+
+// ── HOME VIEW ────────────────────────────────────────────────────────────────
+function itemCount(key){ return PRODUCTS.filter(p=>p.season===key).length; }
+
+function buildProofStrip(){
+  const wrap = document.getElementById('proofStrip');
+  wrap.innerHTML = PRODUCTS.slice(0,5).map(p=>{
+    const r = RETAILERS[p.retailer].name;
+    const shade = SEASONS[p.season].palette.find(s=>s.key===p.shade);
+    return `<a class="proof-card" href="${p.url}" target="_blank" rel="noopener">
+      <img class="proof-img" src="${p.img}" alt="${p.name}" loading="lazy"
+           onerror="this.src='';this.style.background='${shade?.hex||'#eee'}22';">
+      <div class="proof-caption"><b>${r}</b>${shade?.label||''} · real link</div>
+    </a>`;
+  }).join('');
+}
+
+function buildWheelStatus(){
+  const shoppable = WHEEL_ORDER.filter(k=>itemCount(k)>0).map(k=>SEASONS[k].label);
+  document.getElementById('wheelStatus').textContent = shoppable.length
+    ? `✓ Shoppable now: ${shoppable.join(', ')} — rest coming soon`
+    : 'Palettes ready — shopping lists coming soon';
+}
+
+const WHEEL_ORDER = [
+  'lightSpring','warmSpring','brightSpring',
+  'softSummer','coolSummer','lightSummer',
+  'deepAutumn','warmAutumn','softAutumn',
+  'brightWinter','coolWinter','deepWinter',
+];
+const FAMILIES = [
+  {name:'Spring',desc:'Warm and light to bright — fresh, clear, sunlit colors.',seasons:['lightSpring','warmSpring','brightSpring']},
+  {name:'Summer',desc:'Cool and soft to light — gentle, muted, blue-based colors.',seasons:['lightSummer','coolSummer','softSummer']},
+  {name:'Autumn',desc:'Warm and muted to deep — earthy, rich, golden colors.',seasons:['softAutumn','warmAutumn','deepAutumn']},
+  {name:'Winter',desc:'Cool and bright to deep — icy, jewel-toned, high-contrast colors.',seasons:['brightWinter','coolWinter','deepWinter']},
+];
+
+function polarToCartesian(cx,cy,r,a){
+  const rad=(a-90)*Math.PI/180;
+  return{x:cx+r*Math.cos(rad),y:cy+r*Math.sin(rad)};
+}
+function donutPath(cx,cy,outerR,innerR,start,end){
+  const so=polarToCartesian(cx,cy,outerR,end),eo=polarToCartesian(cx,cy,outerR,start);
+  const si=polarToCartesian(cx,cy,innerR,end),ei=polarToCartesian(cx,cy,innerR,start);
+  const la=end-start<=180?0:1;
+  return`M ${so.x} ${so.y} A ${outerR} ${outerR} 0 ${la} 0 ${eo.x} ${eo.y} L ${ei.x} ${ei.y} A ${innerR} ${innerR} 0 ${la} 1 ${si.x} ${si.y} Z`;
+}
+
+function buildWheel(){
+  const svg=document.getElementById('wheelSvg');
+  const cx=260,cy=260,outerR=210,labelR=130,hubR=62,arcR=242,step=30;
+  const wedges=WHEEL_ORDER.map((key,i)=>{
+    const start=i*step,end=(i+1)*step,mid=start+step/2;
+    const hero=SEASONS[key].palette[0].hex;
+    const d=donutPath(cx,cy,outerR,0,start,end);
+    const pos=polarToCartesian(cx,cy,labelR,mid);
+    let rot=mid+90; if(mid>0&&mid<180) rot+=180;
+    const short=SEASONS[key].label.split(' ')[0];
+    return`<g><path class="wedge" d="${d}" fill="${hero}" data-key="${key}"><title>${SEASONS[key].label}</title></path>
+    <text class="wedge-label" x="${pos.x}" y="${pos.y}" transform="rotate(${rot} ${pos.x} ${pos.y})" text-anchor="middle" dominant-baseline="middle">${short}</text></g>`;
+  }).join('');
+  const dividers=[0,90,180,270].map(a=>{
+    const o=polarToCartesian(cx,cy,outerR+2,a),i=polarToCartesian(cx,cy,hubR,a);
+    return`<line x1="${i.x}" y1="${i.y}" x2="${o.x}" y2="${o.y}" stroke="#2C2622" stroke-width="2.5" stroke-linecap="round" style="pointer-events:none"/>`;
+  }).join('');
+  const fLabels=FAMILIES.map((f,i)=>{
+    const mid=i*90+45;
+    const pos=polarToCartesian(cx,cy,arcR,mid);
+    let rot=mid; if(mid>90&&mid<270) rot+=180;
+    return`<text class="family-label" x="${pos.x}" y="${pos.y}" transform="rotate(${rot} ${pos.x} ${pos.y})" text-anchor="middle" dominant-baseline="middle">${f.name.toUpperCase()}</text>`;
+  }).join('');
+  const hub=`<circle cx="${cx}" cy="${cy}" r="${hubR}" fill="#FAF3EC" stroke="#E8DED2" stroke-width="2" style="pointer-events:none"/>`;
+  svg.innerHTML=`${wedges}${dividers}${fLabels}${hub}`;
+  svg.querySelectorAll('.wedge').forEach(el=>{
+    el.addEventListener('mouseenter',()=>{ document.getElementById('wheelCenterLabel').textContent=SEASONS[el.dataset.key].label; });
+    el.addEventListener('mouseleave',()=>{ document.getElementById('wheelCenterLabel').textContent='Tap a season'; });
+    el.addEventListener('click',()=> navigate('shop',el.dataset.key));
+  });
+}
+
+function buildFamilies(){
+  const wrap=document.getElementById('families');
+  wrap.innerHTML=FAMILIES.map(f=>`
+    <div class="family-card">
+      <div class="family-name">${f.name}</div>
+      <div class="family-desc">${f.desc}</div>
+      <div class="family-seasons">
+        ${f.seasons.map(key=>{
+          const n=itemCount(key);
+          return`<button class="season-pill ${n>0?'has-items':''}" data-key="${key}">
+            <span class="dot" style="background:${SEASONS[key].palette[0].hex}"></span>
+            ${SEASONS[key].label}
+            <span class="pcount">${n>0?`· ${n} to shop`:''}</span>
+          </button>`;
+        }).join('')}
+      </div>
+    </div>`).join('');
+  wrap.querySelectorAll('.season-pill').forEach(el=>{
+    el.addEventListener('click',()=> navigate('shop',el.dataset.key));
+  });
+}
+
+// ── BOOT ─────────────────────────────────────────────────────────────────────
+buildWheel();
+buildFamilies();
+buildProofStrip();
+buildWheelStatus();
+if(window.location.hash){ handleHash(); } else { showView('homeView'); }
+</script>
 </body>
 </html>
