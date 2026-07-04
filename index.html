@@ -245,12 +245,18 @@
     align-items:center;
     justify-content:center;
     position:relative;
+    overflow:hidden;
   }
   .swatchblock svg{width:56%; height:56%;}
   .swatchblock img{
-    width:100%; height:100%;
+    width:100%;
+    height:100%;
     object-fit:cover;
+    object-position:center top;
     display:block;
+    position:absolute;
+    top:0;
+    left:0;
   }
   .swatchblock .iconfallback{
     width:56%; height:56%;
