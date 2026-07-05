@@ -4,43 +4,49 @@
 
 const EXTENDED = {
   lightSpring: [
-    // Pinks & Corals (5)
-    {key:'peach', label:'Peach Pink', hex:'#FFB69B', group:'pinks'},
+    // Pinks & Corals & Reds (8)
+    {key:'coralred', label:'Coral Red', hex:'#FF6F61', group:'pinks'},
     {key:'coral', label:'Light Coral', hex:'#FF8C7A', group:'pinks'},
+    {key:'watermelon', label:'Watermelon', hex:'#FF6B7A', group:'pinks'},
     {key:'salmon', label:'Salmon', hex:'#FA9A85', group:'pinks'},
     {key:'blush', label:'Warm Blush', hex:'#F5CAC3', group:'pinks'},
-    {key:'watermelon', label:'Watermelon', hex:'#FF6B7A', group:'pinks'},
-    // Reds & Oranges (2)
-    {key:'apricot', label:'Apricot Orange', hex:'#F2A65A', group:'accents'},
-    {key:'tangerine', label:'Light Tangerine', hex:'#FFB347', group:'accents'},
-    {key:'tomato', label:'Soft Tomato Red', hex:'#E85D5D', group:'accents'},
-    // Yellows & Golds (4)
-    {key:'golden', label:'Golden Yellow', hex:'#F5C242', group:'yellows'},
-    {key:'butter', label:'Butter Yellow', hex:'#F9E79F', group:'yellows'},
+    {key:'warmrose', label:'Warm Rose', hex:'#F5A3A5', group:'pinks'},
+    {key:'tomato', label:'Soft Tomato Red', hex:'#E85D5D', group:'pinks'},
+    {key:'peach', label:'Peach Pink', hex:'#FFB69B', group:'pinks'},
+    {key:'lightpeach', label:'Light Peach', hex:'#FFEADD', group:'pinks'},
+    // Oranges (3)
+    {key:'apricot', label:'Apricot', hex:'#F9C58A', group:'oranges'},
+    {key:'apricotorange', label:'Apricot Orange', hex:'#F2A65A', group:'oranges'},
+    {key:'tangerine', label:'Tangerine', hex:'#FFA33A', group:'oranges'},
+    // Yellows (4)
+    {key:'buttercream', label:'Buttercream', hex:'#FFF1C1', group:'yellows'},
+    {key:'butter', label:'Butter Yellow', hex:'#FFF0A8', group:'yellows'},
+    {key:'sunlight', label:'Sunlight Yellow', hex:'#FFE28A', group:'yellows'},
     {key:'daffodil', label:'Daffodil', hex:'#FFE66D', group:'yellows'},
-    {key:'honey', label:'Honey Gold', hex:'#E8B449', group:'yellows'},
     // Greens (5)
-    {key:'pistachio', label:'Pistachio Green', hex:'#A9D48C', group:'greens'},
+    {key:'applegreen', label:'Apple Green', hex:'#A8D96B', group:'greens'},
     {key:'mint', label:'Mint Green', hex:'#A8E6CF', group:'greens'},
-    {key:'applegreen', label:'Apple Green', hex:'#B8D989', group:'greens'},
-    {key:'sage', label:'Warm Sage', hex:'#C4D1B8', group:'greens'},
-    {key:'seagreen', label:'Light Sea Green', hex:'#96D8C8', group:'greens'},
-    // Blues & Aquas (5)
+    {key:'pistachio', label:'Pistachio', hex:'#CFE8A9', group:'greens'},
+    {key:'springgreen', label:'Spring Green', hex:'#8FD38A', group:'greens'},
+    {key:'freshlime', label:'Fresh Lime', hex:'#C8E65C', group:'greens'},
+    // Blues & Aquas (4)
     {key:'aqua', label:'Light Aqua', hex:'#A0E7E5', group:'blues'},
-    {key:'turquoise', label:'Warm Turquoise', hex:'#76D7C4', group:'blues'},
-    {key:'skyblue', label:'Sky Blue', hex:'#A8D8F0', group:'blues'},
+    {key:'skyblue', label:'Light Sky Blue', hex:'#A8D8F0', group:'blues'},
     {key:'powderblue', label:'Powder Blue', hex:'#C1E1EC', group:'blues'},
-    // Purples & Mauves (3)
+    {key:'turquoise', label:'Warm Turquoise', hex:'#76D7C4', group:'blues'},
+    // Purples & Mauves (4)
     {key:'periwinkle', label:'Periwinkle', hex:'#B79FE0', group:'purples'},
     {key:'lavender', label:'Light Lavender', hex:'#D8BFD8', group:'purples'},
+    {key:'lilac', label:'Lilac', hex:'#CDB4DB', group:'purples'},
     {key:'mauve', label:'Warm Mauve', hex:'#D8A8B5', group:'purples'},
-    // Neutrals (6)
+    // Neutrals (7)
     {key:'ivory', label:'Ivory', hex:'#FFF8E7', group:'neutrals'},
     {key:'cream', label:'Cream', hex:'#F5F0E6', group:'neutrals'},
     {key:'warmbeige', label:'Warm Beige', hex:'#D4C5B0', group:'neutrals'},
+    {key:'lightcamel', label:'Light Camel', hex:'#D9C3A1', group:'neutrals'},
     {key:'camel', label:'Camel', hex:'#C4A277', group:'neutrals'},
+    {key:'warmtaupe', label:'Warm Taupe', hex:'#C8B39C', group:'neutrals'},
     {key:'warmgrey', label:'Warm Grey', hex:'#B3A89C', group:'neutrals'},
-    {key:'softnavy', label:'Soft Navy', hex:'#5B6E7D', group:'neutrals'},
   ],
   lightSummer: [
     // Pinks & Roses (6)
