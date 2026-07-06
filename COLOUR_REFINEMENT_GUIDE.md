@@ -259,5 +259,238 @@ When analyzing colours, use this format:
 
 ---
 
+## Response Format Guidelines
+
+**When analyzing colors for any season, structure responses as follows:**
+
+### 1. Introduction
+- Brief reminder of season characteristics
+- Reference colors from related seasons for comparison
+
+### 2. Analysis Format (for each color family)
+**For each candidate color:**
+
+**✅/❌/⚠️ Color Name #HEX** - R=value, G=value, B=value
+- **Warm/Cool** (explain R vs B relationship)
+- Character description (light/dark, saturated/soft, etc.)
+- **Analysis:** Detailed evaluation
+- **Season fit:** ✅ KEEP / ❌ SKIP / ⚠️ BORDERLINE with reasoning
+- **Comparison:** If same name exists in other seasons, show differences
+- **Distinct from others:** Note if similar to existing palette colors
+
+### 3. Summary Format
+**✅ KEEP (X colors for [Family]):**
+- List with brief reason for each
+
+**❌ SKIP:**
+- List with reason and better season destination
+
+**Key Guidelines:**
+- Analyze colors objectively using RGB values - don't be biased toward existing palette colors
+- Always compare colors with the same name across seasons mentioned in the session
+- Target 36 colors for final palette
+- Don't include summary tables - use text lists only
+- Show RGB analysis to determine warm/cool objectively (R > B = warm, B > R = cool)
+- When colors are similar, calculate exact differences in R, G, B values
+
+---
+
 *Document created: January 2025*
-*Last updated for: Light Spring (36 colours)*
+*Last updated for: Light Spring (36 colours), Warm Spring (36 colours)*
+
+
+---
+
+## Warm Spring Refinement Process (Complete - 36 colors)
+
+### Season Characteristics
+
+**Warm Spring Profile:**
+- **Primary:** Warm (golden, peachy undertones — R > B in RGB)
+- **Secondary:** Clear (saturated, vibrant - not muted)
+- **Tertiary:** Medium brightness (brighter than Deep Autumn, not as pale as Light Spring)
+- **Avoid:** Cool blues (R < B), very pale colors (→ Light Spring), muted tones (→ Soft Autumn)
+
+**Ideal hex characteristics:**
+- Warm undertones: R > B in most colors
+- Clear saturation (vibrant, not greyed out)
+- Medium brightness (can go richer than Light Spring but not as deep as Autumn)
+
+---
+
+### Reds & Pinks Final Selection (9 colors)
+
+| Color | Hex | Key Decision |
+|-------|-----|--------------|
+| **Warm Coral** | #FF6F5C | Classic Warm Spring coral - bright, punchy |
+| **Poppy Red** | #E8452C | True warm red with orange undertones |
+| **Salmon Pink** | #FA8072 | Softer peachy-pink coral |
+| **Golden Peach** | #FFB07A | True vibrant peach with strong orange |
+| **Warm Rose** | #FF8B85 | Coral-pink rose, clear and warm |
+| **Tomato Red** | #FF6347 | Bright orange-red, distinct from Poppy |
+| **Watermelon** | #FF6B7A | Bright pink-red, fresh and juicy |
+| **Guava/Coral Pink** | #FF8E8E | Soft coral-pink, tropical tone |
+| **Persimmon** | #EC5800 | Deep red-orange, vibrant and clear |
+
+**Rejected:**
+- Coral #FF7F5F (redundant with #FF6F5C)
+- Peach #FFCBA4 (too pale → Light Spring)
+- Melon #FDBA8C (redundant with Golden Peach)
+- Poppy Red #F44336 (redundant with #E8452C)
+- Warm Rose #F39CA9 (too cool despite name → Light Summer)
+- Tomato Red #E94B3C (too similar to Poppy Red)
+
+---
+
+### Oranges Final Selection (4 colors)
+
+| Color | Hex | Key Decision |
+|-------|-----|--------------|
+| **Warm Apricot** | #FFA07A | Richer orange-apricot |
+| **Mango** | #FFB347 | Bright golden-orange |
+| **Tangerine** | #FF8C3A | Clear bright orange |
+| **Papaya** | #FFA64D | Tropical orange-gold, rich |
+
+**Rejected:**
+- Apricot #FBB982 (redundant with Golden Peach)
+- Cantaloupe #FFAB91 (too similar to Warm Apricot)
+- Mango Orange #F2861A (too dark/burnt → Warm Autumn)
+- Tangerine #F28500 (too dark/burnt → Warm Autumn)
+
+**Key insight:** Warm Spring oranges should be clear and golden, not burnt (burnt = Autumn).
+
+---
+
+### Yellows Final Selection (5 colors)
+
+| Color | Hex | Key Decision |
+|-------|-----|--------------|
+| **Golden Yellow** | #F0B429 | Rich golden yellow, signature Warm Spring |
+| **Butter Yellow** | #FCE883 | Soft, light, buttery yellow |
+| **Buttercup Yellow** | #FFD54F | Bright, clear, vibrant yellow |
+| **Sunlight Yellow** | #FFE28A | Light golden glow (from Light Spring) |
+| **Honey Gold** | #E8B449 | Rich honey-gold, deeper yellow |
+
+**Rejected:**
+- Honey #DDAA33 (too dark/mustard → Warm Autumn)
+- Marigold #F4A300 (too deep/intense → Warm Autumn)
+- Light Gold #D9B44A (too muted → Warm Autumn)
+- Daffodil #FFE44D (redundant with Buttercup, Light Spring already has it)
+
+**Key insight:** Warm Spring yellows are golden and clear, not mustard-y (mustard = Autumn).
+
+---
+
+### Greens Final Selection (5 colors)
+
+| Color | Hex | Key Decision |
+|-------|-----|--------------|
+| **Leaf Green** | #6FB645 | True warm leaf green, medium tone |
+| **Apple Green** | #8BC34A | Bright yellow-green, vibrant |
+| **Lime** | #B7D84B | Bright yellow-green lime, zesty |
+| **Spring Green/Cucumber** | #8FD38A | Fresh soft green (from Light Spring) |
+| **Pistachio** | #CFE8A9 | Very pale yellow-green (from Light Spring) |
+
+**Rejected:**
+- Leaf Green #5FAF4B (redundant with #6FB645)
+- Lime Green #9ACD32 (redundant with Lime #B7D84B)
+- Apple Green #8DBF3C (kept #8BC34A instead, nearly identical)
+- Grass Green #6CBF5B (too similar to Leaf Green)
+- Spring Green #7CB342 (too similar to Leaf Green)
+- Kelly Green #4CAF50 (too cool/blue → Bright Winter)
+- Golden Moss #9DA65D (too muted → Soft Autumn)
+- Spring Green #4CCB6B (too cool → Light Summer)
+- Mint #98E2B8 (too cool → Light Spring/Light Summer)
+
+**Key insight:** Warm Spring greens are warm yellow-greens - skip cool aqua/mint (Light Spring) and muted olives (Soft Autumn).
+
+---
+
+### Blues/Aquas Final Selection (4 colors)
+
+| Color | Hex | Key Decision |
+|-------|-----|--------------|
+| **Warm Turquoise** | #2FBFAE | Deep green-teal, warmest option |
+| **Aqua** | #66D9D1 | Bright clear aqua |
+| **Turquoise** | #3FC1C9 | Medium cyan-turquoise, more blue |
+| **Warm Navy** | #2C4F5E | Dark slate-blue with teal undertones, darkest neutral |
+
+**Rejected:**
+- Warm Periwinkle Blue #4A6FE0 (too cool despite name → Bright Winter)
+- Golden Teal #3FB8AF (too similar to Warm Turquoise)
+- Aquamarine #40E0D0 (redundant with Aqua)
+- Robin Egg Blue #6FDCE3 (too cool → Light Summer)
+- Sky Blue #7EC8E3 (too cool → Light Summer)
+
+**Key insight:** Warm Spring needs very limited blues - only warm turquoise/aqua/teal with strong green undertones. Warm Navy works as darkest neutral (has teal undertones). All true blues belong in Winter or Summer.
+
+**Important:** "Warm Navy can work as your darkest neutral, but it needs warmth—not cool navy." Warm Navy has teal/green undertones that keep it warm enough for Warm Spring.
+
+---
+
+### Purples Final Selection (3 colors)
+
+| Color | Hex | Key Decision |
+|-------|-----|--------------|
+| **Warm Orchid** | #BA68C8 | Bright orchid purple-pink, richer |
+| **Light Orchid** | #D7A8E3 | Soft pale orchid, lighter |
+| **Warm Mauve** | #D8A8B5 | Pink-mauve, peachy undertones (from Light Spring) |
+
+**Rejected:**
+- Warm Periwinkle #A9B8F5 (too cool despite name, cooler than Light Spring's version → Light Summer)
+- Warm Violet #8E6BB7 (too cool/blue-purple → Cool Summer)
+
+**Key insight:** Warm Spring should have minimal purples (2-3 max). Only orchids with strong pink/red undertones work - skip blue-purples.
+
+---
+
+### Neutrals Final Selection (8 colors)
+
+| Color | Hex | Key Decision |
+|-------|-----|--------------|
+| **Warm Ivory** | #FFF6E0 | Very pale warm off-white, golden |
+| **Golden Cream** | #FFEFC1 | Light golden cream |
+| **Warm Beige** | #E7D1AE | Light warm beige |
+| **Golden Beige** | #D8B97E | Medium golden-tan beige |
+| **Camel** | #C69A5F | Rich golden camel |
+| **Warm Taupe** | #B8927D | Medium warm taupe |
+| **Cognac Brown** | #A0522D | Medium reddish-brown cognac |
+| **Warm Chocolate** | #6B4423 | Warm chocolate brown, deepest neutral |
+
+**Rejected:**
+- Warm White #FDF5E6 (redundant with Warm Ivory)
+- Cream #FFF4CC (kept Golden Cream instead, more golden)
+- Light Camel #D8BE96 (too similar to Golden Beige)
+
+**Key insight:** Chocolate brown IS a Warm Spring staple - warm, clear, lighter/brighter than Autumn's deep browns. No black for Warm Spring (too cool/deep).
+
+---
+
+### Final Warm Spring Palette Summary
+
+**Total: 36 colors**
+- Reds/Pinks/Corals: 9
+- Oranges: 4
+- Yellows: 5
+- Greens: 5
+- Blues/Aquas: 4 (including Warm Navy)
+- Purples: 3
+- Neutrals: 8 (including Warm Navy as functional neutral)
+
+**Key Warm Spring principles:**
+1. **Warm = R > B** in RGB analysis (objective measurement)
+2. **Clear = high saturation**, not muted/greyed
+3. **Golden undertones** distinguish from Light Spring (softer) and Bright Spring (more electric)
+4. **Medium brightness** - richer than Light Spring, lighter than Autumn
+5. **Tropical fruit names** common: papaya, guava, watermelon, mango, persimmon
+6. **No cool blues** - only turquoise/aqua/teal with green undertones
+7. **Chocolate brown yes, black no** - Warm Spring's deepest neutrals stay warm
+8. **Warm Navy works** if it has teal/green undertones (darkest neutral alternative to black)
+
+**Common mistakes to avoid:**
+- "Warm" in the name doesn't guarantee warm undertones - always check RGB (e.g., Warm Rose #F39CA9 was actually cool)
+- Don't confuse with Autumn - Warm Spring is CLEAR (not muted), lighter (not deep/earthy)
+- Honey/mustard yellows belong in Autumn, not Spring
+- Most purples are too cool - only warm orchids and mauves work
+
+---
