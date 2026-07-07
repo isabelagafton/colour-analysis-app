@@ -338,42 +338,48 @@ const EXTENDED = {
     {key:'darkbrown', label:'Dark Brown', hex:'#5C4033', group:'neutrals'},
   ],
   coolSummer: [
-    // Pinks & Roses (6)
-    {key:'blushpink', label:'Cool Blush Pink', hex:'#E8B4C0', group:'pinks'},
-    {key:'rose', label:'Rose Pink', hex:'#DDA6B8', group:'pinks'},
-    {key:'mauve', label:'Mauve Rose', hex:'#D4A5B8', group:'pinks'},
+    // Pinks & Reds (6)
+    {key:'coolraspberry', label:'Cool Raspberry', hex:'#B85C7A', group:'pinks'},
+    {key:'berry', label:'Berry', hex:'#B76E79', group:'pinks'},
+    {key:'rosepink', label:'Rose Pink', hex:'#DDA6B8', group:'pinks'},
+    {key:'dustypink', label:'Dusty Pink', hex:'#D8A0B6', group:'pinks'},
     {key:'dustyrose', label:'Dusty Rose', hex:'#C89AA8', group:'pinks'},
-    {key:'coolpink', label:'Cool Pink', hex:'#E0A6BA', group:'pinks'},
-    {key:'raspberry', label:'Cool Raspberry', hex:'#B85C7A', group:'pinks'},
-    // Purples & Lavenders (6)
-    {key:'lavender', label:'Lavender', hex:'#B9A6D9', group:'purples'},
-    {key:'lilac', label:'Lilac', hex:'#C8B4DB', group:'purples'},
-    {key:'wisteria', label:'Wisteria', hex:'#B39BC8', group:'purples'},
-    {key:'periwinkle', label:'Periwinkle', hex:'#A8B0DB', group:'purples'},
-    {key:'coolplum', label:'Cool Plum', hex:'#7A5A7E', group:'purples'},
-    {key:'softviolet', label:'Soft Violet', hex:'#9B88AF', group:'purples'},
-    // Blues (6)
+    {key:'coolrosepink', label:'Cool Rose Pink', hex:'#D4A5C0', group:'pinks'},
+    // Yellows (3)
+    {key:'softbutteryellow', label:'Soft Butter Yellow', hex:'#EFE6C8', group:'yellows'},
+    {key:'coolsoftyellow', label:'Cool Soft Yellow', hex:'#E8DDA8', group:'yellows'},
+    {key:'coollemon', label:'Cool Lemon', hex:'#E5E1B8', group:'yellows'},
+    // Greens (6)
+    {key:'seagreen', label:'Sea Green', hex:'#8FBFB2', group:'greens'},
+    {key:'oceangreen', label:'Ocean Green', hex:'#7CB8A8', group:'greens'},
+    {key:'sage', label:'Sage', hex:'#A8B8A4', group:'greens'},
+    {key:'eucalyptus', label:'Eucalyptus', hex:'#91B49A', group:'greens'},
+    {key:'softteal', label:'Soft Teal', hex:'#5FA5A0', group:'greens'},
+    {key:'coolteal', label:'Cool Teal', hex:'#6A8F8E', group:'greens'},
+    // Blues (7)
+    {key:'softaqua', label:'Soft Aqua', hex:'#A5D8D8', group:'blues'},
     {key:'powderblue', label:'Powder Blue', hex:'#A9C9E0', group:'blues'},
     {key:'skyblue', label:'Sky Blue', hex:'#B0D0E8', group:'blues'},
-    {key:'porcelain', label:'Porcelain Blue', hex:'#B8CEE3', group:'blues'},
+    {key:'cornflower', label:'Cornflower', hex:'#7FA6D8', group:'blues'},
+    {key:'bluegray', label:'Blue Gray', hex:'#95A9BD', group:'blues'},
     {key:'slateblue', label:'Slate Blue', hex:'#6B7FA3', group:'blues'},
-    {key:'steelblue', label:'Steel Blue', hex:'#5C7A94', group:'blues'},
     {key:'navyblue', label:'Navy Blue', hex:'#4A5E7A', group:'blues'},
-    // Greens & Teals (4)
-    {key:'seagreen', label:'Sea / Ocean Green', hex:'#7CB8A8', group:'greens'},
-    {key:'seafoam', label:'Seafoam Green', hex:'#8BBCAA', group:'greens'},
-    {key:'coolteal', label:'Cool Teal', hex:'#6A8F8E', group:'greens'},
-    {key:'eucalyptus', label:'Cool Eucalyptus', hex:'#8FA99A', group:'greens'},
-    // Accent (2)
-    {key:'softyellow', label:'Soft Cool Yellow', hex:'#E8DDA8', group:'yellows'},
-    {key:'lemon', label:'Cool Lemon', hex:'#E5E1B8', group:'yellows'},
+    // Purples (8)
+    {key:'softorchidpink', label:'Soft Orchid Pink', hex:'#D8AED4', group:'purples'},
+    {key:'softlavender', label:'Soft Lavender', hex:'#C9B7E8', group:'purples'},
+    {key:'lavender', label:'Lavender', hex:'#B9A6D9', group:'purples'},
+    {key:'wisteria', label:'Wisteria', hex:'#B39BC8', group:'purples'},
+    {key:'periwinkle', label:'Periwinkle', hex:'#9FAEE5', group:'purples'},
+    {key:'hydrangea', label:'Hydrangea', hex:'#A9BCE5', group:'purples'},
+    {key:'heather', label:'Heather', hex:'#9F86AA', group:'purples'},
+    {key:'coolplum', label:'Cool Plum', hex:'#7A5A7E', group:'purples'},
     // Neutrals (6)
-    {key:'softwhite', label:'Soft White', hex:'#F2F0EC', group:'neutrals'},
-    {key:'lightgrey', label:'Light Grey', hex:'#D4D4D8', group:'neutrals'},
-    {key:'taupe', label:'Cool Taupe', hex:'#A8A09C', group:'neutrals'},
-    {key:'slategrey', label:'Slate Grey', hex:'#7A8088', group:'neutrals'},
-    {key:'charcoal', label:'Charcoal Grey', hex:'#54575C', group:'neutrals'},
-    {key:'darkslate', label:'Dark Slate', hex:'#3D4148', group:'neutrals'},
+    {key:'softwhite', label:'Soft White', hex:'#F7F7F5', group:'neutrals'},
+    {key:'stone', label:'Stone', hex:'#C8C2BC', group:'neutrals'},
+    {key:'cooltaupe', label:'Cool Taupe', hex:'#A8A09C', group:'neutrals'},
+    {key:'coolgray', label:'Cool Gray', hex:'#BFC3C7', group:'neutrals'},
+    {key:'steelgray', label:'Steel Gray', hex:'#8A949E', group:'neutrals'},
+    {key:'charcoal', label:'Charcoal', hex:'#545A63', group:'neutrals'},
   ],
   softSummer: [
     // Pinks & Roses (6)
