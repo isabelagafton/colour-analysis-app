@@ -793,6 +793,7 @@ const RETAILERS = {
   hm: {name:'H&M', url:'https://www2.hm.com'},
   mango: {name:'Mango', url:'https://shop.mango.com'},
   next: {name:'Next', url:'https://www.next.ro'},
+  mohito: {name:'Mohito', url:'https://www.mohito.com'},
 };
 
 const ICONS = {
@@ -909,6 +910,16 @@ const PRODUCTS = [
   {season:'lightSummer', name:'H&M Strappy Broderie Anglaise Dress', retailer:'hm', category:'dress', shade:'softpink', price:'249.99 LEI', url:'https://www2.hm.com/ro_ro/productpage.1340487003.html', confidence:'high', img:'https://image.hm.com/assets/hm/22/47/22477e99388d3537975911b59649dc07262d125d.jpg'},
   {season:'lightSpring', name:'H&M Tie-Detail Flared Dress', retailer:'hm', category:'dress', shade:'blush', price:'139.99 LEI', url:'https://www2.hm.com/ro_ro/productpage.1338303003.html', confidence:'high', img:'https://image.hm.com/assets/hm/bc/89/bc8975500602dd48ea01a5e0734a2b3a94858085.jpg'},
   {season:'lightSummer', name:'COS Gathered Jersey Midi Dress', retailer:'hm', category:'dress', shade:'balletpink', price:'500 LEI', url:'https://www2.hm.com/ro_ro/productpage.1340708002.html', confidence:'high', img:'https://media.cos.com/assets/001/c1/98/c198c61bb2d4d955bfd2bab81b7aad442b851fa0.jpg'},
+  {season:'deepAutumn', name:'Love & Roses Burgundy Red Scallop Boat Neck 3/4 Sleeve Jersey Top', retailer:'next', category:'top', shade:'burgundy', price:'142 RON', url:'https://www.next.ro/en/style/su788699/g98979', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/G98979s.jpg'},
+  {season:'brightWinter', name:'Lipsy White Crochet Trim Detail Vest', retailer:'next', category:'top', shade:'purewhite', price:'186 RON', url:'https://www.next.ro/en/style/sv201406/393069', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/393069s.jpg'},
+  {season:'lightSpring', name:'Love & Roses Mint Green Floral Print Lace Trim Top', retailer:'next', category:'top', shade:'mint', price:'238 RON', url:'https://www.next.ro/en/style/su998882/g82806', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/G82806s.jpg'},
+  {season:'lightSummer', name:'Lipsy Blue 3D Textured Sleeveless Shirt', retailer:'next', category:'top', shade:'powderblue', price:'298 RON', url:'https://www.next.ro/en/style/su955344/y88129', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/Y88129s.jpg'},
+  {season:'lightSummer', name:'Friends Like These Pink Draped Off The Shoulder Top', retailer:'next', category:'top', shade:'balletpink', price:'238 RON', url:'https://www.next.ro/en/style/su721640/y77458', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/Y77458s.jpg'},
+  {season:'coolSummer', name:'Love & Roses Teal Blue Balloon Sleeve V-Neck Brazilia Print Midi Dress', retailer:'next', category:'dress', shade:'softteal', price:'492 RON', url:'https://www.next.ro/en/style/sv116321/y70541', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/Y70541s.jpg'},
+  {season:'brightWinter', name:'Friends Like These Blue V-Neck Plunge Sleeveless Maxi Dress', retailer:'next', category:'dress', shade:'cobaltblue', price:'313 RON', url:'https://www.next.ro/en/style/sv122828/y72283', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/Y72283s.jpg'},
+  {season:'brightSpring', name:'Love & Roses Butter Yellow V-Neck Satin Front Jersey T-Shirt', retailer:'next', category:'top', shade:'clearyellow', price:'179 RON', url:'https://www.next.ro/en/style/su929300/h06142', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/H06142s.jpg'},
+  {season:'lightSpring', name:'Mohito Strappy Midi Dress', retailer:'mohito', category:'dress', shade:'coral', price:'259 RON', url:'https://www.mohito.com/ro/ro/rochie-midi-cu-bretele-434jo-32x', confidence:'high', img:'https://static.mohito.com/media/catalog/product/4/3/434JO-32X-002-1-1222869.jpg'},
+  {season:'lightSpring', name:'Mohito Ribbed Top', retailer:'mohito', category:'top', shade:'butter', price:'59 RON', url:'https://www.mohito.com/ro/ro/top-reiat-651he-10x', confidence:'high', img:'https://static.mohito.com/media/catalog/product/6/5/651HE-10X-002-1-1031990_13.jpg'},
 ];
 
 // ══════════════════════════════════════════════════════════════════════════════
@@ -1217,9 +1228,7 @@ function renderGrid() {
     const shadeLabel = getPalette().find(s => s.key === p.shade)?.label || p.shade;
     const retailer = RETAILERS[p.retailer];
     const fallback = ICONS[p.category](hex).replace(/"/g, '&quot;');
-    const confBadge = p.confidence
-      ? `<div class="confidence ${p.confidence}">${p.confidence === 'high' ? '✓ verified' : '? check color'}</div>`
-      : '';
+    const confBadge = `<div class="confidence high" style="z-index:10;">✓ verified</div>`;
     const media = p.img
       ? `<img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.onerror=null;this.replaceWith(Object.assign(document.createElement('div'),{className:'iconfallback',innerHTML:'${fallback}'}));">`
       : ICONS[p.category](hex);
