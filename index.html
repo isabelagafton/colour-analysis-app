@@ -1,4 +1,15 @@
 <!DOCTYPE html>
+<!--
+  The Season Edit — Color-matched shopping platform
+  Copyright © 2025 The Season Edit. All rights reserved.
+  
+  This website, including its design, content, curation, color palette matching system,
+  and user interface, is protected by copyright law. Unauthorized reproduction,
+  distribution, modification, or commercial use is prohibited without explicit
+  written permission from the copyright holder.
+  
+  For licensing inquiries: hello@theseasonaledit.com
+-->
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -9,6 +20,8 @@
 <meta name="description" content="Shop your seasonal color palette. Curated fashion pieces from Zara, H&M, Mango & Next matched to your Light Spring, Cool Summer, Deep Autumn or other seasonal colors.">
 <meta name="keywords" content="color analysis, seasonal color analysis, color palette shopping, light spring colors, cool summer fashion, personal color shopping">
 <meta name="author" content="The Season Edit">
+<meta name="copyright" content="Copyright © 2025 The Season Edit. All rights reserved.">
+<meta name="rights" content="© 2025 The Season Edit">
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website">
@@ -660,6 +673,26 @@
     padding-bottom:8px;
   }
 
+  /* FOOTER */
+  footer{
+    border-top:1px solid var(--line);
+    padding:40px 0 32px;
+    margin-top:80px;
+    text-align:center;
+  }
+  .footer-copyright{
+    font-size:13px;
+    color:var(--ink-soft);
+    line-height:1.6;
+  }
+  .footer-copyright a{
+    color:var(--coral);
+    text-decoration:none;
+  }
+  .footer-copyright a:hover{
+    text-decoration:underline;
+  }
+
   /* PALETTE EXPLORER */
   .palette-hero{
     padding:56px 0 32px;
@@ -996,10 +1029,63 @@
         <p>We're constantly adding new products and refining palettes. Bookmark us and check back often!</p>
       </section>
 
+      <!-- Copyright & Intellectual Property -->
+      <section id="copyright" class="legal-section">
+        <h2>Copyright & Intellectual Property</h2>
+        <p><strong>© <span class="copyright-year">2025</span> The Season Edit. All rights reserved.</strong></p>
+        
+        <h3>What's Protected</h3>
+        <p>The following elements of The Season Edit are protected by copyright and intellectual property laws:</p>
+        <ul>
+          <li><strong>Website Design & Code:</strong> The overall design, layout, user interface, and underlying source code of this website</li>
+          <li><strong>Color Curation System:</strong> Our methodology for matching products to seasonal color palettes</li>
+          <li><strong>Content & Copy:</strong> All written content, descriptions, and editorial material</li>
+          <li><strong>Visual Design Elements:</strong> Icons, graphics, color schemes, and visual styling unique to The Season Edit</li>
+          <li><strong>Database & Selections:</strong> Our curated collection of product recommendations and seasonal classifications</li>
+        </ul>
+        
+        <h3>What You Can Do</h3>
+        <p>You are welcome to:</p>
+        <ul>
+          <li>Use this website for personal, non-commercial purposes</li>
+          <li>Share links to The Season Edit on social media or personal blogs</li>
+          <li>Take inspiration from seasonal color analysis principles (these concepts are public domain)</li>
+        </ul>
+        
+        <h3>What Requires Permission</h3>
+        <p>The following activities require explicit written permission from The Season Edit:</p>
+        <ul>
+          <li>Reproducing, copying, or adapting the website design or code</li>
+          <li>Using our color curation methodology or product classifications commercially</li>
+          <li>Republishing our content, descriptions, or editorial material</li>
+          <li>Creating derivative works based on our website or systems</li>
+          <li>Using The Season Edit branding, name, or visual identity</li>
+        </ul>
+        
+        <h3>Third-Party Content</h3>
+        <p>Product images, brand names, and logos displayed on this site belong to their respective retailers and brands. We use them for informational and affiliate marketing purposes only.</p>
+        
+        <h3>Reporting Infringement</h3>
+        <p>If you believe someone has copied or misused The Season Edit's protected content, please contact us at <a href="mailto:hello@theseasonaledit.com">hello@theseasonaledit.com</a>.</p>
+        
+        <p class="legal-note">This copyright notice is provided to protect our work and clarify usage rights. It is not intended to prevent fair use, educational discussion, or legitimate commentary about seasonal color analysis or our service.</p>
+      </section>
+
     </div>
   </div>
 
 </div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="footer-copyright">
+      © <span id="copyrightYear">2025</span> The Season Edit. All rights reserved.<br>
+      Website design, color curation system, and content are protected by copyright.<br>
+      <a href="#about">Contact & Legal</a>
+    </div>
+  </div>
+</footer>
 
 <script src="app.js?v=9"></script>
 </body>

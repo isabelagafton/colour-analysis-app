@@ -1321,6 +1321,13 @@ function renderGrid() {
 
 // Wait for DOM to be ready
 document.addEventListener('DOMContentLoaded', function() {
+  // Update copyright year
+  const currentYear = new Date().getFullYear();
+  document.getElementById('copyrightYear').textContent = currentYear;
+  document.querySelectorAll('.copyright-year').forEach(el => {
+    el.textContent = currentYear;
+  });
+
   // Set up navigation
   window.addEventListener('hashchange', handleHash);
   document.querySelectorAll('.nav-link, .nav-logo').forEach(el => {
