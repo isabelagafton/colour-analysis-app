@@ -2,7 +2,31 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Season Edit — Color-matched shopping for your seasonal palette</title>
+
+<!-- SEO Meta Tags -->
+<meta name="description" content="Shop your seasonal color palette. Curated fashion pieces from Zara, H&M, Mango & Next matched to your Light Spring, Cool Summer, Deep Autumn or other seasonal colors.">
+<meta name="keywords" content="color analysis, seasonal color analysis, color palette shopping, light spring colors, cool summer fashion, personal color shopping">
+<meta name="author" content="The Season Edit">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://theseasonaledit.com/">
+<meta property="og:title" content="The Season Edit — Color-matched shopping for your seasonal palette">
+<meta property="og:description" content="Shop pieces in your exact seasonal colors from Zara, H&M, Mango & Next. No more guessing — every item is hand-matched to your palette.">
+<meta property="og:image" content="https://theseasonaledit.com/og-image.jpg">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://theseasonaledit.com/">
+<meta property="twitter:title" content="The Season Edit — Shop Your Colors">
+<meta property="twitter:description" content="Curated fashion matched to your seasonal color palette">
+<meta property="twitter:image" content="https://theseasonaledit.com/og-image.jpg">
+
+<!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
@@ -81,6 +105,78 @@
   .nav-link.active{
     color:var(--ink);
     border-bottom-color:var(--coral);
+  }
+
+  /* AFFILIATE LINK IN FILTER BAR */
+  .affiliate-link{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    color:var(--ink-soft);
+    text-decoration:none;
+    white-space:nowrap;
+    margin-left:12px;
+    padding:4px 8px;
+    border-radius:4px;
+    transition:all .15s ease;
+  }
+  .affiliate-link:hover{
+    color:var(--ink);
+    background:rgba(255,122,92,.08);
+  }
+
+  /* LEGAL CONTENT */
+  .legal-content{
+    max-width:720px;
+    margin:0 auto;
+    padding:0 0 60px;
+  }
+  .legal-section{
+    margin-bottom:56px;
+  }
+  .legal-section h2{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:32px;
+    margin-bottom:16px;
+    color:var(--ink);
+  }
+  .legal-section h3{
+    font-family:'Inter',sans-serif;
+    font-weight:600;
+    font-size:18px;
+    margin:24px 0 12px;
+    color:var(--ink);
+  }
+  .legal-section p{
+    font-size:15px;
+    line-height:1.7;
+    color:var(--ink);
+    margin-bottom:16px;
+  }
+  .legal-section ul{
+    margin:12px 0 16px 24px;
+    font-size:15px;
+    line-height:1.7;
+    color:var(--ink);
+  }
+  .legal-section ul li{
+    margin-bottom:8px;
+  }
+  .legal-section a{
+    color:var(--coral);
+    text-decoration:underline;
+  }
+  .legal-section a:hover{
+    color:var(--ink);
+  }
+  .legal-note{
+    font-size:13px;
+    color:var(--ink-soft);
+    font-style:italic;
+    background:#FAF8F4;
+    padding:12px 16px;
+    border-radius:8px;
+    border-left:3px solid var(--coral);
   }
 
   /* HERO */
@@ -708,6 +804,7 @@
       <a href="#home" class="nav-link" data-view="home">Home</a>
       <a href="#shop" class="nav-link" data-view="shop">Shop by Season</a>
       <a href="#palette" class="nav-link" data-view="palette">Palette Explorer</a>
+      <a href="#about" class="nav-link" data-view="about">About</a>
     </div>
   </div>
 </nav>
@@ -765,12 +862,140 @@
     <div class="filterbar">
       <div id="catChips"></div>
       <div class="count" id="countLabel"></div>
+      <a href="#disclosure" class="affiliate-link" title="We may earn commission from purchases">ⓘ Affiliate links</a>
     </div>
 
     <div class="grid" id="grid"></div>
 
     <div class="note">
       <strong>Prototype note —</strong> All 12 seasons now have full 10-color palettes. 29 real Next.ro products with working "Shop" links are now spread across 9 seasons (Light Spring, Warm Spring, Bright Spring, Cool Summer, Light Summer, Soft Summer, Cool Winter, Bright Winter, Deep Autumn) — Soft Autumn, Warm Autumn, and Deep Winter still show the honest empty state, since no products have been curated for them yet. Items marked <code>? check color</code> were placed from a color name (site-listed or user-described) matched to the nearest palette swatch, not from a verified photo, so the exact shade is worth a second look. Product cards use color-block placeholders unless a real photo URL is available.
+    </div>
+  </div>
+
+  <!-- ABOUT VIEW: Legal pages, affiliate disclosure, privacy, contact -->
+  <div id="aboutView" style="display:none">
+    <button class="back-link" onclick="navigate('home')">← Back to home</button>
+    
+    <header class="home-hero">
+      <h1 class="title">About <em>The Season Edit</em></h1>
+      <p class="sub">Color-matched shopping made simple. Here's how it works and the legal bits.</p>
+    </header>
+
+    <div class="legal-content">
+      
+      <!-- Affiliate Disclosure -->
+      <section id="disclosure" class="legal-section">
+        <h2>Affiliate Disclosure</h2>
+        <p><strong>Transparency first:</strong> The Season Edit participates in affiliate marketing programs with fashion retailers including Next, H&M, Zara, Mango, and Mohito.</p>
+        
+        <p><strong>What this means:</strong> When you click a "Shop" button and make a purchase, we may earn a small commission at no extra cost to you. Your price stays exactly the same whether you use our link or go directly to the retailer.</p>
+        
+        <p><strong>Why we do this:</strong> These commissions help us maintain the site, curate products, and keep matching items to seasonal palettes. We only recommend products we genuinely believe suit each color season.</p>
+        
+        <p><strong>Our promise:</strong> Product selection is based on color accuracy and seasonal fit, not commission rates. We're here to help you shop your colors, not push sales.</p>
+        
+        <p class="legal-note">This disclosure complies with consumer protection regulations including the EU's Unfair Commercial Practices Directive (2005/29/EC) and general transparency requirements under EU consumer law.</p>
+      </section>
+
+      <!-- Privacy Policy -->
+      <section id="privacy" class="legal-section">
+        <h2>Privacy Policy</h2>
+        <p><strong>Last updated:</strong> January 2025</p>
+        
+        <h3>Information We Collect</h3>
+        <p>The Season Edit is a static website. We do not collect, store, or process any personal data directly. However:</p>
+        <ul>
+          <li>When you click affiliate links, retailers may track your visit through cookies (subject to their own privacy policies)</li>
+          <li>We may use analytics tools to understand aggregated, anonymized site traffic patterns</li>
+          <li>Your browser may store preferences locally on your device (like your last viewed season)</li>
+        </ul>
+        
+        <h3>Cookies & Tracking</h3>
+        <p>This site may use cookies and similar technologies for:</p>
+        <ul>
+          <li><strong>Analytics:</strong> Understanding which features are popular (anonymized data only)</li>
+          <li><strong>Affiliate tracking:</strong> Enabling commission attribution when you shop (required for affiliate programs)</li>
+          <li><strong>Local preferences:</strong> Remembering your settings in your browser</li>
+        </ul>
+        <p>These cookies are necessary for the site's operation or are placed by third-party retailers. By continuing to use this site, you consent to the use of these cookies in accordance with this policy.</p>
+        
+        <h3>Your Rights Under GDPR</h3>
+        <p>If you are in the EU/EEA, you have the following rights:</p>
+        <ul>
+          <li><strong>Right to access:</strong> Request information about any data we might process</li>
+          <li><strong>Right to erasure:</strong> Request deletion of any data (though we don't store personal data directly)</li>
+          <li><strong>Right to restrict processing:</strong> Limit how data is used</li>
+          <li><strong>Right to data portability:</strong> Receive any data in a portable format</li>
+          <li><strong>Right to object:</strong> Object to data processing for marketing purposes</li>
+          <li><strong>Right to withdraw consent:</strong> Disable cookies via browser settings at any time</li>
+        </ul>
+        <p>You can exercise these rights by contacting us at the email below or by disabling cookies in your browser settings.</p>
+        
+        <h3>Third-Party Links</h3>
+        <p>Our site contains links to external retailers (Next, H&M, Zara, Mango, Mohito) based in the EU and beyond. When you click these links, you leave our site and are subject to those retailers' privacy policies. We are not responsible for their data practices.</p>
+        
+        <h3>Data Controller</h3>
+        <p>The Season Edit operates as a sole proprietorship/individual. For GDPR inquiries, contact: <a href="mailto:hello@theseasonaledit.com">hello@theseasonaledit.com</a></p>
+        
+        <h3>Changes to This Policy</h3>
+        <p>We may update this policy from time to time. Changes will be posted on this page with an updated date.</p>
+      </section>
+
+      <!-- Terms of Use -->
+      <section id="terms" class="legal-section">
+        <h2>Terms of Use</h2>
+        <p><strong>Last updated:</strong> January 2025</p>
+        
+        <h3>Acceptance of Terms</h3>
+        <p>By accessing and using The Season Edit, you agree to these terms. If you don't agree, please don't use the site.</p>
+        
+        <h3>Service Description</h3>
+        <p>The Season Edit provides curated product recommendations matched to seasonal color palettes. Product availability, pricing, descriptions, and delivery are controlled exclusively by the retailers (Next, H&M, Zara, Mango, Mohito), not by us. We act as an intermediary only.</p>
+        
+        <h3>No Warranties</h3>
+        <p>We provide this service "as is" without any warranties, express or implied:</p>
+        <ul>
+          <li>We don't guarantee product availability, pricing accuracy, or that items will match your expectations</li>
+          <li>Color accuracy depends on your screen calibration and lighting conditions</li>
+          <li>Seasonal color analysis is subjective — our suggestions are educational guides, not professional advice</li>
+          <li>We're not responsible for purchases, returns, shipping, or customer service issues with retailers</li>
+        </ul>
+        
+        <h3>Consumer Rights</h3>
+        <p>Your statutory consumer rights under EU law remain unaffected by these terms. When you purchase from retailers through our links, your contract is with them directly, and you retain all rights under EU Consumer Rights Directive (2011/83/EU), including:</p>
+        <ul>
+          <li>14-day right of withdrawal for online purchases</li>
+          <li>Rights regarding defective products under the Consumer Sales Directive</li>
+          <li>Rights to clear pricing, delivery information, and fair commercial practices</li>
+        </ul>
+        <p>For questions about orders, returns, or refunds, contact the retailer directly.</p>
+        
+        <h3>Intellectual Property</h3>
+        <p>Our color palette curation, site design, and editorial content are protected by copyright. Product images, brand names, and logos belong to their respective retailers and are used for informational purposes only.</p>
+        
+        <h3>Limitation of Liability</h3>
+        <p>To the extent permitted by EU law, we are not liable for any indirect, incidental, or consequential damages arising from use of this site or purchases made through affiliate links. Nothing in these terms excludes or limits liability for fraud, death, or personal injury caused by negligence.</p>
+        
+        <h3>Governing Law</h3>
+        <p>These terms are governed by the laws of Romania (or your EU member state if you are a consumer). Any disputes will be resolved in accordance with EU consumer protection regulations.</p>
+      </section>
+
+      <!-- Contact & About -->
+      <section id="contact" class="legal-section">
+        <h2>Contact & About</h2>
+        
+        <h3>About The Season Edit</h3>
+        <p>The Season Edit was created to solve a simple problem: seasonal color analysis is powerful, but shopping for your palette is tedious. We hand-match real, buyable pieces from popular retailers to each of the 12 seasonal palettes so you can shop with confidence.</p>
+        
+        <h3>Get in Touch</h3>
+        <p><strong>General inquiries:</strong> <a href="mailto:hello@theseasonaledit.com">hello@theseasonaledit.com</a></p>
+        <p><strong>Product suggestions:</strong> Found an item that fits a palette? Let us know!</p>
+        <p><strong>Partnerships:</strong> Retailer or brand interested in collaborating? Reach out.</p>
+        
+        <h3>Follow Updates</h3>
+        <p>We're constantly adding new products and refining palettes. Bookmark us and check back often!</p>
+      </section>
+
     </div>
   </div>
 

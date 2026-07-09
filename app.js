@@ -940,7 +940,7 @@ function itemCount(key) { return PRODUCTS.filter(p => p.season === key).length; 
 // ══════════════════════════════════════════════════════════════════════════════
 
 function showView(view) {
-  ['homeView', 'paletteView', 'shopView'].forEach(id => {
+  ['homeView', 'paletteView', 'shopView', 'aboutView'].forEach(id => {
     document.getElementById(id).style.display = id === view ? 'block' : 'none';
   });
   document.querySelectorAll('.nav-link').forEach(el => {
@@ -974,6 +974,14 @@ function handleHash() {
     renderFan();
     renderChips();
     renderGrid();
+  } else if (view === 'about' || view === 'disclosure' || view === 'privacy' || view === 'terms' || view === 'contact') {
+    showView('aboutView');
+    if (view !== 'about') {
+      setTimeout(() => {
+        const section = document.getElementById(view);
+        if (section) section.scrollIntoView({behavior: 'smooth'});
+      }, 100);
+    }
   } else {
     showView('homeView');
   }
