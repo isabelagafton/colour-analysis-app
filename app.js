@@ -999,44 +999,101 @@ function donutPath(cx, cy, outerR, innerR, start, end) {
 
 function buildWheel() {
   const svg = document.getElementById('wheelSvg');
-  const cx = 260, cy = 260, outerR = 210, labelR = 130, hubR = 62, arcR = 242, step = 30;
+  const cx = 260, cy = 260, outerR = 240, innerR = 96, labelR = 168, step = 30;
   
-  const wedges = WHEEL_ORDER.map((key, i) => {
+  // Define season data with colors from their extended palettes
+  const seasons = [
+    {key: 'lightSpring', label: 'LIGHT', color: '#A8E6CF'},      // Mint Green
+    {key: 'warmSpring', label: 'WARM', color: '#F0B429'},        // Golden Yellow
+    {key: 'brightSpring', label: 'BRIGHT', color: '#FF6F5E'},    // Vivid Coral
+    {key: 'lightSummer', label: 'LIGHT', color: '#A8D8F0'},      // Light Sky Blue
+    {key: 'coolSummer', label: 'COOL', color: '#7FA6D8'},        // Cornflower Blue
+    {key: 'softSummer', label: 'SOFT', color: '#C9979D'},        // Soft Rose
+    {key: 'softAutumn', label: 'SOFT', color: '#D9907A'},        // Dusty Coral
+    {key: 'warmAutumn', label: 'WARM', color: '#CC5A28'},        // Burnt Orange
+    {key: 'deepAutumn', label: 'DARK', color: '#6B4423'},        // Deep Chocolate
+    {key: 'brightWinter', label: 'BRIGHT', color: '#FF00A8'},    // Magenta/Fuchsia
+    {key: 'coolWinter', label: 'COOL', color: '#4169E1'},        // Royal Blue
+    {key: 'deepWinter', label: 'DARK', color: '#4A4482'},        // Deep Indigo
+  ];
+  
+  // Draw wedges
+  const wedges = seasons.map((s, i) => {
     const start = i * step, end = (i + 1) * step, mid = start + step / 2;
-    const hero = SEASONS[key].palette[0].hex;
-    const d = donutPath(cx, cy, outerR, 0, start, end);
+    const d = donutPath(cx, cy, outerR, innerR, start, end);
     const pos = polarToCartesian(cx, cy, labelR, mid);
     let rot = mid + 90;
     if (mid > 0 && mid < 180) rot += 180;
-    const short = SEASONS[key].label.split(' ')[0];
-    return `<g><path class="wedge" d="${d}" fill="${hero}" data-key="${key}"><title>${SEASONS[key].label}</title></path>
-    <text class="wedge-label" x="${pos.x}" y="${pos.y}" transform="rotate(${rot} ${pos.x} ${pos.y})" text-anchor="middle" dominant-baseline="middle">${short}</text></g>`;
+    
+    return `<g>
+      <path class="wedge" d="${d}" fill="${s.color}" data-key="${s.key}">
+        <title>${SEASONS[s.key].label}</title>
+      </path>
+      <text class="wedge-label-inner" x="${pos.x}" y="${pos.y}" transform="rotate(${rot} ${pos.x} ${pos.y})" 
+            text-anchor="middle" dominant-baseline="middle">${s.label}</text>
+    </g>`;
   }).join('');
   
+  // Draw axes (cross lines)
+  const axes = `
+    <line x1="${cx}" y1="${cy - outerR - 5}" x2="${cx}" y2="${cy + outerR + 5}" 
+          stroke="#BBB" stroke-width="1.5" opacity="0.5"/>
+    <line x1="${cx - outerR - 5}" y1="${cy}" x2="${cx + outerR + 5}" y2="${cy}" 
+          stroke="#BBB" stroke-width="1.5" opacity="0.5"/>
+  `;
+  
+  // Axis labels (light, dark, warm, cool)
+  const axisLabels = `
+    <text x="${cx}" y="${cy - outerR - 25}" text-anchor="middle" fill="#666" 
+          font-family="Inter,sans-serif" font-size="14" font-weight="500">LIGHT</text>
+    <text x="${cx}" y="${cy + outerR + 38}" text-anchor="middle" fill="#666" 
+          font-family="Inter,sans-serif" font-size="14" font-weight="500">DARK</text>
+    <text x="${cx - outerR - 40}" y="${cy + 5}" text-anchor="middle" fill="#666" 
+          font-family="Inter,sans-serif" font-size="14" font-weight="500">WARM</text>
+    <text x="${cx + outerR + 40}" y="${cy + 5}" text-anchor="middle" fill="#666" 
+          font-family="Inter,sans-serif" font-size="14" font-weight="500">COOL</text>
+  `;
+  
+  // Family dividers (4 main lines)
   const dividers = [0, 90, 180, 270].map(a => {
-    const o = polarToCartesian(cx, cy, outerR + 2, a);
-    const i = polarToCartesian(cx, cy, hubR, a);
-    return `<line x1="${i.x}" y1="${i.y}" x2="${o.x}" y2="${o.y}" stroke="#2C2622" stroke-width="2.5" stroke-linecap="round" style="pointer-events:none"/>`;
+    const o = polarToCartesian(cx, cy, outerR, a);
+    const i = polarToCartesian(cx, cy, innerR, a);
+    return `<line x1="${i.x}" y1="${i.y}" x2="${o.x}" y2="${o.y}" stroke="#fff" stroke-width="2" stroke-linecap="round" style="pointer-events:none"/>`;
   }).join('');
   
-  const fLabels = FAMILIES.map((f, i) => {
-    const mid = i * 90 + 45;
-    const pos = polarToCartesian(cx, cy, arcR, mid);
-    let rot = mid;
-    if (mid > 90 && mid < 270) rot += 180;
-    return `<text class="family-label" x="${pos.x}" y="${pos.y}" transform="rotate(${rot} ${pos.x} ${pos.y})" text-anchor="middle" dominant-baseline="middle">${f.name.toUpperCase()}</text>`;
+  // Family labels (SPRING, SUMMER, AUTUMN, WINTER)
+  const familyDistance = outerR + 60;
+  const fLabels = [
+    {name: 'SPRING', angle: 45},
+    {name: 'SUMMER', angle: 135},
+    {name: 'AUTUMN', angle: 225},
+    {name: 'WINTER', angle: 315}
+  ].map(f => {
+    const pos = polarToCartesian(cx, cy, familyDistance, f.angle);
+    return `<text class="family-label-outer" x="${pos.x}" y="${pos.y}" text-anchor="middle" dominant-baseline="middle">${f.name}</text>`;
   }).join('');
   
-  const hub = `<circle cx="${cx}" cy="${cy}" r="${hubR}" fill="#FAF3EC" stroke="#E8DED2" stroke-width="2" style="pointer-events:none"/>`;
+  // Center hub with quadrant labels
+  const hub = `
+    <circle cx="${cx}" cy="${cy}" r="${innerR}" fill="#FAF3EC" stroke="#D8C8B8" stroke-width="1.5" style="pointer-events:none"/>
+    <line x1="${cx}" y1="${cy - innerR}" x2="${cx}" y2="${cy + innerR}" stroke="#D8C8B8" stroke-width="1.5"/>
+    <line x1="${cx - innerR}" y1="${cy}" x2="${cx + innerR}" y2="${cy}" stroke="#D8C8B8" stroke-width="1.5"/>
+    <text x="${cx - innerR * 0.4}" y="${cy - innerR * 0.25}" text-anchor="middle" fill="#888" font-family="Inter,sans-serif" font-size="14" font-weight="400">WARM</text>
+    <text x="${cx + innerR * 0.4}" y="${cy - innerR * 0.25}" text-anchor="middle" fill="#888" font-family="Inter,sans-serif" font-size="14" font-weight="400">COOL</text>
+    <text x="${cx - innerR * 0.4}" y="${cy + innerR * 0.4}" text-anchor="middle" fill="#888" font-family="Inter,sans-serif" font-size="14" font-weight="400">WARM</text>
+    <text x="${cx + innerR * 0.4}" y="${cy + innerR * 0.4}" text-anchor="middle" fill="#888" font-family="Inter,sans-serif" font-size="14" font-weight="400">COOL</text>
+  `;
   
-  svg.innerHTML = `${wedges}${dividers}${fLabels}${hub}`;
+  svg.innerHTML = `${axes}${wedges}${dividers}${fLabels}${axisLabels}${hub}`;
   
   svg.querySelectorAll('.wedge').forEach(el => {
     el.addEventListener('mouseenter', () => {
-      document.getElementById('wheelCenterLabel').textContent = SEASONS[el.dataset.key].label;
+      const seasonName = SEASONS[el.dataset.key].label;
+      // Optional: add hover effect
+      el.style.opacity = '0.8';
     });
     el.addEventListener('mouseleave', () => {
-      document.getElementById('wheelCenterLabel').textContent = 'Tap a season';
+      el.style.opacity = '1';
     });
     el.addEventListener('click', () => navigate('shop', el.dataset.key));
   });
@@ -1268,7 +1325,6 @@ document.addEventListener('DOMContentLoaded', function() {
   buildWheel();
   buildFamilies();
   buildProofStrip();
-  buildWheelStatus();
 
   // Initialize routing
   if (window.location.hash) {

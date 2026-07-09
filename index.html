@@ -478,15 +478,21 @@
     max-width:150px;
     line-height:1.3;
   }
-  .wedge-label{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:14px;
-    font-weight:500;
-    fill:#FDFBF7;
-    paint-order:stroke;
-    stroke:#2C2622;
-    stroke-width:0.8px;
-    stroke-linejoin:round;
+  .wedge-label-inner{
+    font-family:'Inter',sans-serif;
+    font-size:13px;
+    font-weight:400;
+    font-style:italic;
+    fill:#fff;
+    opacity:0.9;
+    pointer-events:none;
+  }
+  .family-label-outer{
+    font-family:'Inter',sans-serif;
+    font-size:16px;
+    font-weight:700;
+    letter-spacing:.08em;
+    fill:var(--ink);
     pointer-events:none;
   }
   .family-label{
@@ -721,14 +727,10 @@
     <div class="wheel-section">
       <div class="wheel-heading">
         <h2 class="section-title">Find your season, then shop it</h2>
-        <p class="section-sub">Tap a season below — you'll land on its palette and its shopping list.</p>
-        <p class="wheel-status" id="wheelStatus"></p>
+        <p class="section-sub" style="font-size:16px; line-height:1.5; margin-bottom:40px; max-width:520px; margin-left:auto; margin-right:auto;">Each season sits on the colour wheel based on its warmth (warm/cool) and value (light/dark). Tap any season to explore.</p>
       </div>
       <div class="wheel-wrap">
         <svg id="wheelSvg" viewBox="0 0 520 520"></svg>
-        <div class="wheel-center" id="wheelCenter">
-          <span class="wheel-center-label" id="wheelCenterLabel">Tap a season</span>
-        </div>
       </div>
     </div>
 
@@ -774,6 +776,6 @@
 
 </div>
 
-<script src="app.js?v=3"></script>
+<script src="app.js?v=9"></script>
 </body>
 </html>
