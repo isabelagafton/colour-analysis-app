@@ -424,6 +424,35 @@
     margin-top:8px;
   }
   .price{font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--ink-soft);}
+  .price.on-sale{
+    color:var(--warmred);
+    font-weight:600;
+    font-size:12px;
+  }
+  .original-price{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    color:var(--ink-soft);
+    text-decoration:line-through;
+    margin-right:4px;
+    opacity:0.7;
+  }
+  .sale-badge{
+    position:absolute;
+    top:48px;
+    right:12px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:.04em;
+    text-transform:uppercase;
+    background:var(--warmred);
+    color:#fff;
+    padding:4px 8px;
+    border-radius:5px;
+    box-shadow:0 2px 6px rgba(225,79,53,.3);
+    z-index:10;
+  }
   .shop-btn{
     font-family:'Inter',sans-serif;
     font-size:12px;

@@ -833,7 +833,7 @@ const FAMILIES = [
 
 const PRODUCTS = [
   {season:'lightSpring', name:'Lipsy Pistachio Green Linen-Blend Shirt', retailer:'next', category:'top', shade:'pistachio', price:'253 RON', url:'https://www.next.ro/en/style/su878498/y72754', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/Y72754s.jpg', dateAdded:'2025-01-15'},
-  {season:'lightSpring', name:'Love & Roses Apricot Lace Blouse', retailer:'next', category:'top', shade:'apricot', price:'298 RON', url:'https://www.next.ro/en/style/su900137/v24764', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/V24764s.jpg', dateAdded:'2024-12-11'},
+  {season:'lightSpring', name:'Love & Roses Apricot Lace Blouse', retailer:'next', category:'top', shade:'apricot', price:'298 RON', salePrice:'199 RON', url:'https://www.next.ro/en/style/su900137/v24764', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/V24764s.jpg', dateAdded:'2024-12-11'},
   {season:'lightSpring', name:'Love & Roses Peach Pink Pointelle Cardigan', retailer:'next', category:'knit', shade:'peach', price:'253 RON', url:'https://www.next.ro/en/style/sv028711/v76604', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/V76604s.jpg', dateAdded:'2024-12-12'},
   {season:'lightSpring', name:'Love & Roses Blue Satin Jacquard Tea Top', retailer:'next', category:'top', shade:'skyblue', price:'283 RON', url:'https://www.next.ro/en/style/sv000342/g83781', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/G83781s.jpg', dateAdded:'2024-12-13'},
   {season:'lightSpring', name:'Love & Roses Coral Shell Cutwork Mini Kaftan', retailer:'next', category:'dress', shade:'coral', price:'343 RON', url:'https://www.next.ro/ro/style/su845985/h97805', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/H97805s.jpg', dateAdded:'2024-12-13'},
@@ -935,7 +935,15 @@ const PRODUCTS = [
   {season:'softSummer', name:'Mohito Wide Leg Trousers', retailer:'mohito', category:'accessory', shade:'stone', price:'149 RON', url:'https://www.mohito.com/ro/ro/pantaloni-cu-croi-larg-513jv-84x', confidence:'high', img:'https://static.mohito.com/media/catalog/product/5/1/513JV-84X-040-1-1278001.jpg', dateAdded:'2025-01-14'},
   {season:'softSummer', name:'Mohito Short Sleeve Shirt', retailer:'mohito', category:'top', shade:'sagegreen', price:'109 RON', url:'https://www.mohito.com/ro/ro/camasa-cu-maneci-scurte-392iy-87x', confidence:'high', img:'https://static.mohito.com/media/catalog/product/3/9/392IY-87X-040-1-1257892.jpg', dateAdded:'2025-01-14'},
   {season:'softSummer', name:'Mohito Viscose Shorts', retailer:'mohito', category:'accessory', shade:'sagegreen', price:'79 RON', url:'https://www.mohito.com/ro/ro/pantaloni-scurti-din-viscoza-747jl-87x', confidence:'high', img:'https://static.mohito.com/media/catalog/product/7/4/747JL-87X-040-1-1257883.jpg', dateAdded:'2025-01-14'},
-  {season:'lightSpring', name:'Mohito Maxi Dress with Tie Back', retailer:'mohito', category:'dress', shade:'butter', price:'199 RON', url:'https://www.mohito.com/ro/ro/rochie-maxi-cu-legare-la-spate-2-660kk-10x', confidence:'high', img:'https://static.mohito.com/media/catalog/product/6/6/660KK-10X-040-2-1263294.jpg', dateAdded:'2025-01-14'}
+  {season:'lightSpring', name:'Mohito Maxi Dress with Tie Back', retailer:'mohito', category:'dress', shade:'butter', price:'199 RON', url:'https://www.mohito.com/ro/ro/rochie-maxi-cu-legare-la-spate-2-660kk-10x', confidence:'high', img:'https://static.mohito.com/media/catalog/product/6/6/660KK-10X-040-2-1263294.jpg', dateAdded:'2025-01-14'},
+  {season:'coolSummer', name:'Mohito Viscose Maxi Dress', retailer:'mohito', category:'dress', shade:'slateblue', price:'139 RON', salePrice:'99 RON', url:'https://www.mohito.com/ro/ro/rochie-midi-din-viscoza-081hh-50x', confidence:'high', img:'https://static.mohito.com/media/catalog/product/0/8/081HH-50X-001-1-1028800_5.jpg', dateAdded:'2025-01-15'},
+  {season:'softAutumn', name:'Mohito Pleated Mini Dress', retailer:'mohito', category:'dress', shade:'chocolate', price:'149 RON', url:'https://www.mohito.com/ro/ro/rochie-mini-cu-falduri-854jt-84x', confidence:'high', img:'https://static.mohito.com/media/catalog/product/8/5/854JT-84X-001-1-1211915.jpg'},
+  {season:'deepAutumn', name:'Mohito Pleated Mini Dress', retailer:'mohito', category:'dress', shade:'chocolate', price:'149 RON', url:'https://www.mohito.com/ro/ro/rochie-mini-cu-falduri-854jt-84x', confidence:'high', img:'https://static.mohito.com/media/catalog/product/8/5/854JT-84X-001-1-1211915.jpg'},
+  {season:'brightSpring', name:'Mohito Short Sleeve Midi Dress', retailer:'mohito', category:'dress', shade:'clearwhite', price:'199 RON', url:'https://www.mohito.com/ro/ro/rochie-midi-bufanta-608jw-00x', confidence:'high', img:'https://static.mohito.com/media/catalog/product/6/0/608JW-00X-002-1-1232844.jpg'},
+  {season:'brightWinter', name:'Mohito Short Sleeve Midi Dress', retailer:'mohito', category:'dress', shade:'purewhite', price:'199 RON', url:'https://www.mohito.com/ro/ro/rochie-midi-bufanta-608jw-00x', confidence:'high', img:'https://static.mohito.com/media/catalog/product/6/0/608JW-00X-002-1-1232844.jpg'},
+  {season:'brightWinter', name:'Mohito Maxi Dress', retailer:'mohito', category:'dress', shade:'black', price:'165 RON', url:'https://www.mohito.com/ro/ro/rochie-maxi-505gr-99x', confidence:'high', img:'https://static.mohito.com/media/catalog/product/5/0/505GR-99X-001-1-1243186.jpg'},
+  {season:'deepWinter', name:'Mohito Maxi Dress', retailer:'mohito', category:'dress', shade:'trueblack', price:'165 RON', url:'https://www.mohito.com/ro/ro/rochie-maxi-505gr-99x', confidence:'high', img:'https://static.mohito.com/media/catalog/product/5/0/505GR-99X-001-1-1243186.jpg'},
+  {season:'deepWinter', name:'Mohito Halter Midi Dress', retailer:'mohito', category:'dress', shade:'deepraspberry', price:'189 RON', url:'https://www.mohito.com/ro/ro/rochie-de-vara-765gp-44x', confidence:'high', img:'https://static.mohito.com/media/catalog/product/7/6/765GP-44X-001-1-1234571.jpg'},
 ];
 
 // ══════════════════════════════════════════════════════════════════════════════
@@ -1304,9 +1312,14 @@ function renderGrid() {
   
   // Helper function to extract numeric price from price string
   const parsePrice = (priceStr) => {
-    // Extract numbers from strings like "253 LEI" or "94.99 LEI" or "142 RON"
+    // Extract numbers from strings like "253 RON" or "94.99 RON"
     const match = priceStr.match(/[\d.]+/);
     return match ? parseFloat(match[0]) : 0;
+  };
+  
+  // Helper function to get the current effective price (sale price if available, otherwise regular price)
+  const getEffectivePrice = (product) => {
+    return parsePrice(product.salePrice || product.price);
   };
   
   // Apply sorting
@@ -1318,9 +1331,9 @@ function renderGrid() {
     });
   } else if (sortBy === 'price-low') {
     items.sort((a, b) => {
-      const priceA = parsePrice(a.price);
-      const priceB = parsePrice(b.price);
-      return priceA - priceB; // Lowest price first
+      const priceA = getEffectivePrice(a);
+      const priceB = getEffectivePrice(b);
+      return priceA - priceB; // Lowest price first (uses sale price if available)
     });
   }
   // Default order is as-is in the PRODUCTS array
@@ -1345,16 +1358,25 @@ function renderGrid() {
       ? `<img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.onerror=null;this.replaceWith(Object.assign(document.createElement('div'),{className:'iconfallback',innerHTML:'${fallback}'}));">`
       : ICONS[p.category](hex);
     
+    // Check if product is on sale
+    const isOnSale = !!p.salePrice;
+    const saleBadge = isOnSale ? `<div class="sale-badge">Sale</div>` : '';
+    const priceDisplay = isOnSale 
+      ? `<span class="original-price">${p.price}</span><span class="price on-sale">${p.salePrice}</span>`
+      : `<span class="price">${p.price}</span>`;
+    
     return `<div class="card">
       <div class="swatchblock" style="background:${hex}22">
         <div class="retailer-tag">${retailer.name}</div>
         <div class="shade-tag">${shadeLabel}</div>
-        ${confBadge}${media}
+        ${confBadge}
+        ${saleBadge}
+        ${media}
       </div>
       <div class="info">
         <div class="name">${p.name}</div>
         <div class="meta">
-          <span class="price">${p.price}</span>
+          ${priceDisplay}
           <a class="shop-btn" href="${p.url || retailer.url}" target="_blank" rel="noopener">Shop at ${retailer.name} →</a>
         </div>
       </div>
