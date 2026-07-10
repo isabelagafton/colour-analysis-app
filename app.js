@@ -828,10 +828,20 @@ const FAMILIES = [
 ];
 
 // ══════════════════════════════════════════════════════════════════════════════
-// PRODUCTS
+// GOOGLE SHEETS CSV INTEGRATION
 // ══════════════════════════════════════════════════════════════════════════════
 
-const PRODUCTS = [
+// Paste your published Google Sheets CSV URL here:
+const GOOGLE_SHEET_CSV_URL = '';
+
+// This will store products loaded from Google Sheets (or fallback to hardcoded)
+let PRODUCTS = [];
+
+// ══════════════════════════════════════════════════════════════════════════════
+// PRODUCTS (Hardcoded Fallback)
+// ══════════════════════════════════════════════════════════════════════════════
+
+const PRODUCTS_FALLBACK = [
   {season:'lightSpring', name:'Lipsy Pistachio Green Linen-Blend Shirt', retailer:'next', category:'top', shade:'pistachio', price:'253 RON', url:'https://www.next.ro/en/style/su878498/y72754', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/Y72754s.jpg', dateAdded:'2025-01-15'},
   {season:'lightSpring', name:'Love & Roses Apricot Lace Blouse', retailer:'next', category:'top', shade:'apricot', price:'298 RON', salePrice:'199 RON', url:'https://www.next.ro/en/style/su900137/v24764', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/V24764s.jpg', dateAdded:'2024-12-11'},
   {season:'lightSpring', name:'Love & Roses Peach Pink Pointelle Cardigan', retailer:'next', category:'knit', shade:'peach', price:'253 RON', url:'https://www.next.ro/en/style/sv028711/v76604', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/V76604s.jpg', dateAdded:'2024-12-12'},
@@ -851,16 +861,16 @@ const PRODUCTS = [
   {season:'warmSpring', name:'Lipsy Broderie Flutter Sleeve Midi Dress (Turquoise)', retailer:'next', category:'dress', shade:'turquoise', price:'439 RON', url:'https://www.next.ro/ro/style/su858407/y10978', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/Y10978s.jpg', dateAdded:'2024-12-19'},
   {season:'warmSpring', name:'Love & Roses Lace Drop Waist Sleeveless Midi Dress', retailer:'next', category:'dress', shade:'mango', price:'663 RON', url:'https://www.next.ro/ro/style/su898190/v41947', confidence:'medium', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/V41947s.jpg', dateAdded:'2024-12-20'},
   {season:'lightSpring', name:'Sosandar Popper Front Denim Dress', retailer:'next', category:'dress', shade:'coral', price:'588 RON', url:'https://www.next.ro/ro/style/su311352/l41771', confidence:'medium', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/L41771s.jpg', dateAdded:'2024-12-20'},
-  {season:'lightSpring', name:'Friends Like These Draped Off The Shoulder Top (Yellow)', retailer:'next', category:'top', shade:'golden', price:'238 RON', url:'https://www.next.ro/ro/style/su721640/v10799', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/V10799s.jpg', dateAdded:'2024-12-20'},
-  {season:'lightSpring', name:'Friends Like These Draped Off The Shoulder Top (Pistachio Green)', retailer:'next', category:'top', shade:'pistachio', price:'238 RON', url:'https://www.next.ro/ro/style/su721640/v10809', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/V10809s.jpg', dateAdded:'2024-12-21'},
-  {season:'lightSpring', name:'Friends Like These Short Sleeve Ruffle Mini Dress', retailer:'next', category:'dress', shade:'coral', price:'335 RON', url:'https://www.next.ro/ro/style/su883300/y17055', confidence:'medium', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/Y17055s.jpg', dateAdded:'2024-12-21'},
-  {season:'lightSpring', name:'Lipsy 3/4 Sleeve Embroidered Grandad Blouse', retailer:'next', category:'top', shade:'mint', price:'313 RON', url:'https://www.next.ro/ro/style/su901245/y35898', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/Y35898s.jpg', dateAdded:'2024-12-22'},
+  {season:'lightSpring', name:'Friends Like These Draped Off The Shoulder Top (Yellow)', retailer:'next', category:'top', shade:'golden', price:'238 RON', salePrice:'166 RON', url:'https://www.next.ro/ro/style/su721640/v10799', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/V10799s.jpg', dateAdded:'2024-12-20'},
+  {season:'lightSpring', name:'Friends Like These Draped Off The Shoulder Top (Pistachio Green)', retailer:'next', category:'top', shade:'pistachio', price:'238 RON', salePrice:'166 RON', url:'https://www.next.ro/ro/style/su721640/v10809', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/V10809s.jpg', dateAdded:'2024-12-21'},
+  {season:'lightSpring', name:'Friends Like These Short Sleeve Ruffle Mini Dress', retailer:'next', category:'dress', shade:'coral', price:'335 RON', salePrice:'234 RON', url:'https://www.next.ro/ro/style/su883300/y17055', confidence:'medium', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/Y17055s.jpg', dateAdded:'2024-12-21'},
+  {season:'lightSpring', name:'Lipsy 3/4 Sleeve Embroidered Grandad Blouse', retailer:'next', category:'top', shade:'mint', price:'313 RON', salePrice:'219 RON', url:'https://www.next.ro/ro/style/su901245/y35898', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/Y35898s.jpg', dateAdded:'2024-12-22'},
   {season:'brightSpring', name:'Love & Roses Embellished V-Neck Jersey T-Shirt (Mint)', retailer:'next', category:'top', shade:'vividgreen', price:'194 RON', url:'https://www.next.ro/ro/style/sv144388/y35543', confidence:'medium', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/Y35543s.jpg', dateAdded:'2024-12-22'},
-  {season:'brightSpring', name:'Love & Roses Tie Shoulder Lace Broderie Midi Dress', retailer:'next', category:'dress', shade:'brightturquoise', price:'737 RON', url:'https://www.next.ro/ro/style/su894622/y26953', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/Y26953s.jpg', dateAdded:'2024-12-22'},
-  {season:'lightSpring', name:'Love & Roses Sequin V-Neck Printed Vest', retailer:'next', category:'top', shade:'mint', price:'216 RON', url:'https://www.next.ro/ro/style/su924156/y97048', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/Y97048s.jpg', dateAdded:'2024-12-23'},
-  {season:'lightSpring', name:'Love & Roses Embellished V-Neck Jersey T-Shirt (Yellow)', retailer:'next', category:'top', shade:'golden', price:'179 RON', url:'https://www.next.ro/ro/style/su918259/w19381', confidence:'medium', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/W19381s.jpg', dateAdded:'2024-12-23'},
+  {season:'brightSpring', name:'Love & Roses Tie Shoulder Lace Broderie Midi Dress', retailer:'next', category:'dress', shade:'brightturquoise', price:'737 RON', salePrice:'515 RON', url:'https://www.next.ro/ro/style/su894622/y26953', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/Y26953s.jpg', dateAdded:'2024-12-22'},
+  {season:'lightSpring', name:'Love & Roses Sequin V-Neck Printed Vest', retailer:'next', category:'top', shade:'mint', price:'216 RON', salePrice:'151 RON', url:'https://www.next.ro/ro/style/su924156/y97048', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/Y97048s.jpg', dateAdded:'2024-12-23'},
+  {season:'lightSpring', name:'Love & Roses Embellished V-Neck Jersey T-Shirt (Yellow)', retailer:'next', category:'top', shade:'golden', price:'179 RON', salePrice:'125 RON', url:'https://www.next.ro/ro/style/su918259/w19381', confidence:'medium', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/W19381s.jpg', dateAdded:'2024-12-23'},
   {season:'coolSummer', name:'Love & Roses Lace Trim Top', retailer:'next', category:'top', shade:'blushpink', price:'238 RON', url:'https://www.next.ro/ro/style/su998882/g82820', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/G82820s.jpg', dateAdded:'2024-12-24'},
-  {season:'brightSpring', name:'Lipsy Lace Detail Frill Crochet Knitted Vest', retailer:'next', category:'knit', shade:'hotpink', price:'268 RON', url:'https://www.next.ro/ro/style/su961742/g76631', confidence:'medium', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/G76631s.jpg', dateAdded:'2024-12-24'},
+  {season:'brightSpring', name:'Lipsy Lace Detail Frill Crochet Knitted Vest', retailer:'next', category:'knit', shade:'hotpink', price:'268 RON', salePrice:'187 RON', url:'https://www.next.ro/ro/style/su961742/g76631', confidence:'medium', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/G76631s.jpg', dateAdded:'2024-12-24'},
   {season:'deepAutumn', name:'Love & Roses Lace Trim Top', retailer:'next', category:'top', shade:'rust', price:'290 RON', url:'https://www.next.ro/en/style/su998079/v48970', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/V48970s.jpg', dateAdded:'2024-12-24'},
   {season:'softAutumn', name:'Love & Roses Embellished V-Neck Jersey T-Shirt', retailer:'next', category:'top', shade:'camel', price:'179 RON', url:'https://www.next.ro/en/style/su898154/w11524', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/W11524s.jpg', dateAdded:'2024-12-25'},
   {season:'coolSummer', name:'Love & Roses Sequin V-Neck Printed Vest', retailer:'next', category:'top', shade:'dustyblue', price:'216 RON', url:'https://www.next.ro/en/style/su957954/w11776', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/W11776s.jpg', dateAdded:'2024-12-25'},
@@ -892,15 +902,15 @@ const PRODUCTS = [
   {season:'coolSummer', name:'Friends Like These Draped Off The Shoulder Top (Light Blue)', retailer:'next', category:'top', shade:'powderblue', price:'238 RON', url:'https://www.next.ro/ro/style/su721640/v10797', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/V10797s.jpg', dateAdded:'2025-01-02'},
   {season:'deepAutumn', name:'Friends Like These Draped Off The Shoulder Top (Chocolate Brown)', retailer:'next', category:'top', shade:'chocolate', price:'238 RON', url:'https://www.next.ro/ro/style/su721640/h70700', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/H70700s.jpg', dateAdded:'2025-01-02'},
   {season:'deepAutumn', name:'Friends Like These Draped Off The Shoulder Top (Burgundy)', retailer:'next', category:'top', shade:'burgundy', price:'238 RON', url:'https://www.next.ro/ro/style/su721640/w95506', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/W95506s.jpg', dateAdded:'2025-01-03'},
-  {season:'lightSpring', name:'Love & Roses Floral Print Bardot Top (Light Pink, Light Blue)', retailer:'next', category:'top', shade:'blush', price:'253 RON', url:'https://www.next.ro/ro/style/su955348/g58545', confidence:'medium', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/G58545s.jpg', dateAdded:'2025-01-03'},
-  {season:'lightSpring', name:'Love & Roses Floral Print Short Sleeve Blouse (Light Pink, Light Yellow)', retailer:'next', category:'top', shade:'butter', price:'290 RON', url:'https://www.next.ro/ro/style/su891350/y29360', confidence:'medium', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/Y29360s.jpg', dateAdded:'2025-01-03'},
+  {season:'lightSpring', name:'Love & Roses Floral Print Bardot Top (Light Pink, Light Blue)', retailer:'next', category:'top', shade:'blush', price:'253 RON', salePrice:'219 RON', url:'https://www.next.ro/ro/style/su955348/g58545', confidence:'medium', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/G58545s.jpg', dateAdded:'2025-01-03'},
+  {season:'lightSpring', name:'Love & Roses Floral Print Short Sleeve Blouse (Light Pink, Light Yellow)', retailer:'next', category:'top', shade:'butter', price:'290 RON', salePrice:'203 RON', url:'https://www.next.ro/ro/style/su891350/y29360', confidence:'medium', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/Y29360s.jpg', dateAdded:'2025-01-03'},
   {season:'brightWinter', name:'Lipsy 3/4 Sleeve Embroidered Grandad Blouse (White)', retailer:'next', category:'top', shade:'icywhite', price:'313 RON', url:'https://www.next.ro/ro/style/su901245/g12289', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/G12289s.jpg', dateAdded:'2025-01-04'},
   {season:'warmSpring', name:'Lipsy 3/4 Sleeve Embroidered Grandad Blouse (Orange)', retailer:'next', category:'top', shade:'mango', price:'313 RON', url:'https://www.next.ro/ro/style/su901245/y36116', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/Y36116s.jpg', dateAdded:'2025-01-04'},
   {season:'brightWinter', name:'Lipsy 3/4 Sleeve Embroidered Grandad Blouse (Pink)', retailer:'next', category:'top', shade:'hotpink', price:'313 RON', url:'https://www.next.ro/ro/style/su901245/337050', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/337050s.jpg', dateAdded:'2025-01-04'},
-  {season:'brightSpring', name:'Lipsy 3/4 Sleeve Embroidered Grandad Blouse (Red)', retailer:'next', category:'top', shade:'brighttomato', price:'313 RON', url:'https://www.next.ro/ro/style/su901245/v25556', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/V25556s.jpg', dateAdded:'2025-01-04'},
-  {season:'warmSpring', name:'Sosandar Chiffon Draped Shell Top (Coral)', retailer:'next', category:'top', shade:'coral', price:'358 RON', url:'https://www.next.ro/ro/style/su870619/y23130', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/Y23130s.jpg', dateAdded:'2025-01-05'},
+  {season:'brightSpring', name:'Lipsy 3/4 Sleeve Embroidered Grandad Blouse (Red)', retailer:'next', category:'top', shade:'brighttomato', price:'313 RON', salePrice:'219 RON', url:'https://www.next.ro/ro/style/su901245/v25556', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/V25556s.jpg', dateAdded:'2025-01-04'},
+  {season:'warmSpring', name:'Sosandar Chiffon Draped Shell Top (Coral)', retailer:'next', category:'top', shade:'coral', price:'358 RON', salePrice:'338 RON', url:'https://www.next.ro/ro/style/su870619/y23130', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/Y23130s.jpg', dateAdded:'2025-01-05'},
   {season:'lightSummer', name:'Sosandar Chiffon Draped Shell Top (Light Blue)', retailer:'next', category:'top', shade:'powderblue', price:'358 RON', url:'https://www.next.ro/ro/style/su870619/v12030', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/V12030s.jpg', dateAdded:'2025-01-05'},
-  {season:'lightSpring', name:'Love & Roses Cotton Cutwork Crew Neck Shell Top (Mint Green)', retailer:'next', category:'top', shade:'mint', price:'283 RON', url:'https://www.next.ro/ro/style/su949238/g11152', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/G11152s.jpg', dateAdded:'2025-01-05'},
+  {season:'lightSpring', name:'Love & Roses Cotton Cutwork Crew Neck Shell Top (Mint Green)', retailer:'next', category:'top', shade:'mint', price:'283 RON', salePrice:'219 RON', url:'https://www.next.ro/ro/style/su949238/g11152', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/G11152s.jpg', dateAdded:'2025-01-05'},
   {season:'lightSpring', name:'Love & Roses Tie Shoulder Lace Trim Blouse (Mint Green)', retailer:'next', category:'top', shade:'mint', price:'290 RON', url:'https://www.next.ro/ro/style/su898080/v24429', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/V24429s.jpg', dateAdded:'2025-01-06'},
   {season:'deepWinter', name:'Love & Roses Sequin V-Neck Printed Vest (Raspberry Pink)', retailer:'next', category:'top', shade:'raspberry', price:'216 RON', url:'https://www.next.ro/ro/style/sv000342/v49184', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/V49184s.jpg', dateAdded:'2025-01-06'},
   {season:'deepAutumn', name:'Lipsy Notch Neck Sleeveless Top (Chocolate Brown)', retailer:'next', category:'top', shade:'chocolate', price:'238 RON', url:'https://www.next.ro/ro/style/sv088538/h65065', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/H65065s.jpg', dateAdded:'2025-01-06'},
@@ -918,8 +928,8 @@ const PRODUCTS = [
   {season:'coolSummer', name:'Love & Roses Teal Blue Balloon Sleeve V-Neck Brazilia Print Midi Dress', retailer:'next', category:'dress', shade:'softteal', price:'492 RON', url:'https://www.next.ro/en/style/sv116321/y70541', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/Y70541s.jpg', dateAdded:'2025-01-09'},
   {season:'brightWinter', name:'Friends Like These Blue V-Neck Plunge Sleeveless Maxi Dress', retailer:'next', category:'dress', shade:'cobaltblue', price:'313 RON', url:'https://www.next.ro/en/style/sv122828/y72283', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/Y72283s.jpg', dateAdded:'2025-01-10'},
   {season:'brightSpring', name:'Love & Roses Butter Yellow V-Neck Satin Front Jersey T-Shirt', retailer:'next', category:'top', shade:'clearyellow', price:'179 RON', url:'https://www.next.ro/en/style/su929300/h06142', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/H06142s.jpg', dateAdded:'2025-01-10'},
-  {season:'lightSpring', name:'Mohito Strappy Midi Dress', retailer:'mohito', category:'dress', shade:'coral', price:'259 RON', url:'https://www.mohito.com/ro/ro/rochie-midi-cu-bretele-434jo-32x', confidence:'high', img:'https://static.mohito.com/media/catalog/product/4/3/434JO-32X-002-1-1222869.jpg', dateAdded:'2025-01-10'},
-  {season:'lightSpring', name:'Mohito Ribbed Top', retailer:'mohito', category:'top', shade:'butter', price:'59 RON', url:'https://www.mohito.com/ro/ro/top-reiat-651he-10x', confidence:'high', img:'https://static.mohito.com/media/catalog/product/6/5/651HE-10X-002-1-1031990_13.jpg', dateAdded:'2025-01-10'},
+  {season:'lightSpring', name:'Mohito Strappy Midi Dress', retailer:'mohito', category:'dress', shade:'coral', price:'259 RON', salePrice:'199 RON', url:'https://www.mohito.com/ro/ro/rochie-midi-cu-bretele-434jo-32x', confidence:'high', img:'https://static.mohito.com/media/catalog/product/4/3/434JO-32X-002-1-1222869.jpg', dateAdded:'2025-01-10'},
+  {season:'lightSpring', name:'Mohito Ribbed Top', retailer:'mohito', category:'top', shade:'butter', price:'59 RON', salePrice:'45 RON', url:'https://www.mohito.com/ro/ro/top-reiat-651he-10x', confidence:'high', img:'https://static.mohito.com/media/catalog/product/6/5/651HE-10X-002-1-1031990_13.jpg', dateAdded:'2025-01-10'},
   {season:'lightSpring', name:'H&M Flared-Skirt Crêpe Dress', retailer:'hm', category:'dress', shade:'blush', price:'137 RON', url:'https://www2.hm.com/ro_ro/productpage.1324556001.html', confidence:'high', img:'https://image.hm.com/assets/hm/cd/96/cd96f1cf2333135c4d4b987198e5b61b5053a4cf.jpg', dateAdded:'2025-01-11'},
   {season:'lightSpring', name:'H&M Frill-Trimmed Halterneck Top', retailer:'hm', category:'top', shade:'coral', price:'114 RON', url:'https://www2.hm.com/ro_ro/productpage.1346795001.html', confidence:'high', img:'https://image.hm.com/assets/hm/99/c5/99c504f23d4049dc803f13ef74d3da62905cde5b.jpg', dateAdded:'2025-01-11'},
   {season:'lightSpring', name:'Mohito Strappy Top', retailer:'mohito', category:'top', shade:'ivory', price:'69 RON', url:'https://www.mohito.com/ro/ro/top-cu-bretele-2-130is-01x', confidence:'high', img:'https://static.mohito.com/media/catalog/product/1/3/130IS-01X-003-2-1207919.jpg', dateAdded:'2025-01-11'},
@@ -989,8 +999,126 @@ const PRODUCTS = [
   {season:'brightSpring', name:'Red Tie Waist Mini Dress', retailer:'next', category:'dress', shade:'brighttomato', price:'224 RON', url:'https://www.next.ro/en/style/su760103/g64667', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/G64667s.jpg'},
   {season:'deepAutumn', name:'Khaki Green Jersey Slouchy Shoulder Mini Dress', retailer:'next', category:'dress', shade:'darkolive', price:'192 RON', url:'https://www.next.ro/en/style/su961513/g62566', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/G62566s.jpg'},
   {season:'deepAutumn', name:'Chocolate Brown Shirred Strappy Jersey Midi Dress', retailer:'next', category:'dress', shade:'chocolate', price:'179 RON', url:'https://www.next.ro/en/style/su903546/y30140', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/Y30140s.jpg'},
+  {season:'lightSpring', name:'River Island Blue Scallop Hem Maxi Linen Blend Dress', retailer:'next', category:'dress', shade:'skyblue', price:'439 RON', url:'https://www.next.ro/en/style/sv155150/690816', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/690816s.jpg'},
+  {season:'deepAutumn', name:'Sosandar Blue Spot Print Bardot Figure Flattering Midi Dress', retailer:'next', category:'dress', shade:'warmnavy', price:'633 RON', url:'https://www.next.ro/en/style/sv139260/w01871', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/W01871s.jpg'},
+  {season:'deepWinter', name:'Sosandar Blue Spot Print Bardot Figure Flattering Midi Dress', retailer:'next', category:'dress', shade:'navyblue', price:'633 RON', url:'https://www.next.ro/en/style/sv139260/w01871', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/W01871s.jpg'},
+  {season:'softSummer', name:'Love & Roses Mid Blue Embroidered Tie Mini Dress', retailer:'next', category:'dress', shade:'slateblue', price:'432 RON', url:'https://www.next.ro/en/style/sv017961/y36755', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/Y36755s.jpg'},
+  {season:'softAutumn', name:'Love & Roses Mid Blue Embroidered Tie Mini Dress', retailer:'next', category:'dress', shade:'slateblue', price:'432 RON', url:'https://www.next.ro/en/style/sv017961/y36755', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/Y36755s.jpg'},
+  {season:'coolWinter', name:'Love & Roses Cobalt Blue Floral Embroidered Puff Sleeve Midi Dress', retailer:'next', category:'dress', shade:'cobalt', price:'506 RON', url:'https://www.next.ro/en/style/su962116/g63017', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/G63017s.jpg'},
+  {season:'deepWinter', name:'Love & Roses Cobalt Blue Floral Embroidered Puff Sleeve Midi Dress', retailer:'next', category:'dress', shade:'deepcobalt', price:'506 RON', url:'https://www.next.ro/en/style/su962116/g63017', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/G63017s.jpg'},
+  {season:'softSummer', name:'Friends Like These Mid Wash Shirred Chambray Denim Cami Mini Dress', retailer:'next', category:'dress', shade:'softdenim', price:'290 RON', url:'https://www.next.ro/en/style/su962026/w14320', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/W14320s.jpg'},
+  {season:'softAutumn', name:'Friends Like These Mid Wash Shirred Chambray Denim Cami Mini Dress', retailer:'next', category:'dress', shade:'warmdenim', price:'290 RON', url:'https://www.next.ro/en/style/su962026/w14320', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/W14320s.jpg'},
+  {season:'lightSummer', name:'Friends Like These Blue Button Down Tie Waist Collared Shirt Midi Dress', retailer:'next', category:'dress', shade:'periwinkle', price:'313 RON', url:'https://www.next.ro/en/style/su883295/g05057', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/G05057s.jpg'},
+  {season:'softSummer', name:'Friends Like These Blue Button Down Tie Waist Collared Shirt Midi Dress', retailer:'next', category:'dress', shade:'softperiwinkle', price:'313 RON', url:'https://www.next.ro/en/style/su883295/g05057', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/G05057s.jpg'},
+  {season:'lightSpring', name:'River Island Blue Short Sleeve Mirror Embroidered Maxi Dress', retailer:'next', category:'dress', shade:'mint', price:'484 RON', url:'https://www.next.ro/en/style/sv220475/572077', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/572077s.jpg'},
+  {season:'lightSummer', name:'Lemon Yellow Off The Shoulder Midi Dress', retailer:'next', category:'dress', shade:'palelemon', price:'217 RON', url:'https://www.next.ro/en/style/su769454/y19830', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/Y19830s.jpg'},
+  {season:'coolWinter', name:'Lemon Yellow Off The Shoulder Midi Dress', retailer:'next', category:'dress', shade:'lemonyellow', price:'217 RON', url:'https://www.next.ro/en/style/su769454/y19830', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/Y19830s.jpg'},
+  {season:'lightSpring', name:'Light Green Maxi Square Neck Shirred Strappy Dress', retailer:'next', category:'dress', shade:'mint', price:'166 RON', url:'https://www.next.ro/en/style/su843231/h96678', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/H96678s.jpg'},
+  {season:'brightWinter', name:'White/Black Polka Dot Drop Waist Strappy Jersey Dress', retailer:'next', category:'dress', shade:'purewhite', price:'204 RON', url:'https://www.next.ro/en/style/su769500/h56728', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/H56728s.jpg'},
+  {season:'warmSpring', name:'Ecru Tomato Print Square Neck Mini Shift Dress', retailer:'next', category:'dress', shade:'warmivory', price:'230 RON', url:'https://www.next.ro/en/style/sv072027/v18721', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/V18721s.jpg'},
+  {season:'warmAutumn', name:'Rose Pink Flutter Sleeve Square Neck Dress', retailer:'next', category:'dress', shade:'dustyrose', price:'332 RON', url:'https://www.next.ro/en/style/su903518/v26278', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/V26278s.jpg'},
+  {season:'brightSpring', name:'Red Button Down Midi Dress', retailer:'next', category:'dress', shade:'tomato', price:'249 RON', url:'https://www.next.ro/en/style/sv040839/w11784', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/W11784s.jpg'},
+  {season:'brightSpring', name:'Red Tie Waist Mini Dress', retailer:'next', category:'dress', shade:'brighttomato', price:'224 RON', url:'https://www.next.ro/en/style/su760103/g64667', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/G64667s.jpg'},
+  {season:'deepAutumn', name:'Khaki Green Jersey Slouchy Shoulder Mini Dress', retailer:'next', category:'dress', shade:'darkolive', price:'192 RON', url:'https://www.next.ro/en/style/su961513/g62566', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/G62566s.jpg'},
+  {season:'deepAutumn', name:'Chocolate Brown Shirred Strappy Jersey Midi Dress', retailer:'next', category:'dress', shade:'chocolate', price:'179 RON', url:'https://www.next.ro/en/style/su903546/y30140', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/Y30140s.jpg'},
   {season:'softAutumn', name:'Khaki Green Shirred Strappy Jersey Midi Dress', retailer:'next', category:'dress', shade:'khaki', price:'179 RON', url:'https://www.next.ro/en/style/su903546/y52615', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/Y52615s.jpg'},
 ];
+
+// ══════════════════════════════════════════════════════════════════════════════
+// CSV PARSING FUNCTIONS
+// ══════════════════════════════════════════════════════════════════════════════
+
+function parseCSV(csvText) {
+  const lines = csvText.trim().split('\n');
+  if (lines.length < 2) return []; // Need at least header + 1 data row
+  
+  const headers = lines[0].split(',').map(h => h.trim());
+  const products = [];
+  
+  for (let i = 1; i < lines.length; i++) {
+    const values = parseCSVLine(lines[i]);
+    if (values.length !== headers.length) continue; // Skip malformed rows
+    
+    const product = {};
+    headers.forEach((header, index) => {
+      const value = values[index].trim();
+      // Only add non-empty values (except salePrice which can be empty)
+      if (value || header === 'salePrice') {
+        product[header] = value || undefined;
+      }
+    });
+    
+    // Validate required fields
+    if (product.season && product.name && product.retailer && product.category && 
+        product.shade && product.price && product.url && product.confidence) {
+      products.push(product);
+    }
+  }
+  
+  return products;
+}
+
+function parseCSVLine(line) {
+  const values = [];
+  let current = '';
+  let inQuotes = false;
+  
+  for (let i = 0; i < line.length; i++) {
+    const char = line[i];
+    const nextChar = line[i + 1];
+    
+    if (char === '"') {
+      if (inQuotes && nextChar === '"') {
+        // Escaped quote
+        current += '"';
+        i++; // Skip next quote
+      } else {
+        // Toggle quote state
+        inQuotes = !inQuotes;
+      }
+    } else if (char === ',' && !inQuotes) {
+      // Field separator
+      values.push(current);
+      current = '';
+    } else {
+      current += char;
+    }
+  }
+  
+  values.push(current); // Add last field
+  return values;
+}
+
+async function loadProductsFromGoogleSheets() {
+  if (!GOOGLE_SHEET_CSV_URL) {
+    console.log('📦 No Google Sheets URL configured - using hardcoded products');
+    PRODUCTS = PRODUCTS_FALLBACK;
+    return;
+  }
+  
+  try {
+    console.log('📥 Loading products from Google Sheets...');
+    const response = await fetch(GOOGLE_SHEET_CSV_URL);
+    
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+    }
+    
+    const csvText = await response.text();
+    const parsedProducts = parseCSV(csvText);
+    
+    if (parsedProducts.length === 0) {
+      throw new Error('No valid products found in CSV');
+    }
+    
+    PRODUCTS = parsedProducts;
+    console.log(`✅ Loaded ${PRODUCTS.length} products from Google Sheets`);
+    
+  } catch (error) {
+    console.warn('⚠️ Failed to load from Google Sheets, using fallback:', error.message);
+    PRODUCTS = PRODUCTS_FALLBACK;
+  }
+}
 
 // ══════════════════════════════════════════════════════════════════════════════
 // STATE
@@ -1435,7 +1563,10 @@ function renderGrid() {
 // ══════════════════════════════════════════════════════════════════════════════
 
 // Wait for DOM to be ready
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', async function() {
+  // Load products from Google Sheets (or use fallback)
+  await loadProductsFromGoogleSheets();
+  
   // Update copyright year
   const currentYear = new Date().getFullYear();
   document.getElementById('copyrightYear').textContent = currentYear;

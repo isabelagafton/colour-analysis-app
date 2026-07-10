@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Generate Favicon</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #FF7A5C;
+            margin-bottom: 20px;
+        }
+        .preview {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        .preview-item {
+            text-align: center;
+        }
+        .preview-item img {
+            display: block;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+        }
+        .size-16 { width: 16px; height: 16px; }
+        .size-32 { width: 32px; height: 32px; }
+        .size-64 { width: 64px; height: 64px; }
+        .size-128 { width: 128px; height: 128px; }
+        canvas { display: none; }
+        button {
+            background: #FF7A5C;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        button:hover {
+            background: #E8652A;
+        }
+        .instructions {
+            background: #FFF9F0;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 3px solid #FF7A5C;
+            margin-top: 20px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        code {
+            background: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 Shop By Season Favicon Generator</h1>
+        
+        <div class="preview">
+            <div class="preview-item">
+                <img id="preview16" class="size-16" src="favicon.svg" alt="16x16">
+                <div>16x16 (tab)</div>
+            </div>
+            <div class="preview-item">
+                <img id="preview32" class="size-32" src="favicon.svg" alt="32x32">
+                <div>32x32 (bookmark)</div>
+            </div>
+            <div class="preview-item">
+                <img id="preview64" class="size-64" src="favicon.svg" alt="64x64">
+                <div>64x64</div>
+            </div>
+            <div class="preview-item">
+                <img id="preview128" class="size-128" src="favicon.svg" alt="128x128">
+                <div>128x128</div>
+            </div>
+        </div>
+
+        <div>
+            <button onclick="downloadPNG(16)">Download 16x16 PNG</button>
+            <button onclick="downloadPNG(32)">Download 32x32 PNG</button>
+            <button onclick="downloadICO()">Download .ico (All Sizes)</button>
+        </div>
+
+        <div class="instructions">
+            <strong>📋 Instructions:</strong><br><br>
+            <strong>Option 1: Use SVG (Modern, Simple)</strong><br>
+            1. The <code>favicon.svg</code> file is already created<br>
+            2. Just upload it to your hosting alongside <code>index.html</code><br>
+            3. Modern browsers will use it automatically!<br><br>
+            
+            <strong>Option 2: Convert to ICO (Best Compatibility)</strong><br>
+            1. Click "Download .ico" button above<br>
+            2. Use an online converter like <a href="https://favicon.io/favicon-converter/" target="_blank">favicon.io</a><br>
+            3. Upload the SVG and download as .ico<br>
+            4. Replace <code>favicon.ico</code> in your project<br><br>
+            
+            <strong>Option 3: Use PNG Files</strong><br>
+            1. Click the "Download PNG" buttons above<br>
+            2. Rename to <code>favicon.png</code><br>
+            3. Upload to your hosting<br>
+            4. Update HTML to reference the PNG
+        </div>
+    </div>
+
+    <canvas id="canvas"></canvas>
+
+    <script>
+        function downloadPNG(size) {
+            const canvas = document.getElementById('canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = size;
+            canvas.height = size;
+
+            const svg = `
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="${size}" height="${size}">
+                    <rect width="100" height="100" fill="#FAF3EC" rx="18"/>
+                    <rect width="100" height="100" fill="none" stroke="#E8DED2" stroke-width="2" rx="18"/>
+                    <text x="35" y="62" 
+                          font-family="Arial, Helvetica, sans-serif" 
+                          font-size="60" 
+                          font-weight="800" 
+                          fill="#FF7A5C"
+                          text-anchor="middle">S</text>
+                    <text x="65" y="78" 
+                          font-family="Arial, Helvetica, sans-serif" 
+                          font-size="60" 
+                          font-weight="800" 
+                          fill="#FF7A5C"
+                          text-anchor="middle">S</text>
+                </svg>
+            `;
+
+            const img = new Image();
+            const blob = new Blob([svg], { type: 'image/svg+xml' });
+            const url = URL.createObjectURL(blob);
+
+            img.onload = function() {
+                ctx.drawImage(img, 0, 0, size, size);
+                canvas.toBlob(function(blob) {
+                    const link = document.createElement('a');
+                    link.download = `favicon-${size}x${size}.png`;
+                    link.href = URL.createObjectURL(blob);
+                    link.click();
+                    URL.revokeObjectURL(url);
+                });
+            };
+
+            img.src = url;
+        }
+
+        function downloadICO() {
+            alert('To create an .ico file:\n\n1. Visit https://favicon.io/favicon-converter/\n2. Upload the favicon.svg file\n3. Download the generated .ico file\n4. Replace favicon.ico in your project\n\nThis gives you the best browser compatibility!');
+        }
+    </script>
+</body>
+</html>
