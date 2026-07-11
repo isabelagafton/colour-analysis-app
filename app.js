@@ -801,6 +801,9 @@ const ICONS = {
   dress: (c) => `<svg viewBox="0 0 100 100" fill="${c}"><path d="M35 8 L25 22 L33 30 L30 40 L15 90 L85 90 L70 40 L67 30 L75 22 L65 8 L58 16 Q50 22 42 16 Z"/></svg>`,
   knit: (c) => `<svg viewBox="0 0 100 100" fill="${c}"><path d="M28 12 L10 24 L20 40 L28 34 L28 90 L72 90 L72 34 L80 40 L90 24 L72 12 L64 18 L64 26 L36 26 L36 18 Z"/></svg>`,
   outer: (c) => `<svg viewBox="0 0 100 100" fill="${c}"><path d="M32 8 L14 22 L24 38 L32 30 L28 92 L48 92 L48 40 L52 40 L52 92 L72 92 L68 30 L76 38 L86 22 L68 8 L58 16 Q50 22 42 16 Z"/></svg>`,
+  trousers: (c) => `<svg viewBox="0 0 100 100" fill="${c}"><path d="M25 10 L32 10 L34 50 L38 90 L48 90 L46 50 L48 10 L52 10 L54 50 L52 90 L62 90 L66 50 L68 10 L75 10 L72 90 L58 90 L58 60 L42 60 L42 90 L28 90 Z"/></svg>`,
+  shorts: (c) => `<svg viewBox="0 0 100 100" fill="${c}"><path d="M25 15 L32 15 L34 40 L38 65 L48 65 L46 40 L48 15 L52 15 L54 40 L52 65 L62 65 L66 40 L68 15 L75 15 L72 65 L58 65 L58 50 L42 50 L42 65 L28 65 Z"/></svg>`,
+  skirts: (c) => `<svg viewBox="0 0 100 100" fill="${c}"><path d="M30 15 L38 15 L38 25 L30 25 L25 90 L42 90 L50 40 L58 90 L75 90 L70 25 L62 25 L62 15 L70 15 L76 90 L50 90 L24 90 Z"/></svg>`,
   accessory: (c) => `<svg viewBox="0 0 100 100" fill="${c}"><path d="M30 38 L30 28 Q30 14 50 14 Q70 14 70 28 L70 38 L80 38 L84 90 L16 90 L20 38 Z M38 28 Q38 22 50 22 Q62 22 62 28 L62 38 L38 38 Z"/></svg>`,
 };
 
@@ -810,6 +813,9 @@ const CATS = [
   {key:'dress', label:'Dresses'},
   {key:'knit', label:'Knitwear'},
   {key:'outer', label:'Outerwear'},
+  {key:'trousers', label:'Trousers'},
+  {key:'shorts', label:'Shorts'},
+  {key:'skirts', label:'Skirts'},
   {key:'accessory', label:'Accessories'},
 ];
 
