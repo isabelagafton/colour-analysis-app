@@ -1,44 +1,13 @@
 # Quick Start: Google Sheets Product Management
 
-## ✅ Setup Complete!
+## ✅ Google Sheets is Live!
 
-Your site now supports Google Sheets integration for product management. Here's how it works:
+Your site is now powered by Google Sheets for product management. Here's how it works:
 
 ## Current State
-- **Right now:** Site uses hardcoded products (works perfectly as-is)
-- **After setup:** Site loads products from Google Sheets automatically
+- **Product Feed:** Google Sheets (live and active!)
+- **Updates:** Edit the sheet → changes appear on site in ~5 minutes
 - **Fallback:** If Google Sheets fails, site uses hardcoded products (zero downtime!)
-
----
-
-## 🚀 How to Enable Google Sheets (Optional)
-
-### Step 1: Create Google Sheet (5 min)
-1. Open [Google Sheets](https://sheets.google.com)
-2. Create new spreadsheet: **Shop By Season - Products**
-3. Add these headers in Row 1:
-   ```
-   season | name | retailer | category | shade | price | salePrice | url | confidence | img | dateAdded
-   ```
-4. Copy your existing products from `app.js` into the sheet (or start fresh!)
-
-### Step 2: Publish as CSV (2 min)
-1. File → Share → **Publish to web**
-2. Select: **Entire Document** + **Comma-separated values (.csv)**
-3. Check: **"Automatically republish when changes are made"**
-4. Click **Publish**
-5. **Copy the CSV URL** (looks like: `https://docs.google.com/spreadsheets/d/e/.../pub?output=csv`)
-
-### Step 3: Connect to Your Site (1 min)
-1. Open `app.js`
-2. Find line ~730: `const GOOGLE_SHEET_CSV_URL = '';`
-3. Paste your CSV URL:
-   ```javascript
-   const GOOGLE_SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/.../pub?output=csv';
-   ```
-4. Save, commit, and sync to GitHub
-
-**Done!** Your site now loads products from Google Sheets.
 
 ---
 
@@ -47,10 +16,11 @@ Your site now supports Google Sheets integration for product management. Here's 
 ### Adding a New Product
 1. Open your Google Sheet
 2. Add a new row with product details
-3. Wait ~5 minutes
-4. Product appears on your site automatically!
+3. Save (auto-saves in Google Sheets)
+4. Wait ~5 minutes for changes to publish
+5. Product appears on shopbyseason.co automatically!
 
-**No GitHub needed** ✓
+**No GitHub, no code, no commit/sync needed!** ✓
 
 ### Putting a Product On Sale
 1. Find the product row
@@ -102,7 +72,9 @@ See **GOOGLE_SHEETS_SETUP.md** for:
 `next`, `hm`, `mango`, `zara`, `mohito`
 
 **Category Codes:**
-`top`, `dress`, `knit`, `outer`, `accessory`
+`top`, `dress`, `knit`, `outer`, `trousers`, `shorts`, `skirts`, `accessory`
+
+**Important:** Use plural forms! (`skirts` not `skirt`, `trousers` not `trouser`)
 
 **Confidence Levels:**
 `high`, `medium`, `low`

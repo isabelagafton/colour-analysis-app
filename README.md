@@ -12,13 +12,16 @@ Shop by Season helps you shop with confidence by hand-matching real, buyable fas
 
 - 🎨 **12 Seasonal Palettes** - Complete color palettes for Light Spring, Warm Spring, Bright Spring, Light Summer, Cool Summer, Soft Summer, Soft Autumn, Warm Autumn, Deep Autumn, Bright Winter, Cool Winter, and Deep Winter
 - 🛍️ **Curated Shopping** - Real products from popular retailers with direct purchase links
+- 📊 **Google Sheets Integration** - Easy product management via spreadsheet (no coding required!)
 - 🎯 **Smart Filtering** - Filter by category, color shade, and season
+- 💰 **Sale Tracking** - Automatic SALE badges and strikethrough pricing
 - 📱 **Responsive Design** - Works beautifully on all devices
 - ⚡ **Fast & Lightweight** - Static site, no backend required
 
 ## Tech Stack
 
 - Pure HTML, CSS, JavaScript (no frameworks)
+- **Google Sheets** - Product data management (CSV feed)
 - Hosted on GitHub Pages
 - Custom domain via Cloudflare
 
