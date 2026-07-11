@@ -832,7 +832,7 @@ const FAMILIES = [
 // ══════════════════════════════════════════════════════════════════════════════
 
 // Paste your published Google Sheets CSV URL here:
-const GOOGLE_SHEET_CSV_URL = '';
+const GOOGLE_SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT_EsG2Li0A4bek-4T77fIRSZg6rv2xOg6Z5NQU5cuMVfA6TdrafelcmTT4LNNuNCzWCIPgDypRbvpg/pub?output=csv';
 
 // This will store products loaded from Google Sheets (or fallback to hardcoded)
 let PRODUCTS = [];
