@@ -1076,12 +1076,12 @@ function parseCSVLine(line) {
 async function loadProductsFromGoogleSheets() {
   if (!GOOGLE_SHEET_CSV_URL) {
     console.log('📦 No Google Sheets URL configured - using hardcoded products');
-    PRODUCTS = PRODUCTS_FALLBACK;
     return;
   }
   
   try {
     console.log('📥 Loading products from Google Sheets...');
+    
     const response = await fetch(GOOGLE_SHEET_CSV_URL);
     
     if (!response.ok) {
@@ -1098,9 +1098,19 @@ async function loadProductsFromGoogleSheets() {
     PRODUCTS = parsedProducts;
     console.log(`✅ Loaded ${PRODUCTS.length} products from Google Sheets`);
     
+    // Re-render current view with fresh data
+    const hash = window.location.hash.slice(1);
+    const [view] = hash.split('/');
+    if (view === 'shop') {
+      renderGrid();
+    } else if (view === '' || view === 'home') {
+      buildProofStrip();
+      buildFamilies(); // Update item counts
+    }
+    
   } catch (error) {
-    console.warn('⚠️ Failed to load from Google Sheets, using fallback:', error.message);
-    PRODUCTS = PRODUCTS_FALLBACK;
+    console.warn('⚠️ Failed to load from Google Sheets, keeping fallback:', error.message);
+    // PRODUCTS already set to PRODUCTS_FALLBACK, no action needed
   }
 }
 
@@ -1513,7 +1523,7 @@ function renderGrid() {
     const fallback = ICONS[p.category](hex).replace(/"/g, '&quot;');
     const confBadge = `<div class="confidence high" style="z-index:10;">✓ verified</div>`;
     const media = p.img
-      ? `<img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.onerror=null;this.replaceWith(Object.assign(document.createElement('div'),{className:'iconfallback',innerHTML:'${fallback}'}));">`
+      ? `<img src="${p.img}" alt="${p.name}" loading="lazy" decoding="async" onerror="this.onerror=null;this.replaceWith(Object.assign(document.createElement('div'),{className:'iconfallback',innerHTML:'${fallback}'}));">`
       : ICONS[p.category](hex);
     
     // Check if product is on sale
@@ -1547,9 +1557,12 @@ function renderGrid() {
 // ══════════════════════════════════════════════════════════════════════════════
 
 // Wait for DOM to be ready
-document.addEventListener('DOMContentLoaded', async function() {
-  // Load products from Google Sheets (or use fallback)
-  await loadProductsFromGoogleSheets();
+document.addEventListener('DOMContentLoaded', function() {
+  // Use fallback products immediately for instant render
+  PRODUCTS = PRODUCTS_FALLBACK;
+  
+  // Start loading products in the background (non-blocking)
+  loadProductsFromGoogleSheets();
   
   // Update copyright year
   const currentYear = new Date().getFullYear();
@@ -1575,7 +1588,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     });
   });
 
-  // Build home view
+  // Build home view immediately with fallback data
   buildWheel();
   buildFamilies();
   buildProofStrip();
