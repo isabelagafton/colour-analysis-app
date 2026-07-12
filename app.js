@@ -1324,15 +1324,65 @@ function buildFamilies() {
   });
 }
 
+// Featured products for proof strip - independent of palette data
+const FEATURED_PRODUCTS = [
+  {
+    img: 'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/Y72754s.jpg',
+    retailer: 'next',
+    category: 'top',
+    name: 'Lipsy Pistachio Green Linen-Blend Shirt',
+    url: 'https://www.next.ro/en/style/su878498/y72754'
+  },
+  {
+    img: 'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/V24764s.jpg',
+    retailer: 'next',
+    category: 'top',
+    name: 'Love & Roses Apricot Lace Blouse',
+    url: 'https://www.next.ro/en/style/su900137/v24764'
+  },
+  {
+    img: 'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/V76604s.jpg',
+    retailer: 'next',
+    category: 'knit',
+    name: 'Love & Roses Peach Pink Pointelle Cardigan',
+    url: 'https://www.next.ro/en/style/sv028711/v76604'
+  },
+  {
+    img: 'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/H97805s.jpg',
+    retailer: 'next',
+    category: 'dress',
+    name: 'Love & Roses Coral Shell Cutwork Mini Kaftan',
+    url: 'https://www.next.ro/ro/style/su845985/h97805'
+  },
+  {
+    img: 'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/G83781s.jpg',
+    retailer: 'next',
+    category: 'top',
+    name: 'Love & Roses Blue Satin Jacquard Tea Top',
+    url: 'https://www.next.ro/en/style/sv000342/g83781'
+  }
+];
+
 function buildProofStrip() {
   const wrap = document.getElementById('proofStrip');
-  wrap.innerHTML = PRODUCTS.slice(0, 5).map(p => {
+  const categoryLabels = {
+    top: 'Top',
+    dress: 'Dress',
+    knit: 'Knitwear',
+    outer: 'Outerwear',
+    trousers: 'Trousers',
+    shorts: 'Shorts',
+    skirts: 'Skirt',
+    accessory: 'Accessory'
+  };
+  
+  wrap.innerHTML = FEATURED_PRODUCTS.map(p => {
     const r = RETAILERS[p.retailer].name;
-    const shade = SEASONS[p.season].palette.find(s => s.key === p.shade);
+    const cat = categoryLabels[p.category] || p.category;
     return `<a class="proof-card" href="${p.url}" target="_blank" rel="noopener">
       <img class="proof-img" src="${p.img}" alt="${p.name}" loading="lazy"
-           onerror="this.src='';this.style.background='${shade?.hex || '#eee'}22';">
-      <div class="proof-caption"><b>${r}</b>${shade?.label || ''} · real link</div>
+           onerror="this.src='';this.style.background='#eee';">
+      <div class="proof-caption"><b>${r}</b>${cat} · real link</div>
     </a>`;
   }).join('');
 }
