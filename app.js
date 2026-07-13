@@ -1411,10 +1411,17 @@ function renderPaletteExplorer() {
     ? '30 colours across every family — from your best neutrals to your boldest accents.'
     : '10 hero shades — full extended palette coming soon.';
   
-  // Season bar
+  // Season bar - ordered Spring → Summer → Autumn → Winter
+  const seasonOrder = [
+    'lightSpring', 'warmSpring', 'brightSpring',
+    'lightSummer', 'coolSummer', 'softSummer',
+    'softAutumn', 'warmAutumn', 'deepAutumn',
+    'brightWinter', 'coolWinter', 'deepWinter'
+  ];
+  
   const bar = document.getElementById('paletteSeasonBar');
-  bar.innerHTML = Object.entries(SEASONS).map(([key, s]) =>
-    `<button class="palette-season-tab ${key === currentPaletteSeason ? 'active' : ''}" data-key="${key}">${s.label}</button>`
+  bar.innerHTML = seasonOrder.map(key =>
+    `<button class="palette-season-tab ${key === currentPaletteSeason ? 'active' : ''}" data-key="${key}">${SEASONS[key].label}</button>`
   ).join('');
   bar.querySelectorAll('.palette-season-tab').forEach(el => {
     el.addEventListener('click', () => {
