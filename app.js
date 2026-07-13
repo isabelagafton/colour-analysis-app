@@ -1470,8 +1470,16 @@ function renderSeasonSwitcher() {
     sortDropdown.value = sortBy;
   }
   
-  wrap.innerHTML = Object.entries(SEASONS).map(([key, s]) =>
-    `<button class="season-tab ${key === currentSeason ? 'active' : ''}" data-key="${key}">${s.label}</button>`
+  // Define season order: Spring → Summer → Autumn → Winter
+  const seasonOrder = [
+    'lightSpring', 'warmSpring', 'brightSpring',
+    'lightSummer', 'coolSummer', 'softSummer',
+    'softAutumn', 'warmAutumn', 'deepAutumn',
+    'brightWinter', 'coolWinter', 'deepWinter'
+  ];
+  
+  wrap.innerHTML = seasonOrder.map(key =>
+    `<button class="season-tab ${key === currentSeason ? 'active' : ''}" data-key="${key}">${SEASONS[key].label}</button>`
   ).join('');
   
   wrap.querySelectorAll('.season-tab').forEach(el => {
