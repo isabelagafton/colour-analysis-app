@@ -1528,6 +1528,13 @@ function renderGrid() {
     (activeShades.size === 0 || activeShades.has(p.shade))
   );
   
+  // Helper function to check if product is out of stock
+  const isOutOfStock = (product) => {
+    if (!product.outOfStock) return false;
+    const val = product.outOfStock.toString().toLowerCase().trim();
+    return val === 'true' || val === 'yes' || val === '1';
+  };
+  
   // Helper function to extract numeric price from price string
   const parsePrice = (priceStr) => {
     // Extract numbers from strings like "253 RON" or "94.99 RON"
@@ -1540,20 +1547,27 @@ function renderGrid() {
     return parsePrice(product.salePrice || product.price);
   };
   
-  // Apply sorting
+  // Separate in-stock and out-of-stock items
+  const inStock = items.filter(p => !isOutOfStock(p));
+  const outOfStock = items.filter(p => isOutOfStock(p));
+  
+  // Apply sorting to in-stock items
   if (sortBy === 'recent') {
-    items.sort((a, b) => {
+    inStock.sort((a, b) => {
       const dateA = a.dateAdded ? new Date(a.dateAdded) : new Date('2024-01-01');
       const dateB = b.dateAdded ? new Date(b.dateAdded) : new Date('2024-01-01');
       return dateB - dateA; // Most recent first
     });
   } else if (sortBy === 'price-low') {
-    items.sort((a, b) => {
+    inStock.sort((a, b) => {
       const priceA = getEffectivePrice(a);
       const priceB = getEffectivePrice(b);
       return priceA - priceB; // Lowest price first (uses sale price if available)
     });
   }
+  
+  // Combine: in-stock items first, then out-of-stock at the bottom
+  items = [...inStock, ...outOfStock];
   // Default order is as-is in the PRODUCTS array
   
   document.getElementById('countLabel').textContent = `${items.length} piece${items.length !== 1 ? 's' : ''}`;
@@ -1576,19 +1590,25 @@ function renderGrid() {
       ? `<img src="${p.img}" alt="${p.name}" loading="lazy" decoding="async" onerror="this.onerror=null;this.replaceWith(Object.assign(document.createElement('div'),{className:'iconfallback',innerHTML:'${fallback}'}));">`
       : ICONS[p.category](hex);
     
+    // Check if out of stock
+    const outOfStock = isOutOfStock(p);
+    const outOfStockClass = outOfStock ? ' out-of-stock' : '';
+    const outOfStockBadge = outOfStock ? `<div class="out-of-stock-badge">Out of Stock</div>` : '';
+    
     // Check if product is on sale
-    const isOnSale = !!p.salePrice;
+    const isOnSale = !!p.salePrice && !outOfStock;
     const saleBadge = isOnSale ? `<div class="sale-badge">Sale</div>` : '';
     const priceDisplay = isOnSale 
       ? `<span class="original-price">${p.price}</span><span class="price on-sale">${p.salePrice}</span>`
       : `<span class="price">${p.price}</span>`;
     
-    return `<div class="card">
+    return `<div class="card${outOfStockClass}">
       <div class="swatchblock" style="background:${hex}22">
         <div class="retailer-tag">${retailer.name}</div>
         <div class="shade-tag">${shadeLabel}</div>
-        ${confBadge}
+        ${outOfStock ? '' : confBadge}
         ${saleBadge}
+        ${outOfStockBadge}
         ${media}
       </div>
       <div class="info">

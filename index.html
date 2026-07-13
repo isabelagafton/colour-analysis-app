@@ -456,6 +456,38 @@
     box-shadow:0 2px 6px rgba(225,79,53,.3);
     z-index:10;
   }
+  .out-of-stock-badge{
+    position:absolute;
+    top:12px;
+    right:12px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:.04em;
+    text-transform:uppercase;
+    background:#999;
+    color:#fff;
+    padding:4px 8px;
+    border-radius:5px;
+    box-shadow:0 2px 6px rgba(0,0,0,.2);
+    z-index:10;
+  }
+  .card.out-of-stock{
+    opacity:0.5;
+    filter:grayscale(0.8);
+  }
+  .card.out-of-stock:hover{
+    transform:none;
+    box-shadow:none;
+  }
+  .card.out-of-stock .shop-btn{
+    color:var(--ink-soft);
+    border-bottom-color:var(--line);
+    cursor:not-allowed;
+  }
+  .card.out-of-stock .shop-btn:hover{
+    color:var(--ink-soft);
+  }
   .shop-btn{
     font-family:'Inter',sans-serif;
     font-size:12px;
