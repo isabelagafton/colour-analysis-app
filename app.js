@@ -1126,7 +1126,13 @@ let sortBy = 'default'; // 'default' or 'recent'
 
 function getPalette() { return SEASONS[currentSeason].palette; }
 function getHex() { return Object.fromEntries(getPalette().map(p => [p.key, p.hex])); }
-function itemCount(key) { return PRODUCTS.filter(p => p.season === key).length; }
+function itemCount(key) { 
+  return PRODUCTS.filter(p => {
+    const isArchived = p.archived && 
+      ['true', 'yes', '1'].includes(p.archived.toString().toLowerCase().trim());
+    return !isArchived && p.season === key;
+  }).length;
+}
 
 // ══════════════════════════════════════════════════════════════════════════════
 // NAVIGATION
@@ -1522,11 +1528,16 @@ function renderChips() {
 function renderGrid() {
   const grid = document.getElementById('grid');
   const HEX = getHex();
-  let items = PRODUCTS.filter(p =>
-    p.season === currentSeason &&
-    (activeCat === 'all' || p.category === activeCat) &&
-    (activeShades.size === 0 || activeShades.has(p.shade))
-  );
+  let items = PRODUCTS.filter(p => {
+    // Filter out archived products
+    const isArchived = p.archived && 
+      ['true', 'yes', '1'].includes(p.archived.toString().toLowerCase().trim());
+    
+    return !isArchived &&
+      p.season === currentSeason &&
+      (activeCat === 'all' || p.category === activeCat) &&
+      (activeShades.size === 0 || activeShades.has(p.shade));
+  });
   
   // Helper function to check if product is out of stock
   const isOutOfStock = (product) => {
