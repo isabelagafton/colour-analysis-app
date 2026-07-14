@@ -1474,7 +1474,7 @@ function renderPaletteContent() {
 function renderSeasonSwitcher() {
   const wrap = document.getElementById('seasonSwitcher');
   document.getElementById('seasonName').textContent = SEASONS[currentSeason].label;
-  document.getElementById('seasonSub').textContent = SEASONS[currentSeason].sub;
+  document.getElementById('seasonSub').innerHTML = SEASONS[currentSeason].sub;
   
   // Update sort dropdown value
   const sortDropdown = document.getElementById('sortDropdown');
