@@ -794,6 +794,7 @@ const RETAILERS = {
   mango: {name:'Mango', url:'https://shop.mango.com'},
   next: {name:'Next', url:'https://www.next.ro'},
   mohito: {name:'Mohito', url:'https://www.mohito.com'},
+  zalando: {name:'Zalando', url:'https://www.zalando.ro'},
 };
 
 const ICONS = {
@@ -1614,6 +1615,13 @@ function renderGrid() {
     const hex = HEX[p.shade] || '#eee';
     const shadeLabel = getPalette().find(s => s.key === p.shade)?.label || p.shade;
     const retailer = RETAILERS[p.retailer];
+    
+    // Safety check for missing retailer
+    if (!retailer) {
+      console.error('Missing retailer for product:', p.name, 'retailer value:', p.retailer);
+      return ''; // Skip this product
+    }
+    
     const fallback = ICONS[p.category](hex).replace(/"/g, '&quot;');
     const confBadge = `<div class="confidence high" style="z-index:10;">✓ verified</div>`;
     const media = p.img
