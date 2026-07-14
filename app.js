@@ -795,6 +795,9 @@ const RETAILERS = {
   next: {name:'Next', url:'https://www.next.ro'},
   mohito: {name:'Mohito', url:'https://www.mohito.com'},
   zalando: {name:'Zalando', url:'https://www.zalando.ro'},
+  asos: {name:'ASOS', url:'https://www.asos.com'},
+  stradivarius: {name:'Stradivarius', url:'https://www.stradivarius.com'},
+  reserved: {name:'Reserved', url:'https://www.reserved.com'},
 };
 
 const ICONS = {
