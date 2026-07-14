@@ -1167,6 +1167,7 @@ function handleHash() {
       currentSeason = seasonKey;
       activeShades = new Set();
       activeCat = 'all';
+      sortBy = 'default';
     }
     showView('shopView');
     renderSeasonSwitcher();
@@ -1491,11 +1492,14 @@ function renderSeasonSwitcher() {
   
   wrap.querySelectorAll('.season-tab').forEach(el => {
     el.addEventListener('click', () => {
-      currentSeason = el.dataset.key;
-      activeShades = new Set();
-      activeCat = 'all';
-      sortBy = 'default'; // Reset sort when changing seasons
-      navigate('shop', currentSeason);
+      const newSeason = el.dataset.key;
+      if (newSeason !== currentSeason) {
+        currentSeason = newSeason;
+        activeShades = new Set();
+        activeCat = 'all';
+        sortBy = 'default'; // Reset sort when changing seasons
+        navigate('shop', currentSeason);
+      }
     });
   });
 }
