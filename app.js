@@ -1126,8 +1126,8 @@ let currentPaletteSeason = 'lightSpring';
 let activeShades = new Set();
 let activeCat = 'all';
 let sortBy = 'default'; // 'default', 'recent', or 'price-low'
-let filterBy = 'all'; // 'all', 'on-sale', 'recently-added', or 'brand'
-let selectedBrand = ''; // For brand filtering
+let filterBy = 'all'; // 'all', 'on-sale', or 'recently-added'
+let selectedBrands = new Set(); // For brand filtering (can select multiple)
 
 function getPalette() { return SEASONS[currentSeason].palette; }
 function getHex() { return Object.fromEntries(getPalette().map(p => [p.key, p.hex])); }
@@ -1174,7 +1174,7 @@ function handleHash() {
       activeCat = 'all';
       sortBy = 'default';
       filterBy = 'all';
-      selectedBrand = '';
+      selectedBrands = new Set();
     }
     showView('shopView');
     renderSeasonSwitcher();
@@ -1491,17 +1491,6 @@ function renderSeasonSwitcher() {
     filterDropdown.value = filterBy;
   }
   
-  // Update brand dropdown visibility and value
-  const brandDropdown = document.getElementById('brandDropdown');
-  if (brandDropdown) {
-    if (filterBy === 'brand') {
-      brandDropdown.style.display = 'inline-block';
-      brandDropdown.value = selectedBrand;
-    } else {
-      brandDropdown.style.display = 'none';
-    }
-  }
-  
   // Define season order: Spring → Summer → Autumn → Winter
   const seasonOrder = [
     'lightSpring', 'warmSpring', 'brightSpring',
@@ -1523,7 +1512,7 @@ function renderSeasonSwitcher() {
         activeCat = 'all';
         sortBy = 'default'; // Reset sort when changing seasons
         filterBy = 'all'; // Reset filter when changing seasons
-        selectedBrand = ''; // Reset brand when changing seasons
+        selectedBrands = new Set(); // Reset brands when changing seasons
         navigate('shop', currentSeason);
       }
     });
@@ -1556,19 +1545,98 @@ function renderFan() {
 function renderChips() {
   const wrap = document.getElementById('catChips');
   wrap.style.cssText = 'display:flex;gap:10px;flex-wrap:wrap;';
-  wrap.innerHTML = CATS.map(c =>
+  
+  // Add category chips
+  const categoryChips = CATS.map(c =>
     `<button class="chip ${c.key === activeCat ? 'active' : ''}" data-key="${c.key}">${c.label}</button>`
   ).join('');
   
-  wrap.querySelectorAll('.chip').forEach(el => {
+  // Add brand filter button
+  const brandCount = selectedBrands.size > 0 ? ` (${selectedBrands.size})` : '';
+  const brandChip = `<button class="chip ${selectedBrands.size > 0 ? 'active' : ''}" id="brandFilterBtn">Brand${brandCount}</button>`;
+  
+  wrap.innerHTML = categoryChips + brandChip;
+  
+  wrap.querySelectorAll('.chip[data-key]').forEach(el => {
     el.addEventListener('click', () => {
       activeCat = el.dataset.key;
-      wrap.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+      wrap.querySelectorAll('.chip[data-key]').forEach(c => c.classList.remove('active'));
       el.classList.add('active');
       renderGrid();
     });
   });
+  
+  // Brand filter button handler
+  document.getElementById('brandFilterBtn').addEventListener('click', () => {
+    toggleBrandPanel();
+  });
 }
+
+function toggleBrandPanel() {
+  const panel = document.getElementById('brandFilterPanel');
+  if (panel.style.display === 'none') {
+    // Show panel and populate brands
+    populateBrandPanel();
+    panel.style.display = 'block';
+  } else {
+    panel.style.display = 'none';
+  }
+}
+
+function populateBrandPanel() {
+  const container = document.getElementById('brandCheckboxes');
+  
+  // Get unique retailers from current season's products
+  const availableRetailers = new Set();
+  const retailerCounts = {};
+  
+  PRODUCTS.forEach(p => {
+    const isArchived = p.archived && 
+      ['true', 'yes', '1'].includes(p.archived.toString().toLowerCase().trim());
+    
+    if (!isArchived && p.season === currentSeason && p.retailer) {
+      availableRetailers.add(p.retailer);
+      retailerCounts[p.retailer] = (retailerCounts[p.retailer] || 0) + 1;
+    }
+  });
+  
+  // Sort retailers alphabetically by display name
+  const sortedRetailers = Array.from(availableRetailers).sort((a, b) => {
+    const nameA = RETAILERS[a]?.name || a;
+    const nameB = RETAILERS[b]?.name || b;
+    return nameA.localeCompare(nameB);
+  });
+  
+  // Build checkboxes
+  container.innerHTML = sortedRetailers.map(retailerKey => {
+    const retailer = RETAILERS[retailerKey];
+    if (!retailer) return '';
+    
+    const isChecked = selectedBrands.has(retailerKey) ? 'checked' : '';
+    const count = retailerCounts[retailerKey] || 0;
+    
+    return `
+      <label style="display:flex; align-items:center; gap:12px; padding:8px 0; cursor:pointer; font-family:'Inter',sans-serif; font-size:14px;">
+        <input type="checkbox" value="${retailerKey}" ${isChecked} 
+               style="width:18px; height:18px; cursor:pointer;"
+               onchange="handleBrandCheckbox('${retailerKey}', this.checked)">
+        <span style="flex:1;">${retailer.name}</span>
+        <span style="color:var(--ink-soft); font-size:13px;">[${count}]</span>
+      </label>
+    `;
+  }).join('');
+}
+
+// Global function for checkbox handler (called from inline onchange)
+window.handleBrandCheckbox = function(retailerKey, isChecked) {
+  if (isChecked) {
+    selectedBrands.add(retailerKey);
+  } else {
+    selectedBrands.delete(retailerKey);
+  }
+  renderChips(); // Update the brand button count
+  renderGrid();
+};
 
 function renderGrid() {
   const grid = document.getElementById('grid');
@@ -1581,7 +1649,8 @@ function renderGrid() {
     return !isArchived &&
       p.season === currentSeason &&
       (activeCat === 'all' || p.category === activeCat) &&
-      (activeShades.size === 0 || activeShades.has(p.shade));
+      (activeShades.size === 0 || activeShades.has(p.shade)) &&
+      (selectedBrands.size === 0 || selectedBrands.has(p.retailer));
   });
   
   // Apply filter before sorting
@@ -1600,8 +1669,6 @@ function renderGrid() {
       const addedDate = new Date(p.dateAdded);
       return addedDate >= twoWeeksAgo;
     });
-  } else if (filterBy === 'brand' && selectedBrand) {
-    items = items.filter(p => p.retailer === selectedBrand);
   }
   
   // Helper function to check if product is out of stock
@@ -1738,73 +1805,16 @@ document.addEventListener('DOMContentLoaded', function() {
   if (filterDropdown) {
     filterDropdown.addEventListener('change', (e) => {
       filterBy = e.target.value;
-      const brandDropdown = document.getElementById('brandDropdown');
-      
-      if (filterBy === 'brand') {
-        // Show brand dropdown and populate it
-        if (brandDropdown) {
-          brandDropdown.style.display = 'inline-block';
-          populateBrandDropdown();
-          // If no brand selected yet, don't filter
-          if (!selectedBrand) {
-            selectedBrand = '';
-          }
-        }
-      } else {
-        // Hide brand dropdown
-        if (brandDropdown) {
-          brandDropdown.style.display = 'none';
-        }
-        selectedBrand = '';
-      }
-      
       renderGrid();
     });
   }
 
-  // Set up brand dropdown listener
-  const brandDropdown = document.getElementById('brandDropdown');
-  if (brandDropdown) {
-    brandDropdown.addEventListener('change', (e) => {
-      selectedBrand = e.target.value;
-      renderGrid();
+  // Set up close button for brand panel
+  const closeBrandPanel = document.getElementById('closeBrandPanel');
+  if (closeBrandPanel) {
+    closeBrandPanel.addEventListener('click', () => {
+      document.getElementById('brandFilterPanel').style.display = 'none';
     });
-  }
-
-  // Function to populate brand dropdown based on available retailers in current season
-  function populateBrandDropdown() {
-    const brandDropdown = document.getElementById('brandDropdown');
-    if (!brandDropdown) return;
-    
-    // Get unique retailers from current season's products
-    const availableRetailers = new Set();
-    PRODUCTS.forEach(p => {
-      const isArchived = p.archived && 
-        ['true', 'yes', '1'].includes(p.archived.toString().toLowerCase().trim());
-      
-      if (!isArchived && p.season === currentSeason && p.retailer) {
-        availableRetailers.add(p.retailer);
-      }
-    });
-    
-    // Sort retailers alphabetically by display name
-    const sortedRetailers = Array.from(availableRetailers).sort((a, b) => {
-      const nameA = RETAILERS[a]?.name || a;
-      const nameB = RETAILERS[b]?.name || b;
-      return nameA.localeCompare(nameB);
-    });
-    
-    // Build dropdown options
-    let options = '<option value="">Select brand</option>';
-    sortedRetailers.forEach(retailerKey => {
-      const retailer = RETAILERS[retailerKey];
-      if (retailer) {
-        const selected = selectedBrand === retailerKey ? ' selected' : '';
-        options += `<option value="${retailerKey}"${selected}>${retailer.name}</option>`;
-      }
-    });
-    
-    brandDropdown.innerHTML = options;
   }
 
   // Set up navigation

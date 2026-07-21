@@ -1024,10 +1024,6 @@
         <option value="all">Filter by</option>
         <option value="on-sale">On Sale</option>
         <option value="recently-added">Recently Added</option>
-        <option value="brand">Brand</option>
-      </select>
-      <select class="sort-dropdown" id="brandDropdown" aria-label="Filter by brand" style="display:none;">
-        <option value="">Select brand</option>
       </select>
       <select class="sort-dropdown" id="sortDropdown" aria-label="Sort products">
         <option value="default">Default order</option>
@@ -1036,6 +1032,15 @@
       </select>
       <div class="count" id="countLabel"></div>
       <a href="#disclosure" class="affiliate-link" title="We may earn commission from purchases">ⓘ Affiliate links</a>
+    </div>
+
+    <!-- Brand Filter Modal/Panel -->
+    <div id="brandFilterPanel" style="display:none; background:#fff; border:1px solid var(--line); border-radius:12px; padding:20px; margin-top:16px; max-width:400px;">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+        <h3 style="font-family:'Inter',sans-serif; font-size:16px; font-weight:600; margin:0;">Filter by Brand</h3>
+        <button id="closeBrandPanel" style="background:none; border:none; font-size:24px; cursor:pointer; color:var(--ink-soft);">&times;</button>
+      </div>
+      <div id="brandCheckboxes"></div>
     </div>
 
     <div class="grid" id="grid"></div>
