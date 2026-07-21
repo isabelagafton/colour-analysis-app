@@ -1105,6 +1105,7 @@ async function loadProductsFromGoogleSheets() {
     const hash = window.location.hash.slice(1);
     const [view] = hash.split('/');
     if (view === 'shop') {
+      populateBrandOptions(); // Update brand filter with new products
       renderGrid();
     } else if (view === '' || view === 'home') {
       buildProofStrip();
