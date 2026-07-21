@@ -1126,7 +1126,8 @@ let currentPaletteSeason = 'lightSpring';
 let activeShades = new Set();
 let activeCat = 'all';
 let sortBy = 'default'; // 'default', 'recent', or 'price-low'
-let filterBy = 'all'; // 'all', 'on-sale', or 'recently-added'
+let filterBy = 'all'; // 'all', 'on-sale', 'recently-added', or 'brand'
+let selectedBrand = ''; // For brand filtering
 
 function getPalette() { return SEASONS[currentSeason].palette; }
 function getHex() { return Object.fromEntries(getPalette().map(p => [p.key, p.hex])); }
@@ -1173,6 +1174,7 @@ function handleHash() {
       activeCat = 'all';
       sortBy = 'default';
       filterBy = 'all';
+      selectedBrand = '';
     }
     showView('shopView');
     renderSeasonSwitcher();
@@ -1489,6 +1491,17 @@ function renderSeasonSwitcher() {
     filterDropdown.value = filterBy;
   }
   
+  // Update brand dropdown visibility and value
+  const brandDropdown = document.getElementById('brandDropdown');
+  if (brandDropdown) {
+    if (filterBy === 'brand') {
+      brandDropdown.style.display = 'inline-block';
+      brandDropdown.value = selectedBrand;
+    } else {
+      brandDropdown.style.display = 'none';
+    }
+  }
+  
   // Define season order: Spring → Summer → Autumn → Winter
   const seasonOrder = [
     'lightSpring', 'warmSpring', 'brightSpring',
@@ -1510,6 +1523,7 @@ function renderSeasonSwitcher() {
         activeCat = 'all';
         sortBy = 'default'; // Reset sort when changing seasons
         filterBy = 'all'; // Reset filter when changing seasons
+        selectedBrand = ''; // Reset brand when changing seasons
         navigate('shop', currentSeason);
       }
     });
@@ -1586,6 +1600,8 @@ function renderGrid() {
       const addedDate = new Date(p.dateAdded);
       return addedDate >= twoWeeksAgo;
     });
+  } else if (filterBy === 'brand' && selectedBrand) {
+    items = items.filter(p => p.retailer === selectedBrand);
   }
   
   // Helper function to check if product is out of stock
@@ -1722,8 +1738,73 @@ document.addEventListener('DOMContentLoaded', function() {
   if (filterDropdown) {
     filterDropdown.addEventListener('change', (e) => {
       filterBy = e.target.value;
+      const brandDropdown = document.getElementById('brandDropdown');
+      
+      if (filterBy === 'brand') {
+        // Show brand dropdown and populate it
+        if (brandDropdown) {
+          brandDropdown.style.display = 'inline-block';
+          populateBrandDropdown();
+          // If no brand selected yet, don't filter
+          if (!selectedBrand) {
+            selectedBrand = '';
+          }
+        }
+      } else {
+        // Hide brand dropdown
+        if (brandDropdown) {
+          brandDropdown.style.display = 'none';
+        }
+        selectedBrand = '';
+      }
+      
       renderGrid();
     });
+  }
+
+  // Set up brand dropdown listener
+  const brandDropdown = document.getElementById('brandDropdown');
+  if (brandDropdown) {
+    brandDropdown.addEventListener('change', (e) => {
+      selectedBrand = e.target.value;
+      renderGrid();
+    });
+  }
+
+  // Function to populate brand dropdown based on available retailers in current season
+  function populateBrandDropdown() {
+    const brandDropdown = document.getElementById('brandDropdown');
+    if (!brandDropdown) return;
+    
+    // Get unique retailers from current season's products
+    const availableRetailers = new Set();
+    PRODUCTS.forEach(p => {
+      const isArchived = p.archived && 
+        ['true', 'yes', '1'].includes(p.archived.toString().toLowerCase().trim());
+      
+      if (!isArchived && p.season === currentSeason && p.retailer) {
+        availableRetailers.add(p.retailer);
+      }
+    });
+    
+    // Sort retailers alphabetically by display name
+    const sortedRetailers = Array.from(availableRetailers).sort((a, b) => {
+      const nameA = RETAILERS[a]?.name || a;
+      const nameB = RETAILERS[b]?.name || b;
+      return nameA.localeCompare(nameB);
+    });
+    
+    // Build dropdown options
+    let options = '<option value="">Select brand</option>';
+    sortedRetailers.forEach(retailerKey => {
+      const retailer = RETAILERS[retailerKey];
+      if (retailer) {
+        const selected = selectedBrand === retailerKey ? ' selected' : '';
+        options += `<option value="${retailerKey}"${selected}>${retailer.name}</option>`;
+      }
+    });
+    
+    brandDropdown.innerHTML = options;
   }
 
   // Set up navigation
