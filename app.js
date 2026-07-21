@@ -820,7 +820,6 @@ const CATS = [
   {key:'trousers', label:'Trousers'},
   {key:'shorts', label:'Shorts'},
   {key:'skirts', label:'Skirts'},
-  {key:'accessory', label:'Accessories'},
 ];
 
 const WHEEL_ORDER = [
@@ -1126,7 +1125,8 @@ let currentSeason = 'lightSpring';
 let currentPaletteSeason = 'lightSpring';
 let activeShades = new Set();
 let activeCat = 'all';
-let sortBy = 'default'; // 'default' or 'recent'
+let sortBy = 'default'; // 'default', 'recent', or 'price-low'
+let filterBy = 'all'; // 'all', 'on-sale', or 'recently-added'
 
 function getPalette() { return SEASONS[currentSeason].palette; }
 function getHex() { return Object.fromEntries(getPalette().map(p => [p.key, p.hex])); }
@@ -1172,6 +1172,7 @@ function handleHash() {
       activeShades = new Set();
       activeCat = 'all';
       sortBy = 'default';
+      filterBy = 'all';
     }
     showView('shopView');
     renderSeasonSwitcher();
@@ -1482,6 +1483,12 @@ function renderSeasonSwitcher() {
     sortDropdown.value = sortBy;
   }
   
+  // Update filter dropdown value
+  const filterDropdown = document.getElementById('filterDropdown');
+  if (filterDropdown) {
+    filterDropdown.value = filterBy;
+  }
+  
   // Define season order: Spring → Summer → Autumn → Winter
   const seasonOrder = [
     'lightSpring', 'warmSpring', 'brightSpring',
@@ -1502,6 +1509,7 @@ function renderSeasonSwitcher() {
         activeShades = new Set();
         activeCat = 'all';
         sortBy = 'default'; // Reset sort when changing seasons
+        filterBy = 'all'; // Reset filter when changing seasons
         navigate('shop', currentSeason);
       }
     });
@@ -1561,6 +1569,24 @@ function renderGrid() {
       (activeCat === 'all' || p.category === activeCat) &&
       (activeShades.size === 0 || activeShades.has(p.shade));
   });
+  
+  // Apply filter before sorting
+  if (filterBy === 'on-sale') {
+    items = items.filter(p => {
+      const outOfStock = p.outOfStock && 
+        ['true', 'yes', '1'].includes(p.outOfStock.toString().toLowerCase().trim());
+      return !!p.salePrice && !outOfStock;
+    });
+  } else if (filterBy === 'recently-added') {
+    // Filter to items added in the last 14 days
+    const twoWeeksAgo = new Date();
+    twoWeeksAgo.setDate(twoWeeksAgo.getDate() - 14);
+    items = items.filter(p => {
+      if (!p.dateAdded) return false;
+      const addedDate = new Date(p.dateAdded);
+      return addedDate >= twoWeeksAgo;
+    });
+  }
   
   // Helper function to check if product is out of stock
   const isOutOfStock = (product) => {
@@ -1687,6 +1713,15 @@ document.addEventListener('DOMContentLoaded', function() {
   if (sortDropdown) {
     sortDropdown.addEventListener('change', (e) => {
       sortBy = e.target.value;
+      renderGrid();
+    });
+  }
+
+  // Set up filter dropdown listener
+  const filterDropdown = document.getElementById('filterDropdown');
+  if (filterDropdown) {
+    filterDropdown.addEventListener('change', (e) => {
+      filterBy = e.target.value;
       renderGrid();
     });
   }
