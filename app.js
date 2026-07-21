@@ -1491,17 +1491,8 @@ function renderSeasonSwitcher() {
     filterDropdown.value = filterBy;
   }
   
-  // Update brand dropdown visibility and value
-  const brandDropdown = document.getElementById('brandDropdown');
-  if (brandDropdown) {
-    if (filterBy === 'brand') {
-      brandDropdown.style.display = 'inline-block';
-      populateBrandDropdown();
-      brandDropdown.value = selectedBrand;
-    } else {
-      brandDropdown.style.display = 'none';
-    }
-  }
+  // Populate brand options in the optgroup
+  populateBrandOptions();
   
   // Define season order: Spring → Summer → Autumn → Winter
   const seasonOrder = [
@@ -1531,9 +1522,9 @@ function renderSeasonSwitcher() {
   });
 }
 
-function populateBrandDropdown() {
-  const brandDropdown = document.getElementById('brandDropdown');
-  if (!brandDropdown) return;
+function populateBrandOptions() {
+  const brandOptgroup = document.getElementById('brandOptgroup');
+  if (!brandOptgroup) return;
   
   // Get unique retailers from current season's products
   const availableRetailers = new Set();
@@ -1553,17 +1544,17 @@ function populateBrandDropdown() {
     return nameA.localeCompare(nameB);
   });
   
-  // Build dropdown options
-  let options = '<option value="">Select brand</option>';
+  // Build brand options
+  let options = '';
   sortedRetailers.forEach(retailerKey => {
     const retailer = RETAILERS[retailerKey];
     if (retailer) {
       const selected = selectedBrand === retailerKey ? ' selected' : '';
-      options += `<option value="${retailerKey}"${selected}>${retailer.name}</option>`;
+      options += `<option value="brand:${retailerKey}"${selected}>${retailer.name}</option>`;
     }
   });
   
-  brandDropdown.innerHTML = options;
+  brandOptgroup.innerHTML = options || '<option value="">No brands available</option>';
 }
 
 function renderFan() {
@@ -1773,32 +1764,17 @@ document.addEventListener('DOMContentLoaded', function() {
   const filterDropdown = document.getElementById('filterDropdown');
   if (filterDropdown) {
     filterDropdown.addEventListener('change', (e) => {
-      filterBy = e.target.value;
-      const brandDropdown = document.getElementById('brandDropdown');
+      const value = e.target.value;
       
-      if (filterBy === 'brand') {
-        // Show brand dropdown and populate it
-        if (brandDropdown) {
-          brandDropdown.style.display = 'inline-block';
-          populateBrandDropdown();
-        }
+      // Check if it's a brand selection (format: "brand:retailerKey")
+      if (value.startsWith('brand:')) {
+        filterBy = 'brand';
+        selectedBrand = value.replace('brand:', '');
       } else {
-        // Hide brand dropdown and reset selection
-        if (brandDropdown) {
-          brandDropdown.style.display = 'none';
-        }
+        filterBy = value;
         selectedBrand = '';
       }
       
-      renderGrid();
-    });
-  }
-
-  // Set up brand dropdown listener
-  const brandDropdown = document.getElementById('brandDropdown');
-  if (brandDropdown) {
-    brandDropdown.addEventListener('change', (e) => {
-      selectedBrand = e.target.value;
       renderGrid();
     });
   }
