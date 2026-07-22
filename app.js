@@ -592,7 +592,7 @@ const PALETTE_GROUPS = {
 const SEASONS = {
   lightSpring: {
     label: 'Light Spring',
-    sub: 'A curated edit of pieces in your warm, light, clear palette –<br>pulled from Zara, H&M, Mango and Next so you don\'t have to dig for them.',
+    sub: 'A curated edit of pieces in your warm, light, clear palette – pulled from Zara, H&M, Mango and Next so you don\'t have to dig for them.',
     palette: [
       {key:'pistachio', label:'Light Green', hex:'#A9D48C'},
       {key:'apricot', label:'Apricot Orange', hex:'#F2A65A'},
@@ -608,7 +608,7 @@ const SEASONS = {
   },
   warmSpring: {
     label: 'Warm Spring',
-    sub: 'Sunlit, golden, and fully warm –<br>your palette skips cool blues entirely in favor of turquoise, camel, and clear warm hues.',
+    sub: 'Sunlit, golden, and fully warm – your palette skips cool blues entirely in favor of turquoise, camel, and clear warm hues.',
     palette: [
       {key:'goldenyellow', label:'Golden Yellow', hex:'#F0B429'},
       {key:'coral', label:'Coral', hex:'#FF6F5C'},
@@ -624,7 +624,7 @@ const SEASONS = {
   },
   brightSpring: {
     label: 'Bright Spring',
-    sub: 'High-chroma and warm –<br>the most vivid of the Spring seasons, at home in saturated, clear color-blocked pieces.',
+    sub: 'High-chroma and warm – the most vivid of the Spring seasons, at home in saturated, clear color-blocked pieces.',
     palette: [
       {key:'vividcoral', label:'Vivid Coral', hex:'#FF6F5E'},
       {key:'hotpink', label:'Hot Pink', hex:'#FF3D8A'},
@@ -640,7 +640,7 @@ const SEASONS = {
   },
   softAutumn: {
     label: 'Soft Autumn',
-    sub: 'Muted, warm, and low-contrast –<br>the gentlest Autumn, built on dusty, blended earth tones rather than anything vivid.',
+    sub: 'Muted, warm, and low-contrast – the gentlest Autumn, built on dusty, blended earth tones rather than anything vivid.',
     palette: [
       {key:'camel', label:'Camel', hex:'#C4A277'},
       {key:'sagegreen', label:'Sage Green', hex:'#9CAF88'},
@@ -656,7 +656,7 @@ const SEASONS = {
   },
   warmAutumn: {
     label: 'Warm Autumn',
-    sub: 'Rich and golden –<br>the warmest, most saturated Autumn, built on burnt oranges, mustards, and deep golden browns.',
+    sub: 'Rich and golden – the warmest, most saturated Autumn, built on burnt oranges, mustards, and deep golden browns.',
     palette: [
       {key:'burntorange', label:'Burnt Orange', hex:'#CC5A28'},
       {key:'mustardyellow', label:'Mustard Yellow', hex:'#D4A017'},
@@ -672,7 +672,7 @@ const SEASONS = {
   },
   deepAutumn: {
     label: 'Deep Autumn',
-    sub: 'The darkest, most dramatic Autumn –<br>warm and rich but with real depth, touched by Winter\'s intensity.',
+    sub: 'The darkest, most dramatic Autumn – warm and rich but with real depth, touched by Winter\'s intensity.',
     palette: [
       {key:'deepchocolate', label:'Deep Chocolate Brown', hex:'#4A2E1F'},
       {key:'forestgreen', label:'Forest Green', hex:'#33472E'},
@@ -688,7 +688,7 @@ const SEASONS = {
   },
   lightSummer: {
     label: 'Light Summer',
-    sub: 'The airiest, most delicate Summer –<br>cool and light, like a pastel sky just after rain.',
+    sub: 'The airiest, most delicate Summer – cool and light, like a pastel sky just after rain.',
     palette: [
       {key:'powderblue', label:'Powder Blue', hex:'#B0E0E6'},
       {key:'lavender', label:'Lavender', hex:'#C9B8E8'},
@@ -704,7 +704,7 @@ const SEASONS = {
   },
   coolSummer: {
     label:'Cool Summer',
-    sub: 'The purest, fully cool Summer –<br>no warmth at all, like grey river rocks and calm blue waters.',
+    sub: 'The purest, fully cool Summer – no warmth at all, like grey river rocks and calm blue waters.',
     palette: [
       {key:'blushpink', label:'Cool Blush Pink', hex:'#E8B4C0'},
       {key:'lavender', label:'Lavender', hex:'#B9A6D9'},
@@ -720,7 +720,7 @@ const SEASONS = {
   },
   softSummer: {
     label: 'Soft Summer',
-    sub: 'The darkest, most muted Summer –<br>gray-based, blended, quiet-luxury elegance.',
+    sub: 'The darkest, most muted Summer – gray-based, blended, quiet-luxury elegance.',
     palette: [
       {key:'dustyrose', label:'Dusty Rose', hex:'#C98A93'},
       {key:'duskyblue', label:'Dusky Blue', hex:'#7C93AB'},
@@ -736,7 +736,7 @@ const SEASONS = {
   },
   brightWinter: {
     label: 'Bright Winter',
-    sub: 'The highest-chroma Winter, warmed slightly by Spring –<br>icy light meets neon vibrancy.',
+    sub: 'The highest-chroma Winter, warmed slightly by Spring – icy light meets neon vibrancy.',
     palette: [
       {key:'emeraldgreen', label:'Emerald Green', hex:'#0F9D6E'},
       {key:'rubyred', label:'Ruby Red', hex:'#C41E3A'},
@@ -752,7 +752,7 @@ const SEASONS = {
   },
   coolWinter: {
     label: 'Cool Winter',
-    sub: 'The purest, fully cool Winter –<br>crisp, bold, and blue-based with no warmth allowed.',
+    sub: 'The purest, fully cool Winter – crisp, bold, and blue-based with no warmth allowed.',
     palette: [
       {key:'royalblue', label:'Royal Blue', hex:'#1E3F8C'},
       {key:'icyblue', label:'Icy Blue', hex:'#B8D8E8'},
@@ -768,7 +768,7 @@ const SEASONS = {
   },
   deepWinter: {
     label: 'Deep Winter',
-    sub: 'The darkest, most dramatic Winter –<br>jewel tones against near-black neutrals.',
+    sub: 'The darkest, most dramatic Winter – jewel tones against near-black neutrals.',
     palette: [
       {key:'darkpurple', label:'Dark Purple', hex:'#5F2566'},
       {key:'deepindigo', label:'Deep Indigo', hex:'#4A4482'},
