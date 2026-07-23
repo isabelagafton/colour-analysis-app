@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<!--
+  Shop By Season — Color-matched shopping platform
+  Copyright © 2025 Shop By Season. All rights reserved.
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Shop By Season</title>
+
+<!-- SEO Meta Tags -->
+<meta name="description" content="Learn about Shop By Season, our affiliate disclosure, privacy policy, and terms of use.">
+<meta name="keywords" content="about shop by season, color analysis shopping, affiliate disclosure, privacy policy">
+<meta name="author" content="Shop By Season">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://shopbyseason.co/about">
+<meta property="og:title" content="About — Shop By Season">
+<meta property="og:description" content="Learn about Shop By Season, our affiliate disclosure, privacy policy, and terms of use.">
+<meta property="og:image" content="https://shopbyseason.co/og-image.jpg">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://shopbyseason.co/about">
+<meta property="twitter:title" content="About — Shop By Season">
+<meta property="twitter:description" content="Learn about Shop By Season, our affiliate disclosure, and privacy policy">
+<meta property="twitter:image" content="https://shopbyseason.co/og-image.jpg">
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="alternate icon" type="image/x-icon" href="favicon.ico">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N4FQJ5E4C2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-N4FQJ5E4C2');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,500&family=Inter:wght@500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,500&family=Inter:wght@500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet"></noscript>
+<style>
+  :root{
+    --ivory:#FAF3EC;
+    --ink:#2C2622;
+    --ink-soft:#6B6259;
+    --card:#FFFFFF;
+    --line:#E8DED2;
+    --coral:#FF7A5C;
+    --peach:#FFB69B;
+    --aqua:#3FC9B8;
+    --pistachio:#9FCB8E;
+    --butter:#F7D060;
+    --periwinkle:#8FA6E0;
+    --warmred:#E14F35;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    background:var(--ivory);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    padding:0 0 80px;
+  }
+  .wrap{max-width:1080px; margin:0 auto; padding:0 28px;}
+
+  /* NAVIGATION */
+  nav{
+    background:var(--card);
+    border-bottom:1px solid var(--line);
+    position:sticky;
+    top:0;
+    z-index:100;
+    backdrop-filter:blur(10px);
+  }
+  nav .wrap{
+    display:flex;
+    align-items:center;
+    gap:32px;
+    padding-top:16px;
+    padding-bottom:16px;
+  }
+  .nav-logo{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:20px;
+    letter-spacing:-.01em;
+    color:var(--ink);
+    text-decoration:none;
+    cursor:pointer;
+  }
+  .nav-logo em{
+    font-style:italic;
+    font-weight:500;
+    color:var(--coral);
+  }
+  .nav-links{
+    display:flex;
+    gap:24px;
+    margin-left:auto;
+  }
+  .nav-link{
+    font-family:'Inter',sans-serif;
+    font-size:14px;
+    font-weight:500;
+    color:var(--ink-soft);
+    text-decoration:none;
+    cursor:pointer;
+    transition:color .15s ease;
+    padding:4px 0;
+    border-bottom:2px solid transparent;
+  }
+  .nav-link:hover{
+    color:var(--ink);
+  }
+  .nav-link.active{
+    color:var(--ink);
+    border-bottom-color:var(--coral);
+  }
+
+  /* HERO */
+  h1.title{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:52px;
+    line-height:1.02;
+    letter-spacing:-.01em;
+  }
+  h1.title em{
+    font-style:italic;
+    font-weight:500;
+    color:var(--coral);
+  }
+  .sub{
+    font-size:16px;
+    color:var(--ink-soft);
+    max-width:600px;
+    margin-top:14px;
+    line-height:1.5;
+  }
+
+  /* HOME VIEW */
+  .home-hero{
+    padding:56px 0 8px;
+    text-align:center;
+  }
+  .home-hero .sub{ max-width:520px; margin-left:auto; margin-right:auto; text-align:center; }
+
+  .back-link{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    background:none;
+    border:none;
+    color:var(--ink-soft);
+    cursor:pointer;
+    padding:20px 0 0;
+    display:block;
+  }
+  .back-link:hover{ color:var(--ink); }
+
+  /* LEGAL CONTENT */
+  .legal-content{
+    max-width:720px;
+    margin:0 auto;
+    padding:0 0 60px;
+  }
+  .legal-section{
+    margin-bottom:56px;
+  }
+  .legal-section h2{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:32px;
+    margin-bottom:16px;
+    color:var(--ink);
+  }
+  .legal-section h3{
+    font-family:'Inter',sans-serif;
+    font-weight:600;
+    font-size:18px;
+    margin:24px 0 12px;
+    color:var(--ink);
+  }
+  .legal-section p{
+    font-size:15px;
+    line-height:1.7;
+    color:var(--ink);
+    margin-bottom:16px;
+  }
+  .legal-section ul{
+    margin:12px 0 16px 24px;
+    font-size:15px;
+    line-height:1.7;
+    color:var(--ink);
+  }
+  .legal-section ul li{
+    margin-bottom:8px;
+  }
+  .legal-section a{
+    color:var(--coral);
+    text-decoration:underline;
+  }
+  .legal-section a:hover{
+    color:var(--ink);
+  }
+  .legal-note{
+    font-size:13px;
+    color:var(--ink-soft);
+    font-style:italic;
+    background:#FAF8F4;
+    padding:12px 16px;
+    border-radius:8px;
+    border-left:3px solid var(--coral);
+  }
+
+  /* FOOTER */
+  footer{
+    border-top:1px solid var(--line);
+    padding:40px 0 32px;
+    margin-top:80px;
+    text-align:center;
+  }
+  .footer-social{
+    display:flex;
+    justify-content:center;
+    gap:16px;
+    margin-bottom:20px;
+  }
+  .footer-social-link{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-family:'Inter',sans-serif;
+    font-size:14px;
+    font-weight:600;
+    color:var(--ink);
+    text-decoration:none;
+    padding:8px 16px;
+    border-radius:8px;
+    border:1px solid var(--line);
+    background:var(--card);
+    transition:all .15s ease;
+  }
+  .footer-social-link:hover{
+    border-color:var(--coral);
+    background:rgba(255,122,92,.05);
+    transform:translateY(-2px);
+  }
+  .footer-social-link svg{
+    width:18px;
+    height:18px;
+    fill:currentColor;
+  }
+  .footer-copyright{
+    font-size:13px;
+    color:var(--ink-soft);
+    line-height:1.6;
+  }
+  .footer-copyright a{
+    color:var(--coral);
+    text-decoration:none;
+  }
+  .footer-copyright a:hover{
+    text-decoration:underline;
+  }
+
+  @media (max-width:560px){
+    h1.title{font-size:38px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="wrap">
+    <a href="/" class="nav-logo">Shop By <em>Season</em></a>
+    <div class="nav-links">
+      <a href="/" class="nav-link">Home</a>
+      <a href="/shop" class="nav-link">Shop by Season</a>
+      <a href="/palette" class="nav-link">Palette Explorer</a>
+      <a href="/about" class="nav-link active">About</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+  
+  <header class="home-hero">
+    <h1 class="title">About <em>Shop By Season</em></h1>
+    <p class="sub">Color-matched shopping made simple. Here's how it works and the legal bits.</p>
+  </header>
+
+  <div class="legal-content">
+    
+    <!-- Affiliate Disclosure -->
+    <section id="disclosure" class="legal-section">
+      <h2>Affiliate Disclosure</h2>
+      <p><strong>Transparency first:</strong> Shop By Season participates in affiliate marketing programs with fashion retailers including Next, H&M, Zara, Mango, and Mohito.</p>
+      
+      <p><strong>What this means:</strong> When you click a "Shop" button and make a purchase, we may earn a small commission at no extra cost to you. Your price stays exactly the same whether you use our link or go directly to the retailer.</p>
+      
+      <p><strong>Why we do this:</strong> These commissions help us maintain the site, curate products, and keep matching items to seasonal palettes. We only recommend products we genuinely believe suit each color season.</p>
+      
+      <p><strong>Our promise:</strong> Product selection is based on color accuracy and seasonal fit, not commission rates. We're here to help you shop your colors, not push sales.</p>
+      
+      <p class="legal-note">This disclosure complies with consumer protection regulations including the EU's Unfair Commercial Practices Directive (2005/29/EC) and general transparency requirements under EU consumer law.</p>
+    </section>
+
+    <!-- Privacy Policy -->
+    <section id="privacy" class="legal-section">
+      <h2>Privacy Policy</h2>
+      <p><strong>Last updated:</strong> January 2025</p>
+      
+      <h3>Information We Collect</h3>
+      <p>Shop By Season is a static website. We do not collect, store, or process any personal data directly. However:</p>
+      <ul>
+        <li>When you click affiliate links, retailers may track your visit through cookies (subject to their own privacy policies)</li>
+        <li>We may use analytics tools to understand aggregated, anonymized site traffic patterns</li>
+        <li>Your browser may store preferences locally on your device (like your last viewed season)</li>
+      </ul>
+      
+      <h3>Cookies & Tracking</h3>
+      <p>This site may use cookies and similar technologies for:</p>
+      <ul>
+        <li><strong>Analytics:</strong> Understanding which features are popular (anonymized data only)</li>
+        <li><strong>Affiliate tracking:</strong> Enabling commission attribution when you shop (required for affiliate programs)</li>
+        <li><strong>Local preferences:</strong> Remembering your settings in your browser</li>
+      </ul>
+      <p>These cookies are necessary for the site's operation or are placed by third-party retailers. By continuing to use this site, you consent to the use of these cookies in accordance with this policy.</p>
+      
+      <h3>Your Rights Under GDPR</h3>
+      <p>If you are in the EU/EEA, you have the following rights:</p>
+      <ul>
+        <li><strong>Right to access:</strong> Request information about any data we might process</li>
+        <li><strong>Right to erasure:</strong> Request deletion of any data (though we don't store personal data directly)</li>
+        <li><strong>Right to restrict processing:</strong> Limit how data is used</li>
+        <li><strong>Right to data portability:</strong> Receive any data in a portable format</li>
+        <li><strong>Right to object:</strong> Object to data processing for marketing purposes</li>
+        <li><strong>Right to withdraw consent:</strong> Disable cookies via browser settings at any time</li>
+      </ul>
+      <p>You can exercise these rights by contacting us at the email below or by disabling cookies in your browser settings.</p>
+      
+      <h3>Third-Party Links</h3>
+      <p>Our site contains links to external retailers (Next, H&M, Zara, Mango, Mohito) based in the EU and beyond. When you click these links, you leave our site and are subject to those retailers' privacy policies. We are not responsible for their data practices.</p>
+      
+      <h3>Data Controller</h3>
+      <p>Shop By Season operates as a sole proprietorship/individual. For GDPR inquiries, contact: <a href="mailto:hello@shopbyseason.co">hello@shopbyseason.co</a></p>
+      
+      <h3>Changes to This Policy</h3>
+      <p>We may update this policy from time to time. Changes will be posted on this page with an updated date.</p>
+    </section>
+
+    <!-- Terms of Use -->
+    <section id="terms" class="legal-section">
+      <h2>Terms of Use</h2>
+      <p><strong>Last updated:</strong> January 2025</p>
+      
+      <h3>Acceptance of Terms</h3>
+      <p>By accessing and using Shop By Season, you agree to these terms. If you don't agree, please don't use the site.</p>
+      
+      <h3>Service Description</h3>
+      <p>Shop By Season provides curated product recommendations matched to seasonal color palettes. Product availability, pricing, descriptions, and delivery are controlled exclusively by the retailers (Next, H&M, Zara, Mango, Mohito), not by us. We act as an intermediary only.</p>
+      
+      <h3>No Warranties</h3>
+      <p>We provide this service "as is" without any warranties, express or implied:</p>
+      <ul>
+        <li>We don't guarantee product availability, pricing accuracy, or that items will match your expectations</li>
+        <li>Color accuracy depends on your screen calibration and lighting conditions</li>
+        <li>Seasonal color analysis is subjective — our suggestions are educational guides, not professional advice</li>
+        <li>We're not responsible for purchases, returns, shipping, or customer service issues with retailers</li>
+      </ul>
+      
+      <h3>Consumer Rights</h3>
+      <p>Your statutory consumer rights under EU law remain unaffected by these terms. When you purchase from retailers through our links, your contract is with them directly, and you retain all rights under EU Consumer Rights Directive (2011/83/EU), including:</p>
+      <ul>
+        <li>14-day right of withdrawal for online purchases</li>
+        <li>Rights regarding defective products under the Consumer Sales Directive</li>
+        <li>Rights to clear pricing, delivery information, and fair commercial practices</li>
+      </ul>
+      <p>For questions about orders, returns, or refunds, contact the retailer directly.</p>
+      
+      <h3>Intellectual Property</h3>
+      <p>Our color palette curation, site design, and editorial content are protected by copyright. Product images, brand names, and logos belong to their respective retailers and are used for informational purposes only.</p>
+      
+      <h3>Limitation of Liability</h3>
+      <p>To the extent permitted by EU law, we are not liable for any indirect, incidental, or consequential damages arising from use of this site or purchases made through affiliate links. Nothing in these terms excludes or limits liability for fraud, death, or personal injury caused by negligence.</p>
+      
+      <h3>Governing Law</h3>
+      <p>These terms are governed by the laws of Romania (or your EU member state if you are a consumer). Any disputes will be resolved in accordance with EU consumer protection regulations.</p>
+    </section>
+
+    <!-- Contact & About -->
+    <section id="contact" class="legal-section">
+      <h2>Contact & About</h2>
+      
+      <h3>About Shop By Season</h3>
+      <p>Shop By Season was created to solve a simple problem: seasonal color analysis is powerful, but shopping for your palette is tedious. We hand-match real, buyable pieces from popular retailers to each of the 12 seasonal palettes so you can shop with confidence.</p>
+      
+      <h3>Get in Touch</h3>
+      <p><strong>General inquiries:</strong> <a href="mailto:hello@shopbyseason.co">hello@shopbyseason.co</a></p>
+      <p><strong>Product suggestions:</strong> Found an item that fits a palette? Let us know!</p>
+      <p><strong>Partnerships:</strong> Retailer or brand interested in collaborating? Reach out.</p>
+      
+      <h3>Follow Updates</h3>
+      <p>We're constantly adding new products and refining palettes. Bookmark us and check back often!</p>
+    </section>
+
+    <!-- Copyright & Intellectual Property -->
+    <section id="copyright" class="legal-section">
+      <h2>Copyright & Intellectual Property</h2>
+      <p><strong>© <span class="copyright-year">2025</span> Shop By Season. All rights reserved.</strong></p>
+      
+      <h3>What's Protected</h3>
+      <p>The following elements of Shop By Season are protected by copyright and intellectual property laws:</p>
+      <ul>
+        <li><strong>Website Design & Code:</strong> The overall design, layout, user interface, and underlying source code of this website</li>
+        <li><strong>Color Curation System:</strong> Our methodology for matching products to seasonal color palettes</li>
+        <li><strong>Content & Copy:</strong> All written content, descriptions, and editorial material</li>
+        <li><strong>Visual Design Elements:</strong> Icons, graphics, color schemes, and visual styling unique to Shop By Season</li>
+        <li><strong>Database & Selections:</strong> Our curated collection of product recommendations and seasonal classifications</li>
+      </ul>
+      
+      <h3>What You Can Do</h3>
+      <p>You are welcome to:</p>
+      <ul>
+        <li>Use this website for personal, non-commercial purposes</li>
+        <li>Share links to Shop By Season on social media or personal blogs</li>
+        <li>Take inspiration from seasonal color analysis principles (these concepts are public domain)</li>
+      </ul>
+      
+      <h3>What Requires Permission</h3>
+      <p>The following activities require explicit written permission from Shop By Season:</p>
+      <ul>
+        <li>Reproducing, copying, or adapting the website design or code</li>
+        <li>Using our color curation methodology or product classifications commercially</li>
+        <li>Republishing our content, descriptions, or editorial material</li>
+        <li>Creating derivative works based on our website or systems</li>
+        <li>Using Shop By Season branding, name, or visual identity</li>
+      </ul>
+      
+      <h3>Third-Party Content</h3>
+      <p>Product images, brand names, and logos displayed on this site belong to their respective retailers and brands. We use them for informational and affiliate marketing purposes only.</p>
+      
+      <h3>Reporting Infringement</h3>
+      <p>If you believe someone has copied or misused Shop By Season's protected content, please contact us at <a href="mailto:hello@shopbyseason.co">hello@shopbyseason.co</a>.</p>
+      
+      <p class="legal-note">This copyright notice is provided to protect our work and clarify usage rights. It is not intended to prevent fair use, educational discussion, or legitimate commentary about seasonal color analysis or our service.</p>
+    </section>
+
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="footer-social">
+      <a href="https://instagram.com/shopbyseason.co" target="_blank" rel="noopener noreferrer" class="footer-social-link">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+        </svg>
+        @shopbyseason.co
+      </a>
+    </div>
+    <div class="footer-copyright">
+      © <span id="copyrightYear">2025</span> Shop By Season. All rights reserved.<br>
+      Website design, color curation system, and content are protected by copyright.<br>
+      <a href="/about">Contact & Legal</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Update copyright year
+  document.getElementById('copyrightYear').textContent = new Date().getFullYear();
+  document.querySelectorAll('.copyright-year').forEach(el => {
+    el.textContent = new Date().getFullYear();
+  });
+  
+  // Handle hash navigation for sections (e.g., /about#disclosure)
+  if (window.location.hash) {
+    setTimeout(() => {
+      const section = document.getElementById(window.location.hash.slice(1));
+      if (section) section.scrollIntoView({behavior: 'smooth'});
+    }, 100);
+  }
+</script>
+</body>
+</html>

@@ -1311,7 +1311,9 @@ function buildWheel() {
     el.addEventListener('mouseleave', () => {
       el.style.opacity = '1';
     });
-    el.addEventListener('click', () => navigate('shop', el.dataset.key));
+    el.addEventListener('click', () => {
+      window.location.href = '/shop'; // Navigate to shop page
+    });
   });
 }
 
@@ -1335,7 +1337,9 @@ function buildFamilies() {
   `).join('');
   
   wrap.querySelectorAll('.season-pill').forEach(el => {
-    el.addEventListener('click', () => navigate('shop', el.dataset.key));
+    el.addEventListener('click', () => {
+      window.location.href = '/shop'; // Navigate to shop page
+    });
   });
 }
 
@@ -1737,21 +1741,20 @@ function renderGrid() {
 // INITIALIZATION
 // ══════════════════════════════════════════════════════════════════════════════
 
-// Wait for DOM to be ready
-document.addEventListener('DOMContentLoaded', function() {
-  // Use fallback products immediately for instant render
+// Detect which page we're on
+function getCurrentPage() {
+  const path = window.location.pathname;
+  if (path.includes('shop.html') || path === '/shop' || path === '/shop/') return 'shop';
+  if (path.includes('palette.html') || path === '/palette' || path === '/palette/') return 'palette';
+  if (path.includes('about.html') || path === '/about' || path === '/about/') return 'about';
+  return 'home';
+}
+
+// Initialize shop page
+function initShopPage() {
   PRODUCTS = PRODUCTS_FALLBACK;
-  
-  // Start loading products in the background (non-blocking)
   loadProductsFromGoogleSheets();
   
-  // Update copyright year
-  const currentYear = new Date().getFullYear();
-  document.getElementById('copyrightYear').textContent = currentYear;
-  document.querySelectorAll('.copyright-year').forEach(el => {
-    el.textContent = currentYear;
-  });
-
   // Set up sort dropdown listener
   const sortDropdown = document.getElementById('sortDropdown');
   if (sortDropdown) {
@@ -1766,8 +1769,6 @@ document.addEventListener('DOMContentLoaded', function() {
   if (filterDropdown) {
     filterDropdown.addEventListener('change', (e) => {
       const value = e.target.value;
-      
-      // Check if it's a brand selection (format: "brand:retailerKey")
       if (value.startsWith('brand:')) {
         filterBy = 'brand';
         selectedBrand = value.replace('brand:', '');
@@ -1775,28 +1776,65 @@ document.addEventListener('DOMContentLoaded', function() {
         filterBy = value;
         selectedBrand = '';
       }
-      
       renderGrid();
     });
   }
 
-  // Set up navigation
-  window.addEventListener('hashchange', handleHash);
-  document.querySelectorAll('.nav-link, .nav-logo').forEach(el => {
-    el.addEventListener('click', (e) => {
-      // Let the hash navigation happen naturally via href
-    });
-  });
+  renderSeasonSwitcher();
+  renderFan();
+  renderChips();
+  renderGrid();
+}
 
-  // Build home view immediately with fallback data
+// Initialize palette page
+function initPalettePage() {
+  renderPaletteExplorer();
+}
+
+// Initialize about page (no special initialization needed)
+function initAboutPage() {
+  // About page is static HTML, nothing to initialize
+}
+
+// Initialize homepage
+function initHomePage() {
+  PRODUCTS = PRODUCTS_FALLBACK;
+  loadProductsFromGoogleSheets();
+  
   buildWheel();
   buildFamilies();
   buildProofStrip();
-
-  // Initialize routing
+  
+  // Set up hash navigation for single-page behavior on homepage
+  window.addEventListener('hashchange', handleHash);
+  
   if (window.location.hash) {
     handleHash();
   } else {
     showView('homeView');
+  }
+}
+
+// Wait for DOM to be ready
+document.addEventListener('DOMContentLoaded', function() {
+  // Update copyright year on all pages
+  const currentYear = new Date().getFullYear();
+  const copyrightEl = document.getElementById('copyrightYear');
+  if (copyrightEl) copyrightEl.textContent = currentYear;
+  document.querySelectorAll('.copyright-year').forEach(el => {
+    el.textContent = currentYear;
+  });
+
+  // Initialize based on current page
+  const page = getCurrentPage();
+  
+  if (page === 'shop') {
+    initShopPage();
+  } else if (page === 'palette') {
+    initPalettePage();
+  } else if (page === 'about') {
+    initAboutPage();
+  } else {
+    initHomePage();
   }
 });

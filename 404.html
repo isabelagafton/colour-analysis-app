@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<script>
+  // GitHub Pages clean URL routing
+  // This redirects /shop to /shop.html, /palette to /palette.html, etc.
+  (function() {
+    const path = window.location.pathname.replace(/\/$/, ''); // Remove trailing slash
+    const routes = {
+      '/shop': '/shop.html',
+      '/palette': '/palette.html',
+      '/about': '/about.html'
+    };
+    
+    if (routes[path]) {
+      window.location.replace(routes[path]);
+    } else if (path && path !== '/404.html') {
+      // If no matching route, go to homepage
+      window.location.replace('/');
+    }
+  })();
+</script>
+</head>
+<body>
+<p>Redirecting...</p>
+</body>
+</html>
