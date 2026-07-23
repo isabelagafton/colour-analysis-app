@@ -7,25 +7,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shop By Season — Color-matched shopping for your seasonal palette</title>
+<title>Browse All Products — Shop By Season</title>
 
 <!-- SEO Meta Tags -->
-<meta name="description" content="Shop your seasonal color palette. Curated fashion pieces from Zara, H&M, Mango & Next matched to your Light Spring, Cool Summer, Deep Autumn or other seasonal colors.">
-<meta name="keywords" content="color analysis, seasonal color analysis, color palette shopping, light spring colors, cool summer fashion, personal color shopping">
+<meta name="description" content="Browse all seasonal color palettes. Shop curated fashion pieces from Zara, H&M, Mango & Next matched to Light Spring, Cool Summer, Deep Autumn and all 12 seasonal color palettes.">
+<meta name="keywords" content="color analysis, seasonal color analysis, color palette shopping, browse all colors, seasonal fashion shopping">
 <meta name="author" content="Shop By Season">
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://shopbyseason.co/shop">
-<meta property="og:title" content="Shop By Season — Shop Your Colors">
-<meta property="og:description" content="Shop pieces in your exact seasonal colors from Zara, H&M, Mango & Next. No more guessing — every item is hand-matched to your palette.">
+<meta property="og:title" content="Browse All Products — Shop By Season">
+<meta property="og:description" content="Browse all seasonal colors and shop pieces from Zara, H&M, Mango & Next. Filter by any of the 12 seasonal palettes.">
 <meta property="og:image" content="https://shopbyseason.co/og-image.jpg">
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image">
 <meta property="twitter:url" content="https://shopbyseason.co/shop">
-<meta property="twitter:title" content="Shop By Season — Shop Your Colors">
-<meta property="twitter:description" content="Curated fashion matched to your seasonal color palette">
+<meta property="twitter:title" content="Browse All Products — Shop By Season">
+<meta property="twitter:description" content="Browse all seasonal colors and shop curated fashion pieces">
 <meta property="twitter:image" content="https://shopbyseason.co/og-image.jpg">
 
 <!-- Favicon -->
@@ -121,6 +121,80 @@
   .nav-link.active{
     color:var(--ink);
     border-bottom-color:var(--coral);
+  }
+  
+  /* Dropdown navigation */
+  .nav-dropdown{
+    position:relative;
+  }
+  .nav-dropdown-toggle{
+    font-family:'Inter',sans-serif;
+    font-size:14px;
+    font-weight:500;
+    color:var(--ink-soft);
+    padding:4px 0;
+    border:none;
+    background:none;
+    cursor:pointer;
+    transition:color .15s ease;
+    border-bottom:2px solid transparent;
+    display:flex;
+    align-items:center;
+    gap:4px;
+  }
+  .nav-dropdown-toggle:hover{
+    color:var(--ink);
+  }
+  .nav-dropdown-toggle.active{
+    color:var(--ink);
+    border-bottom-color:var(--coral);
+  }
+  .nav-dropdown-arrow{
+    font-size:10px;
+    transition:transform 0.2s;
+  }
+  .nav-dropdown.open .nav-dropdown-arrow{
+    transform:rotate(180deg);
+  }
+  .nav-dropdown-menu{
+    position:absolute;
+    top:100%;
+    left:50%;
+    transform:translateX(-50%);
+    margin-top:12px;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:8px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.08);
+    min-width:220px;
+    padding:8px 0;
+    opacity:0;
+    visibility:hidden;
+    transition:opacity 0.2s, visibility 0.2s;
+    z-index:1000;
+  }
+  .nav-dropdown.open .nav-dropdown-menu{
+    opacity:1;
+    visibility:visible;
+  }
+  .nav-dropdown-item{
+    display:block;
+    padding:10px 20px;
+    font-family:'Inter',sans-serif;
+    font-size:14px;
+    font-weight:500;
+    color:var(--ink-soft);
+    text-decoration:none;
+    transition:all 0.15s;
+  }
+  .nav-dropdown-item:hover{
+    background:var(--ivory);
+    color:var(--ink);
+  }
+  .nav-dropdown-divider{
+    height:1px;
+    background:var(--line);
+    margin:8px 0;
   }
 
   /* AFFILIATE LINK IN FILTER BAR */
@@ -532,7 +606,31 @@
     <a href="/" class="nav-logo">Shop By <em>Season</em></a>
     <div class="nav-links">
       <a href="/" class="nav-link">Home</a>
-      <a href="/shop" class="nav-link active">Shop by Season</a>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-toggle active" id="shopDropdown">
+          Shop by Season
+          <span class="nav-dropdown-arrow">▼</span>
+        </button>
+        <div class="nav-dropdown-menu">
+          <a href="/light-spring" class="nav-dropdown-item">Light Spring</a>
+          <a href="/warm-spring" class="nav-dropdown-item">Warm Spring</a>
+          <a href="/bright-spring" class="nav-dropdown-item">Bright Spring</a>
+          <div class="nav-dropdown-divider"></div>
+          <a href="/light-summer" class="nav-dropdown-item">Light Summer</a>
+          <a href="/cool-summer" class="nav-dropdown-item">Cool Summer</a>
+          <a href="/soft-summer" class="nav-dropdown-item">Soft Summer</a>
+          <div class="nav-dropdown-divider"></div>
+          <a href="/soft-autumn" class="nav-dropdown-item">Soft Autumn</a>
+          <a href="/warm-autumn" class="nav-dropdown-item">Warm Autumn</a>
+          <a href="/deep-autumn" class="nav-dropdown-item">Deep Autumn</a>
+          <div class="nav-dropdown-divider"></div>
+          <a href="/bright-winter" class="nav-dropdown-item">Bright Winter</a>
+          <a href="/cool-winter" class="nav-dropdown-item">Cool Winter</a>
+          <a href="/deep-winter" class="nav-dropdown-item">Deep Winter</a>
+          <div class="nav-dropdown-divider"></div>
+          <a href="/shop" class="nav-dropdown-item" style="font-weight:600;">Browse All Products</a>
+        </div>
+      </div>
       <a href="/palette" class="nav-link">Palette Explorer</a>
       <a href="/about" class="nav-link">About</a>
     </div>
@@ -597,6 +695,34 @@
 <script>
   // Update copyright year
   document.getElementById('copyrightYear').textContent = new Date().getFullYear();
+  
+  // Dropdown navigation
+  document.addEventListener('DOMContentLoaded', function() {
+    const dropdown = document.querySelector('.nav-dropdown');
+    const toggle = document.getElementById('shopDropdown');
+    
+    if (toggle && dropdown) {
+      // Toggle dropdown on click
+      toggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        dropdown.classList.toggle('open');
+      });
+      
+      // Close dropdown when clicking outside
+      document.addEventListener('click', function(e) {
+        if (!dropdown.contains(e.target)) {
+          dropdown.classList.remove('open');
+        }
+      });
+      
+      // Close dropdown when clicking a menu item
+      dropdown.querySelectorAll('.nav-dropdown-item').forEach(item => {
+        item.addEventListener('click', function() {
+          dropdown.classList.remove('open');
+        });
+      });
+    }
+  });
   
   // Initialize shop view
   document.addEventListener('DOMContentLoaded', function() {

@@ -1755,13 +1755,64 @@ function getCurrentPage() {
   if (path.includes('shop.html') || path === '/shop' || path === '/shop/') return 'shop';
   if (path.includes('palette.html') || path === '/palette' || path === '/palette/') return 'palette';
   if (path.includes('about.html') || path === '/about' || path === '/about/') return 'about';
+  
+  // Check for individual season pages
+  const seasonPages = [
+    'light-spring', 'warm-spring', 'bright-spring',
+    'light-summer', 'cool-summer', 'soft-summer',
+    'soft-autumn', 'warm-autumn', 'deep-autumn',
+    'bright-winter', 'cool-winter', 'deep-winter'
+  ];
+  
+  for (const season of seasonPages) {
+    if (path.includes(`${season}.html`) || path === `/${season}` || path === `/${season}/`) {
+      return 'season';
+    }
+  }
+  
   return 'home';
+}
+
+// Get the season key from URL (for individual season pages)
+function getSeasonFromURL() {
+  const path = window.location.pathname;
+  const seasonMap = {
+    'light-spring': 'lightSpring',
+    'warm-spring': 'warmSpring',
+    'bright-spring': 'brightSpring',
+    'light-summer': 'lightSummer',
+    'cool-summer': 'coolSummer',
+    'soft-summer': 'softSummer',
+    'soft-autumn': 'softAutumn',
+    'warm-autumn': 'warmAutumn',
+    'deep-autumn': 'deepAutumn',
+    'bright-winter': 'brightWinter',
+    'cool-winter': 'coolWinter',
+    'deep-winter': 'deepWinter'
+  };
+  
+  for (const [urlKey, seasonKey] of Object.entries(seasonMap)) {
+    if (path.includes(`${urlKey}.html`) || path === `/${urlKey}` || path === `/${urlKey}/`) {
+      return seasonKey;
+    }
+  }
+  
+  return 'lightSpring'; // Default fallback
 }
 
 // Initialize shop page
 function initShopPage() {
   PRODUCTS = PRODUCTS_FALLBACK;
   loadProductsFromGoogleSheets();
+  
+  // For individual season pages, set the season from URL
+  const page = getCurrentPage();
+  if (page === 'season') {
+    const seasonFromURL = getSeasonFromURL();
+    if (seasonFromURL) {
+      currentSeason = seasonFromURL;
+    }
+  }
   
   // Set up sort dropdown listener
   const sortDropdown = document.getElementById('sortDropdown');
@@ -1836,7 +1887,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Initialize based on current page
   const page = getCurrentPage();
   
-  if (page === 'shop') {
+  if (page === 'shop' || page === 'season') {
     initShopPage();
   } else if (page === 'palette') {
     initPalettePage();
