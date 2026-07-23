@@ -1101,15 +1101,23 @@ async function loadProductsFromGoogleSheets() {
     PRODUCTS = parsedProducts;
     console.log(`✅ Loaded ${PRODUCTS.length} products from Google Sheets`);
     
-    // Re-render current view with fresh data
-    const hash = window.location.hash.slice(1);
-    const [view] = hash.split('/');
-    if (view === 'shop') {
-      populateBrandOptions(); // Update brand filter with new products
-      renderGrid();
-    } else if (view === '' || view === 'home') {
-      buildProofStrip();
-      buildFamilies(); // Update item counts
+    // Re-render current view with fresh data (only if elements exist)
+    const page = getCurrentPage();
+    
+    if (page === 'shop') {
+      // Shop page elements
+      if (document.getElementById('grid')) {
+        populateBrandOptions();
+        renderGrid();
+      }
+    } else if (page === 'home') {
+      // Homepage elements
+      if (document.getElementById('proofStrip')) {
+        buildProofStrip();
+      }
+      if (document.getElementById('families')) {
+        buildFamilies();
+      }
     }
     
   } catch (error) {
