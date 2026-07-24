@@ -149,12 +149,9 @@
     color:var(--ink);
     border-bottom-color:var(--coral);
   }
-  .nav-dropdown-arrow{
-    font-size:10px;
-    transition:transform 0.2s;
-  }
-  .nav-dropdown.open .nav-dropdown-arrow{
-    transform:rotate(180deg);
+  .nav-dropdown:hover .nav-dropdown-toggle{
+    color:var(--ink);
+    border-bottom-color:var(--coral);
   }
   .nav-dropdown-menu{
     position:absolute;
@@ -609,7 +606,6 @@
       <div class="nav-dropdown">
         <button class="nav-dropdown-toggle active" id="shopDropdown">
           Shop by Season
-          <span class="nav-dropdown-arrow">▼</span>
         </button>
         <div class="nav-dropdown-menu">
           <a href="/light-spring" class="nav-dropdown-item">Light Spring</a>

@@ -1448,6 +1448,7 @@ function renderPaletteExplorer() {
     el.addEventListener('click', () => {
       currentPaletteSeason = el.dataset.key;
       navigate('palette', currentPaletteSeason);
+      renderPaletteExplorer(); // Re-render immediately after changing season
     });
   });
   

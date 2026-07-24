@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Light Spring: A Comprehensive Guide — Shop By Season</title>
+<meta name="description" content="Complete visual guide to Light Spring seasonal colors">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N4FQJ5E4C2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-N4FQJ5E4C2');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ivory:#FAF3EC;
+    --ink:#2C2622;
+    --ink-soft:#6B6259;
+    --card:#FFFFFF;
+    --line:#E8DED2;
+    --coral:#FF7A5C;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    background:var(--ivory);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    line-height:1.6;
+  }
+  .wrap{max-width:1100px; margin:0 auto; padding:0 40px;}
+
+  
+  /* NAV */
+  nav{
+    background:var(--card);
+    border-bottom:1px solid var(--line);
+    position:sticky;
+    top:0;
+    z-index:100;
+  }
+  nav .wrap{
+    display:flex;
+    align-items:center;
+    padding:16px 40px;
+  }
+  .nav-logo{
+    font-family:'Cormorant',serif;
+    font-weight:600;
+    font-size:22px;
+    color:var(--ink);
+    text-decoration:none;
+  }
+  .nav-logo em{
+    font-style:italic;
+    color:var(--coral);
+  }
+  
+  /* HERO GRID */
+  .hero{
+    padding:60px 0;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+  }
+  .hero-image{
+    aspect-ratio:4/5;
+    background:url('https://i.pinimg.com/736x/1d/77/19/1d7719f57380c20de55866ec18b22da0.jpg') center/cover;
+    border-radius:16px;
+    box-shadow:0 8px 24px rgba(44,38,34,.12);
+  }
+  .hero-content h1{
+    font-family:'Cormorant',serif;
+    font-weight:400;
+    font-size:72px;
+    line-height:1;
+    margin-bottom:16px;
+  }
+  .hero-content .subtitle{
+    font-family:'Cormorant',serif;
+    font-size:28px;
+    text-transform:uppercase;
+    letter-spacing:.15em;
+    color:var(--ink-soft);
+    margin-bottom:24px;
+  }
+  .hero-content p{
+    font-size:16px;
+    line-height:1.8;
+    color:var(--ink);
+    margin-bottom:32px;
+  }
+  .cta{
+    display:inline-block;
+    font-weight:600;
+    font-size:14px;
+    padding:14px 32px;
+    border-radius:999px;
+    background:var(--ink);
+    color:var(--ivory);
+    text-decoration:none;
+    transition:transform .2s;
+  }
+  .cta:hover{transform:translateY(-2px);}
+
+  
+  /* MAIN CONTENT WITH SIDEBAR */
+  .content{
+    padding:80px 0;
+  }
+  .split{
+    display:grid;
+    grid-template-columns:1fr 340px;
+    gap:80px;
+    margin-bottom:80px;
+  }
+  .main-col h2{
+    font-family:'Cormorant',serif;
+    font-size:42px;
+    font-weight:600;
+    margin-bottom:20px;
+    letter-spacing:-.01em;
+  }
+  .main-col p{
+    font-size:16px;
+    line-height:1.8;
+    color:var(--ink);
+    margin-bottom:16px;
+  }
+  
+  /* SIDEBAR */
+  .sidebar{
+    position:sticky;
+    top:100px;
+    height:fit-content;
+  }
+  .glance{
+    background:linear-gradient(135deg, #FFF9F0, #FFFCF5);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:32px 28px;
+  }
+  .glance-title{
+    font-family:'Cormorant',serif;
+    font-size:20px;
+    font-weight:600;
+    margin-bottom:24px;
+    text-align:center;
+  }
+  .glance-item{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    margin-bottom:20px;
+  }
+  .glance-item:last-child{margin-bottom:0;}
+  .glance-icon{
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    flex-shrink:0;
+    box-shadow:0 3px 10px rgba(44,38,34,.1);
+  }
+  .glance-text strong{
+    display:block;
+    font-size:10px;
+    font-family:'IBM Plex Mono',monospace;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-bottom:4px;
+  }
+  .glance-text span{
+    font-size:15px;
+    font-weight:600;
+    color:var(--ink);
+  }
+
+  
+  /* SECTIONS */
+  section{
+    padding:80px 0;
+    border-top:1px solid var(--line);
+  }
+  .section-title{
+    font-family:'Cormorant',serif;
+    font-size:48px;
+    font-weight:600;
+    text-align:center;
+    margin-bottom:16px;
+  }
+  .section-subtitle{
+    font-size:16px;
+    font-style:italic;
+    text-align:center;
+    color:var(--ink-soft);
+    margin-bottom:56px;
+  }
+  
+  /* CHARACTERISTICS GRID */
+  .characteristics{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:40px;
+    max-width:900px;
+    margin:0 auto;
+  }
+  .char-card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:32px 28px;
+  }
+  .char-icon{
+    width:56px;
+    height:56px;
+    border-radius:50%;
+    background:linear-gradient(135deg, #FFF9F0, #FFFCF5);
+    margin:0 auto 20px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .char-icon svg{
+    width:28px;
+    height:28px;
+    stroke:var(--ink);
+    fill:none;
+    stroke-width:1.5;
+  }
+  .char-card h3{
+    font-family:'Cormorant',serif;
+    font-size:22px;
+    font-weight:600;
+    text-align:center;
+    margin-bottom:12px;
+  }
+  .char-card p{
+    font-size:14px;
+    line-height:1.7;
+    color:var(--ink-soft);
+    text-align:center;
+  }
+
+  
+  /* COLOR SWATCHES */
+  .subsection{
+    margin:60px auto;
+    max-width:900px;
+  }
+  .subsection h3{
+    font-family:'Cormorant',serif;
+    font-size:32px;
+    font-weight:600;
+    text-align:center;
+    margin-bottom:12px;
+  }
+  .subsection-desc{
+    font-size:14px;
+    font-style:italic;
+    text-align:center;
+    color:var(--ink-soft);
+    margin-bottom:32px;
+  }
+  .colors-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(100px, 1fr));
+    gap:24px;
+  }
+  .color-item{
+    text-align:center;
+  }
+  .color-circle{
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    margin:0 auto 12px;
+    box-shadow:0 4px 12px rgba(44,38,34,.12);
+    border:2px solid rgba(255,255,255,.5);
+  }
+  .color-name{
+    font-size:12px;
+    font-weight:500;
+    text-transform:uppercase;
+    letter-spacing:.03em;
+  }
+  
+  /* AVOID COLORS */
+  .avoid-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(90px, 1fr));
+    gap:24px;
+    max-width:800px;
+    margin:0 auto;
+  }
+  .avoid-swatch .color-circle{
+    width:90px;
+    height:90px;
+    position:relative;
+    overflow:hidden;
+  }
+  .avoid-swatch .color-circle::after{
+    content:'';
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%) rotate(-45deg);
+    width:120%;
+    height:3px;
+    background:rgba(225,79,53,.9);
+  }
+
+  
+  /* MAKEUP GRID */
+  .makeup-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+    gap:40px;
+    max-width:900px;
+    margin:48px auto;
+  }
+  .makeup-item h4{
+    font-family:'Cormorant',serif;
+    font-size:18px;
+    font-weight:600;
+    margin-bottom:12px;
+    text-transform:uppercase;
+    letter-spacing:.06em;
+    font-size:13px;
+  }
+  .makeup-item p{
+    font-size:14px;
+    line-height:1.7;
+    color:var(--ink-soft);
+  }
+  .makeup-swatches{
+    display:flex;
+    gap:8px;
+    margin-top:12px;
+  }
+  .makeup-swatch{
+    width:36px;
+    height:36px;
+    border-radius:50%;
+    box-shadow:0 2px 6px rgba(44,38,34,.15);
+    border:1px solid rgba(255,255,255,.5);
+  }
+  
+  /* TIP BOX */
+  .tip{
+    background:#FFF9F0;
+    border-left:3px solid var(--coral);
+    border-radius:8px;
+    padding:20px 24px;
+    margin:40px auto;
+    max-width:800px;
+    font-size:15px;
+    line-height:1.7;
+  }
+  
+  /* FOOTER */
+  footer{
+    border-top:1px solid var(--line);
+    padding:48px 0;
+    text-align:center;
+  }
+  .footer-link{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-weight:600;
+    font-size:14px;
+    color:var(--ink);
+    text-decoration:none;
+    padding:10px 20px;
+    border:1px solid var(--line);
+    border-radius:8px;
+    background:var(--card);
+    transition:all .2s;
+  }
+  .footer-link:hover{
+    border-color:var(--coral);
+    transform:translateY(-2px);
+  }
+  footer p{
+    margin-top:20px;
+    font-size:13px;
+    color:var(--ink-soft);
+  }
+
+  
+  /* RESPONSIVE */
+  @media (max-width:968px){
+    .hero-grid{grid-template-columns:1fr;}
+    .split{
+      grid-template-columns:1fr;
+      gap:48px;
+    }
+    .sidebar{
+      position:relative;
+      top:0;
+    }
+    .characteristics{
+      grid-template-columns:1fr;
+    }
+  }
+  @media (max-width:640px){
+    .wrap{padding:0 24px;}
+    .hero-content h1{font-size:52px;}
+    .section-title{font-size:38px;}
+    .colors-grid{
+      grid-template-columns:repeat(auto-fill, minmax(80px, 1fr));
+      gap:20px;
+    }
+    .color-circle{width:80px; height:80px;}
+    .color-name{font-size:11px;}
+    .makeup-grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="/" class="nav-logo">Shop By <em>Season</em></a>
+  </div>
+</nav>
+
+<div class="wrap">
+  
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-grid">
+      <div class="hero-image"></div>
+      <div class="hero-content">
+        <h1><em>the</em> Light Spring</h1>
+        <div class="subtitle">COLOR PALETTE</div>
+        <p>Light, warm & clear hues with a fresh, airy quality. Think of a blooming spring morning full of soft sunshine.</p>
+        <a href="/light-spring" class="cta">Shop Light Spring</a>
+      </div>
+    </div>
+  </header>
+  
+  <!-- INTRO WITH SIDEBAR -->
+  <div class="content">
+    <div class="split">
+      <div class="main-col">
+        <h2>What is Light Spring?</h2>
+        <p>Light Spring is one of the three Spring seasons and sits between True Spring and Light Summer on the seasonal flow chart. This season combines the freshness of Spring with a touch of Summer's softness, creating a delicate, luminous appearance.</p>
+        
+        <p>When you look in the mirror, the first thing you notice is how light your overall coloring is. There's very little contrast between your skin, eyes, and hair, creating a cohesive, delicate appearance with warm, golden undertones.</p>
+        
+        <p>Your colors are the pastel shades of spring flowers — light, bright, and undeniably warm. These colors enhance your natural glow without overwhelming your soft features.</p>
+      </div>
+      
+      <aside class="sidebar">
+        <div class="glance">
+          <div class="glance-title">LIGHT SPRING<br>AT A GLANCE</div>
+          <div class="glance-item">
+            <div class="glance-icon" style="background:#FFE5B4;"></div>
+            <div class="glance-text">
+              <strong>Undertones</strong>
+              <span>Warm</span>
+            </div>
+          </div>
+          <div class="glance-item">
+            <div class="glance-icon" style="background:#FFD6A5;"></div>
+            <div class="glance-text">
+              <strong>Saturation</strong>
+              <span>Light</span>
+            </div>
+          </div>
+          <div class="glance-item">
+            <div class="glance-icon" style="background:#FDBCB4;"></div>
+            <div class="glance-text">
+              <strong>Contrast</strong>
+              <span>Low to Medium</span>
+            </div>
+          </div>
+          <div class="glance-item">
+            <div class="glance-icon" style="background:#E6E6FA;"></div>
+            <div class="glance-text">
+              <strong>Appearance</strong>
+              <span>Bright & Clear</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- CHARACTERISTICS -->
+<section>
+  <div class="wrap">
+    <h2 class="section-title">Your Characteristics</h2>
+    <p class="section-subtitle">Physical features that define Light Spring</p>
+    
+    <div class="characteristics">
+      <div class="char-card">
+        <div class="char-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v4m0 12v4m10-10h-4m-12 0H2"/></svg>
+        </div>
+        <h3>Eyes</h3>
+        <p>Light blue, green, hazel, or light brown with warm undertones. Bright quality with signature Spring sunburst pattern radiating from the pupil.</p>
+      </div>
+      
+      <div class="char-card">
+        <div class="char-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2a9 9 0 0 1 9 9v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-8a9 9 0 0 1 9-9z"/><circle cx="9" cy="12" r="1"/><circle cx="15" cy="12" r="1"/></svg>
+        </div>
+        <h3>Skin</h3>
+        <p>Fair to medium with neutral-warm undertones. Golden, peachy, or ivory tones. Gold jewelry flatters more than silver. Often have freckles.</p>
+      </div>
+      
+      <div class="char-card">
+        <div class="char-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2c4 0 8 2 8 8s-4 8-8 8-8-2-8-8 4-8 8-8z"/><path d="M12 10c2 2 4 3 4 6M12 10c-2 2-4 3-4 6"/></svg>
+        </div>
+        <h3>Hair</h3>
+        <p>Light to medium golden blonde, strawberry blonde, light copper, or light golden brown. Warm, golden undertones with natural highlights.</p>
+      </div>
+      
+      <div class="char-card">
+        <div class="char-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+        </div>
+        <h3>Contrast</h3>
+        <p>Very low contrast between skin, hair, and eyes. Everything exists in a similar light value range with no dramatically dark areas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- BEST COLORS -->
+<section>
+  <div class="wrap">
+    <h2 class="section-title">BEST COLORS</h2>
+    <p class="section-subtitle">light · warm · clear</p>
+    
+    <div class="subsection">
+      <h3>Warm & Light</h3>
+      <p class="subsection-desc">Soft pastels with warm undertones</p>
+      <div class="colors-grid">
+        <div class="color-item">
+          <div class="color-circle" style="background:#FAF3DD;"></div>
+          <div class="color-name">Ivory</div>
+        </div>
+        <div class="color-item">
+          <div class="color-circle" style="background:#FFE5B4;"></div>
+          <div class="color-name">Buttermilk</div>
+        </div>
+        <div class="color-item">
+          <div class="color-circle" style="background:#FFDAB9;"></div>
+          <div class="color-name">Peach</div>
+        </div>
+        <div class="color-item">
+          <div class="color-circle" style="background:#FFD6A5;"></div>
+          <div class="color-name">Apricot</div>
+        </div>
+        <div class="color-item">
+          <div class="color-circle" style="background:#FF9B8A;"></div>
+          <div class="color-name">Coral</div>
+        </div>
+        <div class="color-item">
+          <div class="color-circle" style="background:#FFAFC0;"></div>
+          <div class="color-name">Melon</div>
+        </div>
+        <div class="color-item">
+          <div class="color-circle" style="background:#FFB6D9;"></div>
+          <div class="color-name">Pink Peony</div>
+        </div>
+        <div class="color-item">
+          <div class="color-circle" style="background:#FFD4E5;"></div>
+          <div class="color-name">Bubblegum</div>
+        </div>
+        <div class="color-item">
+          <div class="color-circle" style="background:#FDB8C0;"></div>
+          <div class="color-name">Rose</div>
+        </div>
+        <div class="color-item">
+          <div class="color-circle" style="background:#FF6B9D;"></div>
+          <div class="color-name">Raspberry</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="subsection">
+      <h3>Clear & Bright</h3>
+      <p class="subsection-desc">Fresh colors with luminosity</p>
+      <div class="colors-grid">
+        <div class="color-item">
+          <div class="color-circle" style="background:#E6E6FA;"></div>
+          <div class="color-name">Lilac</div>
+        </div>
+        <div class="color-item">
+          <div class="color-circle" style="background:#C9B8E4;"></div>
+          <div class="color-name">Lavender</div>
+        </div>
+        <div class="color-item">
+          <div class="color-circle" style="background:#B0C4DE;"></div>
+          <div class="color-name">Periwinkle</div>
+        </div>
+        <div class="color-item">
+          <div class="color-circle" style="background:#87CEEB;"></div>
+          <div class="color-name">Sky Blue</div>
+        </div>
+        <div class="color-item">
+          <div class="color-circle" style="background:#40E0D0;"></div>
+          <div class="color-name">Turquoise</div>
+        </div>
+        <div class="color-item">
+          <div class="color-circle" style="background:#93DFB8;"></div>
+          <div class="color-name">Seafoam</div>
+        </div>
+        <div class="color-item">
+          <div class="color-circle" style="background:#B2E8B2;"></div>
+          <div class="color-name">Mint</div>
+        </div>
+        <div class="color-item">
+          <div class="color-circle" style="background:#D5E8A3;"></div>
+          <div class="color-name">Limeade</div>
+        </div>
+        <div class="color-item">
+          <div class="color-circle" style="background:#C1E1A6;"></div>
+          <div class="color-name">Pistachio</div>
+        </div>
+        <div class="color-item">
+          <div class="color-circle" style="background:#9FD99F;"></div>
+          <div class="color-name">Leaf Green</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="subsection">
+      <h3>Neutrals</h3>
+      <p class="subsection-desc">Warm, light bases — avoid true black & pure white</p>
+      <div class="colors-grid">
+        <div class="color-item">
+          <div class="color-circle" style="background:#F5E6D3;"></div>
+          <div class="color-name">Soft Taupe</div>
+        </div>
+        <div class="color-item">
+          <div class="color-circle" style="background:#E8D5BA;"></div>
+          <div class="color-name">Sand</div>
+        </div>
+        <div class="color-item">
+          <div class="color-circle" style="background:#DCC9AA;"></div>
+          <div class="color-name">Oat</div>
+        </div>
+        <div class="color-item">
+          <div class="color-circle" style="background:#FFFACD;"></div>
+          <div class="color-name">Champagne</div>
+        </div>
+        <div class="color-item">
+          <div class="color-circle" style="background:#F5DEB3;"></div>
+          <div class="color-name">Warm Beige</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- AVOID -->
+<section style="background:var(--card);">
+  <div class="wrap">
+    <h2 class="section-title">COLORS TO AVOID</h2>
+    <p class="section-subtitle">too cool, too neutral, or too dark</p>
+    
+    <div class="tip">
+      Dark and cool colors will overwhelm your delicate coloring and create unflattering shadows. Overly saturated colors are also too intense for your soft, light appearance.
+    </div>
+    
+    <div class="avoid-grid">
+      <div class="avoid-swatch">
+        <div class="color-item">
+          <div class="color-circle" style="background:#000000;"></div>
+          <div class="color-name">Jet Black</div>
+        </div>
+      </div>
+      <div class="avoid-swatch">
+        <div class="color-item">
+          <div class="color-circle" style="background:#1B1F3B;"></div>
+          <div class="color-name">Navy</div>
+        </div>
+      </div>
+      <div class="avoid-swatch">
+        <div class="color-item">
+          <div class="color-circle" style="background:#4A235A;"></div>
+          <div class="color-name">Plum</div>
+        </div>
+      </div>
+      <div class="avoid-swatch">
+        <div class="color-item">
+          <div class="color-circle" style="background:#641E16;"></div>
+          <div class="color-name">Burgundy</div>
+        </div>
+      </div>
+      <div class="avoid-swatch">
+        <div class="color-item">
+          <div class="color-circle" style="background:#626567;"></div>
+          <div class="color-name">Charcoal</div>
+        </div>
+      </div>
+      <div class="avoid-swatch">
+        <div class="color-item">
+          <div class="color-circle" style="background:#85929E;"></div>
+          <div class="color-name">Cool Gray</div>
+        </div>
+      </div>
+      <div class="avoid-swatch">
+        <div class="color-item">
+          <div class="color-circle" style="background:#99A3A4;"></div>
+          <div class="color-name">Steel Blue</div>
+        </div>
+      </div>
+      <div class="avoid-swatch">
+        <div class="color-item">
+          <div class="color-circle" style="background:#EC407A;"></div>
+          <div class="color-name">Fuchsia</div>
+        </div>
+      </div>
+      <div class="avoid-swatch">
+        <div class="color-item">
+          <div class="color-circle" style="background:#C62828;"></div>
+          <div class="color-name">True Red</div>
+        </div>
+      </div>
+      <div class="avoid-swatch">
+        <div class="color-item">
+          <div class="color-circle" style="background:#4A148C;"></div>
+          <div class="color-name">Eggplant</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- MAKEUP -->
+<section>
+  <div class="wrap">
+    <h2 class="section-title">MAKEUP</h2>
+    <p class="section-subtitle">light · fresh · natural</p>
+    
+    <div class="makeup-grid">
+      <div class="makeup-item">
+        <h4>Foundation</h4>
+        <p>Light, warm undertones with peachy or golden bases</p>
+        <div class="makeup-swatches">
+          <div class="makeup-swatch" style="background:#FBE4D5;"></div>
+          <div class="makeup-swatch" style="background:#F5D5BE;"></div>
+          <div class="makeup-swatch" style="background:#E8C4A8;"></div>
+        </div>
+      </div>
+      
+      <div class="makeup-item">
+        <h4>Blush</h4>
+        <p>Peach, pink, apricot — soft and warm</p>
+        <div class="makeup-swatches">
+          <div class="makeup-swatch" style="background:#FDBCB4;"></div>
+          <div class="makeup-swatch" style="background:#FFB6C1;"></div>
+          <div class="makeup-swatch" style="background:#FFDAB9;"></div>
+        </div>
+      </div>
+      
+      <div class="makeup-item">
+        <h4>Eyeshadow</h4>
+        <p>Champagne, peach, lilac, soft brown</p>
+        <div class="makeup-swatches">
+          <div class="makeup-swatch" style="background:#F5DEB3;"></div>
+          <div class="makeup-swatch" style="background:#FFE5B4;"></div>
+          <div class="makeup-swatch" style="background:#E6E6FA;"></div>
+          <div class="makeup-swatch" style="background:#D2B48C;"></div>
+        </div>
+      </div>
+      
+      <div class="makeup-item">
+        <h4>Eyeliner</h4>
+        <p>Brown, warm gray, soft navy</p>
+        <div class="makeup-swatches">
+          <div class="makeup-swatch" style="background:#8B7355;"></div>
+          <div class="makeup-swatch" style="background:#6B6259;"></div>
+          <div class="makeup-swatch" style="background:#5B7C99;"></div>
+        </div>
+      </div>
+      
+      <div class="makeup-item">
+        <h4>Mascara</h4>
+        <p>Brown for everyday softness</p>
+        <div class="makeup-swatches">
+          <div class="makeup-swatch" style="background:#654321;"></div>
+        </div>
+      </div>
+      
+      <div class="makeup-item">
+        <h4>Lip Color</h4>
+        <p>Peach, pink, coral, soft rose</p>
+        <div class="makeup-swatches">
+          <div class="makeup-swatch" style="background:#FF9B8A;"></div>
+          <div class="makeup-swatch" style="background:#FFB6C1;"></div>
+          <div class="makeup-swatch" style="background:#FDBCB4;"></div>
+          <div class="makeup-swatch" style="background:#F4A7B9;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- STYLING TIPS -->
+<section style="background:var(--card);">
+  <div class="wrap">
+    <h2 class="section-title">Styling Tips</h2>
+    
+    <div class="tip" style="margin-bottom:24px;">
+      <strong>Color Combinations:</strong> Mix neighboring hues (yellow + green, pink + coral) or pair light neutrals with bright accents. Always include at least one bright, clear color in your outfit. Avoid all-neutral looks — Light Spring needs color to come alive!
+    </div>
+    
+    <div class="tip" style="margin-bottom:24px;">
+      <strong>Patterns & Prints:</strong> Opt for small florals, polka dots, delicate prints, and watercolor effects. Pattern elements should be small to medium-sized, busy, and playful. Avoid large geometric patterns, high-contrast black and white prints, or stiff angular designs.
+    </div>
+    
+    <div class="tip">
+      <strong>Metals & Jewelry:</strong> Gold is your best metal — yellow gold and rose gold both work beautifully. Keep metals light and bright with shiny, brushed, or matte finishes. Avoid antiqued, oxidized, or heavy dark bronze pieces. While silver is generally too cool, you may wear very light polished silver if you lean closer to Light Summer.
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section>
+  <div class="wrap" style="text-align:center; padding:60px 0;">
+    <h2 class="section-title">Ready to shop your colors?</h2>
+    <p style="font-size:17px; color:var(--ink-soft); margin-bottom:32px; max-width:560px; margin-left:auto; margin-right:auto;">Browse curated Light Spring pieces from Zara, H&M, Mango, and Next — every item hand-matched to your palette</p>
+    <a href="/light-spring" class="cta">Shop Light Spring</a>
+  </div>
+</section>
+
+<footer>
+  <a href="https://instagram.com/shopbyseason.co" target="_blank" class="footer-link">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+    </svg>
+    @shopbyseason.co
+  </a>
+  <p>© 2025 Shop By Season · All rights reserved</p>
+</footer>
+
+</body>
+</html>
