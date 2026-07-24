@@ -842,18 +842,18 @@ const FAMILIES = [
 
 // Published Google Sheets CSV URLs for each season
 const GOOGLE_SHEET_CSV_URLS = {
-  lightSpring: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT_EsG2Li0A4bek-4T77fIRSZg6rv2xOg6Z5NQU5cuMVfA6TdrafelcmTT4LNNuNCzWCIPgDypRbvpg/pub?gid=1114207388&single=true&output=csv',
-  warmSpring: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT_EsG2Li0A4bek-4T77fIRSZg6rv2xOg6Z5NQU5cuMVfA6TdrafelcmTT4LNNuNCzWCIPgDypRbvpg/pub?gid=79240450&single=true&output=csv',
-  brightSpring: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT_EsG2Li0A4bek-4T77fIRSZg6rv2xOg6Z5NQU5cuMVfA6TdrafelcmTT4LNNuNCzWCIPgDypRbvpg/pub?gid=1492432793&single=true&output=csv',
-  lightSummer: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT_EsG2Li0A4bek-4T77fIRSZg6rv2xOg6Z5NQU5cuMVfA6TdrafelcmTT4LNNuNCzWCIPgDypRbvpg/pub?gid=1039274979&single=true&output=csv',
-  coolSummer: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT_EsG2Li0A4bek-4T77fIRSZg6rv2xOg6Z5NQU5cuMVfA6TdrafelcmTT4LNNuNCzWCIPgDypRbvpg/pub?gid=2039436539&single=true&output=csv',
-  softSummer: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT_EsG2Li0A4bek-4T77fIRSZg6rv2xOg6Z5NQU5cuMVfA6TdrafelcmTT4LNNuNCzWCIPgDypRbvpg/pub?gid=1559896456&single=true&output=csv',
-  softAutumn: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT_EsG2Li0A4bek-4T77fIRSZg6rv2xOg6Z5NQU5cuMVfA6TdrafelcmTT4LNNuNCzWCIPgDypRbvpg/pub?gid=561695778&single=true&output=csv',
-  warmAutumn: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT_EsG2Li0A4bek-4T77fIRSZg6rv2xOg6Z5NQU5cuMVfA6TdrafelcmTT4LNNuNCzWCIPgDypRbvpg/pub?gid=1347363711&single=true&output=csv',
-  deepAutumn: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT_EsG2Li0A4bek-4T77fIRSZg6rv2xOg6Z5NQU5cuMVfA6TdrafelcmTT4LNNuNCzWCIPgDypRbvpg/pub?gid=406423439&single=true&output=csv',
-  brightWinter: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT_EsG2Li0A4bek-4T77fIRSZg6rv2xOg6Z5NQU5cuMVfA6TdrafelcmTT4LNNuNCzWCIPgDypRbvpg/pub?gid=1231061345&single=true&output=csv',
-  coolWinter: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT_EsG2Li0A4bek-4T77fIRSZg6rv2xOg6Z5NQU5cuMVfA6TdrafelcmTT4LNNuNCzWCIPgDypRbvpg/pub?gid=1216733839&single=true&output=csv',
-  deepWinter: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT_EsG2Li0A4bek-4T77fIRSZg6rv2xOg6Z5NQU5cuMVfA6TdrafelcmTT4LNNuNCzWCIPgDypRbvpg/pub?gid=2067440829&single=true&output=csv'
+  lightSpring: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT_EsG2Li0A4bek-4T77fIRSZg6rv2xOg6Z5NQU5cuMVfA6TdrafelcmTT4LNNuNCzWCIPgDypRbvpg/pub?gid=1114207388&output=csv',
+  warmSpring: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT_EsG2Li0A4bek-4T77fIRSZg6rv2xOg6Z5NQU5cuMVfA6TdrafelcmTT4LNNuNCzWCIPgDypRbvpg/pub?gid=79240450&output=csv',
+  brightSpring: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT_EsG2Li0A4bek-4T77fIRSZg6rv2xOg6Z5NQU5cuMVfA6TdrafelcmTT4LNNuNCzWCIPgDypRbvpg/pub?gid=1492432793&output=csv',
+  lightSummer: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT_EsG2Li0A4bek-4T77fIRSZg6rv2xOg6Z5NQU5cuMVfA6TdrafelcmTT4LNNuNCzWCIPgDypRbvpg/pub?gid=1039274979&output=csv',
+  coolSummer: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT_EsG2Li0A4bek-4T77fIRSZg6rv2xOg6Z5NQU5cuMVfA6TdrafelcmTT4LNNuNCzWCIPgDypRbvpg/pub?gid=2039436539&output=csv',
+  softSummer: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT_EsG2Li0A4bek-4T77fIRSZg6rv2xOg6Z5NQU5cuMVfA6TdrafelcmTT4LNNuNCzWCIPgDypRbvpg/pub?gid=1559896456&output=csv',
+  softAutumn: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT_EsG2Li0A4bek-4T77fIRSZg6rv2xOg6Z5NQU5cuMVfA6TdrafelcmTT4LNNuNCzWCIPgDypRbvpg/pub?gid=561695778&output=csv',
+  warmAutumn: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT_EsG2Li0A4bek-4T77fIRSZg6rv2xOg6Z5NQU5cuMVfA6TdrafelcmTT4LNNuNCzWCIPgDypRbvpg/pub?gid=1347363711&output=csv',
+  deepAutumn: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT_EsG2Li0A4bek-4T77fIRSZg6rv2xOg6Z5NQU5cuMVfA6TdrafelcmTT4LNNuNCzWCIPgDypRbvpg/pub?gid=406423439&output=csv',
+  brightWinter: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT_EsG2Li0A4bek-4T77fIRSZg6rv2xOg6Z5NQU5cuMVfA6TdrafelcmTT4LNNuNCzWCIPgDypRbvpg/pub?gid=1231061345&output=csv',
+  coolWinter: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT_EsG2Li0A4bek-4T77fIRSZg6rv2xOg6Z5NQU5cuMVfA6TdrafelcmTT4LNNuNCzWCIPgDypRbvpg/pub?gid=1216733839&output=csv',
+  deepWinter: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT_EsG2Li0A4bek-4T77fIRSZg6rv2xOg6Z5NQU5cuMVfA6TdrafelcmTT4LNNuNCzWCIPgDypRbvpg/pub?gid=2067440829&output=csv'
 };
 
 // This will store products loaded from Google Sheets (or fallback to hardcoded)
@@ -1206,7 +1206,8 @@ function itemCount(key) {
 
 function showView(view) {
   ['homeView', 'paletteView', 'shopView', 'aboutView'].forEach(id => {
-    document.getElementById(id).style.display = id === view ? 'block' : 'none';
+    const el = document.getElementById(id);
+    if (el) el.style.display = id === view ? 'block' : 'none';
   });
   document.querySelectorAll('.nav-link').forEach(el => {
     el.classList.toggle('active', el.dataset.view === view.replace('View', ''));
