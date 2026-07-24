@@ -1493,8 +1493,12 @@ function renderPaletteContent() {
 
 function renderSeasonSwitcher() {
   const wrap = document.getElementById('seasonSwitcher');
-  document.getElementById('seasonName').textContent = SEASONS[currentSeason].label;
-  document.getElementById('seasonSub').innerHTML = SEASONS[currentSeason].sub;
+  
+  // Update page title and subtitle
+  const seasonNameEl = document.getElementById('seasonName');
+  const seasonSubEl = document.getElementById('seasonSub');
+  if (seasonNameEl) seasonNameEl.textContent = SEASONS[currentSeason].label;
+  if (seasonSubEl) seasonSubEl.innerHTML = SEASONS[currentSeason].sub;
   
   // Update sort dropdown value
   const sortDropdown = document.getElementById('sortDropdown');
@@ -1510,6 +1514,9 @@ function renderSeasonSwitcher() {
   
   // Populate brand options in the optgroup
   populateBrandOptions();
+  
+  // Only render season switcher if the element exists (for old shop.html page)
+  if (!wrap) return;
   
   // Define season order: Spring → Summer → Autumn → Winter
   const seasonOrder = [
