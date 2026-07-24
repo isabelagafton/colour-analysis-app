@@ -1104,7 +1104,7 @@ async function loadProductsFromGoogleSheets() {
     // Re-render current view with fresh data (only if elements exist)
     const page = getCurrentPage();
     
-    if (page === 'shop') {
+    if (page === 'shop' || page === 'season') {
       // Shop page elements
       if (document.getElementById('grid')) {
         populateBrandOptions();
@@ -1812,9 +1812,8 @@ function getSeasonFromURL() {
 }
 
 // Initialize shop page
-function initShopPage() {
+async function initShopPage() {
   PRODUCTS = PRODUCTS_FALLBACK;
-  loadProductsFromGoogleSheets();
   
   // For individual season pages, set the season from URL
   const page = getCurrentPage();
@@ -1828,6 +1827,9 @@ function initShopPage() {
   // Set up sort dropdown listener
   const sortDropdown = document.getElementById('sortDropdown');
   if (sortDropdown) {
+    // Set initial value
+    sortDropdown.value = sortBy;
+    
     sortDropdown.addEventListener('change', (e) => {
       sortBy = e.target.value;
       renderGrid();
@@ -1837,6 +1839,9 @@ function initShopPage() {
   // Set up filter dropdown listener
   const filterDropdown = document.getElementById('filterDropdown');
   if (filterDropdown) {
+    // Set initial value
+    filterDropdown.value = filterBy;
+    
     filterDropdown.addEventListener('change', (e) => {
       const value = e.target.value;
       if (value.startsWith('brand:')) {
@@ -1853,7 +1858,10 @@ function initShopPage() {
   renderSeasonSwitcher();
   renderFan();
   renderChips();
-  renderGrid();
+  
+  // Load Google Sheets data, then render grid
+  await loadProductsFromGoogleSheets();
+  // renderGrid() is now called inside loadProductsFromGoogleSheets() after data loads
 }
 
 // Initialize palette page
