@@ -840,8 +840,21 @@ const FAMILIES = [
 // GOOGLE SHEETS CSV INTEGRATION
 // ══════════════════════════════════════════════════════════════════════════════
 
-// Paste your published Google Sheets CSV URL here:
-const GOOGLE_SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT_EsG2Li0A4bek-4T77fIRSZg6rv2xOg6Z5NQU5cuMVfA6TdrafelcmTT4LNNuNCzWCIPgDypRbvpg/pub?output=csv';
+// Published Google Sheets CSV URLs for each season
+const GOOGLE_SHEET_CSV_URLS = {
+  lightSpring: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT_EsG2Li0A4bek-4T77fIRSZg6rv2xOg6Z5NQU5cuMVfA6TdrafelcmTT4LNNuNCzWCIPgDypRbvpg/pub?gid=1114207388&single=true&output=csv',
+  warmSpring: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT_EsG2Li0A4bek-4T77fIRSZg6rv2xOg6Z5NQU5cuMVfA6TdrafelcmTT4LNNuNCzWCIPgDypRbvpg/pub?gid=79240450&single=true&output=csv',
+  brightSpring: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT_EsG2Li0A4bek-4T77fIRSZg6rv2xOg6Z5NQU5cuMVfA6TdrafelcmTT4LNNuNCzWCIPgDypRbvpg/pub?gid=1492432793&single=true&output=csv',
+  lightSummer: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT_EsG2Li0A4bek-4T77fIRSZg6rv2xOg6Z5NQU5cuMVfA6TdrafelcmTT4LNNuNCzWCIPgDypRbvpg/pub?gid=1039274979&single=true&output=csv',
+  coolSummer: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT_EsG2Li0A4bek-4T77fIRSZg6rv2xOg6Z5NQU5cuMVfA6TdrafelcmTT4LNNuNCzWCIPgDypRbvpg/pub?gid=2039436539&single=true&output=csv',
+  softSummer: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT_EsG2Li0A4bek-4T77fIRSZg6rv2xOg6Z5NQU5cuMVfA6TdrafelcmTT4LNNuNCzWCIPgDypRbvpg/pub?gid=1559896456&single=true&output=csv',
+  softAutumn: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT_EsG2Li0A4bek-4T77fIRSZg6rv2xOg6Z5NQU5cuMVfA6TdrafelcmTT4LNNuNCzWCIPgDypRbvpg/pub?gid=561695778&single=true&output=csv',
+  warmAutumn: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT_EsG2Li0A4bek-4T77fIRSZg6rv2xOg6Z5NQU5cuMVfA6TdrafelcmTT4LNNuNCzWCIPgDypRbvpg/pub?gid=1347363711&single=true&output=csv',
+  deepAutumn: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT_EsG2Li0A4bek-4T77fIRSZg6rv2xOg6Z5NQU5cuMVfA6TdrafelcmTT4LNNuNCzWCIPgDypRbvpg/pub?gid=406423439&single=true&output=csv',
+  brightWinter: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT_EsG2Li0A4bek-4T77fIRSZg6rv2xOg6Z5NQU5cuMVfA6TdrafelcmTT4LNNuNCzWCIPgDypRbvpg/pub?gid=1231061345&single=true&output=csv',
+  coolWinter: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT_EsG2Li0A4bek-4T77fIRSZg6rv2xOg6Z5NQU5cuMVfA6TdrafelcmTT4LNNuNCzWCIPgDypRbvpg/pub?gid=1216733839&single=true&output=csv',
+  deepWinter: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT_EsG2Li0A4bek-4T77fIRSZg6rv2xOg6Z5NQU5cuMVfA6TdrafelcmTT4LNNuNCzWCIPgDypRbvpg/pub?gid=2067440829&single=true&output=csv'
+};
 
 // This will store products loaded from Google Sheets (or fallback to hardcoded)
 let PRODUCTS = [];
@@ -1077,29 +1090,68 @@ function parseCSVLine(line) {
 }
 
 async function loadProductsFromGoogleSheets() {
-  if (!GOOGLE_SHEET_CSV_URL) {
-    console.log('📦 No Google Sheets URL configured - using hardcoded products');
+  if (!GOOGLE_SHEET_CSV_URLS || Object.keys(GOOGLE_SHEET_CSV_URLS).length === 0) {
+    console.log('📦 No Google Sheets URLs configured - using hardcoded products');
     return;
   }
   
   try {
-    console.log('📥 Loading products from Google Sheets...');
+    console.log('📥 Loading products from Google Sheets (12 tabs)...');
     
-    const response = await fetch(GOOGLE_SHEET_CSV_URL);
+    const allProducts = [];
+    let successCount = 0;
+    let failCount = 0;
     
-    if (!response.ok) {
-      throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+    // Load each season's CSV in parallel
+    const promises = Object.entries(GOOGLE_SHEET_CSV_URLS).map(async ([seasonKey, url]) => {
+      try {
+        console.log(`Fetching ${seasonKey} from:`, url);
+        const response = await fetch(url);
+        
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+        }
+        
+        const csvText = await response.text();
+        console.log(`${seasonKey} CSV length:`, csvText.length, 'characters');
+        
+        const parsedProducts = parseCSV(csvText);
+        
+        // Only add season key if product doesn't already have one
+        parsedProducts.forEach(product => {
+          if (!product.season) {
+            product.season = seasonKey;
+          }
+        });
+        
+        console.log(`✓ Loaded ${parsedProducts.length} products for ${seasonKey}`);
+        successCount++;
+        
+        return parsedProducts;
+      } catch (error) {
+        console.error(`⚠️ Failed to load ${seasonKey}:`, error.message, error);
+        failCount++;
+        return [];
+      }
+    });
+    
+    // Wait for all promises to resolve
+    const results = await Promise.all(promises);
+    
+    // Flatten all results into single array
+    results.forEach(seasonProducts => {
+      allProducts.push(...seasonProducts);
+    });
+    
+    if (allProducts.length === 0) {
+      throw new Error('No valid products found in any CSV');
     }
     
-    const csvText = await response.text();
-    const parsedProducts = parseCSV(csvText);
-    
-    if (parsedProducts.length === 0) {
-      throw new Error('No valid products found in CSV');
+    PRODUCTS = allProducts;
+    console.log(`✅ Successfully loaded ${allProducts.length} total products from ${successCount}/${Object.keys(GOOGLE_SHEET_CSV_URLS).length} tabs`);
+    if (failCount > 0) {
+      console.warn(`⚠️ ${failCount} tab(s) failed to load`);
     }
-    
-    PRODUCTS = parsedProducts;
-    console.log(`✅ Loaded ${PRODUCTS.length} products from Google Sheets`);
     
     // Re-render current view with fresh data (only if elements exist)
     const page = getCurrentPage();
@@ -1121,7 +1173,7 @@ async function loadProductsFromGoogleSheets() {
     }
     
   } catch (error) {
-    console.warn('⚠️ Failed to load from Google Sheets, keeping fallback:', error.message);
+    console.error('⚠️ Failed to load from Google Sheets, keeping fallback:', error.message, error);
     // PRODUCTS already set to PRODUCTS_FALLBACK, no action needed
   }
 }
@@ -1858,10 +1910,10 @@ async function initShopPage() {
   renderSeasonSwitcher();
   renderFan();
   renderChips();
+  renderGrid(); // Initial render with fallback data
   
-  // Load Google Sheets data, then render grid
+  // Load Google Sheets data, then render grid again with fresh data
   await loadProductsFromGoogleSheets();
-  // renderGrid() is now called inside loadProductsFromGoogleSheets() after data loads
 }
 
 // Initialize palette page
