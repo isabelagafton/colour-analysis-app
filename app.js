@@ -1446,9 +1446,12 @@ function renderPaletteExplorer() {
   ).join('');
   bar.querySelectorAll('.palette-season-tab').forEach(el => {
     el.addEventListener('click', () => {
-      currentPaletteSeason = el.dataset.key;
-      navigate('palette', currentPaletteSeason);
-      renderPaletteExplorer(); // Re-render immediately after changing season
+      const newSeason = el.dataset.key;
+      if (newSeason !== currentPaletteSeason) {
+        currentPaletteSeason = newSeason;
+        window.location.hash = newSeason;
+        renderPaletteExplorer();
+      }
     });
   });
   
@@ -1848,6 +1851,21 @@ function initShopPage() {
 
 // Initialize palette page
 function initPalettePage() {
+  // Check URL hash for season (e.g., /palette#warmSpring)
+  const hash = window.location.hash.slice(1);
+  if (hash && SEASONS[hash]) {
+    currentPaletteSeason = hash;
+  }
+  
+  // Listen for hash changes
+  window.addEventListener('hashchange', () => {
+    const newHash = window.location.hash.slice(1);
+    if (newHash && SEASONS[newHash]) {
+      currentPaletteSeason = newHash;
+      renderPaletteExplorer();
+    }
+  });
+  
   renderPaletteExplorer();
 }
 
