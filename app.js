@@ -864,12 +864,16 @@ let PRODUCTS = [];
 // ══════════════════════════════════════════════════════════════════════════════
 
 const PRODUCTS_FALLBACK = [
-  {season:'lightSpring', name:'Lipsy Pistachio Green Linen-Blend Shirt', retailer:'next', category:'top', shade:'pistachio', price:'253 RON', url:'https://www.next.ro/en/style/su878498/y72754', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/Y72754s.jpg', dateAdded:'2025-01-15'},
-  {season:'lightSpring', name:'Love & Roses Apricot Lace Blouse', retailer:'next', category:'top', shade:'apricot', price:'298 RON', salePrice:'199 RON', url:'https://www.next.ro/en/style/su900137/v24764', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/V24764s.jpg', dateAdded:'2024-12-11'},
-  {season:'lightSpring', name:'Love & Roses Peach Pink Pointelle Cardigan', retailer:'next', category:'knit', shade:'peach', price:'253 RON', url:'https://www.next.ro/en/style/sv028711/v76604', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/V76604s.jpg', dateAdded:'2024-12-12'},
-  {season:'lightSpring', name:'Love & Roses Blue Satin Jacquard Tea Top', retailer:'next', category:'top', shade:'skyblue', price:'283 RON', url:'https://www.next.ro/en/style/sv000342/g83781', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/G83781s.jpg', dateAdded:'2024-12-13'},
-  {season:'lightSpring', name:'Love & Roses Coral Shell Cutwork Mini Kaftan', retailer:'next', category:'dress', shade:'coral', price:'343 RON', url:'https://www.next.ro/ro/style/su845985/h97805', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/H97805s.jpg', dateAdded:'2024-12-13'},
-  {season:'lightSpring', name:'Love & Roses Yellow Floral Embroidered Knitted Top', retailer:'next', category:'knit', shade:'golden', price:'290 RON', url:'https://www.next.ro/en/style/sv068672/y53931', confidence:'medium', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/Y53931s.jpg', dateAdded:'2024-12-14'},
+  {season:'lightSpring', name:'Zara Satin Halter Top', retailer:'zara', category:'top', shade:'lightgreen', price:'99 RON', url:'https://www.zara.com/ro/en/satin-halter-neck-top-p07822332.html', confidence:'high', img:'https://static.zara.net/assets/public/745f/27af/0ba64e779797/3dc6d14e0929/07822342520-p/07822342520-p.jpg', dateAdded:'2026-07-12'},
+  {season:'lightSpring', name:'V-Neck Tiered Linen Mini Dress', retailer:'next', category:'dress', shade:'lightgreen', price:'192 RON', url:'https://www.next.ro/en/style/su759831/w59414', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/W59414s.jpg', dateAdded:'2024-12-25'},
+  {season:'lightSpring', name:'Mohito Butter Yellow Maxi Dress with Tie Back', retailer:'mohito', category:'dress', shade:'goldenyellow', price:'199 RON', salePrice:'159 RON', url:'https://www.mohito.com/ro/ro/rochie-maxi-cu-legare-la-spate-2-660kk-10x', confidence:'high', img:'https://static.mohito.com/media/catalog/product/6/6/660KK-10X-040-2-1263294.jpg', dateAdded:'2025-01-14'},
+  {season:'lightSpring', name:'Love & Roses Cotton/Linen Blend Shell Top', retailer:'next', category:'top', shade:'peachpink', price:'268 RON', url:'https://www.next.ro/ro/style/su968104/g66044', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/G66044s.jpg', dateAdded:'2026-07-23'},
+  {season:'lightSpring', name:'Friends Like These Draped Off The Shoulder Top (Yellow)', retailer:'next', category:'top', shade:'goldenyellow', price:'238 RON', salePrice:'166 RON', url:'https://www.next.ro/en/style/su721640/v10799', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/V10799s.jpg', dateAdded:'2024-12-20'},
+  {season:'lightSpring', name:'Friends Like These Draped Off The Shoulder Top (Pistachio Green)', retailer:'next', category:'top', shade:'lightgreen', price:'238 RON', salePrice:'166 RON', url:'https://www.next.ro/en/style/su721640/v10809', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/V10809s.jpg', dateAdded:'2024-12-21'},
+  {season:'lightSpring', name:'Love & Roses Apricot Lace Blouse', retailer:'next', category:'top', shade:'apricotorange', price:'298 RON', url:'https://www.next.ro/en/style/su900137/v24764', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/V24764s.jpg', dateAdded:'2024-12-11'},
+  {season:'lightSpring', name:'Love & Roses Peach Pink Pointelle Cardigan', retailer:'next', category:'knit', shade:'peachpink', price:'268 RON', url:'https://www.next.ro/en/style/sv028711/v76604', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/V76604s.jpg', dateAdded:'2024-12-12'},
+  {season:'lightSpring', name:'Friends Like These Short Sleeve Ruffle Mini Dress', retailer:'next', category:'dress', shade:'coralred', price:'335 RON', salePrice:'234 RON', url:'https://www.next.ro/en/style/su883300/y17055', confidence:'medium', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/Y17055s.jpg', dateAdded:'2024-12-21'},
+  {season:'lightSpring', name:'Long Halterneck Dress with Applique', retailer:'zara', category:'dress', shade:'goldenyellow', price:'199 RON', url:'https://www.zara.com/ro/en/long-halter-dress-with-applique-p07834181.html', confidence:'high', img:'https://static.zara.net/assets/public/9c1f/b2ee/1db84101acff/e74e150cbc9f/07384181306-p/07384181306-p.jpg', dateAdded:'2026-07-13'},
   {season:'coolSummer', name:'Lipsy Floral Embroidered Short Sleeve Shirt', retailer:'next', category:'top', shade:'powderblue', price:'313 RON', url:'https://www.next.ro/ro/style/sv148115/y88147', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/Y88147s.jpg', dateAdded:'2024-12-14'},
   {season:'brightSpring', name:'Love & Roses Floral Embroidered Notch Neck Blouse', retailer:'next', category:'top', shade:'brighttomato', price:'313 RON', url:'https://www.next.ro/ro/style/sv029298/g97246', confidence:'medium', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/G97246s.jpg', dateAdded:'2024-12-15'},
   {season:'coolWinter', name:'Love & Roses Broderie Shell Top', retailer:'next', category:'top', shade:'truered', price:'283 RON', url:'https://www.next.ro/ro/style/sv000353/v49906', confidence:'high', img:'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/V49906s.jpg', dateAdded:'2024-12-15'},
@@ -1089,21 +1093,24 @@ function parseCSVLine(line) {
   return values;
 }
 
-async function loadProductsFromGoogleSheets() {
+async function loadProductsFromGoogleSheets(seasonKey = null) {
   if (!GOOGLE_SHEET_CSV_URLS || Object.keys(GOOGLE_SHEET_CSV_URLS).length === 0) {
     console.log('📦 No Google Sheets URLs configured - using hardcoded products');
     return;
   }
   
   try {
-    console.log('📥 Loading products from Google Sheets (12 tabs)...');
+    const seasonsToLoad = seasonKey ? [seasonKey] : Object.keys(GOOGLE_SHEET_CSV_URLS);
+    console.log(`📥 Loading products from Google Sheets (${seasonsToLoad.length} ${seasonsToLoad.length === 1 ? 'tab' : 'tabs'})...`);
     
     const allProducts = [];
     let successCount = 0;
     let failCount = 0;
     
     // Load each season's CSV in parallel
-    const promises = Object.entries(GOOGLE_SHEET_CSV_URLS).map(async ([seasonKey, url]) => {
+    const promises = seasonsToLoad.map(async (seasonKey) => {
+      const url = GOOGLE_SHEET_CSV_URLS[seasonKey];
+      if (!url) return [];
       try {
         console.log(`Fetching ${seasonKey} from:`, url);
         const response = await fetch(url);
@@ -1148,7 +1155,7 @@ async function loadProductsFromGoogleSheets() {
     }
     
     PRODUCTS = allProducts;
-    console.log(`✅ Successfully loaded ${allProducts.length} total products from ${successCount}/${Object.keys(GOOGLE_SHEET_CSV_URLS).length} tabs`);
+    console.log(`✅ Successfully loaded ${allProducts.length} total products from ${successCount}/${seasonsToLoad.length} ${seasonsToLoad.length === 1 ? 'tab' : 'tabs'}`);
     if (failCount > 0) {
       console.warn(`⚠️ ${failCount} tab(s) failed to load`);
     }
@@ -1676,6 +1683,8 @@ function renderChips() {
 
 function renderGrid() {
   const grid = document.getElementById('grid');
+  if (!grid) return; // Guard clause if grid doesn't exist
+  
   const HEX = getHex();
   let items = PRODUCTS.filter(p => {
     // Filter out archived products
@@ -1913,8 +1922,8 @@ async function initShopPage() {
   renderChips();
   renderGrid(); // Initial render with fallback data
   
-  // Load Google Sheets data, then render grid again with fresh data
-  await loadProductsFromGoogleSheets();
+  // Load Google Sheets data in background, then re-render
+  loadProductsFromGoogleSheets();
 }
 
 // Initialize palette page
