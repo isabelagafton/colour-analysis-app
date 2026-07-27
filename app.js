@@ -189,11 +189,14 @@ const EXTENDED = {
     {key:'trueblack', label:'True Black', hex:'#0A0A0A', group:'neutrals'},
   ],
   warmSpring: [
-    // Reds & Pinks (6)
+    // Reds & Pinks (10)
     {key:'warmcoral', label:'Warm Coral', hex:'#FF6F5C', group:'pinks'},
+    {key:'coralpink', label:'Coral Pink', hex:'#F88379', group:'pinks'},
     {key:'salmonpink', label:'Salmon Pink', hex:'#FA8072', group:'pinks'},
+    {key:'peachpink', label:'Peach Pink', hex:'#FFB5A7', group:'pinks'},
     {key:'watermelon', label:'Watermelon', hex:'#FF6B7A', group:'pinks'},
     {key:'warmrose', label:'Warm Rose', hex:'#FF8B85', group:'pinks'},
+    {key:'geranium', label:'Geranium', hex:'#D9534F', group:'pinks'},
     {key:'poppyred', label:'Poppy Red', hex:'#E8452C', group:'reds'},
     {key:'tomatorед', label:'Tomato Red', hex:'#FF6347', group:'reds'},
     {key:'persimmon', label:'Persimmon', hex:'#EC5800', group:'reds'},
@@ -234,7 +237,7 @@ const EXTENDED = {
     {key:'warmchocolate', label:'Warm Chocolate', hex:'#6B4423', group:'neutrals'},
   ],
   brightSpring: [
-    // Pinks & Reds (9)
+    // Pinks & Reds (10)
     {key:'hotpink', label:'Hot Pink', hex:'#FF3D8A', group:'pinks'},
     {key:'warmmagenta', label:'Warm Magenta', hex:'#E8308A', group:'pinks'},
     {key:'brightfuchsia', label:'Bright Fuchsia', hex:'#FF1493', group:'pinks'},
@@ -244,6 +247,7 @@ const EXTENDED = {
     {key:'brighttomato', label:'Bright Tomato', hex:'#FF4433', group:'pinks'},
     {key:'tomato', label:'Tomato', hex:'#E63946', group:'pinks'},
     {key:'brightred', label:'Bright Red', hex:'#d8343f', group:'pinks'},
+    {key:'coralred', label:'Coral Red', hex:'#e9405d', group:'pinks'},
     // Oranges (4)
     {key:'brightpeach', label:'Bright Peach', hex:'#FFB07C', group:'oranges'},
     {key:'papaya', label:'Papaya', hex:'#FFA64D', group:'oranges'},
