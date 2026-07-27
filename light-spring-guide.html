@@ -16,7 +16,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=Fraunces:wght@400;600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
   :root{
     --ivory:#FAF3EC;
@@ -63,7 +63,7 @@
   
   /* HERO GRID */
   .hero{
-    padding:60px 0;
+    padding:60px 0 40px;
   }
   .hero-grid{
     display:grid;
@@ -77,12 +77,28 @@
     border-radius:16px;
     box-shadow:0 8px 24px rgba(44,38,34,.12);
   }
+  .hero-content .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    font-weight:500;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-bottom:20px;
+  }
   .hero-content h1{
-    font-family:'Cormorant',serif;
+    font-family:'Playfair Display',serif;
     font-weight:400;
     font-size:72px;
-    line-height:1;
-    margin-bottom:16px;
+    line-height:1.1;
+    margin-bottom:20px;
+  }
+  .hero-content h1 .the{
+    color:var(--ink);
+  }
+  .hero-content h1 .season{
+    color:var(--coral);
+    font-style:italic;
   }
   .hero-content .subtitle{
     font-family:'Cormorant',serif;
@@ -101,11 +117,11 @@
   .cta{
     display:inline-block;
     font-weight:600;
-    font-size:14px;
+    font-size:16px;
     padding:14px 32px;
     border-radius:999px;
-    background:var(--ink);
-    color:var(--ivory);
+    background:var(--coral);
+    color:#FFFFFF;
     text-decoration:none;
     transition:transform .2s;
   }
@@ -114,12 +130,11 @@
   
   /* SECTIONS */
   section{
-    padding:60px 0;
-    border-top:1px solid var(--line);
+    padding:60px 0 0;
   }
   .section-title{
     font-family:'Cormorant',serif;
-    font-size:48px;
+    font-size:38px;
     font-weight:600;
     text-align:center;
     margin-bottom:16px;
@@ -132,63 +147,199 @@
     margin-bottom:56px;
   }
   
-  /* AT A GLANCE GRID */
-  .glance-grid{
-    display:grid;
-    grid-template-columns:repeat(5, 1fr);
-    gap:32px;
-    max-width:1000px;
-    margin:0 auto 40px;
+  /* ADD DIVIDER TO BEST COLORS */
+  section.best-colors{
+    padding-top:60px;
+    padding-bottom:80px;
+    border-top:1px solid var(--line);
   }
-  .glance-item{
+  
+  /* AT A GLANCE BOX */
+  .glance-box{
+    max-width:800px;
+    margin:60px auto;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:48px;
+    box-shadow:0 4px 16px rgba(44,38,34,.08);
+  }
+  .glance-box-title{
+    font-family:'Fraunces',serif;
+    font-size:20px;
+    font-weight:600;
+    text-align:center;
+    margin-bottom:40px;
+  }
+  .glance-items{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:40px 48px;
+  }
+  .glance-item-new{
     text-align:center;
   }
-  .glance-circle{
-    width:120px;
-    height:120px;
-    border-radius:50%;
-    margin:0 auto 16px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:40px;
-    box-shadow:0 4px 12px rgba(44,38,34,.1);
-  }
-  .glance-label{
+  .glance-item-label{
     font-family:'IBM Plex Mono',monospace;
-    font-size:9px;
-    letter-spacing:.12em;
+    font-size:10px;
+    letter-spacing:.15em;
     text-transform:uppercase;
     color:var(--ink-soft);
-    margin-bottom:6px;
+    margin-bottom:10px;
   }
-  .glance-value{
-    font-size:15px;
+  .glance-item-value{
+    font-size:16px;
     font-weight:600;
+    color:var(--ink);
+  }
+  
+  /* WHAT IS SECTION */
+  .what-is{
+    max-width:800px;
+    margin:0 auto 0;
+    padding-top:40px;
+    border-top:1px solid var(--line);
+  }
+  .what-is h3{
+    font-family:'Playfair Display',serif;
+    font-size:38px;
+    font-weight:400;
+    margin-bottom:24px;
+  }
+  .what-is h3 em{
+    font-style:italic;
+    color:var(--coral);
+  }
+  .what-is p{
+    font-size:16px;
+    line-height:1.8;
+    color:var(--ink);
+    margin-bottom:20px;
+  }
+  .what-is p strong{
+    font-weight:600;
+  }
+  
+  /* CHARACTERISTICS BOX */
+  .characteristics-section{
+    max-width:800px;
+    margin:60px auto 0;
+  }
+  .characteristics-section h3{
+    font-family:'Playfair Display',serif;
+    font-size:38px;
+    font-weight:400;
+    margin-bottom:32px;
+  }
+  .characteristics-section h3 em{
+    font-style:italic;
+    color:var(--coral);
+  }
+  .characteristics-section h4{
+    font-family:'Inter',sans-serif;
+    font-size:16px;
+    font-weight:600;
+    margin-top:28px;
+    margin-bottom:12px;
+    color:var(--ink);
+  }
+  .characteristics-section p{
+    font-size:16px;
+    line-height:1.8;
+    color:var(--ink);
+  }
+  .characteristics-section p strong{
+    font-weight:600;
+  }
+  
+  /* VS SECTION */
+  .vs-section{
+    max-width:800px;
+    margin:0 auto 80px;
+    padding-top:60px;
+    border-top:1px solid var(--line);
+  }
+  .vs-section h3{
+    font-family:'Playfair Display',serif;
+    font-size:38px;
+    font-weight:400;
+    margin-bottom:24px;
+  }
+  .vs-section h3 em{
+    font-style:italic;
+    color:var(--coral);
+  }
+  .vs-intro{
+    font-size:16px;
+    line-height:1.8;
+    color:var(--ink);
+    margin-bottom:40px;
+  }
+  .vs-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:32px;
+    margin-bottom:40px;
+  }
+  .vs-card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:32px;
+  }
+  .vs-card h4{
+    font-family:'Playfair Display',serif;
+    font-size:24px;
+    font-weight:600;
+    margin-bottom:24px;
+    color:var(--ink);
+  }
+  .vs-card ul{
+    list-style:none;
+    padding:0;
+  }
+  .vs-card li{
+    font-size:15px;
+    line-height:1.7;
+    color:var(--ink);
+    margin-bottom:16px;
+    padding-left:24px;
+    position:relative;
+  }
+  .vs-card li:before{
+    content:"→";
+    position:absolute;
+    left:0;
+    color:var(--coral);
+    font-weight:600;
+  }
+  .vs-outro{
+    font-size:16px;
+    line-height:1.8;
     color:var(--ink);
   }
 
   
   /* FEATURES GRID */
+  .features-section{
+    display:flex;
+    justify-content:center;
+    margin-bottom:0;
+    padding-top:60px;
+    border-top:1px solid var(--line);
+  }
   .features-grid{
     display:grid;
     grid-template-columns:300px 1fr;
     gap:60px;
     margin-bottom:0;
+    max-width:900px;
   }
   .feature-image{
     aspect-ratio:3/4;
-    background:linear-gradient(135deg, #E6E6FA, #FFD6E7);
+    background:url('https://images.pexels.com/photos/4560230/pexels-photo-4560230.jpeg') center/cover no-repeat;
     border-radius:12px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-family:'IBM Plex Mono',monospace;
-    font-size:11px;
-    color:var(--ink-soft);
-    text-align:center;
-    padding:20px;
-    border:2px dashed var(--line);
+    box-shadow:0 4px 12px rgba(44,38,34,.12);
   }
   .feature-content h3{
     font-family:'Cormorant',serif;
@@ -235,10 +386,8 @@
   
   /* COLOR PALETTE LAYOUT */
   .palette-layout{
-    display:grid;
-    grid-template-columns:2fr 1fr;
-    gap:60px;
-    margin-bottom:0;
+    max-width:800px;
+    margin:0 auto;
   }
   .palette-main h3{
     font-family:'Cormorant',serif;
@@ -256,7 +405,7 @@
     display:grid;
     grid-template-columns:repeat(5, 1fr);
     gap:20px;
-    margin-bottom:48px;
+    margin-bottom:0;
   }
   .color-item{
     text-align:center;
@@ -303,11 +452,19 @@
 
   
   /* MAKEUP GRID */
+  .makeup-section{
+    padding-top:60px;
+    padding-bottom:60px;
+    border-top:1px solid var(--line);
+  }
   .makeup-grid{
     display:grid;
-    grid-template-columns:repeat(3, 1fr);
+    grid-template-columns:repeat(2, 1fr);
     gap:40px;
-    margin-top:48px;
+    margin-top:0;
+    max-width:800px;
+    margin-left:auto;
+    margin-right:auto;
   }
   .makeup-card{
     background:var(--card);
@@ -348,23 +505,19 @@
   /* CAPSULE WARDROBE */
   .capsule-grid{
     display:grid;
-    grid-template-columns:repeat(6, 1fr);
+    grid-template-columns:repeat(4, 1fr);
     gap:20px;
     margin-top:48px;
+    max-width:800px;
+    margin-left:auto;
+    margin-right:auto;
   }
   .capsule-item{
     aspect-ratio:3/4;
-    background:linear-gradient(135deg, #F5E6D3, #FFFCF5);
+    background-size:cover;
+    background-position:center;
     border-radius:12px;
-    border:2px dashed var(--line);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-family:'IBM Plex Mono',monospace;
-    font-size:10px;
-    color:var(--ink-soft);
-    text-align:center;
-    padding:12px;
+    overflow:hidden;
   }
 
   
@@ -444,7 +597,8 @@
     <div class="hero-grid">
       <div class="hero-image"></div>
       <div class="hero-content">
-        <h1><em>the</em> Light Spring</h1>
+        <div class="eyebrow">Comprehensive Guide · 12-Season System</div>
+        <h1><span class="the">The </span><span class="season">Light Spring</span></h1>
         <div class="subtitle">COLOR PALETTE</div>
         <p>Light, warm & clear hues with a fresh, airy quality. Think of a blooming spring morning full of soft sunshine.</p>
         <a href="/light-spring" class="cta">Shop Light Spring</a>
@@ -457,34 +611,53 @@
 <!-- AT A GLANCE -->
 <section>
   <div class="wrap">
-    <h2 class="section-title">LIGHT SPRING AT A GLANCE</h2>
+    <div class="what-is">
+      <h3><strong>What is <em>Light Spring?</em></strong></h3>
+      <p>Light Spring is one of the three Spring seasons and sits between True Spring and Light Summer on the seasonal flow chart. This season combines the freshness of Spring with a touch of Summer's softness, creating a delicate, luminous appearance.</p>
+      <p>If you're a Light Spring, the primary characteristic of your overall appearance is <strong>lightness</strong>, with <strong>warmth</strong> as the secondary aspect. This means warm colors suit you better than cool ones, but the colors must remain light and gentle to harmonize with your delicate coloring.</p>
+      <p>When you look in the mirror, the first thing you notice is how light your overall coloring is — there's very little contrast between your skin, eyes, and hair. All of your features are similarly light, creating a cohesive, delicate appearance.</p>
+    </div>
     
-    <div class="glance-grid">
-      <div class="glance-item">
-        <div class="glance-circle" style="background:#FFE5B4;">☀️</div>
-        <div class="glance-label">Warm<br>Undertones</div>
-        <div class="glance-value">Golden, Peachy</div>
+    <div class="glance-box">
+      <h3 class="glance-box-title">Light Spring at a Glance</h3>
+      <div class="glance-items">
+        <div class="glance-item-new">
+          <div class="glance-item-label">Undertones</div>
+          <div class="glance-item-value">Warm</div>
+        </div>
+        <div class="glance-item-new">
+          <div class="glance-item-label">Value</div>
+          <div class="glance-item-value">Light</div>
+        </div>
+        <div class="glance-item-new">
+          <div class="glance-item-label">Saturation</div>
+          <div class="glance-item-value">Light to Medium</div>
+        </div>
+        <div class="glance-item-new">
+          <div class="glance-item-label">Contrast</div>
+          <div class="glance-item-value">Low</div>
+        </div>
+        <div class="glance-item-new">
+          <div class="glance-item-label">Appearance</div>
+          <div class="glance-item-value">Bright, Clear</div>
+        </div>
       </div>
-      <div class="glance-item">
-        <div class="glance-circle" style="background:#FFD6A5;">💡</div>
-        <div class="glance-label">Light<br>Saturation</div>
-        <div class="glance-value">Soft Pastels</div>
-      </div>
-      <div class="glance-item">
-        <div class="glance-circle" style="background:#FDBCB4;">🌸</div>
-        <div class="glance-label">Low to Medium<br>Contrast</div>
-        <div class="glance-value">Delicate</div>
-      </div>
-      <div class="glance-item">
-        <div class="glance-circle" style="background:#E6E6FA;">✨</div>
-        <div class="glance-label">Bright, Clear<br>Appearance</div>
-        <div class="glance-value">Luminous</div>
-      </div>
-      <div class="glance-item">
-        <div class="glance-circle" style="background:#B4C7E7;">👁️</div>
-        <div class="glance-label">Eye<br>Appearance</div>
-        <div class="glance-value">Light & Bright</div>
-      </div>
+    </div>
+    
+    <div class="characteristics-section">
+      <h3><strong>Your <em>Characteristics</em></strong></h3>
+      
+      <h4>Eyes</h4>
+      <p>Light Spring eyes are naturally light in color. They typically come in light blue, green, hazel, or light brown. Like all Spring eyes, they have a bright quality with warm undertones. You might notice the signature Spring sunburst pattern radiating from the pupil on the iris.</p>
+      
+      <h4>Skin</h4>
+      <p>Light Spring skin ranges from fair to medium and has either neutral or neutral-warm undertones. This means both gold and silver may look decent against your skin, but gold flatters you more. Your skin may have golden, peachy, or ivory undertones. Light Springs often have freckles, particularly across the nose and cheeks.</p>
+      
+      <h4>Hair</h4>
+      <p>True to the Light Spring primary aspect, your hair is naturally light. It ranges from light to medium golden blonde, strawberry blonde, light copper, to light golden brown. Whatever the shade, your hair has warm, golden undertones or natural highlights. Most Light Springs were blonde as children, and the hair may have darkened slightly with age but retained its warm tone.</p>
+      
+      <h4>Contrast</h4>
+      <p>Light Spring is characterized by <strong>very low contrast</strong> between skin, hair, and eyes. Even the contrast between your iris and the whites of your eyes is relatively low. There are no dramatically dark areas anywhere in your coloring — everything exists in a similar, light value range.</p>
     </div>
   </div>
 </section>
@@ -493,9 +666,10 @@
 <!-- FEATURES -->
 <section>
   <div class="wrap">
-    <div class="features-grid">
-      <div class="feature-image" style="background:linear-gradient(135deg, rgba(230,230,250,0.3), rgba(255,214,231,0.3)), url('https://i.pinimg.com/736x/d9/df/47/d9df4756c16cd1d6ed5c8e9e02b9a68e.jpg') center/cover; border:none;"></div>
-      <div class="feature-content">
+    <div class="features-section">
+      <div class="features-grid">
+        <div class="feature-image"></div>
+        <div class="feature-content">
         <h3>FEATURES</h3>
         <div class="feature-list">
           <div class="feature-item">
@@ -531,9 +705,44 @@
   </div>
 </section>
 
+<!-- VS SECTION -->
+<section>
+  <div class="wrap">
+    <div class="vs-section">
+      <h3><strong>Light Spring vs <em>Light Summer</em></strong></h3>
+      <p class="vs-intro">Light Springs are often confused with Light Summers since both seasons share lightness as their primary characteristic and both have low contrast. The key difference lies in their secondary aspect: Light Spring is warm, while Light Summer is cool.</p>
+      
+      <div class="vs-grid">
+        <div class="vs-card">
+          <h4>Light Spring</h4>
+          <ul>
+            <li>Warm undertones (golden, peachy)</li>
+            <li>Clear, bright appearance</li>
+            <li>Hair has golden highlights</li>
+            <li>Gold jewelry is more flattering</li>
+            <li>Warm, vibrant colors suit best</li>
+          </ul>
+        </div>
+        <div class="vs-card">
+          <h4>Light Summer</h4>
+          <ul>
+            <li>Cool undertones (pink, rosy)</li>
+            <li>Soft, muted appearance</li>
+            <li>Hair has ashy tones</li>
+            <li>Silver jewelry is more flattering</li>
+            <li>Cool, softer colors suit best</li>
+          </ul>
+        </div>
+      </div>
+      
+      <p class="vs-outro">If you're still unsure, try holding up gold and silver jewelry to your face in natural light. Light Springs will look healthier and more radiant in gold, while cool metals can make you appear washed out or tired.</p>
+    </div>
+  </div>
+</section>
+
 
 <!-- BEST COLORS -->
-<section>
+<section class="best-colors">
   <div class="wrap">
     <h2 class="section-title">BEST COLORS</h2>
     
@@ -740,45 +949,18 @@
           </div>
         </div>
       </div>
-      
-      <div class="palette-sidebar">
-        <div class="info-box">
-          <h4>Best Metals</h4>
-          <p>Gold and rose gold complement your warm undertones perfectly</p>
-          <div style="display:flex; gap:12px; margin-top:16px; justify-content:center;">
-            <div style="width:48px; height:48px; border-radius:50%; background:linear-gradient(135deg, #FFD700, #FFA500); box-shadow:0 3px 10px rgba(44,38,34,.15);"></div>
-            <div style="width:48px; height:48px; border-radius:50%; background:linear-gradient(135deg, #E0BFB8, #C9ADA7); box-shadow:0 3px 10px rgba(44,38,34,.15);"></div>
-          </div>
-        </div>
-        
-        <div class="info-box">
-          <h4>Tips</h4>
-          <p><strong>Always</strong> include at least one bright color in your outfit</p>
-          <p style="margin-top:12px;"><strong>Avoid</strong> all-neutral looks and overly dark colors</p>
-        </div>
-      </div>
     </div>
   </div>
 </section>
 
 
 <!-- MAKEUP -->
-<section>
+<section class="makeup-section">
   <div class="wrap">
     <h2 class="section-title">MAKEUP</h2>
     <p class="section-subtitle">light · fresh · natural</p>
     
     <div class="makeup-grid">
-      <div class="makeup-card">
-        <h4>Foundation</h4>
-        <div class="makeup-swatches">
-          <div class="makeup-swatch" style="background:#FBE4D5;"></div>
-          <div class="makeup-swatch" style="background:#F5D5BE;"></div>
-          <div class="makeup-swatch" style="background:#E8C4A8;"></div>
-        </div>
-        <p class="makeup-note">Light, warm undertones</p>
-      </div>
-      
       <div class="makeup-card">
         <h4>Blush</h4>
         <div class="makeup-swatches">
@@ -811,14 +993,6 @@
       </div>
       
       <div class="makeup-card">
-        <h4>Mascara</h4>
-        <div class="makeup-swatches">
-          <div class="makeup-swatch" style="background:#654321;"></div>
-        </div>
-        <p class="makeup-note">Brown</p>
-      </div>
-      
-      <div class="makeup-card">
         <h4>Lip Color</h4>
         <div class="makeup-swatches">
           <div class="makeup-swatch" style="background:#FF9B8A;"></div>
@@ -834,24 +1008,20 @@
 
 
 <!-- CAPSULE WARDROBE -->
-<section style="background:var(--card);">
+<section style="background:var(--card); padding-bottom:60px;">
   <div class="wrap">
-    <h2 class="section-title">LIGHT SPRING CAPSULE WARDROBE</h2>
+    <h2 class="section-title" style="font-family:'Playfair Display',serif; font-style:italic; font-weight:400;"><strong><em style="color:var(--coral);">Light Spring</em> Capsule Wardrobe</strong></h2>
     <p class="section-subtitle">fresh, feminine, effortless</p>
     
     <div class="capsule-grid">
-      <div class="capsule-item">[Cream blazer]<br>600x800px</div>
-      <div class="capsule-item">[Peach blouse]<br>600x800px</div>
-      <div class="capsule-item">[Yellow cardigan]<br>600x800px</div>
-      <div class="capsule-item">[Mint top]<br>600x800px</div>
-      <div class="capsule-item">[Floral dress]<br>600x800px</div>
-      <div class="capsule-item">[Beige coat]<br>600x800px</div>
-      <div class="capsule-item">[Cream pants]<br>600x800px</div>
-      <div class="capsule-item">[Peach trousers]<br>600x800px</div>
-      <div class="capsule-item">[Light jeans]<br>600x800px</div>
-      <div class="capsule-item">[Ivory skirt]<br>600x800px</div>
-      <div class="capsule-item">[Mint bag]<br>600x800px</div>
-      <div class="capsule-item">[Nude shoes]<br>600x800px</div>
+      <div class="capsule-item" style="background-image:url('https://i.pinimg.com/1200x/86/cc/8f/86cc8f0c234568a3f16342e37f79eb20.jpg');"></div>
+      <div class="capsule-item" style="background-image:url('https://i.pinimg.com/1200x/0f/4c/02/0f4c02939a61cb72b56293f776f3416c.jpg');"></div>
+      <div class="capsule-item" style="background-image:url('https://i.pinimg.com/736x/3c/49/ca/3c49cabed658cc07c943c30137769ce4.jpg');"></div>
+      <div class="capsule-item" style="background-image:url('https://i.pinimg.com/1200x/10/d1/c0/10d1c02737fd63fccb8160d87b66f5f2.jpg');"></div>
+      <div class="capsule-item" style="background-image:url('https://i.pinimg.com/736x/9b/61/f0/9b61f0f286d66033ce37a201c2935300.jpg');"></div>
+      <div class="capsule-item" style="background-image:url('https://i.pinimg.com/1200x/cf/3c/fd/cf3cfdea762133a58dfdbe272b4b1cad.jpg');"></div>
+      <div class="capsule-item" style="background-image:url('https://i.pinimg.com/1200x/e5/2d/be/e52dbe613d6f260b55fae4bb9f5b5e5c.jpg');"></div>
+      <div class="capsule-item" style="background-image:url('https://i.pinimg.com/736x/f4/3f/87/f43f8739ecb91a563df0714b6e8de8a4.jpg');"></div>
     </div>
     
     <div class="tip" style="max-width:700px; margin:48px auto 0;">
@@ -862,7 +1032,7 @@
 
 <!-- FINAL CTA -->
 <section>
-  <div class="wrap" style="text-align:center; padding:60px 0;">
+  <div class="wrap" style="text-align:center; padding:30px 0 60px;">
     <h2 class="section-title">Ready to shop your colors?</h2>
     <p style="font-size:17px; color:var(--ink-soft); margin-bottom:32px; max-width:560px; margin-left:auto; margin-right:auto;">Browse curated Light Spring pieces from Zara, H&M, Mango, and Next — every item hand-matched to your palette</p>
     <a href="/light-spring" class="cta">Shop Light Spring</a>

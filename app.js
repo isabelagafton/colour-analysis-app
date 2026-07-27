@@ -147,7 +147,7 @@ const EXTENDED = {
     {key:'warmcharcoal', label:'Warm Charcoal', hex:'#3C3B3A', group:'neutrals'},
   ],
   deepWinter: [
-    // Reds & Berry Pinks (9)
+    // Reds & Berry Pinks (10)
     {key:'deepcranberry', label:'Deep Cranberry', hex:'#80002A', group:'reds'},
     {key:'deepraspberry', label:'Deep Raspberry', hex:'#8E174D', group:'reds'},
     {key:'crimson', label:'Crimson', hex:'#A0153E', group:'reds'},
@@ -155,6 +155,7 @@ const EXTENDED = {
     {key:'truered', label:'True Red', hex:'#C41230', group:'reds'},
     {key:'richplum', label:'Rich Plum', hex:'#7D1B4D', group:'reds'},
     {key:'darkmagenta', label:'Dark Magenta', hex:'#8B004B', group:'pinks'},
+    {key:'deepmagenta', label:'Deep Magenta', hex:'#b22b81', group:'pinks'},
     {key:'magenta', label:'Magenta', hex:'#C41E7A', group:'pinks'},
     {key:'richfuchsia', label:'Rich Fuchsia', hex:'#B71E5C', group:'pinks'},
     // Yellows (2)
