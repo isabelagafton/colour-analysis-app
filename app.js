@@ -288,12 +288,13 @@ const EXTENDED = {
     {key:'warmblack', label:'Warm Black', hex:'#2B2622', group:'neutrals'},
   ],
   softAutumn: [
-    // Pinks & Roses (6)
+    // Pinks & Roses (7)
     {key:'softpeach', label:'Soft Peach', hex:'#E5AE9E', group:'pinks'},
     {key:'mutedcoral', label:'Muted Coral', hex:'#D89B8C', group:'pinks'},
     {key:'dustycoral', label:'Dusty Coral', hex:'#D9907A', group:'pinks'},
     {key:'dustyrose', label:'Dusty Rose', hex:'#C98A82', group:'pinks'},
     {key:'rosewood', label:'Rosewood', hex:'#B07370', group:'pinks'},
+    {key:'dustymauve', label:'Dusty Mauve', hex:'#b78070', group:'pinks'},
     {key:'softraspberry', label:'Soft Raspberry', hex:'#C77B7F', group:'pinks'},
     // Oranges (6)
     {key:'apricot', label:'Apricot', hex:'#E9B68D', group:'oranges'},
@@ -437,13 +438,14 @@ const EXTENDED = {
     {key:'charcoal', label:'Charcoal', hex:'#545A63', group:'neutrals'},
   ],
   softSummer: [
-    // Pinks & Roses (8)
+    // Pinks & Roses (9)
     {key:'coolpink', label:'Cool Pink', hex:'#C97A8A', group:'pinks'},
     {key:'softrose', label:'Soft Rose', hex:'#C9979D', group:'pinks'},
     {key:'dustyrose', label:'Dusty Rose', hex:'#C98A93', group:'pinks'},
     {key:'dustyblush', label:'Dusty Blush', hex:'#D5B8BE', group:'pinks'},
     {key:'greyedrose', label:'Greyed Rose', hex:'#B8939A', group:'pinks'},
     {key:'mauverose', label:'Mauve Rose', hex:'#B88691', group:'pinks'},
+    {key:'dustymauve', label:'Dusty Mauve', hex:'#b78070', group:'pinks'},
     {key:'dustyberry', label:'Dusty Berry', hex:'#9A6B78', group:'pinks'},
     {key:'mutedraspberry', label:'Muted Raspberry', hex:'#B66A7D', group:'pinks'},
     // Yellows (2)
@@ -2042,7 +2044,13 @@ async function initShopPage() {
   renderGrid(); // Initial render with fallback data
   
   // Load Google Sheets data in background, then re-render
-  loadProductsFromGoogleSheets();
+  // For individual season pages, only load that season's data
+  // For the main shop page, load all seasons
+  if (page === 'season') {
+    loadProductsFromGoogleSheets(currentSeason);
+  } else {
+    loadProductsFromGoogleSheets();
+  }
 }
 
 // Initialize palette page
