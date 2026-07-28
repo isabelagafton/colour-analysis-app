@@ -103,6 +103,7 @@
     display:flex;
     gap:24px;
     margin-left:auto;
+    align-items:center;
   }
   .nav-link{
     font-family:'Inter',sans-serif;
@@ -121,6 +122,65 @@
   .nav-link.active{
     color:var(--ink);
     border-bottom-color:var(--coral);
+  }
+  
+  /* SEARCH IN NAV */
+  .nav-search-wrapper{
+    position:relative;
+    margin-right:8px;
+  }
+  .nav-search-input{
+    font-family:'Inter',sans-serif;
+    font-size:13px;
+    font-weight:500;
+    padding:6px 12px 6px 32px;
+    border-radius:999px;
+    border:1px solid var(--line);
+    background:var(--ivory);
+    color:var(--ink);
+    width:220px;
+    transition:all .15s ease;
+  }
+  .nav-search-input::placeholder{
+    color:var(--ink-soft);
+  }
+  .nav-search-input:hover{
+    border-color:var(--ink-soft);
+  }
+  .nav-search-input:focus{
+    outline:none;
+    border-color:var(--coral);
+    background:var(--card);
+    width:280px;
+  }
+  .nav-search-icon{
+    position:absolute;
+    left:10px;
+    top:50%;
+    transform:translateY(-50%);
+    width:14px;
+    height:14px;
+    pointer-events:none;
+    opacity:0.5;
+  }
+  .nav-clear-search-btn{
+    position:absolute;
+    right:8px;
+    top:50%;
+    transform:translateY(-50%);
+    background:none;
+    border:none;
+    cursor:pointer;
+    padding:4px;
+    opacity:0.5;
+    transition:opacity .15s ease;
+    display:none;
+  }
+  .nav-clear-search-btn:hover{
+    opacity:1;
+  }
+  .nav-search-input:not(:placeholder-shown) ~ .nav-clear-search-btn{
+    display:block;
   }
   
   /* Dropdown navigation */
@@ -371,6 +431,19 @@
   <div class="wrap">
     <a href="/" class="nav-logo">Shop By <em>Season</em></a>
     <div class="nav-links">
+      <div class="nav-search-wrapper">
+        <svg class="nav-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.35-4.35"></path>
+        </svg>
+        <input type="text" class="nav-search-input" id="searchInput" placeholder="Search products..." aria-label="Search products">
+        <button class="nav-clear-search-btn" id="clearSearchBtn" aria-label="Clear search">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
       <a href="/" class="nav-link">Home</a>
       <div class="nav-dropdown">
         <button class="nav-dropdown-toggle" id="shopDropdown">
