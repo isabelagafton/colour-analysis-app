@@ -1318,6 +1318,7 @@ let activeCat = 'all';
 let sortBy = 'default'; // 'default', 'recent', or 'price-low'
 let filterBy = 'all'; // 'all', 'on-sale', 'recently-added', or 'brand'
 let selectedBrand = ''; // For brand filtering (single selection)
+let searchQuery = ''; // For text search
 
 function getPalette() { return SEASONS[currentSeason].palette; }
 function getHex() { return Object.fromEntries(getPalette().map(p => [p.key, p.hex])); }
@@ -1813,10 +1814,26 @@ function renderGrid() {
     const isArchived = p.archived && 
       ['true', 'yes', '1'].includes(p.archived.toString().toLowerCase().trim());
     
+    // Text search filter
+    let matchesSearch = true;
+    if (searchQuery.trim()) {
+      const query = searchQuery.toLowerCase();
+      const productName = (p.name || '').toLowerCase();
+      const retailerName = (RETAILERS[p.retailer]?.name || '').toLowerCase();
+      const category = (p.category || '').toLowerCase();
+      const shadeLabel = (getPalette().find(s => s.key === p.shade)?.label || '').toLowerCase();
+      
+      matchesSearch = productName.includes(query) || 
+                      retailerName.includes(query) || 
+                      category.includes(query) ||
+                      shadeLabel.includes(query);
+    }
+    
     return !isArchived &&
       p.season === currentSeason &&
       (activeCat === 'all' || p.category === activeCat) &&
-      (activeShades.size === 0 || activeShades.has(p.shade));
+      (activeShades.size === 0 || activeShades.has(p.shade)) &&
+      matchesSearch;
   });
   
   // Apply filter before sorting
@@ -2037,6 +2054,25 @@ async function initShopPage() {
       }
       renderGrid();
     });
+  }
+
+  // Set up search input listener
+  const searchInput = document.getElementById('searchInput');
+  if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+      searchQuery = e.target.value;
+      renderGrid();
+    });
+    
+    // Clear search button
+    const clearSearchBtn = document.getElementById('clearSearchBtn');
+    if (clearSearchBtn) {
+      clearSearchBtn.addEventListener('click', () => {
+        searchInput.value = '';
+        searchQuery = '';
+        renderGrid();
+      });
+    }
   }
 
   renderSeasonSwitcher();
