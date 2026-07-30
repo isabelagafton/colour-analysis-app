@@ -1677,11 +1677,35 @@ function renderPaletteContent() {
 function renderSeasonSwitcher() {
   const wrap = document.getElementById('seasonSwitcher');
   
+  // Check if we're in global search mode
+  const isGlobalSearch = searchQuery.trim().length > 0;
+  
   // Update page title and subtitle
   const seasonNameEl = document.getElementById('seasonName');
   const seasonSubEl = document.getElementById('seasonSub');
-  if (seasonNameEl) seasonNameEl.textContent = SEASONS[currentSeason].label;
-  if (seasonSubEl) seasonSubEl.innerHTML = SEASONS[currentSeason].sub;
+  const eyebrowEl = document.querySelector('.eyebrow');
+  const titleEl = document.querySelector('h1.title');
+  const fanEl = document.getElementById('fan');
+  
+  if (isGlobalSearch) {
+    // Show search results header
+    if (eyebrowEl) eyebrowEl.textContent = 'Search Results';
+    if (titleEl) titleEl.innerHTML = `Results for "<em>${searchQuery}</em>"`;
+    if (seasonSubEl) seasonSubEl.innerHTML = `Showing products matching your search across all 12 seasonal palettes.`;
+    
+    // Hide season switcher and color fan
+    if (wrap) wrap.style.display = 'none';
+    if (fanEl) fanEl.style.display = 'none';
+  } else {
+    // Show normal season-specific header
+    if (eyebrowEl) eyebrowEl.textContent = 'Your palette · 12-season system';
+    if (titleEl) titleEl.innerHTML = `Shop your <em><span id="seasonName">${SEASONS[currentSeason].label}</span></em> colors`;
+    if (seasonSubEl) seasonSubEl.innerHTML = SEASONS[currentSeason].sub;
+    
+    // Show season switcher and color fan
+    if (wrap) wrap.style.display = 'flex';
+    if (fanEl) fanEl.style.display = 'flex';
+  }
   
   // Update sort dropdown value
   const sortDropdown = document.getElementById('sortDropdown');
@@ -1698,8 +1722,8 @@ function renderSeasonSwitcher() {
   // Populate brand options in the optgroup
   populateBrandOptions();
   
-  // Only render season switcher if the element exists (for old shop.html page)
-  if (!wrap) return;
+  // Only render season switcher if the element exists and not in search mode
+  if (!wrap || isGlobalSearch) return;
   
   // Define season order: Spring → Summer → Autumn → Winter
   const seasonOrder = [
@@ -1766,6 +1790,12 @@ function populateBrandOptions() {
 
 function renderFan() {
   const fan = document.getElementById('fan');
+  if (!fan) return;
+  
+  // Skip rendering if in global search mode
+  const isGlobalSearch = searchQuery.trim().length > 0;
+  if (isGlobalSearch) return;
+  
   fan.innerHTML = getPalette().map(p => `
     <div class="swatch" data-key="${p.key}" style="background:${p.hex}">
       <span>${p.label}</span>
@@ -1809,6 +1839,8 @@ function renderGrid() {
   if (!grid) return; // Guard clause if grid doesn't exist
   
   const HEX = getHex();
+  const isGlobalSearch = searchQuery.trim().length > 0;
+  
   let items = PRODUCTS.filter(p => {
     // Filter out archived products
     const isArchived = p.archived && 
@@ -1821,7 +1853,10 @@ function renderGrid() {
       const productName = (p.name || '').toLowerCase();
       const retailerName = (RETAILERS[p.retailer]?.name || '').toLowerCase();
       const category = (p.category || '').toLowerCase();
-      const shadeLabel = (getPalette().find(s => s.key === p.shade)?.label || '').toLowerCase();
+      
+      // For global search, we need to get the shade label from the product's own season palette
+      const productSeasonPalette = SEASONS[p.season]?.palette || [];
+      const shadeLabel = (productSeasonPalette.find(s => s.key === p.shade)?.label || '').toLowerCase();
       
       matchesSearch = productName.includes(query) || 
                       retailerName.includes(query) || 
@@ -1829,10 +1864,17 @@ function renderGrid() {
                       shadeLabel.includes(query);
     }
     
+    // If there's a search query, search ALL seasons. Otherwise, filter by current season
+    const seasonMatch = isGlobalSearch ? true : p.season === currentSeason;
+    
+    // When doing global search, ignore shade and category filters
+    const categoryMatch = isGlobalSearch ? true : (activeCat === 'all' || p.category === activeCat);
+    const shadeMatch = isGlobalSearch ? true : (activeShades.size === 0 || activeShades.has(p.shade));
+    
     return !isArchived &&
-      p.season === currentSeason &&
-      (activeCat === 'all' || p.category === activeCat) &&
-      (activeShades.size === 0 || activeShades.has(p.shade)) &&
+      seasonMatch &&
+      categoryMatch &&
+      shadeMatch &&
       matchesSearch;
   });
   
@@ -1898,19 +1940,36 @@ function renderGrid() {
   items = [...inStock, ...outOfStock];
   // Default order is as-is in the PRODUCTS array
   
-  document.getElementById('countLabel').textContent = `${items.length} piece${items.length !== 1 ? 's' : ''}`;
+  // Update count label with context
+  const countLabel = document.getElementById('countLabel');
+  if (countLabel) {
+    if (isGlobalSearch) {
+      countLabel.textContent = `${items.length} piece${items.length !== 1 ? 's' : ''} across all seasons`;
+    } else {
+      countLabel.textContent = `${items.length} piece${items.length !== 1 ? 's' : ''}`;
+    }
+  }
   
   if (!items.length) {
-    const none = !PRODUCTS.some(p => p.season === currentSeason);
-    grid.innerHTML = `<div class="empty">${none
-      ? `No real products curated for ${SEASONS[currentSeason].label} yet — palette's ready, shopping list is next.`
-      : 'Nothing in that combination yet — try clearing a filter.'}</div>`;
+    if (isGlobalSearch) {
+      grid.innerHTML = `<div class="empty">No products found matching "${searchQuery}". Try a different search term.</div>`;
+    } else {
+      const none = !PRODUCTS.some(p => p.season === currentSeason);
+      grid.innerHTML = `<div class="empty">${none
+        ? `No real products curated for ${SEASONS[currentSeason].label} yet — palette's ready, shopping list is next.`
+        : 'Nothing in that combination yet — try clearing a filter.'}</div>`;
+    }
     return;
   }
   
   grid.innerHTML = items.map(p => {
-    const hex = HEX[p.shade] || '#eee';
-    const shadeLabel = getPalette().find(s => s.key === p.shade)?.label || p.shade;
+    // For global search, get hex from the product's own season palette
+    const productSeasonPalette = SEASONS[p.season]?.palette || [];
+    const productHex = isGlobalSearch 
+      ? (productSeasonPalette.find(s => s.key === p.shade)?.hex || '#eee')
+      : (HEX[p.shade] || '#eee');
+    
+    const shadeLabel = productSeasonPalette.find(s => s.key === p.shade)?.label || p.shade;
     const retailer = RETAILERS[p.retailer];
     
     // Safety check for missing retailer
@@ -1919,11 +1978,11 @@ function renderGrid() {
       return ''; // Skip this product
     }
     
-    const fallback = ICONS[p.category](hex).replace(/"/g, '&quot;');
+    const fallback = ICONS[p.category](productHex).replace(/"/g, '&quot;');
     const confBadge = `<div class="confidence high" style="z-index:10;">✓ verified</div>`;
     const media = p.img
       ? `<img src="${p.img}" alt="${p.name}" loading="lazy" decoding="async" onerror="this.onerror=null;this.replaceWith(Object.assign(document.createElement('div'),{className:'iconfallback',innerHTML:'${fallback}'}));">`
-      : ICONS[p.category](hex);
+      : ICONS[p.category](productHex);
     
     // Check if out of stock
     const outOfStock = isOutOfStock(p);
@@ -1937,13 +1996,19 @@ function renderGrid() {
       ? `<span class="original-price">${p.price}</span><span class="price on-sale">${p.salePrice}</span>`
       : `<span class="price">${p.price}</span>`;
     
+    // Show season badge when in global search mode
+    const seasonBadge = isGlobalSearch 
+      ? `<div class="season-badge">${SEASONS[p.season].label}</div>`
+      : '';
+    
     return `<div class="card${outOfStockClass}">
-      <div class="swatchblock" style="background:${hex}22">
+      <div class="swatchblock" style="background:${productHex}22">
         <div class="retailer-tag">${retailer.name}</div>
         <div class="shade-tag">${shadeLabel}</div>
         ${outOfStock ? '' : confBadge}
         ${saleBadge}
         ${outOfStockBadge}
+        ${seasonBadge}
         ${media}
       </div>
       <div class="info">
@@ -2016,6 +2081,17 @@ function getSeasonFromURL() {
 async function initShopPage() {
   PRODUCTS = PRODUCTS_FALLBACK;
   
+  // Check for search query in URL parameters
+  const urlParams = new URLSearchParams(window.location.search);
+  const searchFromURL = urlParams.get('search');
+  if (searchFromURL) {
+    searchQuery = searchFromURL;
+    const searchInput = document.getElementById('searchInput');
+    if (searchInput) {
+      searchInput.value = searchFromURL;
+    }
+  }
+  
   // For individual season pages, set the season from URL
   const page = getCurrentPage();
   if (page === 'season') {
@@ -2054,25 +2130,6 @@ async function initShopPage() {
       }
       renderGrid();
     });
-  }
-
-  // Set up search input listener
-  const searchInput = document.getElementById('searchInput');
-  if (searchInput) {
-    searchInput.addEventListener('input', (e) => {
-      searchQuery = e.target.value;
-      renderGrid();
-    });
-    
-    // Clear search button
-    const clearSearchBtn = document.getElementById('clearSearchBtn');
-    if (clearSearchBtn) {
-      clearSearchBtn.addEventListener('click', () => {
-        searchInput.value = '';
-        searchQuery = '';
-        renderGrid();
-      });
-    }
   }
 
   renderSeasonSwitcher();
@@ -2134,6 +2191,69 @@ function initHomePage() {
   }
 }
 
+// Set up global search functionality (works on all pages)
+function setupSearchInput() {
+  const searchInput = document.getElementById('searchInput');
+  if (searchInput) {
+    const page = getCurrentPage();
+    const isShopPage = page === 'shop' || page === 'season';
+    
+    // Handle Enter key to trigger search
+    searchInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault(); // Prevent form submission
+        const query = searchInput.value.trim();
+        
+        if (isShopPage) {
+          // If we're already on shop page, update in place
+          searchQuery = query;
+          
+          // Update URL without page reload
+          const url = new URL(window.location);
+          if (query) {
+            url.searchParams.set('search', query);
+          } else {
+            url.searchParams.delete('search');
+          }
+          window.history.replaceState({}, '', url);
+          
+          // Re-render everything
+          renderSeasonSwitcher();
+          renderFan();
+          renderChips();
+          renderGrid();
+        } else if (query) {
+          // From other pages, redirect to shop page
+          window.location.href = `shop.html?search=${encodeURIComponent(query)}`;
+        }
+      }
+    });
+    
+    // Clear search button
+    const clearSearchBtn = document.getElementById('clearSearchBtn');
+    if (clearSearchBtn) {
+      clearSearchBtn.addEventListener('click', () => {
+        searchInput.value = '';
+        searchQuery = '';
+        
+        // If we're on a page with products, re-render everything
+        if (isShopPage) {
+          // Remove search parameter from URL
+          const url = new URL(window.location);
+          url.searchParams.delete('search');
+          window.history.replaceState({}, '', url);
+          
+          // Re-render the page components
+          renderSeasonSwitcher();
+          renderFan();
+          renderChips();
+          renderGrid();
+        }
+      });
+    }
+  }
+}
+
 // Wait for DOM to be ready
 document.addEventListener('DOMContentLoaded', function() {
   // Update copyright year on all pages
@@ -2143,6 +2263,9 @@ document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('.copyright-year').forEach(el => {
     el.textContent = currentYear;
   });
+
+  // Set up search input on all pages
+  setupSearchInput();
 
   // Initialize based on current page
   const page = getCurrentPage();
