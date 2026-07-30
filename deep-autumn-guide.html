@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deep Autumn Guide — Shop By Season</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N4FQJ5E4C2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-N4FQJ5E4C2');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=Fraunces:wght@400;600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&family=Cormorant:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ivory:#FAF3EC;
+    --ink:#2C2622;
+    --ink-soft:#6B6259;
+    --card:#FFFFFF;
+    --line:#E8DED2;
+    --coral:#8B2635;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    background:var(--ivory);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    line-height:1.6;
+  }
+  .wrap{max-width:1200px; margin:0 auto; padding:0 40px;}
+  
+  /* NAV */
+  nav{
+    background:var(--card);
+    border-bottom:1px solid var(--line);
+    position:sticky;
+    top:0;
+    z-index:100;
+  }
+  nav .wrap{
+    display:flex;
+    align-items:center;
+    padding:16px 40px;
+  }
+  .nav-logo{
+    font-family:'Cormorant',serif;
+    font-weight:600;
+    font-size:22px;
+    color:var(--ink);
+    text-decoration:none;
+  }
+  .nav-logo em{
+    font-style:italic;
+    color:var(--coral);
+  }
+
+  
+  /* HERO GRID */
+  .hero{
+    padding:60px 0 40px;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+  }
+  .hero-image{
+    aspect-ratio:4/5;
+    background:url('deep-autumn-hero.png') center/contain no-repeat;
+    border-radius:16px;
+    box-shadow:0 8px 24px rgba(44,38,34,.12);
+  }
+  .hero-content .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    font-weight:500;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-bottom:20px;
+  }
+  .hero-content h1{
+    font-family:'Playfair Display',serif;
+    font-weight:400;
+    font-size:72px;
+    line-height:1.1;
+    margin-bottom:20px;
+  }
+  .hero-content h1 .the{
+    color:var(--ink);
+  }
+  .hero-content h1 .season{
+    color:var(--coral);
+    font-style:italic;
+  }
+  .hero-content .subtitle{
+    font-family:'Cormorant',serif;
+    font-size:28px;
+    text-transform:uppercase;
+    letter-spacing:.15em;
+    color:var(--ink-soft);
+    margin-bottom:24px;
+  }
+  .hero-content p{
+    font-size:16px;
+    line-height:1.8;
+    color:var(--ink);
+    margin-bottom:32px;
+  }
+  .cta{
+    display:inline-block;
+    font-weight:600;
+    font-size:16px;
+    padding:14px 32px;
+    border-radius:999px;
+    background:var(--coral);
+    color:#FFFFFF;
+    text-decoration:none;
+    transition:transform .2s;
+  }
+  .cta:hover{transform:translateY(-2px);}
+
+  
+  /* SECTIONS */
+  section{
+    padding:60px 0 0;
+  }
+  .section-title{
+    font-family:'Cormorant',serif;
+    font-size:38px;
+    font-weight:600;
+    text-align:center;
+    margin-bottom:16px;
+  }
+  .section-subtitle{
+    font-size:16px;
+    font-style:italic;
+    text-align:center;
+    color:var(--ink-soft);
+    margin-bottom:56px;
+  }
+  
+  /* ADD DIVIDER TO BEST COLORS */
+  section.best-colors{
+    padding-top:60px;
+    padding-bottom:80px;
+    border-top:1px solid var(--line);
+  }
+  
+  /* AT A GLANCE BOX */
+  .glance-box{
+    max-width:800px;
+    margin:60px auto;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:48px;
+    box-shadow:0 4px 16px rgba(44,38,34,.08);
+  }
+  .glance-box-title{
+    font-family:'Fraunces',serif;
+    font-size:20px;
+    font-weight:600;
+    text-align:center;
+    margin-bottom:40px;
+  }
+  .glance-items{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:40px 48px;
+  }
+  .glance-item-new{
+    text-align:center;
+  }
+  .glance-item-label{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10px;
+    letter-spacing:.15em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-bottom:10px;
+  }
+  .glance-item-value{
+    font-size:16px;
+    font-weight:600;
+    color:var(--ink);
+  }
+  
+  /* WHAT IS SECTION */
+  .what-is{
+    max-width:800px;
+    margin:0 auto 0;
+    padding-top:40px;
+    border-top:1px solid var(--line);
+  }
+  .what-is h3{
+    font-family:'Playfair Display',serif;
+    font-size:38px;
+    font-weight:400;
+    margin-bottom:24px;
+  }
+  .what-is h3 em{
+    font-style:italic;
+    color:var(--coral);
+  }
+  .what-is p{
+    font-size:16px;
+    line-height:1.8;
+    color:var(--ink);
+    margin-bottom:20px;
+  }
+  .what-is p strong{
+    font-weight:600;
+  }
+  
+  /* CHARACTERISTICS BOX */
+  .characteristics-section{
+    max-width:800px;
+    margin:60px auto 0;
+  }
+  .characteristics-section h3{
+    font-family:'Playfair Display',serif;
+    font-size:38px;
+    font-weight:400;
+    margin-bottom:32px;
+  }
+  .characteristics-section h3 em{
+    font-style:italic;
+    color:var(--coral);
+  }
+  .characteristics-section h4{
+    font-family:'Inter',sans-serif;
+    font-size:16px;
+    font-weight:600;
+    margin-top:28px;
+    margin-bottom:12px;
+    color:var(--ink);
+  }
+  .characteristics-section p{
+    font-size:16px;
+    line-height:1.8;
+    color:var(--ink);
+  }
+  .characteristics-section p strong{
+    font-weight:600;
+  }
+  
+  /* VS SECTION */
+  .vs-section{
+    max-width:800px;
+    margin:0 auto 80px;
+    padding-top:60px;
+    border-top:1px solid var(--line);
+  }
+  .vs-section h3{
+    font-family:'Playfair Display',serif;
+    font-size:38px;
+    font-weight:400;
+    margin-bottom:24px;
+  }
+  .vs-section h3 em{
+    font-style:italic;
+    color:var(--coral);
+  }
+  .vs-intro{
+    font-size:16px;
+    line-height:1.8;
+    color:var(--ink);
+    margin-bottom:40px;
+  }
+  .vs-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:32px;
+    margin-bottom:40px;
+  }
+  .vs-card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:32px;
+  }
+  .vs-card h4{
+    font-family:'Playfair Display',serif;
+    font-size:24px;
+    font-weight:600;
+    margin-bottom:24px;
+    color:var(--ink);
+  }
+  .vs-card ul{
+    list-style:none;
+    padding:0;
+  }
+  .vs-card li{
+    font-size:15px;
+    line-height:1.7;
+    color:var(--ink);
+    margin-bottom:16px;
+    padding-left:24px;
+    position:relative;
+  }
+  .vs-card li:before{
+    content:"→";
+    position:absolute;
+    left:0;
+    color:var(--coral);
+    font-weight:600;
+  }
+  .vs-outro{
+    font-size:16px;
+    line-height:1.8;
+    color:var(--ink);
+  }
+
+  
+  /* FEATURES GRID */
+  .features-section{
+    display:flex;
+    justify-content:center;
+    margin-bottom:0;
+    padding-top:60px;
+    border-top:1px solid var(--line);
+  }
+  .features-grid{
+    display:grid;
+    grid-template-columns:300px 1fr;
+    gap:60px;
+    margin-bottom:0;
+    max-width:900px;
+  }
+  .feature-image{
+    aspect-ratio:3/4;
+    background:url('https://images.pexels.com/photos/1850138/pexels-photo-1850138.jpeg') center/cover no-repeat;
+    border-radius:12px;
+    box-shadow:0 4px 12px rgba(44,38,34,.12);
+  }
+  .feature-content h3{
+    font-family:'Cormorant',serif;
+    font-size:32px;
+    font-weight:600;
+    margin-bottom:20px;
+  }
+  .feature-list{
+    display:grid;
+    gap:24px;
+  }
+  .feature-item{
+    display:flex;
+    gap:16px;
+  }
+  .feature-icon{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    background:linear-gradient(135deg, #FFF9F0, #FFFCF5);
+    flex-shrink:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .feature-icon svg{
+    width:20px;
+    height:20px;
+    stroke:var(--ink);
+    fill:none;
+    stroke-width:1.5;
+  }
+  .feature-text h4{
+    font-size:16px;
+    font-weight:600;
+    margin-bottom:6px;
+  }
+  .feature-text p{
+    font-size:14px;
+    line-height:1.7;
+    color:var(--ink-soft);
+  }
+
+  
+  /* COLOR PALETTE LAYOUT */
+  .palette-layout{
+    max-width:800px;
+    margin:0 auto;
+  }
+  .palette-main h3{
+    font-family:'Cormorant',serif;
+    font-size:32px;
+    font-weight:600;
+    margin-bottom:12px;
+    margin-top:48px;
+  }
+  .palette-main h3:first-child{
+    margin-top:0;
+  }
+  .palette-desc{
+    font-size:14px;
+    font-style:italic;
+    color:var(--ink-soft);
+    margin-bottom:32px;
+  }
+  .colors-grid{
+    display:grid;
+    grid-template-columns:repeat(5, 1fr);
+    gap:20px;
+    margin-bottom:0;
+  }
+  .color-item{
+    text-align:center;
+  }
+  .color-circle{
+    width:100%;
+    aspect-ratio:1;
+    border-radius:50%;
+    margin-bottom:10px;
+    box-shadow:0 4px 12px rgba(44,38,34,.12);
+    border:2px solid rgba(255,255,255,.5);
+  }
+  .color-name{
+    font-size:11px;
+    font-weight:500;
+    text-transform:uppercase;
+    letter-spacing:.04em;
+  }
+  
+  /* SIDEBAR INFO */
+  .palette-sidebar{
+    position:sticky;
+    top:100px;
+    height:fit-content;
+  }
+  .info-box{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:28px 24px;
+    margin-bottom:24px;
+  }
+  .info-box h4{
+    font-family:'Cormorant',serif;
+    font-size:20px;
+    font-weight:600;
+    margin-bottom:16px;
+  }
+  .info-box p{
+    font-size:14px;
+    line-height:1.7;
+    color:var(--ink-soft);
+  }
+
+  
+  /* MAKEUP GRID */
+  .makeup-section{
+    padding-top:60px;
+    padding-bottom:60px;
+    border-top:1px solid var(--line);
+  }
+  .makeup-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:40px;
+    margin-top:0;
+    max-width:800px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .makeup-card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:28px 24px;
+    text-align:center;
+  }
+  .makeup-card h4{
+    font-family:'Cormorant',serif;
+    font-size:18px;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:.06em;
+    font-size:13px;
+    margin-bottom:16px;
+  }
+  .makeup-swatches{
+    display:flex;
+    gap:8px;
+    justify-content:center;
+    flex-wrap:wrap;
+  }
+  .makeup-swatch{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    box-shadow:0 2px 8px rgba(44,38,34,.15);
+    border:2px solid rgba(255,255,255,.7);
+  }
+  .makeup-note{
+    font-size:12px;
+    color:var(--ink-soft);
+    margin-top:12px;
+    font-style:italic;
+  }
+  
+  /* CAPSULE WARDROBE */
+  .capsule-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:20px;
+    margin-top:48px;
+    max-width:800px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .capsule-item{
+    aspect-ratio:3/4;
+    background-size:cover;
+    background-position:center;
+    border-radius:12px;
+    overflow:hidden;
+  }
+
+  
+  /* TIP BOXES */
+  .tip{
+    background:#FFF9F0;
+    border-left:3px solid var(--coral);
+    border-radius:8px;
+    padding:20px 24px;
+    margin:32px 0;
+    font-size:15px;
+    line-height:1.7;
+  }
+  
+  /* FOOTER */
+  footer{
+    border-top:1px solid var(--line);
+    padding:48px 0;
+    text-align:center;
+  }
+  .footer-link{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-weight:600;
+    font-size:14px;
+    color:var(--ink);
+    text-decoration:none;
+    padding:10px 20px;
+    border:1px solid var(--line);
+    border-radius:8px;
+    background:var(--card);
+    transition:all .2s;
+  }
+  .footer-link:hover{
+    border-color:var(--coral);
+    transform:translateY(-2px);
+  }
+  footer p{
+    margin-top:20px;
+    font-size:13px;
+    color:var(--ink-soft);
+  }
+  
+  /* RESPONSIVE */
+  @media (max-width:968px){
+    .hero-grid{grid-template-columns:1fr;}
+    .features-grid{grid-template-columns:1fr;}
+    .palette-layout{grid-template-columns:1fr;}
+    .palette-sidebar{position:relative; top:0;}
+    .glance-grid{grid-template-columns:repeat(2, 1fr);}
+    .capsule-grid{grid-template-columns:repeat(3, 1fr);}
+  }
+  @media (max-width:640px){
+    .wrap{padding:0 24px;}
+    .hero-content h1{font-size:52px;}
+    .section-title{font-size:38px;}
+    .colors-grid{grid-template-columns:repeat(4, 1fr); gap:16px;}
+    .makeup-grid{grid-template-columns:1fr;}
+    .capsule-grid{grid-template-columns:repeat(2, 1fr);}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="/" class="nav-logo">Shop By <em>Season</em></a>
+  </div>
+</nav>
+
+
+<div class="wrap">
+  
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-grid">
+      <div class="hero-image"></div>
+      <div class="hero-content">
+        <div class="eyebrow">Comprehensive Guide · 12-Season System</div>
+        <h1><span class="the">The </span><span class="season">Deep Autumn</span></h1>
+        <div class="subtitle">COLOR PALETTE</div>
+        <p>Deep, rich & warm hues with an intense, luxurious quality. Think of a dramatic autumn evening full of depth and warmth.</p>
+        <a href="/deep-autumn" class="cta">Shop Deep Autumn</a>
+      </div>
+    </div>
+  </header>
+
+</div>
+
+<!-- AT A GLANCE -->
+<section>
+  <div class="wrap">
+    <div class="what-is">
+      <h3><strong>What is <em>Deep Autumn?</em></strong></h3>
+      <p>Deep Autumn is one of the three Autumn seasons and sits between Deep Winter and True Autumn on the seasonal flow chart. This season combines intense depth with rich warmth, creating a dramatic, luxurious appearance.</p>
+      <p>If you're a Deep Autumn, the primary characteristic of your overall appearance is <strong>depth</strong>, with <strong>warmth</strong> as the secondary aspect. This means deep, rich colors suit you best, and they should have warm undertones to harmonize with your coloring.</p>
+      <p>When you look in the mirror, you notice the overall intensity and depth of your coloring - there's richness and darkness to your features. Your eyes, skin, and hair all have depth, creating a striking, luxurious appearance with warm undertones.</p>
+    </div>
+    
+    <div class="glance-box">
+      <h3 class="glance-box-title">Deep Autumn at a Glance</h3>
+      <div class="glance-items">
+        <div class="glance-item-new">
+          <div class="glance-item-label">Undertones</div>
+          <div class="glance-item-value">Warm</div>
+        </div>
+        <div class="glance-item-new">
+          <div class="glance-item-label">Value</div>
+          <div class="glance-item-value">Deep</div>
+        </div>
+        <div class="glance-item-new">
+          <div class="glance-item-label">Saturation</div>
+          <div class="glance-item-value">Rich, Intense</div>
+        </div>
+        <div class="glance-item-new">
+          <div class="glance-item-label">Contrast</div>
+          <div class="glance-item-value">Medium to High</div>
+        </div>
+        <div class="glance-item-new">
+          <div class="glance-item-label">Appearance</div>
+          <div class="glance-item-value">Dramatic, Luxurious</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="characteristics-section">
+      <h3><strong>Your <em>Characteristics</em></strong></h3>
+      
+      <h4>Eyes</h4>
+      <p>Deep Autumn eyes are dark and intense. They typically come in deep brown, dark hazel, deep green, or dark amber. Your eyes have significant depth and warmth, with rich, dark coloring that creates a striking appearance. The whites of your eyes provide contrast against your dark irises, enhancing the intensity of your gaze.</p>
+      
+      <h4>Skin</h4>
+      <p>Deep Autumn skin ranges from medium olive to deep bronze or ebony and always has warm undertones. Your skin has a rich, golden-warm quality - whether you're light, medium, or deep-toned. Gold jewelry is dramatically more flattering than silver. Many Deep Autumns can tan deeply and have a naturally warm glow. Your skin tone has depth and richness.</p>
+      
+      <h4>Hair</h4>
+      <p>True to the Deep Autumn depth, your hair is naturally dark. It ranges from dark auburn, deep chestnut, rich brown, to black-brown with warm undertones. Whatever the shade, your hair is dark and may have warm, copper, or red highlights when caught in the light. The overall effect is rich and luxurious.</p>
+      
+      <h4>Contrast</h4>
+      <p>Deep Autumn is characterized by <strong>medium to high contrast</strong> between skin, hair, and eyes. Your dark hair and eyes create drama against your skin, or all your features may be similarly deep and rich. The overall effect is intense and striking.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- FEATURES -->
+<section>
+  <div class="wrap">
+    <div class="features-section">
+      <div class="features-grid">
+        <div class="feature-image"></div>
+        <div class="feature-content">
+        <h3>FEATURES</h3>
+        <div class="feature-list">
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+            </div>
+            <div class="feature-text">
+              <h4>Dark auburn to rich brown hair</h4>
+              <p>Deep eyes (dark brown, dark hazel, deep green)</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="5"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg>
+            </div>
+            <div class="feature-text">
+              <h4>Medium to deep warm skin</h4>
+              <p>with rich golden or bronze undertones</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/></svg>
+            </div>
+            <div class="feature-text">
+              <h4>Medium to high contrast</h4>
+              <p>with dramatic depth</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VS SECTION -->
+<section>
+  <div class="wrap">
+    <div class="vs-section">
+      <h3><strong>Deep Autumn vs <em>Deep Winter</em></strong></h3>
+      <p class="vs-intro">Deep Autumns are often confused with Deep Winters since both seasons share depth as their primary characteristic and both have high contrast. The key difference lies in their secondary aspect: Deep Autumn is warm, while Deep Winter is cool.</p>
+      
+      <div class="vs-grid">
+        <div class="vs-card">
+          <h4>Deep Autumn</h4>
+          <ul>
+            <li>Warm undertones (golden, bronze)</li>
+            <li>Rich, earthy quality</li>
+            <li>Deep warm tones</li>
+            <li>Best in burgundy, rust, olive</li>
+            <li>Gold jewelry is more flattering</li>
+          </ul>
+        </div>
+        <div class="vs-card">
+          <h4>Deep Winter</h4>
+          <ul>
+            <li>Cool undertones (blue, rosy)</li>
+            <li>Clear, jewel-like quality</li>
+            <li>Deep cool tones</li>
+            <li>Best in navy, magenta, emerald</li>
+            <li>Silver jewelry is more flattering</li>
+          </ul>
+        </div>
+      </div>
+      
+      <p class="vs-outro">If you're still unsure, compare burgundy (Deep Autumn) and magenta (Deep Winter) against your face. Deep Autumns look rich and luxurious in warm burgundy, while cool magenta can look harsh. Deep Winters shine in jewel-toned magenta but look dull in earthy burgundy.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- BEST COLORS -->
+<section class="best-colors">
+  <div class="wrap">
+    <h2 class="section-title">BEST COLORS</h2>
+    
+    <div class="palette-layout">
+      <div class="palette-main">
+        
+        <h3>Deep Reds & Berries</h3>
+        <p class="palette-desc">Rich, intense warm tones</p>
+        <div class="colors-grid">
+          <div class="color-item">
+            <div class="color-circle" style="background:#6D3742;"></div>
+            <div class="color-name">Maroon</div>
+          </div>
+          <div class="color-item">
+            <div class="color-circle" style="background:#6E1E2C;"></div>
+            <div class="color-name">Burgundy</div>
+          </div>
+          <div class="color-item">
+            <div class="color-circle" style="background:#8B2635;"></div>
+            <div class="color-name">Garnet Red</div>
+          </div>
+          <div class="color-item">
+            <div class="color-circle" style="background:#CB133E;"></div>
+            <div class="color-name">Cardinal</div>
+          </div>
+          <div class="color-item">
+            <div class="color-circle" style="background:#BE2A4C;"></div>
+            <div class="color-name">Raspberry</div>
+          </div>
+          <div class="color-item">
+            <div class="color-circle" style="background:#A1024B;"></div>
+            <div class="color-name">Wine Magenta</div>
+          </div>
+          <div class="color-item">
+            <div class="color-circle" style="background:#A84864;"></div>
+            <div class="color-name">Deep Rose</div>
+          </div>
+          <div class="color-item">
+            <div class="color-circle" style="background:#C75B4E;"></div>
+            <div class="color-name">Deep Coral</div>
+          </div>
+          <div class="color-item">
+            <div class="color-circle" style="background:#A0431E;"></div>
+            <div class="color-name">Rust</div>
+          </div>
+          <div class="color-item">
+            <div class="color-circle" style="background:#9B3222;"></div>
+            <div class="color-name">Brick Red</div>
+          </div>
+        </div>
+        
+        <h3>Rich Oranges & Golds</h3>
+        <p class="palette-desc">Deep, warm earth tones</p>
+        <div class="colors-grid">
+          <div class="color-item">
+            <div class="color-circle" style="background:#A93226;"></div>
+            <div class="color-name">Paprika</div>
+          </div>
+          <div class="color-item">
+            <div class="color-circle" style="background:#C05A1E;"></div>
+            <div class="color-name">Pumpkin</div>
+          </div>
+          <div class="color-item">
+            <div class="color-circle" style="background:#B5651D;"></div>
+            <div class="color-name">Copper</div>
+          </div>
+          <div class="color-item">
+            <div class="color-circle" style="background:#996515;"></div>
+            <div class="color-name">Ochre</div>
+          </div>
+          <div class="color-item">
+            <div class="color-circle" style="background:#B8860B;"></div>
+            <div class="color-name">Mustard</div>
+          </div>
+          <div class="color-item">
+            <div class="color-circle" style="background:#D4A017;"></div>
+            <div class="color-name">Golden Amber</div>
+          </div>
+          <div class="color-item">
+            <div class="color-circle" style="background:#6F4E37;"></div>
+            <div class="color-name">Coffee</div>
+          </div>
+          <div class="color-item">
+            <div class="color-circle" style="background:#4E342E;"></div>
+            <div class="color-name">Chocolate</div>
+          </div>
+          <div class="color-item">
+            <div class="color-circle" style="background:#3D2B1F;"></div>
+            <div class="color-name">Espresso</div>
+          </div>
+          <div class="color-item">
+            <div class="color-circle" style="background:#7A3B3F;"></div>
+            <div class="color-name">Mahogany</div>
+          </div>
+        </div>
+        
+        <h3>Deep Greens & Blues</h3>
+        <p class="palette-desc">Intense natural tones</p>
+        <div class="colors-grid">
+          <div class="color-item">
+            <div class="color-circle" style="background:#6B7353;"></div>
+            <div class="color-name">Dark Sage</div>
+          </div>
+          <div class="color-item">
+            <div class="color-circle" style="background:#556B2F;"></div>
+            <div class="color-name">Dark Olive</div>
+          </div>
+          <div class="color-item">
+            <div class="color-circle" style="background:#4D7241;"></div>
+            <div class="color-name">Basil</div>
+          </div>
+          <div class="color-item">
+            <div class="color-circle" style="background:#11580B;"></div>
+            <div class="color-name">Emerald</div>
+          </div>
+          <div class="color-item">
+            <div class="color-circle" style="background:#33472E;"></div>
+            <div class="color-name">Forest Green</div>
+          </div>
+          <div class="color-item">
+            <div class="color-circle" style="background:#2B5A5E;"></div>
+            <div class="color-name">Petrol Blue</div>
+          </div>
+          <div class="color-item">
+            <div class="color-circle" style="background:#1C6984;"></div>
+            <div class="color-name">Lagoon</div>
+          </div>
+          <div class="color-item">
+            <div class="color-circle" style="background:#025165;"></div>
+            <div class="color-name">Deep Teal</div>
+          </div>
+          <div class="color-item">
+            <div class="color-circle" style="background:#023459;"></div>
+            <div class="color-name">Prussian Blue</div>
+          </div>
+          <div class="color-item">
+            <div class="color-circle" style="background:#2C3E50;"></div>
+            <div class="color-name">Warm Navy</div>
+          </div>
+        </div>
+        
+        <h3>Neutrals</h3>
+        <p class="palette-desc">Rich, warm bases</p>
+        <div class="colors-grid">
+          <div class="color-item">
+            <div class="color-circle" style="background:#F5E6C8;"></div>
+            <div class="color-name">Soft Cream</div>
+          </div>
+          <div class="color-item">
+            <div class="color-circle" style="background:#B7A38F;"></div>
+            <div class="color-name">Stone</div>
+          </div>
+          <div class="color-item">
+            <div class="color-circle" style="background:#C19A6B;"></div>
+            <div class="color-name">Camel</div>
+          </div>
+          <div class="color-item">
+            <div class="color-circle" style="background:#9C7B63;"></div>
+            <div class="color-name">Warm Taupe</div>
+          </div>
+          <div class="color-item">
+            <div class="color-circle" style="background:#3C3B3A;"></div>
+            <div class="color-name">Warm Charcoal</div>
+          </div>
+        </div>
+        
+        <h3>Colors to Avoid</h3>
+        <p class="palette-desc">too cool, too bright, or too icy</p>
+        <div class="colors-grid">
+          <div class="color-item">
+            <div class="color-circle" style="background:#000000; position:relative; overflow:hidden;">
+              <svg style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); width:60%; height:60%;" viewBox="0 0 24 24">
+                <path d="M6 6 L18 18 M18 6 L6 18" stroke="#FFFFFF" stroke-width="1" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="color-name">True Black</div>
+          </div>
+          <div class="color-item">
+            <div class="color-circle" style="background:#FFFFFF; border:2px solid #ccc; position:relative; overflow:hidden;">
+              <svg style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); width:60%; height:60%;" viewBox="0 0 24 24">
+                <path d="M6 6 L18 18 M18 6 L6 18" stroke="#666666" stroke-width="1" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="color-name">Pure White</div>
+          </div>
+          <div class="color-item">
+            <div class="color-circle" style="background:#FFC0CB; position:relative; overflow:hidden;">
+              <svg style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); width:60%; height:60%;" viewBox="0 0 24 24">
+                <path d="M6 6 L18 18 M18 6 L6 18" stroke="#FFFFFF" stroke-width="1" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="color-name">Pastel Pink</div>
+          </div>
+          <div class="color-item">
+            <div class="color-circle" style="background:#E6E6FA; position:relative; overflow:hidden;">
+              <svg style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); width:60%; height:60%;" viewBox="0 0 24 24">
+                <path d="M6 6 L18 18 M18 6 L6 18" stroke="#999999" stroke-width="1" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="color-name">Lavender</div>
+          </div>
+          <div class="color-item">
+            <div class="color-circle" style="background:#B0C4DE; position:relative; overflow:hidden;">
+              <svg style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); width:60%; height:60%;" viewBox="0 0 24 24">
+                <path d="M6 6 L18 18 M18 6 L6 18" stroke="#FFFFFF" stroke-width="1" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="color-name">Light Blue</div>
+          </div>
+          <div class="color-item">
+            <div class="color-circle" style="background:#00FFFF; position:relative; overflow:hidden;">
+              <svg style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); width:60%; height:60%;" viewBox="0 0 24 24">
+                <path d="M6 6 L18 18 M18 6 L6 18" stroke="#FFFFFF" stroke-width="1" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="color-name">Icy Aqua</div>
+          </div>
+          <div class="color-item">
+            <div class="color-circle" style="background:#C0C0C0; position:relative; overflow:hidden;">
+              <svg style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); width:60%; height:60%;" viewBox="0 0 24 24">
+                <path d="M6 6 L18 18 M18 6 L6 18" stroke="#FFFFFF" stroke-width="1" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="color-name">Cool Silver</div>
+          </div>
+          <div class="color-item">
+            <div class="color-circle" style="background:#FF1493; position:relative; overflow:hidden;">
+              <svg style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); width:60%; height:60%;" viewBox="0 0 24 24">
+                <path d="M6 6 L18 18 M18 6 L6 18" stroke="#FFFFFF" stroke-width="1" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="color-name">Hot Pink</div>
+          </div>
+          <div class="color-item">
+            <div class="color-circle" style="background:#FF00FF; position:relative; overflow:hidden;">
+              <svg style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); width:60%; height:60%;" viewBox="0 0 24 24">
+                <path d="M6 6 L18 18 M18 6 L6 18" stroke="#FFFFFF" stroke-width="1" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="color-name">Magenta</div>
+          </div>
+          <div class="color-item">
+            <div class="color-circle" style="background:#FFFF00; position:relative; overflow:hidden;">
+              <svg style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); width:60%; height:60%;" viewBox="0 0 24 24">
+                <path d="M6 6 L18 18 M18 6 L6 18" stroke="#666666" stroke-width="1" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="color-name">Bright Yellow</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- MAKEUP -->
+<section class="makeup-section">
+  <div class="wrap">
+    <h2 class="section-title">MAKEUP</h2>
+    <p class="section-subtitle">deep · rich · dramatic</p>
+    
+    <div class="makeup-grid">
+      <div class="makeup-card">
+        <h4>Blush</h4>
+        <div class="makeup-swatches">
+          <div class="makeup-swatch" style="background:#C75B4E;"></div>
+          <div class="makeup-swatch" style="background:#A84864;"></div>
+          <div class="makeup-swatch" style="background:#6D3742;"></div>
+        </div>
+        <p class="makeup-note">Deep coral, deep rose, maroon</p>
+      </div>
+      
+      <div class="makeup-card">
+        <h4>Eyeshadow</h4>
+        <div class="makeup-swatches">
+          <div class="makeup-swatch" style="background:#B5651D;"></div>
+          <div class="makeup-swatch" style="background:#6F4E37;"></div>
+          <div class="makeup-swatch" style="background:#6B7353;"></div>
+          <div class="makeup-swatch" style="background:#8B2635;"></div>
+        </div>
+        <p class="makeup-note">Copper, coffee, dark sage, garnet</p>
+      </div>
+      
+      <div class="makeup-card">
+        <h4>Eyeliner</h4>
+        <div class="makeup-swatches">
+          <div class="makeup-swatch" style="background:#4E342E;"></div>
+          <div class="makeup-swatch" style="background:#2C3E50;"></div>
+          <div class="makeup-swatch" style="background:#33472E;"></div>
+        </div>
+        <p class="makeup-note">Chocolate, warm navy, forest green</p>
+      </div>
+      
+      <div class="makeup-card">
+        <h4>Lip Color</h4>
+        <div class="makeup-swatches">
+          <div class="makeup-swatch" style="background:#6E1E2C;"></div>
+          <div class="makeup-swatch" style="background:#8B2635;"></div>
+          <div class="makeup-swatch" style="background:#BE2A4C;"></div>
+          <div class="makeup-swatch" style="background:#9B3222;"></div>
+        </div>
+        <p class="makeup-note">Burgundy, garnet, raspberry, brick red</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- CAPSULE WARDROBE -->
+<section style="background:var(--card); padding-bottom:60px;">
+  <div class="wrap">
+    <h2 class="section-title" style="font-family:'Playfair Display',serif; font-style:italic; font-weight:400;"><strong><em style="color:var(--coral);">Deep Autumn</em> Capsule Wardrobe</strong></h2>
+    <p class="section-subtitle">deep, dramatic, luxurious</p>
+    
+    <div class="capsule-grid">
+      <div class="capsule-item" style="background:#6E1E2C;"></div>
+      <div class="capsule-item" style="background:#B5651D;"></div>
+      <div class="capsule-item" style="background:#556B2F;"></div>
+      <div class="capsule-item" style="background:#C19A6B;"></div>
+      <div class="capsule-item" style="background:#025165;"></div>
+      <div class="capsule-item" style="background:#4E342E;"></div>
+      <div class="capsule-item" style="background:#2B5A5E;"></div>
+      <div class="capsule-item" style="background:#8B2635;"></div>
+    </div>
+    
+    <div class="tip" style="max-width:700px; margin:48px auto 0;">
+      <strong>Building Your Wardrobe:</strong> Focus on deep, rich neutrals as your base (soft cream, camel, warm taupe, warm charcoal) and add intense accent colors (burgundy, forest green, petrol blue, copper). Choose luxurious fabrics like velvet, leather, and heavy wool to enhance your dramatic, rich appearance.
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section>
+  <div class="wrap" style="text-align:center; padding:30px 0 60px;">
+    <h2 class="section-title">Ready to shop your colors?</h2>
+    <p style="font-size:17px; color:var(--ink-soft); margin-bottom:32px; max-width:560px; margin-left:auto; margin-right:auto;">Browse curated Deep Autumn pieces from Zara, H&M, Mango, and Next - every item hand-matched to your palette</p>
+    <a href="/deep-autumn" class="cta">Shop Deep Autumn</a>
+  </div>
+</section>
+
+<footer>
+  <a href="https://instagram.com/shopbyseason.co" target="_blank" class="footer-link">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+    </svg>
+    @shopbyseason.co
+  </a>
+  <p>© 2025 Shop By Season · All rights reserved</p>
+</footer>
+
+</body>
+</html>
