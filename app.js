@@ -1385,6 +1385,64 @@ function renderNavigation() {
         <a href="/palette" class="nav-link ${currentPath.includes('palette') ? 'active' : ''}">Palette Explorer</a>
         <a href="/about" class="nav-link ${currentPath.includes('about') ? 'active' : ''}">About</a>
       </div>
+      <!-- Hamburger button (mobile only) -->
+      <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+        <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line class="hamburger-line hamburger-line--top" x1="3" y1="6" x2="21" y2="6"/>
+          <line class="hamburger-line hamburger-line--mid" x1="3" y1="12" x2="21" y2="12"/>
+          <line class="hamburger-line hamburger-line--bot" x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+    <!-- Mobile menu panel -->
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+      <div class="mobile-menu-search">
+        <svg class="nav-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.35-4.35"></path>
+        </svg>
+        <input type="text" class="mobile-search-input" id="mobileSearchInput" placeholder="Search products..." aria-label="Search products">
+      </div>
+      <div class="mobile-menu-links">
+        <a href="/" class="mobile-menu-link ${currentPath === '/' || currentPath === '/index.html' ? 'active' : ''}">Home</a>
+        <div class="mobile-accordion">
+          <button class="mobile-accordion-toggle" aria-expanded="false">
+            Shop
+            <svg class="mobile-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="mobile-accordion-panel">
+            <div class="mobile-accordion-group">
+              <span class="mobile-accordion-group-label">Spring</span>
+              <a href="/light-spring" class="mobile-menu-sublink">Light Spring</a>
+              <a href="/warm-spring" class="mobile-menu-sublink">Warm Spring</a>
+              <a href="/bright-spring" class="mobile-menu-sublink">Bright Spring</a>
+            </div>
+            <div class="mobile-accordion-group">
+              <span class="mobile-accordion-group-label">Summer</span>
+              <a href="/light-summer" class="mobile-menu-sublink">Light Summer</a>
+              <a href="/cool-summer" class="mobile-menu-sublink">Cool Summer</a>
+              <a href="/soft-summer" class="mobile-menu-sublink">Soft Summer</a>
+            </div>
+            <div class="mobile-accordion-group">
+              <span class="mobile-accordion-group-label">Autumn</span>
+              <a href="/soft-autumn" class="mobile-menu-sublink">Soft Autumn</a>
+              <a href="/warm-autumn" class="mobile-menu-sublink">Warm Autumn</a>
+              <a href="/deep-autumn" class="mobile-menu-sublink">Deep Autumn</a>
+            </div>
+            <div class="mobile-accordion-group">
+              <span class="mobile-accordion-group-label">Winter</span>
+              <a href="/bright-winter" class="mobile-menu-sublink">Bright Winter</a>
+              <a href="/cool-winter" class="mobile-menu-sublink">Cool Winter</a>
+              <a href="/deep-winter" class="mobile-menu-sublink">Deep Winter</a>
+            </div>
+          </div>
+        </div>
+        <a href="/season-guides" class="mobile-menu-link ${currentPath.includes('season-guide') ? 'active' : ''}">Season Guides</a>
+        <a href="/palette" class="mobile-menu-link ${currentPath.includes('palette') ? 'active' : ''}">Palette Explorer</a>
+        <a href="/about" class="mobile-menu-link ${currentPath.includes('about') ? 'active' : ''}">About</a>
+      </div>
     </div>
   `;
   
@@ -1392,6 +1450,99 @@ function renderNavigation() {
   
   // Re-attach search functionality after rendering
   setupSearchInput();
+  
+  // Initialize mobile menu
+  initMobileMenu();
+}
+
+// ══════════════════════════════════════════════════════════════════════════════
+// MOBILE MENU
+// ══════════════════════════════════════════════════════════════════════════════
+
+function initMobileMenu() {
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileSearchInput = document.getElementById('mobileSearchInput');
+  
+  if (!hamburgerBtn || !mobileMenu) return;
+  
+  // Toggle menu open/close
+  hamburgerBtn.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.contains('is-open');
+    if (isOpen) {
+      closeMobileMenu();
+    } else {
+      openMobileMenu();
+    }
+  });
+  
+  // Accordion toggles
+  mobileMenu.querySelectorAll('.mobile-accordion-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', !expanded);
+      btn.parentElement.classList.toggle('is-expanded');
+    });
+  });
+  
+  // Close menu when a link is clicked
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      closeMobileMenu();
+    });
+  });
+  
+  // Mobile search — Enter key
+  if (mobileSearchInput) {
+    mobileSearchInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        const query = mobileSearchInput.value.trim();
+        if (query) {
+          closeMobileMenu();
+          const page = getCurrentPage();
+          if (page === 'shop' || page === 'season') {
+            searchQuery = query;
+            const desktopInput = document.getElementById('searchInput');
+            if (desktopInput) desktopInput.value = query;
+            const url = new URL(window.location);
+            url.searchParams.set('search', query);
+            window.history.replaceState({}, '', url);
+            renderSeasonSwitcher();
+            renderFan();
+            renderChips();
+            renderGrid();
+          } else {
+            window.location.href = `shop.html?search=${encodeURIComponent(query)}`;
+          }
+        }
+      }
+    });
+  }
+}
+
+function openMobileMenu() {
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  
+  mobileMenu.classList.add('is-open');
+  hamburgerBtn.classList.add('is-active');
+  hamburgerBtn.setAttribute('aria-expanded', 'true');
+  hamburgerBtn.setAttribute('aria-label', 'Close menu');
+  mobileMenu.setAttribute('aria-hidden', 'false');
+  document.body.classList.add('mobile-menu-open');
+}
+
+function closeMobileMenu() {
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  
+  mobileMenu.classList.remove('is-open');
+  hamburgerBtn.classList.remove('is-active');
+  hamburgerBtn.setAttribute('aria-expanded', 'false');
+  hamburgerBtn.setAttribute('aria-label', 'Open menu');
+  mobileMenu.setAttribute('aria-hidden', 'true');
+  document.body.classList.remove('mobile-menu-open');
 }
 
 // ══════════════════════════════════════════════════════════════════════════════
