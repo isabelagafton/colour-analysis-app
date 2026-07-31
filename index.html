@@ -227,7 +227,7 @@
     border:1px solid var(--line);
     border-radius:8px;
     box-shadow:0 4px 12px rgba(0,0,0,0.08);
-    min-width:220px;
+    min-width:160px;
     padding:8px 0;
     opacity:0;
     visibility:hidden;
@@ -238,9 +238,13 @@
     opacity:1;
     visibility:visible;
   }
+  .nav-dropdown:hover .nav-dropdown-toggle{
+    color:var(--ink);
+    border-bottom-color:var(--coral);
+  }
   .nav-dropdown-item{
     display:block;
-    padding:10px 20px;
+    padding:8px 16px;
     font-family:'Inter',sans-serif;
     font-size:14px;
     font-weight:500;
@@ -1181,6 +1185,7 @@
           <a href="/deep-winter" class="nav-dropdown-item">Deep Winter</a>
         </div>
       </div>
+      <a href="/season-guides" class="nav-link">Season Guides</a>
       <a href="/palette" class="nav-link">Palette Explorer</a>
       <a href="/about" class="nav-link">About</a>
     </div>

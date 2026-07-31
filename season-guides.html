@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<!--
+  Shop By Season — Color-matched shopping platform
+  Copyright © 2025 Shop By Season. All rights reserved.
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Season Guides — Shop By Season</title>
+
+<!-- SEO Meta Tags -->
+<meta name="description" content="Comprehensive guides for all 12 seasonal color types. Learn about your seasonal palette colors, characteristics, and styling tips.">
+<meta name="keywords" content="seasonal color analysis, color season guides, light spring guide, cool summer guide, deep autumn guide">
+<meta name="author" content="Shop By Season">
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N4FQJ5E4C2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-N4FQJ5E4C2');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,500&family=Inter:wght@500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --ivory:#FAF3EC;
+    --ink:#2C2622;
+    --ink-soft:#6B6259;
+    --card:#FFFFFF;
+    --line:#E8DED2;
+    --coral:#FF7A5C;
+    --peach:#FFB69B;
+    --aqua:#3FC9B8;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    background:var(--ivory);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    padding:0 0 80px;
+  }
+  .wrap{max-width:1080px; margin:0 auto; padding:0 28px;}
+
+  /* NAVIGATION */
+  nav{
+    background:var(--card);
+    border-bottom:1px solid var(--line);
+    position:sticky;
+    top:0;
+    z-index:100;
+    backdrop-filter:blur(10px);
+  }
+  nav .wrap{
+    display:flex;
+    align-items:center;
+    gap:32px;
+    padding-top:16px;
+    padding-bottom:16px;
+  }
+  .nav-logo{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:20px;
+    letter-spacing:-.01em;
+    color:var(--ink);
+    text-decoration:none;
+  }
+  .nav-logo em{
+    font-style:italic;
+    font-weight:500;
+    color:var(--coral);
+  }
+  .nav-links{
+    display:flex;
+    gap:24px;
+    margin-left:auto;
+    align-items:center;
+  }
+  .nav-link{
+    font-family:'Inter',sans-serif;
+    font-size:14px;
+    font-weight:500;
+    color:var(--ink-soft);
+    text-decoration:none;
+    cursor:pointer;
+    transition:color .15s ease;
+    padding:4px 0;
+    border-bottom:2px solid transparent;
+  }
+  .nav-link:hover{
+    color:var(--ink);
+  }
+  .nav-link.active{
+    color:var(--ink);
+    border-bottom-color:var(--coral);
+  }
+
+  /* Dropdown navigation */
+  .nav-dropdown{
+    position:relative;
+  }
+  .nav-dropdown-toggle{
+    font-family:'Inter',sans-serif;
+    font-size:14px;
+    font-weight:500;
+    color:var(--ink-soft);
+    background:none;
+    border:none;
+    cursor:pointer;
+    transition:color .15s ease;
+    padding:4px 0;
+    border-bottom:2px solid transparent;
+  }
+  .nav-dropdown-toggle:hover{
+    color:var(--ink);
+  }
+  .nav-dropdown-toggle.active{
+    color:var(--ink);
+    border-bottom-color:var(--coral);
+  }
+  .nav-dropdown-menu{
+    position:absolute;
+    top:calc(100% + 8px);
+    left:50%;
+    transform:translateX(-50%);
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:8px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.08);
+    padding:8px;
+    min-width:160px;
+    opacity:0;
+    visibility:hidden;
+    transition:opacity .15s ease, visibility .15s ease;
+  }
+  .nav-dropdown:hover .nav-dropdown-menu{
+    opacity:1;
+    visibility:visible;
+  }
+  .nav-dropdown-item{
+    display:block;
+    padding:8px 12px;
+    font-size:14px;
+    color:var(--ink-soft);
+    text-decoration:none;
+    border-radius:4px;
+    transition:background .15s ease, color .15s ease;
+  }
+  .nav-dropdown-item:hover{
+    background:var(--ivory);
+    color:var(--ink);
+  }
+  .nav-dropdown-divider{
+    height:1px;
+    background:var(--line);
+    margin:4px 0;
+  }
+
+  /* HEADER */
+  header{
+    text-align:center;
+    padding:80px 0 60px;
+  }
+  h1{
+    font-family:'Fraunces',serif;
+    font-size:64px;
+    font-weight:600;
+    line-height:1.1;
+    margin-bottom:24px;
+  }
+  h1 em{
+    font-style:italic;
+    font-weight:500;
+    color:var(--coral);
+  }
+  .subtitle{
+    font-size:18px;
+    color:var(--ink-soft);
+    max-width:700px;
+    margin:0 auto;
+  }
+
+  /* SEASON GRID */
+  .season-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+    gap:24px;
+    margin-top:30px;
+  }
+  .season-card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:24px 24px 20px;
+    text-align:center;
+    text-decoration:none;
+    transition:all .2s ease;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:12px;
+  }
+  .season-card:hover{
+    border-color:var(--ink-soft);
+    box-shadow:0 4px 16px rgba(0,0,0,0.08);
+    transform:translateY(-2px);
+  }
+  .season-title{
+    font-family:'Fraunces',serif;
+    font-size:24px;
+    font-weight:600;
+    color:var(--ink);
+  }
+  .season-subtitle{
+    font-size:14px;
+    color:var(--ink-soft);
+    margin-bottom:4px;
+  }
+  .season-cta{
+    font-family:'Inter',sans-serif;
+    font-size:13px;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:0.5px;
+    color:#FFFFFF;
+    padding:10px 24px;
+    border-radius:6px;
+    transition:all .2s ease;
+    margin-top:auto;
+  }
+  .season-card:hover .season-cta{
+    transform:translateY(-1px);
+    box-shadow:0 2px 8px rgba(0,0,0,0.15);
+  }
+  
+  /* Season colors */
+  .light-spring-color{background:#A8D96B;}
+  .warm-spring-color{background:#FFA33A;}
+  .bright-spring-color{background:#FF6F61;}
+  .light-summer-color{background:#F8C8DC;}
+  .cool-summer-color{background:#8FAEDB;}
+  .soft-summer-color{background:#C8A2C8;}
+  .soft-autumn-color{background:#C4A277;}
+  .warm-autumn-color{background:#D9793D;}
+  .deep-autumn-color{background:#6D3742;}
+  .bright-winter-color{background:#3FC9B8;}
+  .cool-winter-color{background:#5B7C99;}
+  .deep-winter-color{background:#4A2C48;}
+  .season-divider{
+    width:100%;
+    height:1px;
+    background:var(--line);
+    margin:32px 0 24px;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="/" class="nav-logo">Shop By <em>Season</em></a>
+    <div class="nav-links">
+      <a href="/" class="nav-link">Home</a>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-toggle" id="shopDropdown">
+          Shop
+        </button>
+        <div class="nav-dropdown-menu">
+          <a href="/light-spring" class="nav-dropdown-item">Light Spring</a>
+          <a href="/warm-spring" class="nav-dropdown-item">Warm Spring</a>
+          <a href="/bright-spring" class="nav-dropdown-item">Bright Spring</a>
+          <div class="nav-dropdown-divider"></div>
+          <a href="/light-summer" class="nav-dropdown-item">Light Summer</a>
+          <a href="/cool-summer" class="nav-dropdown-item">Cool Summer</a>
+          <a href="/soft-summer" class="nav-dropdown-item">Soft Summer</a>
+          <div class="nav-dropdown-divider"></div>
+          <a href="/soft-autumn" class="nav-dropdown-item">Soft Autumn</a>
+          <a href="/warm-autumn" class="nav-dropdown-item">Warm Autumn</a>
+          <a href="/deep-autumn" class="nav-dropdown-item">Deep Autumn</a>
+          <div class="nav-dropdown-divider"></div>
+          <a href="/bright-winter" class="nav-dropdown-item">Bright Winter</a>
+          <a href="/cool-winter" class="nav-dropdown-item">Cool Winter</a>
+          <a href="/deep-winter" class="nav-dropdown-item">Deep Winter</a>
+        </div>
+      </div>
+      <a href="/season-guides" class="nav-link active">Season Guides</a>
+      <a href="/palette" class="nav-link">Palette Explorer</a>
+      <a href="/about" class="nav-link">About</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+  <header>
+    <h1>Season <em>Guides</em></h1>
+    <p class="subtitle">Comprehensive guides for all 12 seasonal color types. Learn about your palette colors, characteristics, and styling tips.</p>
+  </header>
+
+  <div class="season-grid">
+    <!-- SPRING -->
+    <a href="/light-spring-guide" class="season-card">
+      <div class="season-title">Light Spring</div>
+      <div class="season-subtitle">Warm · Light · Clear</div>
+      <div class="season-cta light-spring-color">Browse Guide</div>
+    </a>
+    <a href="/warm-spring-guide" class="season-card">
+      <div class="season-title">Warm Spring</div>
+      <div class="season-subtitle">Warm · Bright · Clear</div>
+      <div class="season-cta warm-spring-color">Browse Guide</div>
+    </a>
+    <a href="/bright-spring-guide" class="season-card">
+      <div class="season-title">Bright Spring</div>
+      <div class="season-subtitle">Clear · Warm · Bright</div>
+      <div class="season-cta bright-spring-color">Browse Guide</div>
+    </a>
+
+    <!-- SUMMER -->
+    <a href="/light-summer-guide" class="season-card">
+      <div class="season-title">Light Summer</div>
+      <div class="season-subtitle">Cool · Light · Muted</div>
+      <div class="season-cta light-summer-color">Browse Guide</div>
+    </a>
+    <a href="/cool-summer-guide" class="season-card">
+      <div class="season-title">Cool Summer</div>
+      <div class="season-subtitle">Cool · Soft · Muted</div>
+      <div class="season-cta cool-summer-color">Browse Guide</div>
+    </a>
+    <a href="/soft-summer-guide" class="season-card">
+      <div class="season-title">Soft Summer</div>
+      <div class="season-subtitle">Muted · Cool · Soft</div>
+      <div class="season-cta soft-summer-color">Browse Guide</div>
+    </a>
+
+    <!-- AUTUMN -->
+    <a href="/soft-autumn-guide" class="season-card">
+      <div class="season-title">Soft Autumn</div>
+      <div class="season-subtitle">Muted · Warm · Soft</div>
+      <div class="season-cta soft-autumn-color">Browse Guide</div>
+    </a>
+    <a href="/warm-autumn-guide" class="season-card">
+      <div class="season-title">Warm Autumn</div>
+      <div class="season-subtitle">Warm · Rich · Earthy</div>
+      <div class="season-cta warm-autumn-color">Browse Guide</div>
+    </a>
+    <a href="/deep-autumn-guide" class="season-card">
+      <div class="season-title">Deep Autumn</div>
+      <div class="season-subtitle">Deep · Warm · Rich</div>
+      <div class="season-cta deep-autumn-color">Browse Guide</div>
+    </a>
+
+    <!-- WINTER -->
+    <a href="/bright-winter-guide" class="season-card">
+      <div class="season-title">Bright Winter</div>
+      <div class="season-subtitle">Clear · Cool · Bright</div>
+      <div class="season-cta bright-winter-color">Browse Guide</div>
+    </a>
+    <a href="/cool-winter-guide" class="season-card">
+      <div class="season-title">Cool Winter</div>
+      <div class="season-subtitle">Cool · Clear · Bright</div>
+      <div class="season-cta cool-winter-color">Browse Guide</div>
+    </a>
+    <a href="/deep-winter-guide" class="season-card">
+      <div class="season-title">Deep Winter</div>
+      <div class="season-subtitle">Deep · Cool · Clear</div>
+      <div class="season-cta deep-winter-color">Browse Guide</div>
+    </a>
+  </div>
+
+  <div class="season-divider"></div>
+</div>
+
+</body>
+</html>
