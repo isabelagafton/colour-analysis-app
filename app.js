@@ -1331,6 +1331,70 @@ function itemCount(key) {
 }
 
 // ══════════════════════════════════════════════════════════════════════════════
+// CENTRALIZED NAVIGATION COMPONENT
+// ══════════════════════════════════════════════════════════════════════════════
+
+function renderNavigation() {
+  const navContainer = document.getElementById('main-nav');
+  if (!navContainer) return;
+  
+  // Get current page for active state
+  const currentPath = window.location.pathname;
+  
+  const navHTML = `
+    <div class="wrap">
+      <a href="/" class="nav-logo">Shop By <em>Season</em></a>
+      <div class="nav-links">
+        <div class="nav-search-wrapper">
+          <svg class="nav-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.35-4.35"></path>
+          </svg>
+          <input type="text" class="nav-search-input" id="searchInput" placeholder="Search products..." aria-label="Search products">
+          <button class="nav-clear-search-btn" id="clearSearchBtn" aria-label="Clear search">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+        <a href="/" class="nav-link ${currentPath === '/' || currentPath === '/index.html' ? 'active' : ''}">Home</a>
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-toggle" id="shopDropdown">
+            Shop
+          </button>
+          <div class="nav-dropdown-menu">
+            <a href="/light-spring" class="nav-dropdown-item">Light Spring</a>
+            <a href="/warm-spring" class="nav-dropdown-item">Warm Spring</a>
+            <a href="/bright-spring" class="nav-dropdown-item">Bright Spring</a>
+            <div class="nav-dropdown-divider"></div>
+            <a href="/light-summer" class="nav-dropdown-item">Light Summer</a>
+            <a href="/cool-summer" class="nav-dropdown-item">Cool Summer</a>
+            <a href="/soft-summer" class="nav-dropdown-item">Soft Summer</a>
+            <div class="nav-dropdown-divider"></div>
+            <a href="/soft-autumn" class="nav-dropdown-item">Soft Autumn</a>
+            <a href="/warm-autumn" class="nav-dropdown-item">Warm Autumn</a>
+            <a href="/deep-autumn" class="nav-dropdown-item">Deep Autumn</a>
+            <div class="nav-dropdown-divider"></div>
+            <a href="/bright-winter" class="nav-dropdown-item">Bright Winter</a>
+            <a href="/cool-winter" class="nav-dropdown-item">Cool Winter</a>
+            <a href="/deep-winter" class="nav-dropdown-item">Deep Winter</a>
+          </div>
+        </div>
+        <a href="/season-guides" class="nav-link ${currentPath.includes('season-guide') ? 'active' : ''}">Season Guides</a>
+        <a href="/palette" class="nav-link ${currentPath.includes('palette') ? 'active' : ''}">Palette Explorer</a>
+        <a href="/about" class="nav-link ${currentPath.includes('about') ? 'active' : ''}">About</a>
+      </div>
+    </div>
+  `;
+  
+  navContainer.innerHTML = navHTML;
+  
+  // Re-attach search functionality after rendering
+  setupSearchInput();
+}
+
+// ══════════════════════════════════════════════════════════════════════════════
 // NAVIGATION
 // ══════════════════════════════════════════════════════════════════════════════
 
@@ -2256,6 +2320,9 @@ function setupSearchInput() {
 
 // Wait for DOM to be ready
 document.addEventListener('DOMContentLoaded', function() {
+  // Render navigation on all pages
+  renderNavigation();
+  
   // Update copyright year on all pages
   const currentYear = new Date().getFullYear();
   const copyrightEl = document.getElementById('copyrightYear');
@@ -2263,9 +2330,6 @@ document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('.copyright-year').forEach(el => {
     el.textContent = currentYear;
   });
-
-  // Set up search input on all pages
-  setupSearchInput();
 
   // Initialize based on current page
   const page = getCurrentPage();
