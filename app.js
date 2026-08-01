@@ -1394,6 +1394,8 @@ function renderNavigation() {
         </svg>
       </button>
     </div>
+    <!-- Mobile menu overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay" aria-hidden="true"></div>
     <!-- Mobile menu panel -->
     <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
       <div class="mobile-menu-search">
@@ -1462,9 +1464,10 @@ function renderNavigation() {
 function initMobileMenu() {
   const hamburgerBtn = document.getElementById('hamburgerBtn');
   const mobileMenu = document.getElementById('mobileMenu');
+  const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
   const mobileSearchInput = document.getElementById('mobileSearchInput');
   
-  if (!hamburgerBtn || !mobileMenu) return;
+  if (!hamburgerBtn || !mobileMenu || !mobileMenuOverlay) return;
   
   // Toggle menu open/close
   hamburgerBtn.addEventListener('click', () => {
@@ -1474,6 +1477,11 @@ function initMobileMenu() {
     } else {
       openMobileMenu();
     }
+  });
+  
+  // Close menu when clicking overlay
+  mobileMenuOverlay.addEventListener('click', () => {
+    closeMobileMenu();
   });
   
   // Accordion toggles
@@ -1524,24 +1532,32 @@ function initMobileMenu() {
 function openMobileMenu() {
   const hamburgerBtn = document.getElementById('hamburgerBtn');
   const mobileMenu = document.getElementById('mobileMenu');
+  const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
   
   mobileMenu.classList.add('is-open');
+  mobileMenuOverlay.classList.add('is-visible');
   hamburgerBtn.classList.add('is-active');
   hamburgerBtn.setAttribute('aria-expanded', 'true');
   hamburgerBtn.setAttribute('aria-label', 'Close menu');
   mobileMenu.setAttribute('aria-hidden', 'false');
+  mobileMenuOverlay.setAttribute('aria-hidden', 'false');
   document.body.classList.add('mobile-menu-open');
 }
 
 function closeMobileMenu() {
   const hamburgerBtn = document.getElementById('hamburgerBtn');
   const mobileMenu = document.getElementById('mobileMenu');
+  const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+  
+  if (!mobileMenu || !hamburgerBtn || !mobileMenuOverlay) return;
   
   mobileMenu.classList.remove('is-open');
+  mobileMenuOverlay.classList.remove('is-visible');
   hamburgerBtn.classList.remove('is-active');
   hamburgerBtn.setAttribute('aria-expanded', 'false');
   hamburgerBtn.setAttribute('aria-label', 'Open menu');
   mobileMenu.setAttribute('aria-hidden', 'true');
+  mobileMenuOverlay.setAttribute('aria-hidden', 'true');
   document.body.classList.remove('mobile-menu-open');
 }
 
