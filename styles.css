@@ -184,6 +184,24 @@
     color:var(--ink);
     border-bottom-color:var(--coral);
   }
+  .nav-dropdown-group{
+    padding:4px 0;
+  }
+  .nav-dropdown-group + .nav-dropdown-group{
+    border-top:1px solid var(--line);
+    margin-top:4px;
+    padding-top:8px;
+  }
+  .nav-dropdown-group-label{
+    display:block;
+    padding:4px 16px 6px;
+    font-family:'Inter',sans-serif;
+    font-size:11px;
+    font-weight:600;
+    letter-spacing:0.5px;
+    color:var(--ink-soft);
+    text-transform:uppercase;
+  }
   .nav-dropdown-item{
     display:block;
     padding:8px 16px;

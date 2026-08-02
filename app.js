@@ -1364,21 +1364,30 @@ function renderNavigation() {
             Shop
           </button>
           <div class="nav-dropdown-menu">
-            <a href="/light-spring" class="nav-dropdown-item">Light Spring</a>
-            <a href="/warm-spring" class="nav-dropdown-item">Warm Spring</a>
-            <a href="/bright-spring" class="nav-dropdown-item">Bright Spring</a>
-            <div class="nav-dropdown-divider"></div>
-            <a href="/light-summer" class="nav-dropdown-item">Light Summer</a>
-            <a href="/cool-summer" class="nav-dropdown-item">Cool Summer</a>
-            <a href="/soft-summer" class="nav-dropdown-item">Soft Summer</a>
-            <div class="nav-dropdown-divider"></div>
-            <a href="/soft-autumn" class="nav-dropdown-item">Soft Autumn</a>
-            <a href="/warm-autumn" class="nav-dropdown-item">Warm Autumn</a>
-            <a href="/deep-autumn" class="nav-dropdown-item">Deep Autumn</a>
-            <div class="nav-dropdown-divider"></div>
-            <a href="/bright-winter" class="nav-dropdown-item">Bright Winter</a>
-            <a href="/cool-winter" class="nav-dropdown-item">Cool Winter</a>
-            <a href="/deep-winter" class="nav-dropdown-item">Deep Winter</a>
+            <div class="nav-dropdown-group">
+              <span class="nav-dropdown-group-label">SPRING</span>
+              <a href="/light-spring" class="nav-dropdown-item">Light Spring</a>
+              <a href="/warm-spring" class="nav-dropdown-item">Warm Spring</a>
+              <a href="/bright-spring" class="nav-dropdown-item">Bright Spring</a>
+            </div>
+            <div class="nav-dropdown-group">
+              <span class="nav-dropdown-group-label">SUMMER</span>
+              <a href="/light-summer" class="nav-dropdown-item">Light Summer</a>
+              <a href="/cool-summer" class="nav-dropdown-item">Cool Summer</a>
+              <a href="/soft-summer" class="nav-dropdown-item">Soft Summer</a>
+            </div>
+            <div class="nav-dropdown-group">
+              <span class="nav-dropdown-group-label">AUTUMN</span>
+              <a href="/soft-autumn" class="nav-dropdown-item">Soft Autumn</a>
+              <a href="/warm-autumn" class="nav-dropdown-item">Warm Autumn</a>
+              <a href="/deep-autumn" class="nav-dropdown-item">Deep Autumn</a>
+            </div>
+            <div class="nav-dropdown-group">
+              <span class="nav-dropdown-group-label">WINTER</span>
+              <a href="/bright-winter" class="nav-dropdown-item">Bright Winter</a>
+              <a href="/cool-winter" class="nav-dropdown-item">Cool Winter</a>
+              <a href="/deep-winter" class="nav-dropdown-item">Deep Winter</a>
+            </div>
           </div>
         </div>
         <a href="/season-guides" class="nav-link ${currentPath.includes('season-guide') ? 'active' : ''}">Season Guides</a>
