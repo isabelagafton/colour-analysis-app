@@ -2218,11 +2218,17 @@ function renderGrid() {
       return ''; // Skip this product
     }
     
-    const fallback = ICONS[p.category](productHex).replace(/"/g, '&quot;');
+    // Normalize category name to match ICONS keys
+    let categoryKey = p.category;
+    if (categoryKey === 'outerwear') categoryKey = 'outer';
+    
+    // Safety check for missing icon function
+    const iconFunction = ICONS[categoryKey] || ICONS['top']; // Default to 'top' icon if category not found
+    const fallback = iconFunction(productHex).replace(/"/g, '&quot;');
     const confBadge = `<div class="confidence high" style="z-index:10;">✓ verified</div>`;
     const media = p.img
       ? `<img src="${p.img}" alt="${p.name}" loading="lazy" decoding="async" onerror="this.onerror=null;this.replaceWith(Object.assign(document.createElement('div'),{className:'iconfallback',innerHTML:'${fallback}'}));">`
-      : ICONS[p.category](productHex);
+      : iconFunction(productHex);
     
     // Check if out of stock
     const outOfStock = isOutOfStock(p);
