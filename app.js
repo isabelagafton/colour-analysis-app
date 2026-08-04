@@ -1862,7 +1862,7 @@ function buildNewArrivals() {
       // If dates are equal, sort by name to make it stable and predictable
       return a.name.localeCompare(b.name);
     })
-    .slice(0, 8);
+    .slice(0, 10);
   
   if (sortedProducts.length > 0) {
     console.log('🆕 Showing newest products:', sortedProducts.map(p => `${p.name} (${p.dateAdded})`));
