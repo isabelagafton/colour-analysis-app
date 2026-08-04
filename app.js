@@ -1299,6 +1299,9 @@ async function loadProductsFromGoogleSheets(seasonKey = null) {
       if (document.getElementById('families')) {
         buildFamilies();
       }
+      if (document.getElementById('newArrivalsGrid')) {
+        buildNewArrivals();
+      }
     }
     
   } catch (error) {
@@ -1833,6 +1836,49 @@ function buildProofStrip() {
       <img class="proof-img" src="${p.img}" alt="${p.name}" loading="lazy"
            onerror="this.src='';this.style.background='#eee';">
       <div class="proof-caption"><b>${r}</b>${cat} · real link</div>
+    </a>`;
+  }).join('');
+}
+
+function buildNewArrivals() {
+  const wrap = document.getElementById('newArrivalsGrid');
+  if (!wrap) return;
+  
+  // Get the 8 most recent products by dateAdded
+  const sortedProducts = [...PRODUCTS]
+    .filter(p => p.dateAdded) // Only products with dateAdded field
+    .sort((a, b) => new Date(b.dateAdded) - new Date(a.dateAdded))
+    .slice(0, 8);
+  
+  if (sortedProducts.length === 0) {
+    wrap.innerHTML = '<div class="empty" style="text-align:center;padding:40px 20px;color:var(--ink-soft);font-size:14px;">New arrivals coming soon</div>';
+    return;
+  }
+  
+  const categoryLabels = {
+    top: 'Top',
+    dress: 'Dress',
+    knit: 'Knitwear',
+    outer: 'Outerwear',
+    trousers: 'Trousers',
+    shorts: 'Shorts',
+    skirts: 'Skirt',
+    accessory: 'Accessory'
+  };
+  
+  wrap.innerHTML = sortedProducts.map(p => {
+    const r = RETAILERS[p.retailer].name;
+    const cat = categoryLabels[p.category] || p.category;
+    const season = SEASONS[p.season].label;
+    
+    return `<a class="new-arrival-card" href="${p.url}" target="_blank" rel="noopener">
+      <img class="new-arrival-img" src="${p.img}" alt="${p.name}" loading="lazy"
+           onerror="this.src='';this.style.background='#eee';">
+      <div class="new-arrival-caption">
+        <span class="arrival-retailer">${r}</span>
+        <span class="arrival-name">${cat} · ${season}</span>
+        <span class="arrival-price">${p.price}</span>
+      </div>
     </a>`;
   }).join('');
 }
@@ -2426,6 +2472,7 @@ function initHomePage() {
   buildWheel();
   buildFamilies();
   buildProofStrip();
+  buildNewArrivals();
   
   // Set up hash navigation for single-page behavior on homepage
   window.addEventListener('hashchange', handleHash);

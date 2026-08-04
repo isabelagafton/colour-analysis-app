@@ -813,6 +813,86 @@
     pointer-events:none;
   }
 
+  /* NEW ARRIVALS SECTION */
+  .new-arrivals-section{
+    margin-top:56px;
+    padding-bottom:32px;
+  }
+  .new-arrivals-section .section-header{
+    text-align:center;
+    margin-bottom:20px;
+  }
+  .new-arrivals-section .section-title{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:24px;
+  }
+  .new-arrivals-section .section-sub{
+    font-size:16px;
+    line-height:1.5;
+    margin-top:6px;
+    margin-bottom:20px;
+    max-width:520px;
+    margin-left:auto;
+    margin-right:auto;
+    color:var(--ink-soft);
+  }
+  .new-arrivals-grid{
+    display:flex;
+    gap:16px;
+    overflow-x:auto;
+    padding:4px 2px 6px;
+    scrollbar-width:thin;
+    justify-content:center;
+  }
+  .new-arrival-card{
+    flex:0 0 auto;
+    width:158px;
+    border-radius:12px;
+    overflow:hidden;
+    border:1px solid var(--line);
+    background:var(--card);
+    text-decoration:none;
+    color:var(--ink);
+    transition:transform .15s ease;
+  }
+  .new-arrival-card:hover{
+    transform:translateY(-3px);
+  }
+  .new-arrival-card .new-arrival-img{
+    width:100%;
+    aspect-ratio:4/5;
+    object-fit:cover;
+    object-position:center;
+    display:block;
+    background:var(--line);
+  }
+  .new-arrival-card .new-arrival-caption{
+    padding:10px 12px 12px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10px;
+    color:var(--ink-soft);
+    line-height:1.4;
+  }
+  .new-arrival-card .new-arrival-caption .arrival-retailer{
+    color:var(--ink);
+    display:block;
+    font-family:'Inter',sans-serif;
+    font-size:11px;
+    font-weight:600;
+    margin-bottom:2px;
+  }
+  .new-arrival-card .new-arrival-caption .arrival-name{
+    display:block;
+    margin-bottom:4px;
+    color:var(--ink);
+    font-size:10px;
+  }
+  .new-arrival-card .new-arrival-caption .arrival-price{
+    color:var(--coral);
+    font-weight:600;
+  }
+
   .families{
     display:grid;
     grid-template-columns:repeat(2, 1fr);
