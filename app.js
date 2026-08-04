@@ -1841,14 +1841,32 @@ function buildProofStrip() {
 }
 
 function buildNewArrivals() {
+  console.log('🔵 buildNewArrivals() function called');
   const wrap = document.getElementById('newArrivalsGrid');
-  if (!wrap) return;
+  console.log('🔵 newArrivalsGrid element:', wrap);
+  if (!wrap) {
+    console.log('❌ newArrivalsGrid element not found!');
+    return;
+  }
   
   // Get the 8 most recent products by dateAdded
-  const sortedProducts = [...PRODUCTS]
-    .filter(p => p.dateAdded) // Only products with dateAdded field
-    .sort((a, b) => new Date(b.dateAdded) - new Date(a.dateAdded))
+  const productsWithDates = PRODUCTS.filter(p => p.dateAdded);
+  console.log(`📦 NEW ARRIVALS: ${productsWithDates.length} products have dateAdded field out of ${PRODUCTS.length} total`);
+  
+  const sortedProducts = productsWithDates
+    .sort((a, b) => {
+      // First sort by date (newest first)
+      const dateCompare = new Date(b.dateAdded) - new Date(a.dateAdded);
+      if (dateCompare !== 0) return dateCompare;
+      
+      // If dates are equal, sort by name to make it stable and predictable
+      return a.name.localeCompare(b.name);
+    })
     .slice(0, 8);
+  
+  if (sortedProducts.length > 0) {
+    console.log('🆕 Showing newest products:', sortedProducts.map(p => `${p.name} (${p.dateAdded})`));
+  }
   
   if (sortedProducts.length === 0) {
     wrap.innerHTML = '<div class="empty" style="text-align:center;padding:40px 20px;color:var(--ink-soft);font-size:14px;">New arrivals coming soon</div>';
