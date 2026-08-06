@@ -1410,3 +1410,134 @@
       display:block;
     }
   }
+
+/* ============================================
+   SEASON GUIDES PAGE
+   ============================================ */
+
+.season-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin: 48px 0;
+}
+
+.season-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 24px;
+  background: #fafafa;
+  border-radius: 12px;
+  text-decoration: none;
+  color: #1a1a1a;
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+}
+
+.season-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  border-color: #e0e0e0;
+}
+
+.season-title {
+  font-family: 'Fraunces', serif;
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.season-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.season-cta {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 24px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  text-decoration: underline;
+}
+
+.season-card:hover .season-cta {
+  transform: scale(1.05);
+}
+
+/* Season-specific colors for CTAs */
+.light-spring-color {
+  color: #E8B4A4;
+}
+
+.warm-spring-color {
+  color: #D4915D;
+}
+
+.bright-spring-color {
+  color: #FF6B6B;
+}
+
+.light-summer-color {
+  color: #B8A4C9;
+}
+
+.cool-summer-color {
+  color: #8BA3B5;
+}
+
+.soft-summer-color {
+  color: #A3968D;
+}
+
+.soft-autumn-color {
+  color: #A68A6A;
+}
+
+.warm-autumn-color {
+  color: #B87333;
+}
+
+.deep-autumn-color {
+  color: #8B4513;
+}
+
+.bright-winter-color {
+  color: #4A90E2;
+}
+
+.cool-winter-color {
+  color: #6B5B8E;
+}
+
+.deep-winter-color {
+  color: #2C3E50;
+}
+
+.season-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, #e0e0e0, transparent);
+  margin: 80px 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .season-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .season-card {
+    padding: 24px 20px;
+  }
+  
+  .season-title {
+    font-size: 20px;
+  }
+}
