@@ -1885,9 +1885,10 @@ function buildNewArrivals() {
   };
   
   wrap.innerHTML = sortedProducts.map(p => {
-    const r = RETAILERS[p.retailer].name;
+    // Defensive checks for undefined values
+    const r = RETAILERS[p.retailer]?.name || p.retailer || 'Unknown';
     const cat = categoryLabels[p.category] || p.category;
-    const season = SEASONS[p.season].label;
+    const season = SEASONS[p.season]?.label || p.season || 'Unknown';
     
     return `<a class="new-arrival-card" href="${p.url}" target="_blank" rel="noopener">
       <img class="new-arrival-img" src="${p.img}" alt="${p.name}" loading="lazy"
