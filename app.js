@@ -4,14 +4,14 @@
 
 const EXTENDED = {
   lightSpring: [
-    // Pinks (light to dark)
-    {key:'lightpeach', label:'Light Peach', hex:'#FFEADD', group:'pinks'},
-    {key:'blush', label:'Warm Blush', hex:'#F5CAC3', group:'pinks'},
-    {key:'coralpink', label:'Coral Pink', hex:'#FFA9B3', group:'pinks'},
-    {key:'warmrose', label:'Warm Rose', hex:'#F5A3A5', group:'pinks'},
-    {key:'peach', label:'Peach Pink', hex:'#FFB69B', group:'pinks'},
-    {key:'salmon', label:'Salmon', hex:'#FA9A85', group:'pinks'},
+    // Pinks (dark to light)
     {key:'coral', label:'Light Coral', hex:'#FF8C7A', group:'pinks'},
+    {key:'salmon', label:'Salmon', hex:'#FA9A85', group:'pinks'},
+    {key:'peach', label:'Peach Pink', hex:'#FFB69B', group:'pinks'},
+    {key:'warmrose', label:'Warm Rose', hex:'#F5A3A5', group:'pinks'},
+    {key:'coralpink', label:'Coral Pink', hex:'#FFA9B3', group:'pinks'},
+    {key:'blush', label:'Warm Blush', hex:'#F5CAC3', group:'pinks'},
+    {key:'lightpeach', label:'Light Peach', hex:'#FFEADD', group:'pinks'},
     // Reds (light to dark)
     {key:'watermelon', label:'Watermelon', hex:'#FF6B7A', group:'reds'},
     {key:'coralred', label:'Coral Red', hex:'#FF6F61', group:'reds'},
