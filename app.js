@@ -827,6 +827,7 @@ const RETAILERS = {
   asos: {name:'ASOS', url:'https://www.asos.com'},
   stradivarius: {name:'Stradivarius', url:'https://www.stradivarius.com'},
   reserved: {name:'Reserved', url:'https://www.reserved.com'},
+  riverisland: {name:'River Island', url:'https://www.riverisland.com'},
 };
 
 const ICONS = {
