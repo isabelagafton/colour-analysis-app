@@ -121,7 +121,8 @@ const EXTENDED = {
     {key:'winemagenta', label:'Wine Magenta', hex:'#A1024B', group:'pinks'},
     {key:'deeprose', label:'Deep Rose', hex:'#A84864', group:'pinks'},
     {key:'deepcoral', label:'Deep Coral', hex:'#C75B4E', group:'pinks'},
-    // Oranges (5)
+    // Oranges (6)
+    {key:'deepterracotta', label:'Deep Terracotta', hex:'#8B3F27', group:'oranges'},
     {key:'rust', label:'Rust', hex:'#A0431E', group:'oranges'},
     {key:'brickred', label:'Brick Red', hex:'#9B3222', group:'oranges'},
     {key:'paprika', label:'Paprika', hex:'#A93226', group:'oranges'},
@@ -306,8 +307,9 @@ const EXTENDED = {
     {key:'warmblack', label:'Warm Black', hex:'#2B2622', group:'neutrals'},
   ],
   softAutumn: [
-    // Pinks & Roses (7)
+    // Pinks & Roses (8)
     {key:'softpeach', label:'Soft Peach', hex:'#E5AE9E', group:'pinks'},
+    {key:'paledustybeige', label:'Pale Dusty Beige', hex:'#E0CDC4', group:'pinks'},
     {key:'mutedcoral', label:'Muted Coral', hex:'#D89B8C', group:'pinks'},
     {key:'dustycoral', label:'Dusty Coral', hex:'#D9907A', group:'pinks'},
     {key:'dustyrose', label:'Dusty Rose', hex:'#C98A82', group:'pinks'},
@@ -456,10 +458,12 @@ const EXTENDED = {
     {key:'charcoal', label:'Charcoal', hex:'#545A63', group:'neutrals'},
   ],
   softSummer: [
-    // Pinks & Roses (9)
+    // Pinks & Roses (11)
+    {key:'rosered', label:'Rose Red', hex:'#BD4D6C', group:'pinks'},
     {key:'coolpink', label:'Cool Pink', hex:'#C97A8A', group:'pinks'},
     {key:'softrose', label:'Soft Rose', hex:'#C9979D', group:'pinks'},
     {key:'dustyrose', label:'Dusty Rose', hex:'#C98A93', group:'pinks'},
+    {key:'softrosepink', label:'Soft Rose Pink', hex:'#D9778A', group:'pinks'},
     {key:'dustyblush', label:'Dusty Blush', hex:'#D5B8BE', group:'pinks'},
     {key:'greyedrose', label:'Greyed Rose', hex:'#B8939A', group:'pinks'},
     {key:'mauverose', label:'Mauve Rose', hex:'#B88691', group:'pinks'},
