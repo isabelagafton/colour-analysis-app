@@ -9,7 +9,9 @@ const EXTENDED = {
     {key:'salmon', label:'Salmon', hex:'#FA9A85', group:'pinks'},
     {key:'peach', label:'Peach Pink', hex:'#FFB69B', group:'pinks'},
     {key:'warmrose', label:'Warm Rose', hex:'#F5A3A5', group:'pinks'},
+    {key:'brightwarm', label:'Bright Warm Pink', hex:'#f56890', group:'pinks'},
     {key:'coralpink', label:'Coral Pink', hex:'#FFA9B3', group:'pinks'},
+    {key:'babypink', label:'Baby Pink', hex:'#ffc8d7', group:'pinks'},
     {key:'blush', label:'Warm Blush', hex:'#F5CAC3', group:'pinks'},
     {key:'lightpeach', label:'Light Peach', hex:'#FFEADD', group:'pinks'},
     // Reds (light to dark)
@@ -22,6 +24,7 @@ const EXTENDED = {
     {key:'lightapricot', label:'Light Apricot', hex:'#F5C0A6', group:'oranges'},
     {key:'warmpapaya', label:'Warm Papaya', hex:'#F8C997', group:'oranges'},
     {key:'apricot', label:'Apricot', hex:'#F9C58A', group:'oranges'},
+    {key:'coralorgange', label:'Warm Coral Orange', hex:'#fea179', group:'oranges'},
     {key:'apricotorange', label:'Apricot Orange', hex:'#F2A65A', group:'oranges'},
     {key:'tangerine', label:'Tangerine', hex:'#FFA33A', group:'oranges'},
     // Yellows (light to dark)
@@ -32,6 +35,7 @@ const EXTENDED = {
     {key:'sunlight', label:'Sunlight Yellow', hex:'#FFE28A', group:'yellows'},
     {key:'daffodil', label:'Daffodil', hex:'#FFE66D', group:'yellows'},
     // Greens (light to dark)
+    {key:'lightmint', label:'Very Light Mint', hex:'#c7f9d5', group:'greens'},
     {key:'pistachio', label:'Pistachio', hex:'#CFE8A9', group:'greens'},
     {key:'freshlime', label:'Fresh Lime', hex:'#C8E65C', group:'greens'},
     {key:'softlime', label:'Soft Lime', hex:'#C6D88C', group:'greens'},
@@ -44,9 +48,11 @@ const EXTENDED = {
     // Blues & Aquas (light to dark)
     {key:'powderblue', label:'Powder Blue', hex:'#C1E1EC', group:'blues'},
     {key:'skyblue', label:'Light Sky Blue', hex:'#A8D8F0', group:'blues'},
+    {key:'mediumsky', label:'Medium Sky Blue', hex:'#80b9fe', group:'blues'},
     {key:'aqua', label:'Light Aqua', hex:'#A0E7E5', group:'blues'},
     {key:'seafoam', label:'Seafoam', hex:'#91CAB2', group:'blues'},
     {key:'turquoise', label:'Warm Turquoise', hex:'#76D7C4', group:'blues'},
+    {key:'brightcyan', label:'Bright Cyan', hex:'#00cccf', group:'blues'},
     {key:'brightaqua', label:'Bright Aqua', hex:'#4AB5A2', group:'blues'},
     {key:'warmteal', label:'Warm Teal', hex:'#0E9E8C', group:'blues'},
     // Purples (light to dark)
