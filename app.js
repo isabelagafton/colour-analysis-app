@@ -17,7 +17,6 @@ const EXTENDED = {
     {key:'salmon', label:'Salmon', hex:'#FA9A85', group:'pinks'},
     {key:'peach', label:'Peach Pink', hex:'#FFB69B', group:'pinks'},
     {key:'coralorgange', label:'Warm Coral Orange', hex:'#fea179', group:'oranges'},
-    {key:'lightpeach', label:'Light Peach', hex:'#FFEADD', group:'pinks'},
     {key:'coralorgange', label:'Warm Coral Orange', hex:'#fea179', group:'oranges'},
     // Oranges (light to dark)
     {key:'peachneutral', label:'Peach Neutral', hex:'#F7D5C3', group:'oranges'},
@@ -25,12 +24,9 @@ const EXTENDED = {
     {key:'warmpapaya', label:'Warm Papaya', hex:'#F8C997', group:'oranges'},
     {key:'apricot', label:'Apricot', hex:'#F9C58A', group:'oranges'},
     {key:'apricotorange', label:'Apricot Orange', hex:'#F2A65A', group:'oranges'},
-    {key:'tangerine', label:'Tangerine', hex:'#FFA33A', group:'oranges'},
     // Yellows (light to dark)
     {key:'buttercream', label:'Buttercream', hex:'#FFF1C1', group:'yellows'},
     {key:'butter', label:'Butter Yellow', hex:'#FFF0A8', group:'yellows'},
-    {key:'peachyyellow', label:'Peachy Yellow', hex:'#FADB96', group:'yellows'},
-    {key:'goldenbuff', label:'Golden Buff', hex:'#EFDBB3', group:'yellows'},
     {key:'sunlight', label:'Sunlight Yellow', hex:'#FFE28A', group:'yellows'},
     {key:'daffodil', label:'Daffodil', hex:'#FFE66D', group:'yellows'},
     // Greens (light to dark)
