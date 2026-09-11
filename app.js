@@ -56,15 +56,13 @@ const EXTENDED = {
     {key:'softperiwinkle', label:'Soft Periwinkle', hex:'#9AB2DB', group:'purples'},
     {key:'mauve', label:'Warm Mauve', hex:'#D8A8B5', group:'purples'},
     // Neutrals (light to dark)
-    {key:'ivory', label:'Ivory', hex:'#FFF8E7', group:'neutrals'},
-    {key:'cream', label:'Cream', hex:'#F5F0E6', group:'neutrals'},
+    {key:'ivory', label:'Ivory', hex:'#FDFAF2', group:'neutrals'},
     {key:'softivory', label:'Soft Ivory', hex:'#FBECD4', group:'neutrals'},
     {key:'sandstone', label:'Sandstone', hex:'#E3C8A5', group:'neutrals'},
-    {key:'lighttan', label:'Light Tan', hex:'#DCCEAF', group:'neutrals'},
     {key:'lightcamel', label:'Light Camel', hex:'#D9C3A1', group:'neutrals'},
+    {key:'camel', label:'Camel', hex:'#C4A277', group:'neutrals'},
     {key:'warmbeige', label:'Warm Beige', hex:'#D4C5B0', group:'neutrals'},
     {key:'warmtaupe', label:'Warm Taupe', hex:'#C8B39C', group:'neutrals'},
-    {key:'camel', label:'Camel', hex:'#C4A277', group:'neutrals'},
     {key:'warmgrey', label:'Warm Grey', hex:'#B3A89C', group:'neutrals'},
   ],
   lightSummer: [
