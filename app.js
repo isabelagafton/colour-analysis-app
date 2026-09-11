@@ -16,17 +16,17 @@ const EXTENDED = {
     {key:'coral', label:'Light Coral', hex:'#FF8C7A', group:'pinks'},
     {key:'salmon', label:'Salmon', hex:'#FA9A85', group:'pinks'},
     {key:'peach', label:'Peach Pink', hex:'#FFB69B', group:'pinks'},
+    // Oranges (light to dark)
     {key:'coralorgange', label:'Warm Coral Orange', hex:'#fea179', group:'oranges'},
     {key:'lightapricot', label:'Light Apricot', hex:'#F5C0A6', group:'oranges'},
     {key:'peachneutral', label:'Peach Neutral', hex:'#F7D5C3', group:'oranges'},
-    // Oranges (light to dark)
     {key:'warmpapaya', label:'Warm Papaya', hex:'#F8C997', group:'oranges'},
     {key:'apricotorange', label:'Apricot Orange', hex:'#F2A65A', group:'oranges'},
-    // Yellows (light to dark)
-    {key:'buttercream', label:'Buttercream', hex:'#FFF1C1', group:'yellows'},
-    {key:'butter', label:'Butter Yellow', hex:'#FFF0A8', group:'yellows'},
-    {key:'sunlight', label:'Sunlight Yellow', hex:'#FFE28A', group:'yellows'},
+    // Yellows (dark to light)
     {key:'daffodil', label:'Daffodil', hex:'#FFE66D', group:'yellows'},
+    {key:'sunlight', label:'Sunlight Yellow', hex:'#FFE28A', group:'yellows'},
+    {key:'butter', label:'Butter Yellow', hex:'#FFF0A8', group:'yellows'},
+    {key:'buttercream', label:'Buttercream', hex:'#FFF1C1', group:'yellows'},
     // Greens (light to dark)
     {key:'lightmint', label:'Very Light Mint', hex:'#c7f9d5', group:'greens'},
     {key:'pistachio', label:'Pistachio', hex:'#CFE8A9', group:'greens'},
