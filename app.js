@@ -28,16 +28,15 @@ const EXTENDED = {
     {key:'butter', label:'Butter Yellow', hex:'#FFF0A8', group:'yellows'},
     {key:'buttercream', label:'Buttercream', hex:'#FFF1C1', group:'yellows'},
     // Greens (light to dark)
-    {key:'lightmint', label:'Very Light Mint', hex:'#c7f9d5', group:'greens'},
     {key:'pistachio', label:'Pistachio', hex:'#CFE8A9', group:'greens'},
-    {key:'freshlime', label:'Fresh Lime', hex:'#C8E65C', group:'greens'},
     {key:'softlime', label:'Soft Lime', hex:'#C6D88C', group:'greens'},
     {key:'applegreen', label:'Apple Green', hex:'#A8D96B', group:'greens'},
-    {key:'mint', label:'Mint Green', hex:'#A8E6CF', group:'greens'},
     {key:'celadon', label:'Celadon', hex:'#A5CC85', group:'greens'},
     {key:'springgreen', label:'Spring Green', hex:'#8FD38A', group:'greens'},
     {key:'leafgreen', label:'Leaf Green', hex:'#8BC173', group:'greens'},
     {key:'freshgrass', label:'Fresh Grass', hex:'#60B04F', group:'greens'},
+    {key:'lightmint', label:'Light Mint', hex:'#c7f9d5', group:'greens'},
+    {key:'mint', label:'Mint Green', hex:'#A8E6CF', group:'greens'},
     // Blues & Aquas (light to dark)
     {key:'powderblue', label:'Powder Blue', hex:'#C1E1EC', group:'blues'},
     {key:'skyblue', label:'Light Sky Blue', hex:'#A8D8F0', group:'blues'},
