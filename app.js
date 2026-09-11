@@ -17,12 +17,10 @@ const EXTENDED = {
     {key:'salmon', label:'Salmon', hex:'#FA9A85', group:'pinks'},
     {key:'peach', label:'Peach Pink', hex:'#FFB69B', group:'pinks'},
     {key:'coralorgange', label:'Warm Coral Orange', hex:'#fea179', group:'oranges'},
-    {key:'coralorgange', label:'Warm Coral Orange', hex:'#fea179', group:'oranges'},
-    // Oranges (light to dark)
-    {key:'peachneutral', label:'Peach Neutral', hex:'#F7D5C3', group:'oranges'},
     {key:'lightapricot', label:'Light Apricot', hex:'#F5C0A6', group:'oranges'},
+    {key:'peachneutral', label:'Peach Neutral', hex:'#F7D5C3', group:'oranges'},
+    // Oranges (light to dark)
     {key:'warmpapaya', label:'Warm Papaya', hex:'#F8C997', group:'oranges'},
-    {key:'apricot', label:'Apricot', hex:'#F9C58A', group:'oranges'},
     {key:'apricotorange', label:'Apricot Orange', hex:'#F2A65A', group:'oranges'},
     // Yellows (light to dark)
     {key:'buttercream', label:'Buttercream', hex:'#FFF1C1', group:'yellows'},
