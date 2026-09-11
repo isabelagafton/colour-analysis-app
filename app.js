@@ -41,8 +41,11 @@ const EXTENDED = {
     // Blues & Aquas (light to dark)
     {key:'aqua', label:'Light Aqua', hex:'#A0E7E5', group:'blues'},
     {key:'turquoise', label:'Warm Turquoise', hex:'#76D7C4', group:'blues'},
+    {key:'robinsblue', label:'Robins Egg Blue', hex:'#87cedf', group:'blues'},
     {key:'powderblue', label:'Powder Blue', hex:'#C1E1EC', group:'blues'},
     {key:'skyblue', label:'Light Sky Blue', hex:'#A8D8F0', group:'blues'},
+    {key:'babyblue', label:'Baby Blue', hex:'#93d5ee', group:'blues'},
+    {key:'skyblue', label:'Sky Blue', hex:'#8cb8e3', group:'blues'},
     {key:'mediumsky', label:'Medium Sky Blue', hex:'#80b9fe', group:'blues'},
     // Purples (light to dark)
     {key:'lavender', label:'Light Lavender', hex:'#D8BFD8', group:'purples'},
