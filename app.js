@@ -894,6 +894,11 @@ let PRODUCTS = [];
 // ══════════════════════════════════════════════════════════════════════════════
 // PRODUCTS (Hardcoded Fallback)
 // ══════════════════════════════════════════════════════════════════════════════
+// NOTE: These fallback products are shown when the page first loads, before the
+// full product database is loaded from Google Sheets. The fallback includes the
+// first 10 products from each season's Google Sheet tab to ensure users always
+// see representative products immediately upon visiting each season page.
+// ══════════════════════════════════════════════════════════════════════════════
 
 const PRODUCTS_FALLBACK = [
   {season:'lightSpring', name:'Zara Mint Green Ruffled Mini Dress', retailer:'zara', category:'dress', shade:'lightgreen', price:'149 RON', url:'https://www.zara.com/ro/en/ruffled-mini-dress-p03293160.html', confidence:'high', img:'https://static.zara.net/assets/public/819a/3425/f2eb40cba958/6b943e330460/03293160551-a2/03293160551-a2.jpg', dateAdded:'2026-08-06'},
