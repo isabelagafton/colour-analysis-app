@@ -36,15 +36,14 @@ const EXTENDED = {
     {key:'leafgreen', label:'Leaf Green', hex:'#8BC173', group:'greens'},
     {key:'freshgrass', label:'Fresh Grass', hex:'#60B04F', group:'greens'},
     {key:'seafoam', label:'Seafoam', hex:'#91CAB2', group:'blues'},
-    {key:'turquoise', label:'Warm Turquoise', hex:'#76D7C4', group:'blues'},
     {key:'mint', label:'Mint Green', hex:'#A8E6CF', group:'greens'},
     {key:'lightmint', label:'Light Mint', hex:'#c7f9d5', group:'greens'},
     // Blues & Aquas (light to dark)
+    {key:'aqua', label:'Light Aqua', hex:'#A0E7E5', group:'blues'},
+    {key:'turquoise', label:'Warm Turquoise', hex:'#76D7C4', group:'blues'},
     {key:'powderblue', label:'Powder Blue', hex:'#C1E1EC', group:'blues'},
     {key:'skyblue', label:'Light Sky Blue', hex:'#A8D8F0', group:'blues'},
     {key:'mediumsky', label:'Medium Sky Blue', hex:'#80b9fe', group:'blues'},
-    {key:'aqua', label:'Light Aqua', hex:'#A0E7E5', group:'blues'},
-    {key:'brightcyan', label:'Bright Cyan', hex:'#00cccf', group:'blues'},
     // Purples (light to dark)
     {key:'lavender', label:'Light Lavender', hex:'#D8BFD8', group:'purples'},
     {key:'lilac', label:'Lilac', hex:'#CDB4DB', group:'purples'},
