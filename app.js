@@ -41,18 +41,20 @@ const EXTENDED = {
     // Blues & Aquas (light to dark)
     {key:'aqua', label:'Light Aqua', hex:'#A0E7E5', group:'blues'},
     {key:'turquoise', label:'Warm Turquoise', hex:'#76D7C4', group:'blues'},
-    {key:'robinsblue', label:'Robins Egg Blue', hex:'#87cedf', group:'blues'},
     {key:'powderblue', label:'Powder Blue', hex:'#C1E1EC', group:'blues'},
     {key:'skyblue', label:'Light Sky Blue', hex:'#A8D8F0', group:'blues'},
     {key:'babyblue', label:'Baby Blue', hex:'#93d5ee', group:'blues'},
+    {key:'robinsblue', label:'Robins Egg Blue', hex:'#87cedf', group:'blues'},
     {key:'skyblue', label:'Sky Blue', hex:'#8cb8e3', group:'blues'},
     {key:'mediumsky', label:'Medium Sky Blue', hex:'#80b9fe', group:'blues'},
     // Purples (light to dark)
+    {key:'paleperiwinkle', label:'Pale Periwinkle', hex:'#c9d5fb', group:'purples'},
     {key:'lavender', label:'Light Lavender', hex:'#D8BFD8', group:'purples'},
     {key:'lilac', label:'Lilac', hex:'#CDB4DB', group:'purples'},
-    {key:'mauve', label:'Warm Mauve', hex:'#D8A8B5', group:'purples'},
+    {key:'wisteria', label:'Wisteria', hex:'#BA96DD', group:'purples'},
     {key:'periwinkle', label:'Periwinkle', hex:'#B79FE0', group:'purples'},
     {key:'softperiwinkle', label:'Soft Periwinkle', hex:'#9AB2DB', group:'purples'},
+    {key:'mauve', label:'Warm Mauve', hex:'#D8A8B5', group:'purples'},
     // Neutrals (light to dark)
     {key:'ivory', label:'Ivory', hex:'#FFF8E7', group:'neutrals'},
     {key:'cream', label:'Cream', hex:'#F5F0E6', group:'neutrals'},
