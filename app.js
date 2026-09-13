@@ -6,9 +6,9 @@ const EXTENDED = {
   lightSpring: [
     // Pinks & Reds (ordered from bright/saturated to light/soft)
     {key:'watermelon', label:'Watermelon', hex:'#FF6B7A', group:'pinks'},
-    {key:'brightwarm', label:'Bright Warm Pink', hex:'#f56890', group:'pinks'},
+    {key:'brightwarm', label:'Bright Warm Pink', hex:'#F56890', group:'pinks'},
     {key:'coralpink', label:'Coral Pink', hex:'#FFA9B3', group:'pinks'},
-    {key:'babypink', label:'Baby Pink', hex:'#ffc8d7', group:'pinks'},
+    {key:'babypink', label:'Baby Pink', hex:'#FFC8D7', group:'pinks'},
     {key:'warmrose', label:'Warm Rose', hex:'#F5A3A5', group:'pinks'},
     {key:'blush', label:'Warm Blush', hex:'#F5CAC3', group:'pinks'},
     {key:'tomato', label:'Soft Tomato Red', hex:'#E85D5D', group:'reds'},
@@ -17,12 +17,13 @@ const EXTENDED = {
     {key:'salmon', label:'Salmon', hex:'#FA9A85', group:'pinks'},
     {key:'peach', label:'Peach Pink', hex:'#FFB69B', group:'pinks'},
     // Oranges (light to dark)
-    {key:'coralorgange', label:'Warm Coral Orange', hex:'#fea179', group:'oranges'},
+    {key:'coralorgange', label:'Warm Coral Orange', hex:'#FEA179', group:'oranges'},
+    {key:'tangerine', label:'Tangerine', hex:'#FFA33A', group:'oranges'},
+    {key:'apricotorange', label:'Apricot Orange', hex:'#F2A65A', group:'oranges'},
+    {key:'apricot', label:'Apricot', hex:'#F9C58A', group:'oranges'},
     {key:'lightapricot', label:'Light Apricot', hex:'#F5C0A6', group:'oranges'},
     {key:'peachneutral', label:'Peach Neutral', hex:'#F7D5C3', group:'oranges'},
     {key:'lightpeach', label:'Light Peach', hex:'#FFEADD', group:'oranges'},
-    {key:'warmpapaya', label:'Warm Papaya', hex:'#F8C997', group:'oranges'},
-    {key:'apricotorange', label:'Apricot Orange', hex:'#F2A65A', group:'oranges'},
     // Yellows (dark to light)
     {key:'daffodil', label:'Daffodil', hex:'#FFE66D', group:'yellows'},
     {key:'sunlight', label:'Sunlight Yellow', hex:'#FFE28A', group:'yellows'},
