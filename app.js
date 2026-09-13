@@ -13,13 +13,14 @@ const EXTENDED = {
     {key:'blush', label:'Warm Blush', hex:'#F5CAC3', group:'pinks'},
     {key:'tomato', label:'Soft Tomato Red', hex:'#E85D5D', group:'reds'},
     {key:'coralred', label:'Coral Red', hex:'#FF6F61', group:'reds'},
-    {key:'coral', label:'Light Coral', hex:'#FF8C7A', group:'pinks'},
+    {key:'coral', label:'Soft Coral', hex:'#FF8F7A', group:'pinks'},
     {key:'salmon', label:'Salmon', hex:'#FA9A85', group:'pinks'},
     {key:'peach', label:'Peach Pink', hex:'#FFB69B', group:'pinks'},
     // Oranges (light to dark)
     {key:'coralorgange', label:'Warm Coral Orange', hex:'#fea179', group:'oranges'},
     {key:'lightapricot', label:'Light Apricot', hex:'#F5C0A6', group:'oranges'},
     {key:'peachneutral', label:'Peach Neutral', hex:'#F7D5C3', group:'oranges'},
+    {key:'lightpeach', label:'Light Peach', hex:'#FFEADD', group:'oranges'},
     {key:'warmpapaya', label:'Warm Papaya', hex:'#F8C997', group:'oranges'},
     {key:'apricotorange', label:'Apricot Orange', hex:'#F2A65A', group:'oranges'},
     // Yellows (dark to light)
@@ -40,7 +41,7 @@ const EXTENDED = {
     {key:'lightmint', label:'Light Mint', hex:'#c7f9d5', group:'greens'},
     // Blues & Aquas (light to dark)
     {key:'aqua', label:'Light Aqua', hex:'#A0E7E5', group:'blues'},
-    {key:'turquoise', label:'Warm Turquoise', hex:'#76D7C4', group:'blues'},
+    {key:'turquoise', label:'Light Turquoise', hex:'#77D9D6', group:'blues'},
     {key:'powderblue', label:'Powder Blue', hex:'#C1E1EC', group:'blues'},
     {key:'skyblue', label:'Light Sky Blue', hex:'#A8D8F0', group:'blues'},
     {key:'babyblue', label:'Baby Blue', hex:'#93d5ee', group:'blues'},
