@@ -39,18 +39,18 @@ const EXTENDED = {
     {key:'freshgrass', label:'Fresh Grass', hex:'#60B04F', group:'greens'},
     {key:'seafoam', label:'Seafoam', hex:'#91CAB2', group:'blues'},
     {key:'mint', label:'Mint Green', hex:'#A8E6CF', group:'greens'},
-    {key:'lightmint', label:'Light Mint', hex:'#c7f9d5', group:'greens'},
+    {key:'lightmint', label:'Light Mint', hex:'#C7F9D5', group:'greens'},
     // Blues & Aquas (light to dark)
     {key:'aqua', label:'Light Aqua', hex:'#A0E7E5', group:'blues'},
     {key:'turquoise', label:'Light Turquoise', hex:'#77D9D6', group:'blues'},
     {key:'powderblue', label:'Powder Blue', hex:'#C1E1EC', group:'blues'},
     {key:'skyblue', label:'Light Sky Blue', hex:'#A8D8F0', group:'blues'},
-    {key:'babyblue', label:'Baby Blue', hex:'#93d5ee', group:'blues'},
-    {key:'robinsblue', label:'Robins Egg Blue', hex:'#87cedf', group:'blues'},
-    {key:'skyblue', label:'Sky Blue', hex:'#8cb8e3', group:'blues'},
-    {key:'mediumsky', label:'Medium Sky Blue', hex:'#80b9fe', group:'blues'},
+    {key:'babyblue', label:'Baby Blue', hex:'#93D5EE', group:'blues'},
+    {key:'robinsblue', label:'Robins Egg Blue', hex:'#87CEDF', group:'blues'},
+    {key:'skyblue', label:'Sky Blue', hex:'#8CB8E3', group:'blues'},
+    {key:'mediumsky', label:'Medium Sky Blue', hex:'#80B9FE', group:'blues'},
     // Purples (light to dark)
-    {key:'paleperiwinkle', label:'Pale Periwinkle', hex:'#c9d5fb', group:'purples'},
+    {key:'paleperiwinkle', label:'Pale Periwinkle', hex:'#C9D5FB', group:'purples'},
     {key:'lavender', label:'Light Lavender', hex:'#D8BFD8', group:'purples'},
     {key:'lilac', label:'Lilac', hex:'#CDB4DB', group:'purples'},
     {key:'wisteria', label:'Wisteria', hex:'#BA96DD', group:'purples'},
@@ -1806,18 +1806,11 @@ function buildFamilies() {
 // Featured products for proof strip - independent of palette data
 const FEATURED_PRODUCTS = [
   {
-    img: 'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/Y72754s.jpg',
+    img: 'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/V30939s.jpg',
     retailer: 'next',
-    category: 'top',
-    name: 'Lipsy Pistachio Green Linen-Blend Shirt',
-    url: 'https://www.next.ro/en/style/su878498/y72754'
-  },
-  {
-    img: 'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/V24764s.jpg',
-    retailer: 'next',
-    category: 'top',
-    name: 'Love & Roses Apricot Lace Blouse',
-    url: 'https://www.next.ro/en/style/su900137/v24764'
+    category: 'knit',
+    name: 'Lipsy Pink Striped V-Neck Cardigan',
+    url: 'https://www.next.ro/ro/style/su916764/v30939'
   },
   {
     img: 'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/V76604s.jpg',
@@ -1827,18 +1820,25 @@ const FEATURED_PRODUCTS = [
     url: 'https://www.next.ro/en/style/sv028711/v76604'
   },
   {
-    img: 'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/H97805s.jpg',
+    img: 'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/G92553s.jpg',
     retailer: 'next',
-    category: 'dress',
-    name: 'Love & Roses Coral Shell Cutwork Mini Kaftan',
-    url: 'https://www.next.ro/ro/style/su845985/h97805'
+    category: 'knit',
+    name: 'Friends Like These Light Blue Cable Jumper',
+    url: 'https://www.next.ro/en/style/sv015307/g92553'
   },
   {
-    img: 'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/G83781s.jpg',
+    img: 'https://static.zara.net/assets/public/e3ea/489f/e4a448fdba6b/0afe38287178/07976661401-a3/07976661401-a3.jpg',
+    retailer: 'zara',
+    category: 'outerwear',
+    name: 'Zara Navy Blue Pin Stripe Blazer',
+    url: 'https://www.zara.com/ro/en/pinstripe-blazer-p07976661.html?v1=576273945&v2=2546081'
+  },
+  {
+    img: 'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/Y60643s4.jpg',
     retailer: 'next',
     category: 'top',
-    name: 'Love & Roses Blue Satin Jacquard Tea Top',
-    url: 'https://www.next.ro/en/style/sv000342/g83781'
+    name: 'Friends Like These Red Satin Shirt',
+    url: 'https://www.next.ro/en/style/sv088518/y60643'
   }
 ];
 
