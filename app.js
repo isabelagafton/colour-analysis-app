@@ -2512,12 +2512,19 @@ function initAboutPage() {
 // Initialize homepage
 function initHomePage() {
   PRODUCTS = PRODUCTS_FALLBACK;
+  
+  // Show loading state for New Arrivals initially
+  const newArrivalsGrid = document.getElementById('newArrivalsGrid');
+  if (newArrivalsGrid) {
+    newArrivalsGrid.innerHTML = '<div class="loading-arrivals" style="display:flex;gap:14px;padding:20px 0;overflow-x:auto;"><div class="skeleton-card" style="flex:0 0 auto;width:180px;height:280px;background:var(--line);border-radius:12px;animation:pulse 1.5s ease-in-out infinite;"></div><div class="skeleton-card" style="flex:0 0 auto;width:180px;height:280px;background:var(--line);border-radius:12px;animation:pulse 1.5s ease-in-out infinite;animation-delay:0.1s;"></div><div class="skeleton-card" style="flex:0 0 auto;width:180px;height:280px;background:var(--line);border-radius:12px;animation:pulse 1.5s ease-in-out infinite;animation-delay:0.2s;"></div><div class="skeleton-card" style="flex:0 0 auto;width:180px;height:280px;background:var(--line);border-radius:12px;animation:pulse 1.5s ease-in-out infinite;animation-delay:0.3s;"></div></div>';
+  }
+  
   loadProductsFromGoogleSheets();
   
   buildWheel();
   buildFamilies();
   buildProofStrip();
-  buildNewArrivals();
+  // Don't build New Arrivals yet - wait for Google Sheets data
   
   // Set up hash navigation for single-page behavior on homepage
   window.addEventListener('hashchange', handleHash);
