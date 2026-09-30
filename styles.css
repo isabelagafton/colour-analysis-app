@@ -701,6 +701,12 @@
     scrollbar-width:thin;
     justify-content:center;
   }
+  @media (max-width:767px){
+    .proof-strip{
+      justify-content:flex-start;
+      padding:28px 20px 6px;
+    }
+  }
   .proof-card{
     flex:0 0 auto;
     width:132px;
