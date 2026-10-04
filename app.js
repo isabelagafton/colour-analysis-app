@@ -265,18 +265,22 @@ const EXTENDED = {
     {key:'brightwatermelon', label:'Bright Watermelon', hex:'#ff5a74', group:'pinks'},
     {key:'brightcoral', label:'Bright Coral', hex:'#FF6B6B', group:'pinks'},
     {key:'salmon', label:'Salmon', hex:'#FA9A85', group:'pinks'},
+    {key:'coral', label:'Coral', hex:'#fd7568', group:'pinks'},
     {key:'warmcoralred', label:'Warm Coral Red', hex:'#FF5349', group:'pinks'},
     {key:'brighttomato', label:'Bright Tomato', hex:'#FF4433', group:'pinks'},
     {key:'tomato', label:'Tomato', hex:'#E83D4A', group:'pinks'},
+    {key:'cherryred', label:'Cherry Red', hex:'#f22a2a', group:'pinks'},
     {key:'brightred', label:'Bright Red', hex:'#f51f3d', group:'pinks'},
     {key:'coralred', label:'Coral Red', hex:'#e9405d', group:'pinks'},
     // Oranges (4)
     {key:'brightpeach', label:'Bright Peach', hex:'#FFB07C', group:'oranges'},
     {key:'papaya', label:'Papaya', hex:'#FFA64D', group:'oranges'},
     {key:'tangerine', label:'Tangerine', hex:'#FF9500', group:'oranges'},
+    {key:'apricot', label:'Apricot', hex:'#fb862d', group:'oranges'},
     {key:'clearorange', label:'Clear Orange', hex:'#FF7A1A', group:'oranges'},
     // Yellows (3)
     {key:'electricgold', label:'Electric Gold', hex:'#F4C10F', group:'yellows'},
+    {key:'sunshineyellow', label:'Sunshine Yellow', hex:'#fccb2e', group:'yellows'},
     {key:'clearwarmyellow', label:'Clear Warm Yellow', hex:'#FFDA3D', group:'yellows'},
     {key:'lemon', label:'Lemon', hex:'#FFF44F', group:'yellows'},
     // Greens (5)
@@ -288,10 +292,13 @@ const EXTENDED = {
     {key:'brightemerald', label:'Bright Emerald', hex:'#00A86B', group:'greens'},
     // Blues & Aquas (5)
     {key:'brightteal', label:'Bright Teal', hex:'#00B8A9', group:'blues'},
+    {key:'warmaqua', label:'Warm Aqua', hex:'#7ad5d1', group:'blues'},
     {key:'aqua', label:'Aqua', hex:'#46D7D1', group:'blues'},
+    {key:'turquoise', label:'Turquoise', hex:'#35c5ca', group:'blues'},
     {key:'caribbeanblue', label:'Caribbean Blue', hex:'#1AC1DD', group:'blues'},
     {key:'tropicalblue', label:'Tropical Blue', hex:'#00BFFF', group:'blues'},
     {key:'clearcobalt', label:'Clear Cobalt', hex:'#0066FF', group:'blues'},
+    {key:'royalblue', label:'Royal Blue', hex:'#1d65b5', group:'blues'},
     {key:'brightnavy', label:'Bright Navy', hex:'#26428B', group:'blues'},
     // Purples (3)
     {key:'electricviolet', label:'Electric Violet', hex:'#9B30FF', group:'purples'},
