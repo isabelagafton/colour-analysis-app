@@ -292,8 +292,7 @@ const EXTENDED = {
     {key:'brightemerald', label:'Bright Emerald', hex:'#00A86B', group:'greens'},
     // Blues & Aquas (5)
     {key:'brightteal', label:'Bright Teal', hex:'#00B8A9', group:'blues'},
-    {key:'warmaqua', label:'Warm Aqua', hex:'#7ad5d1', group:'blues'},
-    {key:'aqua', label:'Aqua', hex:'#46D7D1', group:'blues'},
+    {key:'aqua', label:'Aqua', hex:'#7ad5d1', group:'blues'},
     {key:'turquoise', label:'Turquoise', hex:'#35c5ca', group:'blues'},
     {key:'caribbeanblue', label:'Caribbean Blue', hex:'#1AC1DD', group:'blues'},
     {key:'tropicalblue', label:'Tropical Blue', hex:'#00BFFF', group:'blues'},
