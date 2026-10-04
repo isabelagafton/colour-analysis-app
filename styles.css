@@ -325,6 +325,9 @@
     max-width:600px;
     margin-top:14px;
     line-height:1.5;
+    text-align:center;
+    margin-left:auto;
+    margin-right:auto;
   }
 
   /* SEASON SWITCHER */

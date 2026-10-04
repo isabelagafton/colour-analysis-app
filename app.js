@@ -1943,7 +1943,7 @@ function renderPaletteExplorer() {
   document.getElementById('paletteSeasionName').textContent = SEASONS[currentPaletteSeason].label;
   const hasExtended = !!EXTENDED[currentPaletteSeason];
   document.getElementById('paletteSeasonSub').textContent = hasExtended
-    ? '30 colours across every family — from your best neutrals to your boldest accents.'
+    ? '30 colours across every family - from your best neutrals to your boldest accents.'
     : '10 hero shades — full extended palette coming soon.';
   
   // Season bar - ordered Spring → Summer → Autumn → Winter
