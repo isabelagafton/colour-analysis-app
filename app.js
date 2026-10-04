@@ -267,8 +267,8 @@ const EXTENDED = {
     {key:'salmon', label:'Salmon', hex:'#FA9A85', group:'pinks'},
     {key:'warmcoralred', label:'Warm Coral Red', hex:'#FF5349', group:'pinks'},
     {key:'brighttomato', label:'Bright Tomato', hex:'#FF4433', group:'pinks'},
-    {key:'tomato', label:'Tomato', hex:'#E63946', group:'pinks'},
-    {key:'brightred', label:'Bright Red', hex:'#d8343f', group:'pinks'},
+    {key:'tomato', label:'Tomato', hex:'#E83D4A', group:'pinks'},
+    {key:'brightred', label:'Bright Red', hex:'#f51f3d', group:'pinks'},
     {key:'coralred', label:'Coral Red', hex:'#e9405d', group:'pinks'},
     // Oranges (4)
     {key:'brightpeach', label:'Bright Peach', hex:'#FFB07C', group:'oranges'},
@@ -298,7 +298,6 @@ const EXTENDED = {
     {key:'vividviolet', label:'Vivid Violet', hex:'#BF00FF', group:'purples'},
     {key:'orchid', label:'Orchid', hex:'#D65DB1', group:'purples'},
     // Neutrals (8)
-    {key:'clearwhite', label:'Clear White', hex:'#FAFAFA', group:'neutrals'},
     {key:'warmwhite', label:'Warm White', hex:'#FFFDF5', group:'neutrals'},
     {key:'clearivory', label:'Clear Ivory', hex:'#FFF7E8', group:'neutrals'},
     {key:'lightwarmbeige', label:'Light Warm Beige', hex:'#F5E6D3', group:'neutrals'},
