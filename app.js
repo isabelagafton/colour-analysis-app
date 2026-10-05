@@ -78,7 +78,6 @@ const EXTENDED = {
     {key:'pastelyellow', label:'Pastel Yellow', hex:'#FAF3B5', group:'yellows'},
     {key:'vanilla', label:'Vanilla', hex:'#F3E5C0', group:'yellows'},
     {key:'softivory', label:'Soft Ivory', hex:'#F1EBD3', group:'yellows'},
-
     // Greens (6)
     {key:'mint', label:'Mint', hex:'#C9E4CA', group:'greens'},
     {key:'softmint', label:'Soft Mint', hex:'#BFE5D9', group:'greens'},
