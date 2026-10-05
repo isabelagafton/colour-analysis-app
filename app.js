@@ -67,7 +67,6 @@ const EXTENDED = {
   ],
   lightSummer: [
     // Pinks & Reds (7)
-    {key:'lightruby', label:'Light Ruby', hex:'#D65C6E', group:'pinks'},
     {key:'softraspberry', label:'Soft Raspberry', hex:'#D97A8A', group:'pinks'},
     {key:'dustyrose', label:'Dusty Rose', hex:'#D8A7B1', group:'pinks'},
     {key:'blushrose', label:'Cool Blush Rose', hex:'#E8B4C0', group:'pinks'},
@@ -75,10 +74,11 @@ const EXTENDED = {
     {key:'powderpink', label:'Powder Pink', hex:'#F8C8DC', group:'pinks'},
     {key:'blushpink', label:'Blush Pink', hex:'#F4D6D7', group:'pinks'},
     // Yellows (4)
-    {key:'pastelyellow', label:'Pastel Yellow', hex:'#FEFEBE', group:'yellows'},
     {key:'palelemon', label:'Pale Lemon', hex:'#F6F1A2', group:'yellows'},
-    {key:'chiffon', label:'Chiffon Yellow', hex:'#F5E6A8', group:'yellows'},
+    {key:'pastelyellow', label:'Pastel Yellow', hex:'#FAF3B5', group:'yellows'},
     {key:'vanilla', label:'Vanilla', hex:'#F3E5C0', group:'yellows'},
+    {key:'softivory', label:'Soft Ivory', hex:'#F1EBD3', group:'yellows'},
+
     // Greens (6)
     {key:'mint', label:'Mint', hex:'#C9E4CA', group:'greens'},
     {key:'softmint', label:'Soft Mint', hex:'#BFE5D9', group:'greens'},
@@ -214,10 +214,10 @@ const EXTENDED = {
     {key:'coralpink', label:'Coral Pink', hex:'#F88379', group:'pinks'},
     {key:'peachpink', label:'Peach Pink', hex:'#FFB5A7', group:'pinks'},
     {key:'rosepink', label:'Rose Pink', hex:'#f38d93', group:'pinks'},
+    {key:'warmraspberry', label:'Warm Raspberry', hex:'#E85D8E', group:'pinks'},
     {key:'warmrose', label:'Warm Rose', hex:'#FF8B85', group:'pinks'},
     {key:'watermelon', label:'Watermelon', hex:'#FF6B7A', group:'pinks'},
     {key:'warmwatermelon', label:'Warm Watermelon', hex:'#EB5161', group:'pinks'},
-    {key:'warmraspberry', label:'Warm Raspberry', hex:'#E85D8E', group:'pinks'},
     {key:'geranium', label:'Geranium', hex:'#D9534F', group:'pinks'},
     {key:'poppyred', label:'Poppy Red', hex:'#E8452C', group:'reds'},
     {key:'warmpoppy', label:'Warm Poppy', hex:'#F4513A', group:'reds'},
