@@ -66,7 +66,7 @@ const EXTENDED = {
     {key:'warmgrey', label:'Warm Grey', hex:'#B3A89C', group:'neutrals'},
   ],
   lightSummer: [
-    // Pinks & Reds (7)
+    // Pinks & Reds (6)
     {key:'softraspberry', label:'Soft Raspberry', hex:'#D97A8A', group:'pinks'},
     {key:'dustyrose', label:'Dusty Rose', hex:'#D8A7B1', group:'pinks'},
     {key:'blushrose', label:'Cool Blush Rose', hex:'#E8B4C0', group:'pinks'},
