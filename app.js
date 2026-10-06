@@ -91,15 +91,15 @@ const EXTENDED = {
     {key:'skyblue', label:'Sky Blue', hex:'#A7C7E7', group:'blues'},
     {key:'hydrangea', label:'Hydrangea', hex:'#AFC6E9', group:'blues'},
     {key:'cornflower', label:'Cornflower', hex:'#8FAEDB', group:'blues'},
-    {key:'dustyblue', label:'Dusty Blue', hex:'#A9BBC9', group:'blues'},
     {key:'softdenim', label:'Soft Denim', hex:'#7FA6C9', group:'blues'},
     {key:'slateblue', label:'Slate Blue', hex:'#5B7C99', group:'blues'},
+    {key:'dustyblue', label:'Dusty Blue', hex:'#A9BBC9', group:'blues'},
     // Purples (6)
-    {key:'mauve', label:'Mauve', hex:'#C8A2C8', group:'purples'},
     {key:'softlavender', label:'Soft Lavender', hex:'#D8C4E3', group:'purples'},
-    {key:'orchid', label:'Light Orchid', hex:'#DBBAD9', group:'purples'},
     {key:'lilac', label:'Lilac', hex:'#CDB4DB', group:'purples'},
+    {key:'lightorchid', label:'Light Orchid', hex:'#DBBAD9', group:'purples'},
     {key:'periwinkle', label:'Periwinkle', hex:'#A8B8E8', group:'purples'},
+    {key:'mauve', label:'Mauve', hex:'#C8A2C8', group:'purples'},
     {key:'softviolet', label:'Soft Violet', hex:'#B5A6D9', group:'purples'},
     // Neutrals (5)
     {key:'softwhite', label:'Soft White', hex:'#F8F8F4', group:'neutrals'},
