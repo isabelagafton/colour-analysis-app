@@ -81,7 +81,7 @@ const EXTENDED = {
     // Greens (6)
     {key:'mint', label:'Mint', hex:'#C9E4CA', group:'greens'},
     {key:'softmint', label:'Soft Mint', hex:'#BFE5D9', group:'greens'},
-    {key:'aquagreen', label:'Aqua Green', hex:'#A9D9C9', group:'greens'}
+    {key:'aquagreen', label:'Aqua Green', hex:'#A9D9C9', group:'greens'},
     {key:'sage', label:'Sage', hex:'#B7C8B5', group:'greens'},
     {key:'eucalyptus', label:'Eucalyptus', hex:'#A8BFA8', group:'greens'},
     {key:'softteal', label:'Soft Teal', hex:'#6FA8A7', group:'greens'},
