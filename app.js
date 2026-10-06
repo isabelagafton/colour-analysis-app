@@ -452,6 +452,8 @@ const EXTENDED = {
     {key:'rosepink', label:'Rose Pink', hex:'#DDA6B8', group:'pinks'},
     {key:'coolrosepink', label:'Cool Rose Pink', hex:'#D4A5C0', group:'pinks'},
     {key:'softorchidpink', label:'Soft Orchid Pink', hex:'#D8AED4', group:'purples'},
+    {key:'lavenderrose', label:'Lavender Rose', hex:'#e3c3dc', group:'purples'},
+    {key:'softicypink', label:'Soft Icy Pink', hex:'#efd7e7', group:'purples'},
     // Yellows (3)
     {key:'coolsoftyellow', label:'Cool Soft Yellow', hex:'#E9DFAF', group:'yellows'},
     {key:'coollemon', label:'Cool Lemon', hex:'#E5E1B8', group:'yellows'},
@@ -464,7 +466,7 @@ const EXTENDED = {
     {key:'softteal', label:'Soft Teal', hex:'#5FA5A0', group:'greens'},
     {key:'coolteal', label:'Cool Teal', hex:'#6A8F8E', group:'greens'},
     // Blues (7)
-    {key:'softaqua', label:'Soft Aqua', hex:'#A5D8D8', group:'blues'},
+    {key:'softaqua', label:'Soft Aqua', hex:'#A2D6DC', group:'blues'},
     {key:'powderblue', label:'Powder Blue', hex:'#A9C9E0', group:'blues'},
     {key:'skyblue', label:'Sky Blue', hex:'#B0D0E8', group:'blues'},
     {key:'cornflower', label:'Cornflower', hex:'#7FA6D8', group:'blues'},
@@ -475,7 +477,8 @@ const EXTENDED = {
     // Purples (8)
     {key:'hydrangea', label:'Hydrangea', hex:'#A9BCE5', group:'purples'},
     {key:'periwinkle', label:'Periwinkle', hex:'#9FAEE5', group:'purples'},
-    {key:'softlavender', label:'Soft Lavender', hex:'#C9B7E8', group:'purples'},
+    {key:'lavendermist', label:'Lavender Mist', hex:'#d2c4dd', group:'purples'},
+    {key:'softlavender', label:'Soft Lavender', hex:'#CDBCEB', group:'purples'},
     {key:'lavender', label:'Lavender', hex:'#B9A6D9', group:'purples'},
     {key:'wisteria', label:'Wisteria', hex:'#B39BC8', group:'purples'},
     {key:'heather', label:'Heather', hex:'#9F86AA', group:'purples'},
