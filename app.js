@@ -443,21 +443,24 @@ const EXTENDED = {
   coolSummer: [
     // Pinks & Reds (6)
     {key:'coolraspberry', label:'Cool Raspberry', hex:'#B85C7A', group:'pinks'},
+    {key:'softberrypink', label:'Soft Berry Pink', hex:'#C66F88', group:'pinks'},
     {key:'berry', label:'Berry', hex:'#B76E79', group:'pinks'},
+    {key:'coolrose', label:'Cool Rose', hex:'#C77F93', group:'pinks'},
+    {key:'mauverose', label:'Mauve Rose', hex:'#B98294', group:'pinks'},
     {key:'dustyrose', label:'Dusty Rose', hex:'#C89AA8', group:'pinks'},
     {key:'dustypink', label:'Dusty Pink', hex:'#D8A0B6', group:'pinks'},
     {key:'rosepink', label:'Rose Pink', hex:'#DDA6B8', group:'pinks'},
     {key:'coolrosepink', label:'Cool Rose Pink', hex:'#D4A5C0', group:'pinks'},
     {key:'softorchidpink', label:'Soft Orchid Pink', hex:'#D8AED4', group:'purples'},
     // Yellows (3)
-    {key:'coolsoftyellow', label:'Cool Soft Yellow', hex:'#E8DDA8', group:'yellows'},
+    {key:'coolsoftyellow', label:'Cool Soft Yellow', hex:'#E9DFAF', group:'yellows'},
     {key:'coollemon', label:'Cool Lemon', hex:'#E5E1B8', group:'yellows'},
-    {key:'softbutteryellow', label:'Soft Butter Yellow', hex:'#EFE6C8', group:'yellows'},
+    {key:'softbutteryellow', label:'Soft Butter Yellow', hex:'#F0E9D2', group:'yellows'},
     // Greens (6)
     {key:'sage', label:'Sage', hex:'#A8B8A4', group:'greens'},
     {key:'eucalyptus', label:'Eucalyptus', hex:'#91B49A', group:'greens'},
     {key:'seagreen', label:'Sea Green', hex:'#8FBFB2', group:'greens'},
-    {key:'oceangreen', label:'Ocean Green', hex:'#7CB8A8', group:'greens'},
+    {key:'softjade', label:'Soft Jade', hex:'#79B7A7', group:'greens'},
     {key:'softteal', label:'Soft Teal', hex:'#5FA5A0', group:'greens'},
     {key:'coolteal', label:'Cool Teal', hex:'#6A8F8E', group:'greens'},
     // Blues (7)
@@ -465,6 +468,7 @@ const EXTENDED = {
     {key:'powderblue', label:'Powder Blue', hex:'#A9C9E0', group:'blues'},
     {key:'skyblue', label:'Sky Blue', hex:'#B0D0E8', group:'blues'},
     {key:'cornflower', label:'Cornflower', hex:'#7FA6D8', group:'blues'},
+    {key:'softdenim', label:'Soft Denim', hex:'#718EAE', group:'blues'},
     {key:'slateblue', label:'Slate Blue', hex:'#6B7FA3', group:'blues'},
     {key:'navyblue', label:'Navy Blue', hex:'#4A5E7A', group:'blues'},
     {key:'bluegray', label:'Blue Gray', hex:'#95A9BD', group:'blues'},
@@ -475,10 +479,11 @@ const EXTENDED = {
     {key:'lavender', label:'Lavender', hex:'#B9A6D9', group:'purples'},
     {key:'wisteria', label:'Wisteria', hex:'#B39BC8', group:'purples'},
     {key:'heather', label:'Heather', hex:'#9F86AA', group:'purples'},
+    {key:'dustyviolet', label:'Dusty Violet', hex:'#927BA8', group:'purples'},
     {key:'coolplum', label:'Cool Plum', hex:'#7A5A7E', group:'purples'},
     // Neutrals (6)
     {key:'softwhite', label:'Soft White', hex:'#F7F7F5', group:'neutrals'},
-    {key:'stone', label:'Stone', hex:'#C8C2BC', group:'neutrals'},
+    {key:'stone', label:'Stone', hex:'#C5C2C1', group:'neutrals'},
     {key:'cooltaupe', label:'Cool Taupe', hex:'#A8A09C', group:'neutrals'},
     {key:'coolgray', label:'Cool Gray', hex:'#BFC3C7', group:'neutrals'},
     {key:'steelgray', label:'Steel Gray', hex:'#8A949E', group:'neutrals'},
