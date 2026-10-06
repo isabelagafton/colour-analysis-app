@@ -86,12 +86,12 @@ const EXTENDED = {
     {key:'eucalyptus', label:'Eucalyptus', hex:'#A8BFA8', group:'greens'},
     {key:'softteal', label:'Soft Teal', hex:'#6FA8A7', group:'greens'},
     // Blues (8)
-    {key:'cornflower', label:'Cornflower', hex:'#8FAEDB', group:'blues'},
-    {key:'hydrangea', label:'Hydrangea', hex:'#AFC6E9', group:'blues'},
-    {key:'dustyblue', label:'Dusty Blue', hex:'#A9BBC9', group:'blues'},
-    {key:'powderblue', label:'Powder Blue', hex:'#BFD7EA', group:'blues'},
     {key:'lightaqua', label:'Light Aqua', hex:'#B0E0E6', group:'blues'},
+    {key:'powderblue', label:'Powder Blue', hex:'#BFD7EA', group:'blues'},
     {key:'skyblue', label:'Sky Blue', hex:'#A7C7E7', group:'blues'},
+    {key:'hydrangea', label:'Hydrangea', hex:'#AFC6E9', group:'blues'},
+    {key:'cornflower', label:'Cornflower', hex:'#8FAEDB', group:'blues'},
+    {key:'dustyblue', label:'Dusty Blue', hex:'#A9BBC9', group:'blues'},
     {key:'softdenim', label:'Soft Denim', hex:'#7FA6C9', group:'blues'},
     {key:'slateblue', label:'Slate Blue', hex:'#5B7C99', group:'blues'},
     // Purples (6)
