@@ -335,36 +335,35 @@ const EXTENDED = {
   ],
   softAutumn: [
     // Pinks & Roses (8)
-    {key:'softpeach', label:'Soft Peach', hex:'#E5AE9E', group:'pinks'},
-    {key:'paledustybeige', label:'Pale Dusty Beige', hex:'#E0CDC4', group:'pinks'},
-    {key:'mutedcoral', label:'Muted Coral', hex:'#D89B8C', group:'pinks'},
-    {key:'dustycoral', label:'Dusty Coral', hex:'#D9907A', group:'pinks'},
-    {key:'dustyrose', label:'Dusty Rose', hex:'#C98A82', group:'pinks'},
     {key:'rosewood', label:'Rosewood', hex:'#B07370', group:'pinks'},
-    {key:'dustymauve', label:'Dusty Mauve', hex:'#b78070', group:'pinks'},
     {key:'softraspberry', label:'Soft Raspberry', hex:'#C77B7F', group:'pinks'},
+    {key:'dustyrose', label:'Dusty Rose', hex:'#C98A82', group:'pinks'},
+    {key:'dustymauve', label:'Dusty Mauve', hex:'#b78070', group:'pinks'},
+    {key:'dustycoral', label:'Dusty Coral', hex:'#D9907A', group:'pinks'},
+    {key:'mutedcoral', label:'Muted Coral', hex:'#D89B8C', group:'pinks'},
+    {key:'softpeach', label:'Soft Peach', hex:'#E5AE9E', group:'pinks'},
     // Oranges (6)
     {key:'apricot', label:'Apricot', hex:'#E9B68D', group:'oranges'},
     {key:'warmapricot', label:'Warm Apricot', hex:'#D9A26F', group:'oranges'},
+    {key:'softburntorange', label:'Soft Burnt Orange', hex:'#C4805A', group:'oranges'},
     {key:'copper', label:'Copper', hex:'#B87333', group:'oranges'},
-    {key:'burntorange', label:'Soft Burnt Orange', hex:'#C4805A', group:'oranges'},
-    {key:'rust', label:'Rust', hex:'#A85738', group:'oranges'},
     {key:'terracotta', label:'Terracotta', hex:'#C1694F', group:'oranges'},
+    {key:'rust', label:'Rust', hex:'#A85738', group:'oranges'},
     // Yellows (3)
     {key:'mustard', label:'Mustard', hex:'#C49A3A', group:'yellows'},
     {key:'softgoldenyellow', label:'Soft Golden Yellow', hex:'#D9B776', group:'yellows'},
     {key:'wheat', label:'Wheat', hex:'#E8D5A8', group:'yellows'},
     // Greens (7)
-    {key:'khaki', label:'Khaki', hex:'#B4A369', group:'greens'},
     {key:'sage', label:'Sage', hex:'#A7B08A', group:'greens'},
     {key:'softjadegreen', label:'Soft Jade Green', hex:'#93A78A', group:'greens'},
-    {key:'olivegreen', label:'Olive Green', hex:'#7D7A4F', group:'greens'},
+    {key:'khaki', label:'Khaki', hex:'#B4A369', group:'greens'},
     {key:'goldenolive', label:'Golden Olive', hex:'#8A8D45', group:'greens'},
+    {key:'olivegreen', label:'Olive Green', hex:'#7D7A4F', group:'greens'},
     {key:'moss', label:'Moss', hex:'#7D8B5A', group:'greens'},
     {key:'fern', label:'Fern', hex:'#6F8A5A', group:'greens'},
     // Blues (4)
-    {key:'mutedteal', label:'Muted Teal', hex:'#5F8A8B', group:'blues'},
     {key:'dustyturquoise', label:'Dusty Turquoise', hex:'#6FA8A7', group:'blues'},
+    {key:'mutedteal', label:'Muted Teal', hex:'#5F8A8B', group:'blues'},
     {key:'warmdenim', label:'Warm Denim', hex:'#6E8CA5', group:'blues'},
     {key:'slateblue', label:'Slate Blue', hex:'#78909C', group:'blues'},
     // Purples (4)
@@ -375,8 +374,8 @@ const EXTENDED = {
     // Browns (6)
     {key:'driftwood', label:'Driftwood', hex:'#A58C78', group:'browns'},
     {key:'walnutbrown', label:'Walnut Brown', hex:'#8B6F5E', group:'browns'},
-    {key:'marsala', label:'Marsala', hex:'#7A4A42', group:'browns'},
     {key:'cinnamon', label:'Cinnamon', hex:'#A86C4A', group:'browns'},
+    {key:'marsala', label:'Marsala', hex:'#7A4A42', group:'browns'},
     {key:'chocolate', label:'Chocolate', hex:'#7B5E4A', group:'browns'},
     {key:'cocoa', label:'Cocoa', hex:'#5C4F44', group:'browns'},
     // Neutrals (6)
@@ -384,6 +383,7 @@ const EXTENDED = {
     {key:'oatmeal', label:'Oatmeal', hex:'#DDD2BD', group:'neutrals'},
     {key:'champagnegold', label:'Champagne Gold', hex:'#D7C49E', group:'neutrals'},
     {key:'warmbeige', label:'Warm Beige', hex:'#D8C3A5', group:'neutrals'},
+    {key:'paledustybeige', label:'Pale Dusty Beige', hex:'#E0CDC4', group:'pinks'},
     {key:'stone', label:'Stone', hex:'#C4B6A6', group:'neutrals'},
     {key:'warmgray', label:'Warm Gray', hex:'#9E958B', group:'neutrals'},
   ],
@@ -396,9 +396,9 @@ const EXTENDED = {
     // Pinks (6)
     {key:'brickrose', label:'Brick Rose', hex:'#AA4B58', group:'pinks'},
     {key:'berryrose', label:'Berry Rose', hex:'#9D2652', group:'pinks'},
-    {key:'warmcoral', label:'Warm Coral', hex:'#EC8276', group:'pinks'},
-    {key:'dustyrose', label:'Dusty Rose', hex:'#E17E8B', group:'pinks'},
     {key:'coralrose', label:'Coral Rose', hex:'#E8727D', group:'pinks'},
+    {key:'dustyrose', label:'Dusty Rose', hex:'#E17E8B', group:'pinks'},
+    {key:'warmcoral', label:'Warm Coral', hex:'#EC8276', group:'pinks'},
     {key:'peachblush', label:'Peach Blush', hex:'#FC9E95', group:'pinks'},
     // Oranges (5)
     {key:'peach', label:'Peach', hex:'#F4B183', group:'oranges'},
@@ -407,9 +407,9 @@ const EXTENDED = {
     {key:'burntorange', label:'Burnt Orange', hex:'#CC5A28', group:'oranges'},
     {key:'terracotta', label:'Terracotta', hex:'#C1694F', group:'oranges'},
     // Yellows (4)
-    {key:'mustardyellow', label:'Mustard Yellow', hex:'#C49A00', group:'yellows'},
     {key:'marigold', label:'Marigold', hex:'#E0A106', group:'yellows'},
     {key:'corngold', label:'Corn Gold', hex:'#D9A441', group:'yellows'},
+    {key:'mustardyellow', label:'Mustard Yellow', hex:'#C49A00', group:'yellows'},
     {key:'ochre', label:'Ochre', hex:'#B8860B', group:'yellows'},
     // Greens (5)
     {key:'khakigreen', label:'Khaki Green', hex:'#8A8F5A', group:'greens'},
@@ -424,9 +424,9 @@ const EXTENDED = {
     {key:'warmnavy', label:'Warm Navy', hex:'#3C4F65', group:'blues'},
     {key:'darkdenim', label:'Dark Denim', hex:'#2E4C6C', group:'blues'},
     // Purples (4)
-    {key:'warmaubergine', label:'Warm Aubergine', hex:'#6B4554', group:'purples'},
-    {key:'warmplum', label:'Warm Plum', hex:'#7A5563', group:'purples'},
     {key:'warmmauve', label:'Warm Mauve', hex:'#926B7A', group:'purples'},
+    {key:'warmplum', label:'Warm Plum', hex:'#7A5563', group:'purples'},
+    {key:'warmaubergine', label:'Warm Aubergine', hex:'#6B4554', group:'purples'},
     {key:'winepurple', label:'Wine Purple', hex:'#7A3E52', group:'purples'},
     // Browns (6)
     {key:'caramelbrown', label:'Caramel Brown', hex:'#A67148', group:'browns'},
