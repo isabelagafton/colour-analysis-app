@@ -424,14 +424,14 @@ const EXTENDED = {
     {key:'warmcoral', label:'Warm Coral', hex:'#EC8276', group:'pinks'},
     {key:'peachblush', label:'Peach Blush', hex:'#FC9E95', group:'pinks'},
     // Oranges (5)
-    {key:'peach', label:'Peach', hex:'#F4B183', group:'oranges'},
+    {key:'warmpeach', label:'Warm Peach', hex:'#f7a274', group:'oranges'},
     {key:'apricot', label:'Apricot', hex:'#EAA35A', group:'oranges'},
     {key:'pumpkin', label:'Pumpkin', hex:'#D2691E', group:'oranges'},
     {key:'burntorange', label:'Burnt Orange', hex:'#CC5A28', group:'oranges'},
     {key:'terracotta', label:'Terracotta', hex:'#C1694F', group:'oranges'},
     // Yellows (4)
     {key:'marigold', label:'Marigold', hex:'#E0A106', group:'yellows'},
-    {key:'mustardyellow', label:'Mustard Yellow', hex:'#C49A00', group:'yellows'},
+    {key:'mustardyellow', label:'Mustard Yellow', hex:'#cb943d', group:'yellows'},
     {key:'ochre', label:'Ochre', hex:'#B8860B', group:'yellows'},
     {key:'corngold', label:'Corn Gold', hex:'#D9A441', group:'yellows'},
     {key:'goldenwheat', label:'Golden Wheat', hex:'#E4C783', group:'yellows'},
@@ -445,13 +445,15 @@ const EXTENDED = {
     // Blues (5)
     {key:'warmteal', label:'Warm Teal', hex:'#3E7C6B', group:'blues'},
     {key:'slateteal', label:'Slate Teal', hex:'#4A6B6E', group:'blues'},
-    {key:'deeppetrol', label:'Deep Petrol', hex:'#285B55', group:'blues'},
+    {key:'deepteal', label:'Deep Teal', hex:'#285B55', group:'blues'},
+    {key:'petrolblue', label:'Petrol Blue', hex:'#2c5666', group:'blues'},
     {key:'warmdenim', label:'Warm Denim', hex:'#5B7A8C', group:'blues'},
     {key:'warmnavy', label:'Warm Navy', hex:'#3C4F65', group:'blues'},
     // Purples (4)
     {key:'warmmauve', label:'Warm Mauve', hex:'#926B7A', group:'purples'},
-    {key:'warmplum', label:'Warm Plum', hex:'#7A5563', group:'purples'},
+    {key:'plum', label:'Plum', hex:'#7A5563', group:'purples'},
     {key:'warmaubergine', label:'Warm Aubergine', hex:'#6B4554', group:'purples'},
+    {key:'deepplum', label:'Deep Plum', hex:'#72313f', group:'purples'},
     {key:'winepurple', label:'Wine Purple', hex:'#7A3E52', group:'purples'},
      // Neutrals (3)
     {key:'ivory', label:'Ivory', hex:'#F8E7C2', group:'neutrals'},
