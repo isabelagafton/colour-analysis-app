@@ -634,11 +634,10 @@ const EXTENDED = {
     {key:'coolred', label:'Cool Red', hex:'#B00020', group:'reds'},
     {key:'truered', label:'True Red', hex:'#C41230', group:'reds'},
     // Pinks (6)
+    {key:'coolraspberry', label:'Cool Raspberry', hex:'#D62978', group:'pinks'},
+    {key:'deepfuchsia', label:'Deep Fuchsia', hex:'#B83280', group:'pinks'},
     {key:'orchidpink', label:'Orchid Pink', hex:'#DA9FCE', group:'pinks'},
-    {key:'coolrosepink', label:'Cool Rose Pink', hex:'#D8A5BA', group:'pinks'},
     {key:'coolmauvepink', label:'Cool Mauve-Pink', hex:'#E6C4DC', group:'pinks'},
-    {key:'frostypink', label:'Frosty Pink', hex:'#FF9FCC', group:'pinks'},
-    {key:'icypink', label:'Icy Pink', hex:'#FFB3D9', group:'pinks'},
     {key:'icyrose', label:'Icy Rose', hex:'#F8D7E5', group:'pinks'},
     // Yellows (3)
     {key:'icylemon', label:'Icy Lemon', hex:'#FFFFDD', group:'yellows'},
@@ -646,7 +645,6 @@ const EXTENDED = {
     {key:'lemonyellow', label:'Lemon Yellow', hex:'#ffff66', group:'yellows'},
     // Greens (6)
     {key:'lightmint', label:'Light Mint', hex:'#D4FFF0', group:'greens'},
-    {key:'icyaqua', label:'Icy Aqua', hex:'#B8FFFF', group:'greens'},
     {key:'coolmint', label:'Cool Mint', hex:'#98FFCC', group:'greens'},
     {key:'frostygreen', label:'Frosty Green', hex:'#6BB8B3', group:'greens'},
     {key:'jade', label:'Jade', hex:'#00755E', group:'greens'},
